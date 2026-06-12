@@ -1,0 +1,1738 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Vamsi Tales — Stories Worth Telling</title>
+
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Vamsi Tales — Unheard stories of India. Discover Indian culture, history, traditions, festivals, art, cuisine and everyday magic from the oldest civilization still breathing."/>
+  <meta name="keywords" content="India, Indian culture, Indian history, Indian festivals, Indian traditions, Indian cuisine, Vamsi Tales, stories of India"/>
+  <meta name="author" content="Vamsi Tales"/>
+  <meta name="robots" content="index, follow"/>
+  <link rel="canonical" href="https://vamsitales.vercel.app/"/>
+
+  <!-- Open Graph (Facebook, WhatsApp preview) -->
+  <meta property="og:type" content="website"/>
+  <meta property="og:title" content="Vamsi Tales — Stories Worth Telling"/>
+  <meta property="og:description" content="Unheard stories of India — culture, tradition, art, and everyday magic from the oldest civilization still breathing."/>
+  <meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Flag_of_India.svg/1200px-Flag_of_India.svg.png"/>
+  <meta property="og:url" content="https://vamsitales.vercel.app/"/>
+  <meta property="og:site_name" content="Vamsi Tales"/>
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:title" content="Vamsi Tales — Stories Worth Telling"/>
+  <meta name="twitter:description" content="Unheard stories of India — culture, tradition, art, and everyday magic from the oldest civilization still breathing."/>
+  <meta name="twitter:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Flag_of_India.svg/1200px-Flag_of_India.svg.png"/>
+
+  <!-- Google Analytics (replace G-XXXXXXXXXX with your real ID) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX');
+    // Track page views when user navigates between pages
+    function trackPage(pageName){
+      gtag('event', 'page_view', { page_title: pageName, page_location: window.location.href + '#' + pageName });
+    }
+  </script>
+
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='50' fill='%23000000'/%3E%3Cg transform='translate(50,42)' fill='none' stroke='white' stroke-linecap='round'%3E%3Cpath d='M0,18 C1,-5 1,-20 0,-32' stroke-width='1.2'/%3E%3Cpath d='M-1,12 C-6,8 -13,6 -16,7' stroke-width='0.8'/%3E%3Cpath d='M-1,6 C-7,2 -15,-1 -18,-1' stroke-width='0.8'/%3E%3Cpath d='M-1,0 C-7,-5 -14,-9 -16,-11' stroke-width='0.75'/%3E%3Cpath d='M1,12 C6,8 13,6 16,7' stroke-width='0.8'/%3E%3Cpath d='M1,6 C7,2 15,-1 18,-1' stroke-width='0.8'/%3E%3Cpath d='M1,0 C7,-5 14,-9 16,-11' stroke-width='0.75'/%3E%3Cellipse cx='0' cy='-32' rx='3.5' ry='5' stroke-width='0.9'/%3E%3Cellipse cx='0' cy='-32' rx='0.8' ry='1.2' fill='white'/%3E%3C/g%3E%3Ctext x='50' y='83' text-anchor='middle' fill='white' font-family='Georgia' font-size='9.5' letter-spacing='1.5' font-style='italic'%3Evamsitales%3C/text%3E%3C/svg%3E"/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Lato:wght@300;400;600&display=swap" rel="stylesheet"/>
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+
+*,*::before,*::after{box-sizing:border-box;}
+/* THEMES */
+body.light{--bg:#FAFAF8;--bg2:#F5EFE6;--nav:#FFFFFF;--card:#FFFFFF;--cb:#E8E4DC;--text:#1A0A00;--t2:#6B4E35;--t3:#9C7B5A;--acc:#C2621A;--at:#FFFFFF;--div:#E8E4DC;--font:'Playfair Display',serif;}
+body.dark{--bg:#0A0A0A;--bg2:#111111;--nav:#0A0A0A;--card:#111111;--cb:#222222;--text:#FFFFFF;--t2:#999999;--t3:#444444;--acc:#F59E0B;--at:#0A0A0A;--div:#222222;--font:'Lato',sans-serif;}
+body.mud{--bg:#5C2E1A;--bg2:#4A2010;--nav:#3D1A0A;--card:rgba(255,255,255,0.06);--cb:rgba(245,240,232,0.09);--text:#F5F0E8;--t2:#C4A882;--t3:#8B6F5A;--acc:#F59E0B;--at:#3D1A0A;--div:rgba(245,240,232,0.07);--font:'Playfair Display',serif;}
+
+body{background:var(--bg);color:var(--text);font-family:var(--font);transition:all 0.3s;min-height:100vh;}
+
+/* NAV */
+nav{position:sticky;top:0;z-index:100;background:var(--nav);border-bottom:1px solid var(--div);padding:0 2rem;display:flex;align-items:center;justify-content:space-between;height:64px;box-shadow:0 1px 8px rgba(0,0,0,0.06);transition:all 0.3s;width:100%;box-sizing:border-box;}
+.logo{display:flex;align-items:center;gap:10px;cursor:pointer;text-decoration:none;}
+.logo-text{font-size:1.15rem;font-weight:600;color:var(--acc);font-family:var(--font);}
+.nav-right{display:flex;align-items:center;gap:14px;}
+.theme-bar{display:flex;align-items:center;gap:4px;background:rgba(0,0,0,0.05);border-radius:20px;padding:4px 8px;border:1px solid var(--div);}
+.tbtn{border:none;cursor:pointer;font-size:13px;padding:3px 7px;border-radius:12px;background:transparent;transition:background 0.2s;}
+.tbtn.active{background:var(--acc);}
+.nav-links{display:flex;gap:14px;}
+.nav-link{cursor:pointer;font-size:0.78rem;letter-spacing:0.08em;font-family:'Lato',sans-serif;color:var(--t2);padding-bottom:2px;transition:color 0.2s;border:none;background:none;}
+.nav-link:hover,.nav-link.active{color:var(--acc);border-bottom:2px solid var(--acc);}
+.hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:6px;}
+.hline{display:block;width:22px;height:2px;background:var(--text);border-radius:2px;transition:all 0.3s;}
+
+/* MOBILE MENU */
+.mobile-menu{display:none;position:sticky;top:64px;z-index:99;background:var(--nav);border-bottom:1px solid var(--div);padding:0 2rem;flex-direction:column;box-shadow:0 8px 24px rgba(0,0,0,0.15);width:100%;box-sizing:border-box;}
+.mobile-menu.open{display:flex;}
+.mobile-theme-row{display:flex;align-items:center;gap:10px;padding:12px 0;border-bottom:1px solid var(--div);}
+.mobile-theme-row span{font-size:11px;color:var(--t3);font-family:'Lato',sans-serif;letter-spacing:0.1em;}
+.mobile-link{padding:14px 0;border-bottom:1px solid var(--div);cursor:pointer;font-size:0.9rem;font-family:'Lato',sans-serif;color:var(--text);display:flex;align-items:center;gap:10px;transition:color 0.2s;}
+.mobile-link:hover,.mobile-link.active{color:var(--acc);}
+
+/* HERO */
+.hero{padding:6rem 2rem 5rem;text-align:center;position:relative;overflow:hidden;border-bottom:1px solid var(--div);transition:all 0.3s;width:100%;box-sizing:border-box;}
+.hero-tag{font-size:0.72rem;letter-spacing:0.3em;color:var(--acc);margin-bottom:1rem;text-transform:uppercase;font-family:'Lato',sans-serif;}
+.hero-title{font-size:clamp(2.8rem,7vw,4.5rem);font-weight:400;line-height:1.1;margin:0 auto 1.5rem;max-width:700px;color:var(--text);font-family:var(--font);}
+.hero-title span{color:var(--acc);}
+.hero-sub{font-size:1rem;color:var(--t2);max-width:480px;margin:0 auto 2.5rem;line-height:1.75;font-family:'Lato',sans-serif;}
+.hero-btn{background:var(--acc);color:var(--at);border:none;padding:0.75rem 2.2rem;font-size:0.78rem;letter-spacing:0.12em;font-weight:700;cursor:pointer;border-radius:2px;font-family:'Lato',sans-serif;}
+.hero-line{position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:60px;height:3px;background:var(--acc);border-radius:2px;}
+
+/* PAGES */
+.page{display:none;width:100%;box-sizing:border-box;}
+.page.active{display:block;width:100%;box-sizing:border-box;}
+
+/* CAT BAR */
+.cat-bar{display:flex;gap:8px;padding:1.5rem 2rem;flex-wrap:wrap;justify-content:center;border-bottom:1px solid var(--div);background:var(--bg2);width:100%;box-sizing:border-box;}
+.cbt{padding:0.38rem 1.1rem;font-size:0.72rem;letter-spacing:0.1em;border-radius:2px;font-family:'Lato',sans-serif;cursor:pointer;transition:all 0.2s;border:1px solid var(--cb);background:transparent;color:var(--t2);}
+.cbt.active{background:var(--acc);color:var(--at);border-color:var(--acc);}
+.cbt:hover:not(.active){border-color:var(--acc);color:var(--acc);}
+
+/* GRID */
+.grid{max-width:1100px;margin:0 auto;padding:3rem 2rem 5rem;display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.8rem;width:100%;box-sizing:border-box;}
+.card{background:var(--card);border:1px solid var(--cb);border-radius:4px;overflow:hidden;cursor:pointer;transition:transform 0.25s,border-color 0.25s,box-shadow 0.25s;box-shadow:0 1px 4px rgba(0,0,0,0.05);}
+.card:hover{transform:translateY(-4px);box-shadow:0 8px 24px rgba(0,0,0,0.12);}
+.card-accent{height:3px;}
+.card-body{padding:1.5rem;}
+.card-top{display:flex;align-items:center;gap:10px;margin-bottom:12px;}
+.card-emoji{font-size:1.6rem;}
+.card-cat{font-size:0.68rem;letter-spacing:0.15em;text-transform:uppercase;font-family:'Lato',sans-serif;}
+.card-title{font-size:1.08rem;font-weight:400;line-height:1.4;margin-bottom:10px;color:var(--text);font-family:var(--font);}
+.card-excerpt{font-size:0.84rem;color:var(--t2);line-height:1.7;margin-bottom:1.2rem;font-family:'Lato',sans-serif;}
+.card-meta{display:flex;justify-content:space-between;font-size:0.72rem;color:var(--t3);border-top:1px solid var(--div);padding-top:0.85rem;font-family:'Lato',sans-serif;}
+
+/* CALENDAR */
+.cal-wrap{max-width:1100px;margin:0 auto;padding:1.5rem 2rem 3rem;width:100%;box-sizing:border-box;}
+.month-nav{display:flex;align-items:center;justify-content:center;gap:16px;margin-bottom:1.5rem;}
+.mnav-btn{width:42px;height:42px;border-radius:50%;background:var(--acc);border:none;color:var(--at);font-size:22px;font-weight:900;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:opacity 0.2s;}
+.mnav-btn:hover{opacity:0.85;}
+.month-title{font-family:var(--font);font-size:1.3rem;color:var(--text);min-width:220px;text-align:center;}
+.month-sub{font-size:11px;color:var(--t3);margin-top:2px;font-family:'Lato',sans-serif;}
+.cal-layout{display:grid;grid-template-columns:1fr 300px;gap:1.5rem;align-items:start;}
+.cal-grid-wrap{background:var(--card);border:1px solid var(--cb);border-radius:8px;overflow:hidden;align-self:start;}
+.cal-hdr{display:grid;grid-template-columns:repeat(7,1fr);background:rgba(200,100,30,0.1);border-bottom:1px solid var(--div);}
+.cal-hdr-cell{text-align:center;padding:10px 4px;font-size:10px;letter-spacing:0.1em;color:var(--acc);font-weight:600;font-family:'Lato',sans-serif;}
+.cal-cells{display:grid;grid-template-columns:repeat(7,1fr);}
+.cal-cell{height:72px;padding:6px;border-right:1px solid var(--div);border-bottom:1px solid var(--div);cursor:pointer;transition:background 0.15s;overflow:hidden;}
+.cal-cell:hover{background:rgba(200,100,30,0.06);}
+.cal-cell.empty{height:72px;background:rgba(0,0,0,0.04);cursor:default;}
+.cal-cell.today{background:rgba(200,100,30,0.1);outline:1px solid rgba(200,100,30,0.4);}
+.cal-cell.selected{background:rgba(200,100,30,0.18);outline:2px solid var(--acc);}
+.cal-date{font-size:11px;color:var(--t2);font-weight:600;margin-bottom:2px;font-family:'Lato',sans-serif;}
+.cal-cell.today .cal-date,.cal-cell.selected .cal-date{color:var(--acc);font-weight:800;}
+.fdot-row{display:flex;align-items:center;gap:3px;margin-top:2px;}
+.fdot{width:5px;height:5px;border-radius:50%;flex-shrink:0;}
+.fname{font-size:8px;color:var(--text);opacity:0.8;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:55px;font-family:'Lato',sans-serif;}
+.cal-sidebar{display:flex;flex-direction:column;gap:12px;align-self:start;}
+.sidebar-card{background:var(--card);border:1px solid var(--cb);border-radius:8px;overflow:hidden;}
+.sidebar-hdr{background:rgba(200,100,30,0.1);padding:12px 14px;border-bottom:1px solid var(--div);}
+.sidebar-label{font-size:9px;letter-spacing:0.15em;color:var(--acc);text-transform:uppercase;margin-bottom:3px;font-family:'Lato',sans-serif;}
+.sidebar-title{font-family:var(--font);font-size:1rem;color:var(--text);}
+.sidebar-empty{padding:16px;text-align:center;color:var(--t3);font-size:12px;font-family:'Lato',sans-serif;}
+.fest-item{padding:12px 14px;border-bottom:1px solid var(--div);display:flex;gap:10px;}
+.fest-item:last-child{border-bottom:none;}
+.fest-emoji{font-size:1.6rem;flex-shrink:0;}
+.fest-name{font-family:var(--font);font-size:13px;color:var(--text);margin-bottom:2px;}
+.fest-region{font-size:9px;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:4px;font-family:'Lato',sans-serif;}
+.fest-desc{font-size:11px;color:var(--t2);line-height:1.6;font-family:'Lato',sans-serif;}
+.upcoming-hdr{padding:12px 14px;border-bottom:1px solid var(--div);font-family:var(--font);font-size:0.95rem;color:var(--text);}
+.upcoming-item{padding:10px 14px;border-bottom:1px solid var(--div);display:flex;gap:10px;align-items:center;cursor:pointer;transition:background 0.15s;}
+.upcoming-item:hover{background:rgba(200,100,30,0.06);}
+.upcoming-item:last-child{border-bottom:none;}
+.udate{width:40px;height:40px;border-radius:6px;display:flex;flex-direction:column;align-items:center;justify-content:center;flex-shrink:0;}
+.udate-num{font-size:15px;font-weight:700;line-height:1;}
+.udate-mon{font-size:8px;font-weight:700;letter-spacing:0.05em;}
+.uname{font-size:12px;color:var(--text);margin-bottom:1px;font-family:'Lato',sans-serif;}
+.udays{font-size:10px;color:var(--t3);font-family:'Lato',sans-serif;}
+.legend{display:flex;flex-wrap:wrap;gap:8px;padding:10px 14px;}
+.leg-item{display:flex;align-items:center;gap:5px;font-size:10px;color:var(--t2);font-family:'Lato',sans-serif;}
+.leg-dot{width:8px;height:8px;border-radius:50%;}
+
+/* ABOUT */
+.about-wrap{max-width:700px;margin:0 auto;padding:4rem 2rem 6rem;}
+.about-accent{width:50px;height:3px;border-radius:2px;margin-bottom:2rem;}
+.about-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin:2rem 0;}
+.about-card{background:var(--card);border:1px solid var(--cb);border-radius:6px;padding:1.2rem;text-align:center;}
+.about-card-emoji{font-size:1.8rem;margin-bottom:8px;}
+.about-card-title{font-size:0.88rem;font-weight:600;color:var(--text);margin-bottom:6px;font-family:var(--font);}
+.about-card-desc{font-size:0.78rem;color:var(--t2);line-height:1.6;font-family:'Lato',sans-serif;}
+.about-quote{background:var(--card);border:1px solid var(--cb);border-left:3px solid var(--acc);border-radius:4px;padding:1.5rem;}
+
+/* MODAL */
+.modal-bg{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.75);backdrop-filter:blur(6px);z-index:200;align-items:center;justify-content:center;padding:2rem;}
+.modal-bg.open{display:flex;}
+.modal{background:var(--nav);border:1px solid var(--cb);border-radius:6px;max-width:580px;width:100%;padding:2.5rem;position:relative;max-height:80vh;overflow-y:auto;box-shadow:0 20px 60px rgba(0,0,0,0.4);}
+.modal-close{position:absolute;top:1rem;right:1rem;background:none;border:none;color:var(--t2);font-size:1.2rem;cursor:pointer;}
+.modal-cat{font-size:0.68rem;letter-spacing:0.15em;text-transform:uppercase;margin:10px 0 6px;font-family:'Lato',sans-serif;}
+.modal-title{font-family:var(--font);font-size:1.5rem;font-weight:400;line-height:1.3;margin-bottom:1rem;color:var(--text);}
+.modal-excerpt{color:var(--t2);line-height:1.8;font-size:0.93rem;margin-bottom:1.2rem;font-family:'Lato',sans-serif;}
+.modal-body{color:var(--t3);line-height:1.8;font-size:0.88rem;font-family:'Lato',sans-serif;}
+.modal-meta{margin-top:2rem;display:flex;gap:8px;font-size:0.72rem;color:var(--t3);font-family:'Lato',sans-serif;}
+
+/* CHATBOT */
+.chat-fab{position:fixed;bottom:28px;right:28px;z-index:1000;width:56px;height:56px;border-radius:50%;background:var(--acc);border:none;cursor:pointer;font-size:24px;box-shadow:0 4px 20px rgba(0,0,0,0.35);transition:transform 0.2s;}
+.chat-fab:hover{transform:scale(1.1);}
+.chat-win{position:fixed;bottom:100px;right:28px;z-index:1001;width:330px;height:480px;border-radius:14px;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 20px 60px rgba(0,0,0,0.5);border:1px solid var(--cb);}
+.chat-hdr{padding:13px 16px;display:flex;align-items:center;justify-content:space-between;flex-shrink:0;}
+.chat-avatar{width:36px;height:36px;border-radius:50%;background:rgba(0,0,0,0.15);display:flex;align-items:center;justify-content:center;font-size:18px;}
+.chat-name{font-weight:700;font-size:13px;}
+.chat-status{font-size:10px;opacity:0.6;}
+.chat-close-btn{background:rgba(0,0,0,0.15);border:none;cursor:pointer;font-size:14px;width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;}
+.chat-msgs{flex:1;overflow-y:auto;padding:14px;display:flex;flex-direction:column;gap:10px;}
+.msg{max-width:84%;padding:10px 13px;font-size:12px;line-height:1.6;font-family:'Lato',sans-serif;word-break:break-word;}
+.msg.bot{border-radius:12px 12px 12px 4px;align-self:flex-start;}
+.msg.user{border-radius:12px 12px 4px 12px;align-self:flex-end;background:var(--acc);color:var(--at);}
+.chat-sugs{padding:8px 12px;display:flex;gap:6px;flex-wrap:wrap;flex-shrink:0;border-top:1px solid var(--div);}
+.sug-btn{font-size:10px;padding:4px 10px;border-radius:12px;border:1px solid var(--acc);background:transparent;color:var(--acc);cursor:pointer;font-family:'Lato',sans-serif;}
+.sug-btn:hover{background:var(--acc);color:var(--at);}
+.chat-input-row{padding:11px 12px;border-top:1px solid var(--div);display:flex;gap:8px;flex-shrink:0;}
+.chat-input{flex:1;border-radius:20px;padding:8px 14px;font-size:12px;outline:none;font-family:'Lato',sans-serif;border:1px solid var(--cb);}
+.chat-send{width:36px;height:36px;border-radius:50%;background:var(--acc);border:none;cursor:pointer;font-size:14px;flex-shrink:0;color:var(--at);}
+
+/* FOOTER */
+footer{border-top:1px solid var(--div);padding:2rem;text-align:center;color:var(--t3);font-size:0.78rem;letter-spacing:0.08em;font-family:'Lato',sans-serif;}
+
+/* PAGE HEADER */
+.page-hdr{padding:3rem 2rem 2.5rem;text-align:center;border-bottom:1px solid var(--div);}
+.page-tag{font-size:0.72rem;letter-spacing:0.3em;color:var(--acc);margin-bottom:10px;text-transform:uppercase;font-family:'Lato',sans-serif;}
+.page-h1{font-family:var(--font);font-size:clamp(1.8rem,4vw,2.6rem);font-weight:400;color:var(--text);margin-bottom:6px;}
+.page-sub{font-size:0.88rem;color:var(--t2);font-family:'Lato',sans-serif;}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:768px){
+  .nav-links,.desktop-theme{display:none!important;}
+  .hamburger{display:flex!important;}
+  .cal-layout{grid-template-columns:1fr!important;}
+  .about-grid{grid-template-columns:1fr!important;}
+  .grid{grid-template-columns:1fr!important;}
+}
+
+/* ── READING PROGRESS BAR ── */
+#progress-bar{position:fixed;top:0;left:0;height:3px;background:var(--acc);z-index:9999;width:0%;transition:width 0.1s linear;border-radius:0 2px 2px 0;}
+
+/* ── SEARCH BAR ── */
+.search-wrap{padding:1rem 2rem;background:var(--bg2);border-bottom:1px solid var(--div);display:flex;justify-content:center;width:100%;box-sizing:border-box;}
+.search-box{display:flex;align-items:center;gap:10px;background:var(--card);border:1px solid var(--cb);border-radius:24px;padding:8px 16px;width:100%;max-width:500px;transition:border-color 0.2s;}
+.search-box:focus-within{border-color:var(--acc);}
+.search-icon{font-size:15px;color:var(--t3);flex-shrink:0;}
+.search-input{flex:1;background:transparent;border:none;outline:none;font-size:0.88rem;color:var(--text);font-family:'Lato',sans-serif;}
+.search-input::placeholder{color:var(--t3);}
+.search-clear{background:none;border:none;cursor:pointer;color:var(--t3);font-size:14px;padding:0;display:none;}
+.search-results{max-width:1100px;margin:0 auto;padding:1.5rem 2rem;}
+.search-tag{font-size:11px;color:var(--t3);font-family:'Lato',sans-serif;margin-bottom:1rem;letter-spacing:0.05em;}
+.no-results{text-align:center;padding:3rem;color:var(--t3);font-family:'Lato',sans-serif;}
+
+/* ── BACK TO TOP ── */
+#back-top{position:fixed;bottom:100px;left:28px;z-index:999;width:44px;height:44px;border-radius:50%;background:var(--nav);border:1px solid var(--div);color:var(--text);font-size:18px;cursor:pointer;display:none;align-items:center;justify-content:center;box-shadow:0 4px 14px rgba(0,0,0,0.15);transition:all 0.2s;}
+#back-top:hover{background:var(--acc);color:var(--at);border-color:var(--acc);}
+#back-top.visible{display:flex;}
+
+/* ── FONT SIZE ── */
+.font-bar{display:flex;align-items:center;gap:6px;background:var(--card);border:1px solid var(--cb);border-radius:20px;padding:4px 10px;}
+.font-bar span{font-size:10px;color:var(--t3);font-family:'Lato',sans-serif;letter-spacing:0.08em;}
+.font-btn{background:none;border:none;cursor:pointer;color:var(--t2);font-size:14px;width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;transition:all 0.2s;font-family:'Lato',sans-serif;font-weight:700;}
+.font-btn:hover{background:var(--acc);color:var(--at);}
+
+/* ── BOOKMARK & SHARE on cards ── */
+.card-actions{display:flex;align-items:center;gap:8px;margin-top:10px;padding-top:10px;border-top:1px solid var(--div);}
+.card-action-btn{background:none;border:1px solid var(--cb);border-radius:20px;padding:4px 10px;font-size:10px;cursor:pointer;color:var(--t2);font-family:'Lato',sans-serif;display:flex;align-items:center;gap:4px;transition:all 0.2s;}
+.card-action-btn:hover{border-color:var(--acc);color:var(--acc);}
+.card-action-btn.bookmarked{background:var(--acc);color:var(--at);border-color:var(--acc);}
+
+/* ── SHARE MODAL ── */
+.share-modal-bg{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.6);backdrop-filter:blur(4px);z-index:300;align-items:center;justify-content:center;}
+.share-modal-bg.open{display:flex;}
+.share-modal{background:var(--nav);border:1px solid var(--cb);border-radius:12px;padding:1.5rem;max-width:340px;width:90%;box-shadow:0 20px 50px rgba(0,0,0,0.3);}
+.share-title{font-family:var(--font);font-size:1.1rem;color:var(--text);margin-bottom:4px;}
+.share-subtitle{font-size:11px;color:var(--t3);font-family:'Lato',sans-serif;margin-bottom:1.2rem;}
+.share-btns{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:1rem;}
+.share-btn{padding:10px;border-radius:8px;border:1px solid var(--cb);background:var(--card);cursor:pointer;font-size:12px;font-family:'Lato',sans-serif;color:var(--text);display:flex;align-items:center;gap:8px;transition:all 0.2s;}
+.share-btn:hover{border-color:var(--acc);color:var(--acc);}
+.share-link-row{display:flex;gap:6px;}
+.share-link-input{flex:1;background:var(--card);border:1px solid var(--cb);border-radius:6px;padding:8px 10px;font-size:11px;color:var(--t2);font-family:'Lato',sans-serif;outline:none;}
+.copy-btn{background:var(--acc);color:var(--at);border:none;border-radius:6px;padding:8px 14px;font-size:11px;cursor:pointer;font-family:'Lato',sans-serif;font-weight:700;white-space:nowrap;}
+.share-close{width:100%;margin-top:12px;background:none;border:1px solid var(--cb);border-radius:6px;padding:8px;font-size:12px;cursor:pointer;color:var(--t2);font-family:'Lato',sans-serif;}
+
+/* ── BOOKMARKS PAGE ── */
+.bookmarks-empty{text-align:center;padding:4rem 2rem;color:var(--t3);font-family:'Lato',sans-serif;}
+.bookmarks-empty-icon{font-size:3rem;margin-bottom:1rem;}
+.bookmarks-empty-text{font-size:1rem;margin-bottom:0.5rem;color:var(--t2);}
+.bookmarks-empty-sub{font-size:0.85rem;}
+
+/* ── RECENTLY VIEWED ── */
+.recent-bar{background:var(--bg2);border-bottom:1px solid var(--div);padding:0.75rem 2rem;display:flex;align-items:center;gap:12px;overflow-x:auto;}
+.recent-label{font-size:10px;letter-spacing:0.1em;color:var(--t3);font-family:'Lato',sans-serif;white-space:nowrap;text-transform:uppercase;}
+.recent-chip{display:flex;align-items:center;gap:6px;background:var(--card);border:1px solid var(--cb);border-radius:20px;padding:5px 12px;cursor:pointer;white-space:nowrap;transition:all 0.2s;text-decoration:none;}
+.recent-chip:hover{border-color:var(--acc);}
+.recent-chip-text{font-size:11px;color:var(--text);font-family:'Lato',sans-serif;}
+
+/* ── TOAST NOTIFICATION ── */
+#toast{position:fixed;bottom:90px;left:50%;transform:translateX(-50%) translateY(20px);background:var(--text);color:var(--bg);padding:10px 20px;border-radius:20px;font-size:12px;font-family:'Lato',sans-serif;z-index:9999;opacity:0;transition:all 0.3s;pointer-events:none;white-space:nowrap;}
+#toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
+
+/* ── DID YOU KNOW TICKER ── */
+.ticker-wrap{background:var(--acc);padding:8px 0;overflow:hidden;position:relative;width:100%;box-sizing:border-box;}
+.ticker-inner{display:flex;align-items:center;gap:0;animation:tickerScroll 30s linear infinite;white-space:nowrap;width:max-content;}
+.ticker-wrap:hover .ticker-inner{animation-play-state:paused;}
+.ticker-item{font-size:12px;color:var(--at);font-family:'Lato',sans-serif;padding:0 2rem;display:flex;align-items:center;gap:8px;}
+.ticker-dot{width:4px;height:4px;border-radius:50%;background:var(--at);opacity:0.5;flex-shrink:0;}
+.ticker-label{font-weight:700;letter-spacing:0.1em;font-size:10px;opacity:0.8;background:rgba(0,0,0,0.15);padding:2px 8px;border-radius:10px;margin-right:4px;}
+@keyframes tickerScroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+/* ── FEATURED STORY BANNER ── */
+.featured-banner{max-width:1100px;margin:2rem auto 0;padding:0 2rem;width:100%;box-sizing:border-box;}
+.featured-inner{background:var(--card);border:1px solid var(--cb);border-radius:10px;overflow:hidden;display:grid;grid-template-columns:1fr 1.2fr;min-height:240px;}
+.featured-left{padding:2rem;display:flex;flex-direction:column;justify-content:center;border-right:1px solid var(--div);}
+.featured-tag{font-size:9px;letter-spacing:0.2em;color:var(--acc);text-transform:uppercase;font-family:'Lato',sans-serif;margin-bottom:10px;display:flex;align-items:center;gap:6px;}
+.featured-star{background:var(--acc);color:var(--at);border-radius:4px;padding:2px 8px;font-size:9px;letter-spacing:0.1em;}
+.featured-title{font-family:var(--font);font-size:1.4rem;font-weight:400;color:var(--text);line-height:1.35;margin-bottom:10px;}
+.featured-excerpt{font-size:0.82rem;color:var(--t2);line-height:1.7;margin-bottom:1.2rem;font-family:'Lato',sans-serif;}
+.featured-btn{background:var(--acc);color:var(--at);border:none;padding:8px 20px;font-size:11px;letter-spacing:0.1em;font-weight:700;cursor:pointer;border-radius:2px;font-family:'Lato',sans-serif;align-self:flex-start;}
+.featured-right{padding:2rem;display:flex;flex-direction:column;gap:12px;justify-content:center;}
+.featured-right-label{font-size:9px;letter-spacing:0.2em;color:var(--t3);text-transform:uppercase;font-family:'Lato',sans-serif;margin-bottom:4px;}
+.mini-story{display:flex;gap:12px;align-items:flex-start;padding:10px 0;border-bottom:1px solid var(--div);cursor:pointer;transition:opacity 0.2s;}
+.mini-story:last-child{border-bottom:none;}
+.mini-story:hover{opacity:0.75;}
+.mini-num{font-size:1.4rem;font-weight:700;color:var(--div);font-family:'Lato',sans-serif;line-height:1;flex-shrink:0;min-width:28px;}
+.mini-title{font-size:12px;color:var(--text);line-height:1.4;font-family:var(--font);}
+.mini-cat{font-size:9px;color:var(--t3);font-family:'Lato',sans-serif;margin-top:2px;}
+
+/* ── STATS SECTION ── */
+.stats-section{max-width:1100px;margin:2rem auto 0;padding:0 2rem;width:100%;box-sizing:border-box;}
+.stats-inner{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;}
+.stat-card{background:var(--card);border:1px solid var(--cb);border-radius:8px;padding:1.2rem;text-align:center;transition:transform 0.2s,box-shadow 0.2s;}
+.stat-card:hover{transform:translateY(-3px);box-shadow:0 6px 20px rgba(0,0,0,0.1);}
+.stat-emoji{font-size:1.8rem;margin-bottom:6px;}
+.stat-num{font-size:1.8rem;font-weight:700;color:var(--acc);font-family:'Lato',sans-serif;line-height:1;}
+.stat-label{font-size:11px;color:var(--t2);font-family:'Lato',sans-serif;margin-top:4px;letter-spacing:0.05em;}
+
+/* ── QUOTE OF THE DAY ── */
+.quote-section{max-width:1100px;margin:2rem auto 0;padding:0 2rem;width:100%;box-sizing:border-box;}
+.quote-inner{background:var(--card);border:1px solid var(--cb);border-radius:10px;padding:2rem;text-align:center;position:relative;overflow:hidden;}
+.quote-bg{position:absolute;top:-20px;left:10px;font-size:8rem;color:var(--acc);opacity:0.05;font-family:'Playfair Display',serif;line-height:1;pointer-events:none;}
+.quote-label{font-size:9px;letter-spacing:0.25em;color:var(--acc);text-transform:uppercase;font-family:'Lato',sans-serif;margin-bottom:14px;}
+.quote-text{font-family:var(--font);font-size:1.2rem;font-weight:400;color:var(--text);line-height:1.65;max-width:600px;margin:0 auto 12px;font-style:italic;}
+.quote-author{font-size:12px;color:var(--t3);font-family:'Lato',sans-serif;letter-spacing:0.1em;}
+.quote-nav{display:flex;justify-content:center;gap:8px;margin-top:14px;}
+.quote-dot{width:6px;height:6px;border-radius:50%;background:var(--div);cursor:pointer;transition:background 0.2s;}
+.quote-dot.active{background:var(--acc);}
+
+/* ── VAMSI TALES — STORY OF THE WEEK ── */
+.sotw-section{max-width:1100px;margin:2rem auto 0;padding:0 2rem;width:100%;box-sizing:border-box;}
+.sotw-inner{background:linear-gradient(135deg,var(--acc) 0%,var(--bg2) 100%);border-radius:10px;padding:2rem;display:grid;grid-template-columns:1fr auto;gap:2rem;align-items:center;}
+.sotw-badge{font-size:9px;letter-spacing:0.2em;text-transform:uppercase;font-family:'Lato',sans-serif;margin-bottom:8px;opacity:0.8;}
+.sotw-title{font-family:var(--font);font-size:1.5rem;font-weight:400;line-height:1.3;margin-bottom:8px;}
+.sotw-desc{font-size:0.85rem;line-height:1.7;font-family:'Lato',sans-serif;opacity:0.85;max-width:420px;}
+.sotw-btn{background:rgba(255,255,255,0.2);color:inherit;border:2px solid rgba(255,255,255,0.4);padding:10px 24px;font-size:11px;letter-spacing:0.12em;font-weight:700;cursor:pointer;border-radius:4px;font-family:'Lato',sans-serif;white-space:nowrap;transition:all 0.2s;backdrop-filter:blur(4px);}
+.sotw-btn:hover{background:rgba(255,255,255,0.35);}
+.sotw-emoji{font-size:3.5rem;flex-shrink:0;}
+
+/* ── NEWSLETTER ── */
+.newsletter-section{max-width:1100px;margin:2rem auto;padding:0 2rem;width:100%;box-sizing:border-box;}
+.newsletter-inner{background:var(--card);border:1px solid var(--cb);border-radius:10px;padding:2rem;display:grid;grid-template-columns:1fr auto;gap:2rem;align-items:center;}
+.newsletter-left{}
+.nl-emoji{font-size:1.8rem;margin-bottom:8px;}
+.nl-title{font-family:var(--font);font-size:1.2rem;color:var(--text);margin-bottom:6px;}
+.nl-sub{font-size:0.84rem;color:var(--t2);font-family:'Lato',sans-serif;line-height:1.6;}
+.newsletter-right{display:flex;flex-direction:column;gap:8px;min-width:280px;}
+.nl-input-row{display:flex;gap:8px;}
+.nl-input{flex:1;background:var(--bg);border:1px solid var(--cb);border-radius:4px;padding:10px 14px;font-size:13px;color:var(--text);outline:none;font-family:'Lato',sans-serif;transition:border-color 0.2s;}
+.nl-input:focus{border-color:var(--acc);}
+.nl-input::placeholder{color:var(--t3);}
+.nl-btn{background:var(--acc);color:var(--at);border:none;padding:10px 20px;font-size:11px;letter-spacing:0.1em;font-weight:700;cursor:pointer;border-radius:4px;font-family:'Lato',sans-serif;white-space:nowrap;transition:opacity 0.2s;}
+.nl-btn:hover{opacity:0.85;}
+.nl-note{font-size:10px;color:var(--t3);font-family:'Lato',sans-serif;}
+
+/* ── SECTION DIVIDER ── */
+.section-divider{display:flex;align-items:center;gap:12px;max-width:1100px;margin:2rem auto 0;padding:0 2rem;width:100%;box-sizing:border-box;}
+.sec-div-label{font-size:10px;letter-spacing:0.2em;color:var(--t3);text-transform:uppercase;font-family:'Lato',sans-serif;white-space:nowrap;}
+.sec-div-line{flex:1;height:1px;background:var(--div);}
+
+@media(max-width:768px){
+  .featured-inner{grid-template-columns:1fr!important;}
+  .featured-right{display:none!important;}
+  .stats-inner{grid-template-columns:repeat(2,1fr)!important;}
+  .sotw-inner{grid-template-columns:1fr!important;}
+  .sotw-emoji{display:none!important;}
+  .newsletter-inner{grid-template-columns:1fr!important;}
+  .newsletter-right{min-width:unset!important;}
+}
+
+/* ── SKELETON LOADER ── */
+.skeleton{background:linear-gradient(90deg,var(--cb) 25%,var(--div) 50%,var(--cb) 75%);background-size:200% 100%;animation:shimmer 1.4s infinite;border-radius:4px;}
+@keyframes shimmer{0%{background-position:200% 0}100%{background-position:-200% 0}}
+.skeleton-card{background:var(--card);border:1px solid var(--cb);border-radius:4px;overflow:hidden;padding:1.5rem;}
+.sk-line{height:12px;margin-bottom:8px;border-radius:3px;}
+.sk-title{height:16px;margin-bottom:12px;border-radius:3px;}
+.sk-accent{height:3px;margin:-1.5rem -1.5rem 1.5rem;border-radius:0;}
+
+/* ── COOKIE BANNER ── */
+#cookie-banner{position:fixed;bottom:0;left:0;right:0;z-index:9998;background:var(--nav);border-top:2px solid var(--acc);padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;box-shadow:0 -4px 20px rgba(0,0,0,0.15);flex-wrap:wrap;}
+.cookie-text{font-size:13px;color:var(--t2);font-family:'Lato',sans-serif;flex:1;min-width:200px;line-height:1.6;}
+.cookie-text a{color:var(--acc);text-decoration:none;}
+.cookie-btns{display:flex;gap:8px;flex-shrink:0;}
+.cookie-accept{background:var(--acc);color:var(--at);border:none;padding:8px 20px;border-radius:4px;font-size:12px;font-weight:700;cursor:pointer;font-family:'Lato',sans-serif;}
+.cookie-decline{background:transparent;color:var(--t2);border:1px solid var(--cb);padding:8px 16px;border-radius:4px;font-size:12px;cursor:pointer;font-family:'Lato',sans-serif;}
+
+/* ── FULL ARTICLE PAGE ── */
+.article-page{max-width:720px;margin:0 auto;padding:3rem 2rem 5rem;}
+.article-back{display:inline-flex;align-items:center;gap:6px;font-size:12px;color:var(--t2);font-family:'Lato',sans-serif;cursor:pointer;margin-bottom:2rem;border:none;background:none;transition:color 0.2s;letter-spacing:0.05em;}
+.article-back:hover{color:var(--acc);}
+.article-cover{width:100%;height:320px;object-fit:cover;border-radius:8px;margin-bottom:2rem;display:block;}
+.article-category{font-size:10px;letter-spacing:0.2em;text-transform:uppercase;font-family:'Lato',sans-serif;margin-bottom:10px;}
+.article-title{font-family:var(--font);font-size:clamp(1.8rem,4vw,2.4rem);font-weight:400;color:var(--text);line-height:1.25;margin-bottom:1rem;}
+.article-meta-row{display:flex;align-items:center;gap:12px;padding:1rem 0;border-top:1px solid var(--div);border-bottom:1px solid var(--div);margin-bottom:2rem;flex-wrap:wrap;}
+.article-author{display:flex;align-items:center;gap:8px;}
+.author-avatar{width:36px;height:36px;border-radius:50%;background:var(--acc);display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;}
+.author-name{font-size:13px;font-weight:600;color:var(--text);font-family:'Lato',sans-serif;}
+.author-sub{font-size:10px;color:var(--t3);font-family:'Lato',sans-serif;}
+.article-meta-dot{width:3px;height:3px;border-radius:50%;background:var(--div);}
+.article-meta-item{font-size:12px;color:var(--t3);font-family:'Lato',sans-serif;}
+.article-body{font-size:1rem;line-height:1.9;color:var(--t2);font-family:'Lato',sans-serif;}
+.article-body p{margin-bottom:1.4rem;}
+.article-body h3{font-family:var(--font);font-size:1.3rem;color:var(--text);margin:2rem 0 0.8rem;font-weight:400;}
+.article-pullquote{border-left:3px solid var(--acc);padding:1rem 1.5rem;margin:1.8rem 0;background:rgba(200,100,30,0.06);border-radius:0 6px 6px 0;}
+.article-pullquote p{font-family:var(--font);font-size:1.1rem;color:var(--text);font-style:italic;line-height:1.6;margin:0;}
+.article-tags{display:flex;flex-wrap:wrap;gap:8px;margin:2rem 0;}
+.article-tag{background:var(--bg2);border:1px solid var(--cb);border-radius:20px;padding:4px 12px;font-size:11px;color:var(--t2);font-family:'Lato',sans-serif;cursor:pointer;transition:all 0.2s;}
+.article-tag:hover{border-color:var(--acc);color:var(--acc);}
+
+/* ── REACTIONS ── */
+.reactions-bar{display:flex;align-items:center;gap:8px;padding:1.2rem 0;border-top:1px solid var(--div);border-bottom:1px solid var(--div);margin:1.5rem 0;flex-wrap:wrap;}
+.reactions-label{font-size:11px;color:var(--t3);font-family:'Lato',sans-serif;margin-right:4px;}
+.reaction-btn{display:flex;align-items:center;gap:5px;background:var(--card);border:1px solid var(--cb);border-radius:20px;padding:6px 14px;cursor:pointer;font-size:13px;transition:all 0.2s;font-family:'Lato',sans-serif;}
+.reaction-btn:hover,.reaction-btn.reacted{background:var(--acc);border-color:var(--acc);color:var(--at);}
+.reaction-count{font-size:11px;color:var(--t3);}
+.reaction-btn.reacted .reaction-count{color:var(--at);}
+
+/* ── VIEWS COUNTER ── */
+.views-badge{display:inline-flex;align-items:center;gap:4px;font-size:11px;color:var(--t3);font-family:'Lato',sans-serif;}
+
+/* ── COMMENTS ── */
+.comments-section{margin-top:2.5rem;}
+.comments-title{font-family:var(--font);font-size:1.2rem;color:var(--text);margin-bottom:1.2rem;display:flex;align-items:center;gap:8px;}
+.comment-form{background:var(--card);border:1px solid var(--cb);border-radius:8px;padding:1.2rem;margin-bottom:1.5rem;}
+.comment-form-title{font-size:13px;font-weight:600;color:var(--text);margin-bottom:10px;font-family:'Lato',sans-serif;}
+.comment-name-row{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:8px;}
+.comment-input{width:100%;background:var(--bg);border:1px solid var(--cb);border-radius:4px;padding:9px 12px;font-size:13px;color:var(--text);outline:none;font-family:'Lato',sans-serif;transition:border-color 0.2s;}
+.comment-input:focus{border-color:var(--acc);}
+.comment-input::placeholder{color:var(--t3);}
+.comment-textarea{width:100%;background:var(--bg);border:1px solid var(--cb);border-radius:4px;padding:9px 12px;font-size:13px;color:var(--text);outline:none;font-family:'Lato',sans-serif;resize:vertical;min-height:90px;transition:border-color 0.2s;margin-bottom:8px;}
+.comment-textarea:focus{border-color:var(--acc);}
+.comment-submit{background:var(--acc);color:var(--at);border:none;padding:8px 20px;border-radius:4px;font-size:12px;font-weight:700;cursor:pointer;font-family:'Lato',sans-serif;transition:opacity 0.2s;}
+.comment-submit:hover{opacity:0.85;}
+.comment-item{padding:1rem 0;border-bottom:1px solid var(--div);display:flex;gap:12px;}
+.comment-item:last-child{border-bottom:none;}
+.comment-avatar{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;color:#fff;flex-shrink:0;}
+.comment-name{font-size:13px;font-weight:600;color:var(--text);font-family:'Lato',sans-serif;}
+.comment-date{font-size:10px;color:var(--t3);font-family:'Lato',sans-serif;margin-left:8px;}
+.comment-text{font-size:13px;color:var(--t2);line-height:1.6;font-family:'Lato',sans-serif;margin-top:4px;}
+.comment-like{background:none;border:none;cursor:pointer;font-size:11px;color:var(--t3);font-family:'Lato',sans-serif;margin-top:6px;display:flex;align-items:center;gap:4px;transition:color 0.2s;}
+.comment-like:hover{color:var(--acc);}
+
+/* ── RELATED ARTICLES ── */
+.related-section{margin-top:2.5rem;padding-top:1.5rem;border-top:1px solid var(--div);}
+.related-title{font-family:var(--font);font-size:1.1rem;color:var(--text);margin-bottom:1rem;}
+.related-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;}
+.related-card{background:var(--card);border:1px solid var(--cb);border-radius:6px;overflow:hidden;cursor:pointer;transition:transform 0.2s,box-shadow 0.2s;}
+.related-card:hover{transform:translateY(-3px);box-shadow:0 6px 18px rgba(0,0,0,0.1);}
+.related-accent{height:2px;}
+.related-body{padding:0.85rem;}
+.related-cat{font-size:9px;letter-spacing:0.12em;text-transform:uppercase;font-family:'Lato',sans-serif;margin-bottom:4px;}
+.related-title-text{font-size:12px;color:var(--text);font-family:var(--font);line-height:1.4;}
+
+/* ── CONTACT PAGE ── */
+.contact-wrap{max-width:800px;margin:0 auto;padding:3rem 2rem 5rem;}
+.contact-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:2rem;margin-top:1.5rem;}
+.contact-info{display:flex;flex-direction:column;gap:1rem;}
+.contact-info-card{background:var(--card);border:1px solid var(--cb);border-radius:8px;padding:1.2rem;display:flex;gap:12px;align-items:flex-start;}
+.contact-icon{font-size:1.4rem;flex-shrink:0;}
+.contact-info-title{font-size:13px;font-weight:600;color:var(--text);font-family:'Lato',sans-serif;margin-bottom:2px;}
+.contact-info-text{font-size:12px;color:var(--t2);font-family:'Lato',sans-serif;line-height:1.5;}
+.contact-form{background:var(--card);border:1px solid var(--cb);border-radius:8px;padding:1.5rem;}
+.contact-form-title{font-family:var(--font);font-size:1.1rem;color:var(--text);margin-bottom:1rem;}
+.contact-field{margin-bottom:12px;}
+.contact-label{font-size:11px;letter-spacing:0.08em;color:var(--t3);font-family:'Lato',sans-serif;display:block;margin-bottom:4px;text-transform:uppercase;}
+.contact-submit{width:100%;background:var(--acc);color:var(--at);border:none;padding:10px;border-radius:4px;font-size:13px;font-weight:700;cursor:pointer;font-family:'Lato',sans-serif;transition:opacity 0.2s;margin-top:4px;}
+.contact-submit:hover{opacity:0.85;}
+
+/* ── REVIEW SECTION ── */
+.reviews-section{max-width:1100px;margin:2rem auto 0;padding:0 2rem;width:100%;box-sizing:border-box;}
+.reviews-inner{background:var(--card);border:1px solid var(--cb);border-radius:10px;overflow:hidden;}
+.reviews-header{padding:1.5rem;border-bottom:1px solid var(--div);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;}
+.reviews-title{font-family:var(--font);font-size:1.2rem;color:var(--text);}
+.reviews-summary{display:flex;align-items:center;gap:1.5rem;}
+.reviews-avg{text-align:center;}
+.reviews-avg-num{font-size:2.5rem;font-weight:700;color:var(--acc);font-family:'Lato',sans-serif;line-height:1;}
+.reviews-avg-stars{font-size:16px;margin:4px 0;}
+.reviews-avg-count{font-size:10px;color:var(--t3);font-family:'Lato',sans-serif;}
+.reviews-bars{flex:1;min-width:140px;}
+.review-bar-row{display:flex;align-items:center;gap:6px;margin-bottom:3px;}
+.review-bar-label{font-size:10px;color:var(--t3);font-family:'Lato',sans-serif;width:8px;text-align:right;}
+.review-bar-track{flex:1;height:6px;background:var(--div);border-radius:3px;overflow:hidden;}
+.review-bar-fill{height:100%;background:var(--acc);border-radius:3px;transition:width 0.8s ease;}
+.review-bar-count{font-size:10px;color:var(--t3);font-family:'Lato',sans-serif;width:16px;}
+.reviews-list{padding:0 1.5rem;}
+.review-item{padding:1.2rem 0;border-bottom:1px solid var(--div);display:flex;gap:12px;}
+.review-item:last-child{border-bottom:none;}
+.review-avatar{width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:700;color:#fff;flex-shrink:0;}
+.review-name{font-size:13px;font-weight:600;color:var(--text);font-family:'Lato',sans-serif;}
+.review-stars{font-size:12px;margin:2px 0;}
+.review-date{font-size:10px;color:var(--t3);font-family:'Lato',sans-serif;}
+.review-text{font-size:13px;color:var(--t2);line-height:1.6;font-family:'Lato',sans-serif;margin-top:4px;}
+.review-form{padding:1.5rem;border-top:1px solid var(--div);background:var(--bg2);}
+.review-form-title{font-size:13px;font-weight:600;color:var(--text);font-family:'Lato',sans-serif;margin-bottom:10px;}
+.star-picker{display:flex;gap:6px;margin-bottom:10px;}
+.star-pick{font-size:22px;cursor:pointer;transition:transform 0.1s;filter:grayscale(1);}
+.star-pick.active,.star-pick:hover{filter:grayscale(0);transform:scale(1.2);}
+.review-submit{background:var(--acc);color:var(--at);border:none;padding:8px 20px;border-radius:4px;font-size:12px;font-weight:700;cursor:pointer;font-family:'Lato',sans-serif;}
+
+@media(max-width:768px){
+  .related-grid{grid-template-columns:1fr 1fr!important;}
+  .contact-grid{grid-template-columns:1fr!important;}
+  .reviews-summary{flex-direction:column;align-items:flex-start;}
+  .comment-name-row{grid-template-columns:1fr!important;}
+}
+
+/* ── SOCIAL MEDIA FOOTER ── */
+.footer-social{display:flex;justify-content:center;gap:12px;margin:14px 0 10px;}
+.social-btn{width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:17px;text-decoration:none;border:1px solid var(--div);color:var(--t2);transition:all 0.2s;cursor:pointer;background:transparent;}
+.social-btn:hover{transform:translateY(-3px);}
+.social-btn.ig:hover{background:linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);color:#fff;border-color:transparent;}
+.social-btn.yt:hover{background:#FF0000;color:#fff;border-color:transparent;}
+.social-btn.tw:hover{background:#1DA1F2;color:#fff;border-color:transparent;}
+.social-btn.fb:hover{background:#1877F2;color:#fff;border-color:transparent;}
+.social-btn.wa:hover{background:#25D366;color:#fff;border-color:transparent;}
+
+/* ── ANALYTICS BANNER ── */
+.analytics-toast{position:fixed;top:80px;right:20px;background:var(--nav);border:1px solid var(--acc);border-radius:8px;padding:12px 16px;z-index:500;max-width:260px;box-shadow:0 4px 20px rgba(0,0,0,0.15);animation:slideInRight 0.4s ease;}
+@keyframes slideInRight{from{opacity:0;transform:translateX(20px)}to{opacity:1;transform:translateX(0)}}
+.analytics-toast-title{font-size:12px;font-weight:600;color:var(--text);font-family:'Lato',sans-serif;margin-bottom:4px;display:flex;align-items:center;gap:6px;}
+.analytics-toast-text{font-size:11px;color:var(--t2);font-family:'Lato',sans-serif;line-height:1.5;}
+.analytics-toast-close{position:absolute;top:8px;right:10px;background:none;border:none;cursor:pointer;color:var(--t3);font-size:14px;}
+
+/* ── GA DASHBOARD WIDGET ── */
+.ga-widget{background:var(--card);border:1px solid var(--cb);border-radius:8px;padding:1.2rem;margin-top:1rem;}
+.ga-widget-title{font-size:11px;letter-spacing:0.1em;color:var(--acc);text-transform:uppercase;font-family:'Lato',sans-serif;margin-bottom:12px;display:flex;align-items:center;gap:6px;}
+.ga-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;}
+.ga-stat{background:var(--bg2);border-radius:6px;padding:10px;text-align:center;}
+.ga-num{font-size:1.3rem;font-weight:700;color:var(--acc);font-family:'Lato',sans-serif;line-height:1;}
+.ga-label{font-size:9px;color:var(--t3);font-family:'Lato',sans-serif;margin-top:3px;letter-spacing:0.05em;}
+.ga-trend{font-size:9px;margin-top:2px;}
+</style>
+</head>
+<body class="light">
+
+<!-- COOKIE BANNER -->
+<div id="cookie-banner" style="display:none">
+  <div class="cookie-text">🍪 We use cookies to improve your experience. By continuing to visit this site you agree to our use of cookies. <a href="#" onclick="showPage('privacy');return false;">Learn more</a></div>
+  <div class="cookie-btns">
+    <button class="cookie-decline" onclick="dismissCookie(false)">Decline</button>
+    <button class="cookie-accept" onclick="dismissCookie(true)">Accept All</button>
+  </div>
+</div>
+<!-- PROGRESS BAR -->
+<div id="progress-bar"></div>
+<!-- TOAST -->
+<div id="toast"></div>
+<!-- BACK TO TOP -->
+<button id="back-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Back to top">↑</button>
+<!-- NAV -->
+<nav>
+  <a class="logo" onclick="showPage('home')" style="display:flex;align-items:center;gap:10px;cursor:pointer;text-decoration:none;">
+    <span style="font-size:2rem;line-height:1">🪷</span>
+    <div style="display:flex;flex-direction:column;line-height:1.2;">
+      <span style="font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:600;color:var(--acc);letter-spacing:0.02em;">Vamsi Tales</span>
+      <span style="font-family:'Lato',sans-serif;font-size:8.5px;letter-spacing:0.14em;color:var(--t2);text-transform:uppercase;">Stories Worth Telling</span>
+    </div>
+  </a>
+  <div class="nav-right">
+    <div class="theme-bar desktop-theme">
+      <button class="tbtn active" id="tb-light" onclick="setTheme('light')">☀️</button>
+      <button class="tbtn" id="tb-dark" onclick="setTheme('dark')">🌙</button>
+      <button class="tbtn" id="tb-mud" onclick="setTheme('mud')">🪨</button>
+    </div>
+    <div class="nav-links">
+      <button class="nav-link active" id="nl-home" onclick="showPage('home')">HOME</button>
+      <button class="nav-link" id="nl-stories" onclick="showPage('home')">STORIES</button>
+      <button class="nav-link" id="nl-calendar" onclick="showPage('calendar')">CALENDAR</button>
+      <button class="nav-link" id="nl-about" onclick="showPage('about')">ABOUT</button>
+      <button class="nav-link" id="nl-contact" onclick="showPage('contact')">CONTACT</button>
+      <button class="nav-link" id="nl-bookmarks" onclick="showPage('bookmarks')" style="display:flex;align-items:center;gap:4px">❤️ <span id="bm-count" style="display:none;background:var(--acc);color:var(--at);border-radius:10px;padding:1px 6px;font-size:9px"></span></button>
+    </div>
+    <div class="font-bar desktop-theme">
+      <span>Aa</span>
+      <button class="font-btn" onclick="changeFont(-1)" title="Smaller">A-</button>
+      <button class="font-btn" onclick="changeFont(1)" title="Larger">A+</button>
+    </div>
+    <button onclick="toggleSearch()" style="background:none;border:1px solid var(--div);border-radius:20px;padding:6px 12px;cursor:pointer;color:var(--t2);font-size:13px;display:flex;align-items:center;gap:5px;font-family:Lato,sans-serif;transition:all 0.2s" onmouseover="this.style.borderColor='var(--acc)';this.style.color='var(--acc)'" onmouseout="this.style.borderColor='var(--div)';this.style.color='var(--t2)'">🔍 <span style="font-size:11px;letter-spacing:0.08em">SEARCH</span></button>
+    <!-- Hamburger -->
+    <button class="hamburger" id="hamburger" onclick="toggleMenu()" style="display:none">
+      <span class="hline" id="h1"></span>
+      <span class="hline" id="h2"></span>
+      <span class="hline" id="h3"></span>
+    </button>
+  </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobile-menu">
+  <div class="mobile-theme-row">
+    <span>THEME</span>
+    <div class="theme-bar">
+      <button class="tbtn active" id="mtb-light" onclick="setTheme('light')">☀️ Light</button>
+      <button class="tbtn" id="mtb-dark" onclick="setTheme('dark')">🌙 Dark</button>
+      <button class="tbtn" id="mtb-mud" onclick="setTheme('mud')">🪨 Mud</button>
+    </div>
+  </div>
+  <div class="mobile-link" onclick="showPage('home');toggleMenu()">🏠 Home</div>
+  <div class="mobile-link" onclick="showPage('home');toggleMenu()">📖 Stories</div>
+  <div class="mobile-link" onclick="showPage('calendar');toggleMenu()">🗓️ Festival Calendar</div>
+  <div class="mobile-link" onclick="showPage('about');toggleMenu()">ℹ️ About</div>
+  <div class="mobile-link" onclick="showPage('contact');toggleMenu()">📧 Contact</div>
+  <div class="mobile-link" onclick="showPage('bookmarks');toggleMenu()">❤️ Bookmarks</div>
+</div>
+
+<!-- HOME PAGE -->
+<div class="page active" id="page-home">
+  <div class="hero" id="hero-section">
+    <div class="hero-tag">Stories Worth Telling</div>
+    <h1 class="hero-title">Vamsi <span>Tales</span></h1>
+    <p class="hero-sub">India • Life • Travel • Food • Mystery • Tech • Motivation — One story at a time.</p>
+    <button class="hero-btn" onclick="document.getElementById('stories-section').scrollIntoView({behavior:'smooth'})">EXPLORE STORIES</button>
+    <div class="hero-line" id="hero-line"></div>
+  </div>
+
+  <div class="cat-bar" id="cat-bar"></div>
+
+
+  <!-- TICKER -->
+  <div class="ticker-wrap" id="ticker-wrap"></div>
+
+  <!-- FEATURED STORY BANNER -->
+  <div class="featured-banner">
+    <div class="featured-inner">
+      <div class="featured-left">
+        <div class="featured-tag"><span class="featured-star">⭐ FEATURED</span> This Week's Top Story</div>
+        <div class="featured-title" id="feat-title"></div>
+        <div class="featured-excerpt" id="feat-excerpt"></div>
+        <button class="featured-btn" onclick="openModal(featuredPost.id)">READ STORY →</button>
+      </div>
+      <div class="featured-right">
+        <div class="featured-right-label">More Stories</div>
+        <div id="mini-stories"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STATS -->
+  <div class="stats-section">
+    <div class="stats-inner">
+      <div class="stat-card"><div class="stat-emoji">📖</div><div class="stat-num" id="stat-stories">0</div><div class="stat-label">Stories Published</div></div>
+      <div class="stat-card"><div class="stat-emoji">📂</div><div class="stat-num" id="stat-festivals">0</div><div class="stat-label">Topics Covered</div></div>
+      <div class="stat-card"><div class="stat-emoji">🌍</div><div class="stat-num" id="stat-readers">0</div><div class="stat-label">Monthly Readers</div></div>
+      <div class="stat-card"><div class="stat-emoji">🏛️</div><div class="stat-num" id="stat-categories">0</div><div class="stat-label">Categories</div></div>
+    </div>
+  </div>
+
+  <!-- QUOTE OF THE DAY -->
+  <div class="quote-section">
+    <div class="quote-inner">
+      <div class="quote-bg">"</div>
+      <div class="quote-label">✨ Quote of the Day</div>
+      <div class="quote-text" id="quote-text"></div>
+      <div class="quote-author" id="quote-author"></div>
+      <div class="quote-nav" id="quote-nav"></div>
+    </div>
+  </div>
+
+  <!-- VAMSI TALES — STORY OF THE WEEK -->
+  <div class="sotw-section">
+    <div class="sotw-inner" id="sotw-inner">
+      <div>
+        <div class="sotw-badge">🏆 Story of the Week</div>
+        <div class="sotw-title" id="sotw-title"></div>
+        <div class="sotw-desc" id="sotw-desc"></div>
+      </div>
+      <div style="display:flex;flex-direction:column;align-items:center;gap:12px">
+        <div class="sotw-emoji" id="sotw-emoji"></div>
+        <button class="sotw-btn" id="sotw-btn">READ NOW →</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION LABEL -->
+  <div class="section-divider"><div class="sec-div-line"></div><div class="sec-div-label">All Stories</div><div class="sec-div-line"></div></div>
+
+  <!-- SEARCH BAR -->
+  <div class="search-wrap" id="search-wrap" style="display:none">
+    <div class="search-box">
+      <span class="search-icon">🔍</span>
+      <input class="search-input" id="search-input" placeholder="Search stories, topics, festivals..." oninput="doSearch(this.value)"/>
+      <button class="search-clear" id="search-clear" onclick="clearSearch()">✕</button>
+    </div>
+  </div>
+  <!-- RECENTLY VIEWED -->
+  <div class="recent-bar" id="recent-bar" style="display:none">
+    <span class="recent-label">Recently viewed</span>
+    <div id="recent-chips"></div>
+  </div>
+  <div class="grid" id="card-grid"></div>
+  <!-- SEARCH RESULTS -->
+  <div id="search-results-wrap" style="display:none">
+    <div class="search-results">
+      <div class="search-tag" id="search-tag"></div>
+      <div class="grid" style="padding:0" id="search-grid"></div>
+      <div class="no-results" id="no-results" style="display:none">😔 No stories found. Try a different keyword!</div>
+    </div>
+  </div>
+</div>
+
+<!-- BOOKMARKS PAGE -->
+<div class="page" id="page-bookmarks">
+  <div class="page-hdr">
+    <div class="page-tag">❤️ Saved Stories</div>
+    <h1 class="page-h1">Your Bookmarks</h1>
+    <p class="page-sub">Stories you saved to read later.</p>
+  </div>
+  <div id="bookmarks-content" style="max-width:1100px;margin:0 auto;padding:2rem"></div>
+</div>
+
+<!-- FULL ARTICLE PAGE -->
+<div class="page" id="page-article">
+  <div class="article-page">
+    <button class="article-back" onclick="showPage('home')">← Back to Stories</button>
+    <div class="article-category" id="art-category"></div>
+    <h1 class="article-title" id="art-title"></h1>
+    <div class="article-meta-row">
+      <div class="article-author">
+        <div class="author-avatar">🪷</div>
+        <div>
+          <div class="author-name">Vamsi Tales</div>
+          <div class="author-sub">Stories of India</div>
+        </div>
+      </div>
+      <div class="article-meta-dot"></div>
+      <div class="article-meta-item" id="art-date"></div>
+      <div class="article-meta-dot"></div>
+      <div class="article-meta-item" id="art-read"></div>
+      <div class="article-meta-dot"></div>
+      <div class="views-badge">👁️ <span id="art-views"></span> views</div>
+    </div>
+    <div class="article-body" id="art-body"></div>
+    <div class="article-tags" id="art-tags"></div>
+
+    <!-- REACTIONS -->
+    <div class="reactions-bar">
+      <span class="reactions-label">React:</span>
+      <button class="reaction-btn" onclick="react(this,'❤️')"><span>❤️</span><span class="reaction-count">24</span></button>
+      <button class="reaction-btn" onclick="react(this,'🔥')"><span>🔥</span><span class="reaction-count">18</span></button>
+      <button class="reaction-btn" onclick="react(this,'👏')"><span>👏</span><span class="reaction-count">31</span></button>
+      <button class="reaction-btn" onclick="react(this,'😮')"><span>😮</span><span class="reaction-count">9</span></button>
+      <button class="reaction-btn" onclick="react(this,'🙏')"><span>🙏</span><span class="reaction-count">42</span></button>
+    </div>
+
+    <!-- RELATED -->
+    <div class="related-section">
+      <div class="related-title">📖 You May Also Like</div>
+      <div class="related-grid" id="related-grid"></div>
+    </div>
+
+    <!-- COMMENTS -->
+    <div class="comments-section">
+      <div class="comments-title">💬 Comments <span id="comment-count" style="font-size:14px;color:var(--t3);font-family:'Lato',sans-serif"></span></div>
+      <div class="comment-form">
+        <div class="comment-form-title">Leave a Comment</div>
+        <div class="comment-name-row">
+          <input class="comment-input" id="c-name" placeholder="Your name"/>
+          <input class="comment-input" id="c-email" placeholder="Email (not published)"/>
+        </div>
+        <textarea class="comment-textarea" id="c-text" placeholder="Share your thoughts about this story..."></textarea>
+        <button class="comment-submit" onclick="submitComment()">Post Comment</button>
+      </div>
+      <div id="comments-list"></div>
+    </div>
+  </div>
+</div>
+
+<!-- CONTACT PAGE -->
+<div class="page" id="page-contact">
+  <div class="contact-wrap">
+    <div class="page-tag">Get in Touch</div>
+    <h1 class="page-h1" style="font-family:var(--font);font-size:clamp(1.8rem,4vw,2.6rem);font-weight:400;color:var(--text);margin-bottom:6px;">Contact Us</h1>
+    <p class="page-sub" style="font-size:0.88rem;color:var(--t2);font-family:'Lato',sans-serif;">Have a story idea, feedback, or collaboration request? We would love to hear from you!</p>
+    <div class="contact-grid">
+      <div class="contact-info">
+        <div class="contact-info-card"><div class="contact-icon">✉️</div><div><div class="contact-info-title">Email Us</div><div class="contact-info-text">vamsitales@gmail.com</div></div></div>
+        <div class="contact-info-card"><div class="contact-icon">📖</div><div><div class="contact-info-title">Story Suggestions</div><div class="contact-info-text">Have an untold Indian story? We want to hear it!</div></div></div>
+        <div class="contact-info-card"><div class="contact-icon">🤝</div><div><div class="contact-info-title">Collaborations</div><div class="contact-info-text">Open to guest writers, brand partnerships and more.</div></div></div>
+        <div class="contact-info-card"><div class="contact-icon">⏱️</div><div><div class="contact-info-title">Response Time</div><div class="contact-info-text">We reply within 24–48 hours on working days.</div></div></div>
+      </div>
+      <div class="contact-form">
+        <div class="contact-form-title">Send a Message</div>
+        <div class="contact-field"><label class="contact-label">Your Name</label><input class="comment-input" id="ct-name" placeholder="Vamsi Kumar" style="width:100%"/></div>
+        <div class="contact-field"><label class="contact-label">Email</label><input class="comment-input" id="ct-email" type="email" placeholder="you@email.com" style="width:100%"/></div>
+        <div class="contact-field"><label class="contact-label">Subject</label><input class="comment-input" id="ct-subject" placeholder="Story suggestion / Collaboration / Other" style="width:100%"/></div>
+        <div class="contact-field"><label class="contact-label">Message</label><textarea class="comment-textarea" id="ct-msg" placeholder="Write your message here..." style="width:100%"></textarea></div>
+        <button class="contact-submit" onclick="submitContact()">Send Message 📤</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PRIVACY POLICY PAGE -->
+<div class="page" id="page-privacy">
+  <div class="about-wrap">
+    <div class="page-tag">Legal</div>
+    <h1 style="font-family:var(--font);font-size:2rem;font-weight:400;color:var(--text);margin-bottom:1.5rem;">Privacy Policy</h1>
+    <div style="font-size:0.9rem;color:var(--t2);font-family:'Lato',sans-serif;line-height:1.9;">
+      <p style="margin-bottom:1rem"><strong style="color:var(--text)">Last updated:</strong> January 2025</p>
+      <p style="margin-bottom:1rem">Vamsi Tales ("we", "our", or "us") is committed to protecting your privacy. This policy explains what information we collect and how we use it.</p>
+      <h3 style="font-family:var(--font);font-size:1.1rem;color:var(--text);margin:1.5rem 0 0.5rem">Information We Collect</h3>
+      <p style="margin-bottom:1rem">We collect information you provide directly (newsletter email, contact form) and usage data (pages visited, time spent) to improve our content.</p>
+      <h3 style="font-family:var(--font);font-size:1.1rem;color:var(--text);margin:1.5rem 0 0.5rem">Cookies</h3>
+      <p style="margin-bottom:1rem">We use cookies to remember your theme preference, bookmarks, and reading history. You can disable cookies in your browser settings.</p>
+      <h3 style="font-family:var(--font);font-size:1.1rem;color:var(--text);margin:1.5rem 0 0.5rem">Google Analytics</h3>
+      <p style="margin-bottom:1rem">We use Google Analytics to understand how visitors use our site. This data is anonymous and helps us improve our content.</p>
+      <h3 style="font-family:var(--font);font-size:1.1rem;color:var(--text);margin:1.5rem 0 0.5rem">Your Rights</h3>
+      <p style="margin-bottom:1rem">You can request deletion of your data at any time by emailing us at vamsitales@gmail.com.</p>
+      <h3 style="font-family:var(--font);font-size:1.1rem;color:var(--text);margin:1.5rem 0 0.5rem">Contact</h3>
+      <p>For any privacy concerns, email: <span style="color:var(--acc)">vamsitales@gmail.com</span></p>
+    </div>
+  </div>
+</div>
+
+<!-- 404 PAGE -->
+<div class="page" id="page-404">
+  <div style="text-align:center;padding:6rem 2rem;">
+    <div style="font-size:5rem;margin-bottom:1rem">🏚️</div>
+    <h1 style="font-family:var(--font);font-size:2.5rem;font-weight:400;color:var(--text);margin-bottom:1rem">Page Not Found</h1>
+    <p style="font-size:1rem;color:var(--t2);font-family:'Lato',sans-serif;max-width:400px;margin:0 auto 2rem;line-height:1.7">The story you're looking for seems to have wandered off into the Indian wilderness. Let's take you back home.</p>
+    <button onclick="showPage('home')" style="background:var(--acc);color:var(--at);border:none;padding:0.75rem 2rem;font-size:0.85rem;letter-spacing:0.1em;font-weight:700;cursor:pointer;border-radius:2px;font-family:'Lato',sans-serif">← BACK TO HOME</button>
+  </div>
+</div>
+
+
+<!-- TERMS PAGE -->
+<div class="page" id="page-terms">
+  <div class="about-wrap">
+    <div class="page-tag">Legal</div>
+    <h1 style="font-family:var(--font);font-size:2rem;font-weight:400;color:var(--text);margin-bottom:1.5rem;">Terms & Conditions</h1>
+    <div style="font-size:0.9rem;color:var(--t2);font-family:'Lato',sans-serif;line-height:1.9;">
+      <p style="margin-bottom:1rem"><strong style="color:var(--text)">Last updated:</strong> January 2025</p>
+      <p style="margin-bottom:1rem">By accessing and using Vamsi Tales ("the website"), you accept and agree to be bound by the following terms and conditions.</p>
+      <h3 style="font-family:var(--font);font-size:1.1rem;color:var(--text);margin:1.5rem 0 0.5rem">Content Ownership</h3>
+      <p style="margin-bottom:1rem">All articles, stories, and content on Vamsi Tales are original work protected by copyright. You may share articles with proper credit and a link back to the original. Reproducing content without permission is prohibited.</p>
+      <h3 style="font-family:var(--font);font-size:1.1rem;color:var(--text);margin:1.5rem 0 0.5rem">User Comments</h3>
+      <p style="margin-bottom:1rem">By posting a comment, you agree that your comment may be published on the website. We reserve the right to remove comments that are offensive, spam, or irrelevant.</p>
+      <h3 style="font-family:var(--font);font-size:1.1rem;color:var(--text);margin:1.5rem 0 0.5rem">Accuracy of Information</h3>
+      <p style="margin-bottom:1rem">We strive for accuracy in all our articles. However, Vamsi Tales is not liable for any errors or outdated information. For critical decisions, always verify with primary sources.</p>
+      <h3 style="font-family:var(--font);font-size:1.1rem;color:var(--text);margin:1.5rem 0 0.5rem">External Links</h3>
+      <p style="margin-bottom:1rem">Our website may contain links to third-party websites. We are not responsible for the content or privacy practices of those sites.</p>
+      <h3 style="font-family:var(--font);font-size:1.1rem;color:var(--text);margin:1.5rem 0 0.5rem">Changes to Terms</h3>
+      <p>We reserve the right to update these terms at any time. Continued use of the website after changes constitutes acceptance of the new terms.</p>
+    </div>
+  </div>
+</div>
+
+<!-- GA SETUP PAGE (Admin only) -->
+<div class="page" id="page-analytics">
+  <div class="about-wrap">
+    <div class="page-tag">📊 Analytics</div>
+    <h1 style="font-family:var(--font);font-size:2rem;font-weight:400;color:var(--text);margin-bottom:6px;">Google Analytics Setup</h1>
+    <p style="font-size:0.88rem;color:var(--t2);font-family:'Lato',sans-serif;margin-bottom:2rem">Here's how to connect real Google Analytics to your website.</p>
+
+    <div style="display:flex;flex-direction:column;gap:1rem;margin-bottom:2rem">
+      <div style="background:var(--card);border:1px solid var(--cb);border-radius:8px;padding:1.2rem;border-left:3px solid var(--acc)">
+        <div style="font-size:13px;font-weight:600;color:var(--text);font-family:'Lato',sans-serif;margin-bottom:6px">Step 1 — Create a Google Analytics account</div>
+        <div style="font-size:12px;color:var(--t2);font-family:'Lato',sans-serif;line-height:1.7">Go to <span style="color:var(--acc)">analytics.google.com</span> → Sign in with your Google account → Click "Start measuring" → Enter your website name and URL</div>
+      </div>
+      <div style="background:var(--card);border:1px solid var(--cb);border-radius:8px;padding:1.2rem;border-left:3px solid var(--acc)">
+        <div style="font-size:13px;font-weight:600;color:var(--text);font-family:'Lato',sans-serif;margin-bottom:6px">Step 2 — Get your Measurement ID</div>
+        <div style="font-size:12px;color:var(--t2);font-family:'Lato',sans-serif;line-height:1.7">After setup, Google gives you a Measurement ID that looks like <span style="color:var(--acc);font-family:monospace">G-XXXXXXXXXX</span>. Copy it.</div>
+      </div>
+      <div style="background:var(--card);border:1px solid var(--cb);border-radius:8px;padding:1.2rem;border-left:3px solid var(--acc)">
+        <div style="font-size:13px;font-weight:600;color:var(--text);font-family:'Lato',sans-serif;margin-bottom:6px">Step 3 — Replace the placeholder in your website</div>
+        <div style="font-size:12px;color:var(--t2);font-family:'Lato',sans-serif;line-height:1.7">Open your <span style="color:var(--acc)">vamsi-tales.html</span> file → Find <span style="color:var(--acc);font-family:monospace">G-XXXXXXXXXX</span> (appears twice) → Replace both with your real ID → Save and re-upload to Vercel</div>
+      </div>
+      <div style="background:var(--card);border:1px solid var(--cb);border-radius:8px;padding:1.2rem;border-left:3px solid var(--acc)">
+        <div style="font-size:13px;font-weight:600;color:var(--text);font-family:'Lato',sans-serif;margin-bottom:6px">Step 4 — What you can track</div>
+        <div style="font-size:12px;color:var(--t2);font-family:'Lato',sans-serif;line-height:1.7">Once live you will see: how many people visit daily, which articles are most popular, which city/country readers are from, how long they stay on each page, and how they found your website.</div>
+      </div>
+    </div>
+
+    <!-- Simulated Analytics Dashboard -->
+    <div class="ga-widget">
+      <div class="ga-widget-title">📊 Sample — What your dashboard will look like</div>
+      <div class="ga-grid">
+        <div class="ga-stat"><div class="ga-num" id="ga-v">0</div><div class="ga-label">Today's Visitors</div><div class="ga-trend" style="color:#10B981">↑ 12%</div></div>
+        <div class="ga-stat"><div class="ga-num" id="ga-pv">0</div><div class="ga-label">Page Views</div><div class="ga-trend" style="color:#10B981">↑ 8%</div></div>
+        <div class="ga-stat"><div class="ga-num" id="ga-t">0s</div><div class="ga-label">Avg. Time</div><div class="ga-trend" style="color:#F59E0B">→ same</div></div>
+        <div class="ga-stat"><div class="ga-num" id="ga-b">0%</div><div class="ga-label">Bounce Rate</div><div class="ga-trend" style="color:#10B981">↓ 3%</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CALENDAR PAGE -->
+<div class="page" id="page-calendar">
+  <div class="page-hdr">
+    <div class="page-tag">🗓️ Indian Festivals</div>
+    <h1 class="page-h1">Festival Calendar <span id="cal-year"></span></h1>
+    <p class="page-sub">Auto-updated every year — discover every festival across India.</p>
+  </div>
+  <div class="cal-wrap">
+    <div class="month-nav">
+      <button class="mnav-btn" onclick="changeMonth(-1)">&#8249;</button>
+      <div style="text-align:center;min-width:220px;">
+        <div class="month-title" id="month-title"></div>
+        <div class="month-sub" id="month-sub"></div>
+      </div>
+      <button class="mnav-btn" onclick="changeMonth(1)">&#8250;</button>
+    </div>
+    <div class="cal-layout">
+      <div class="cal-grid-wrap">
+        <div class="cal-hdr">
+          <div class="cal-hdr-cell">SUN</div><div class="cal-hdr-cell">MON</div>
+          <div class="cal-hdr-cell">TUE</div><div class="cal-hdr-cell">WED</div>
+          <div class="cal-hdr-cell">THU</div><div class="cal-hdr-cell">FRI</div>
+          <div class="cal-hdr-cell">SAT</div>
+        </div>
+        <div class="cal-cells" id="cal-cells"></div>
+      </div>
+      <div class="cal-sidebar">
+        <div class="sidebar-card">
+          <div class="sidebar-hdr">
+            <div class="sidebar-label">Selected Date</div>
+            <div class="sidebar-title" id="sel-date-title">Click any date</div>
+          </div>
+          <div id="sel-festivals"><div class="sidebar-empty">Click on any date to see festivals 🙏</div></div>
+        </div>
+        <div class="sidebar-card">
+          <div class="upcoming-hdr">🎉 Upcoming Festivals</div>
+          <div id="upcoming-list"></div>
+        </div>
+        <div class="sidebar-card">
+          <div class="legend" id="legend"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ABOUT PAGE -->
+<div class="page" id="page-about">
+  <div class="about-wrap">
+    <p class="page-tag">About Us</p>
+    <h1 style="font-size:clamp(1.8rem,4vw,2.8rem);font-weight:400;color:var(--text);font-family:var(--font);margin-bottom:1.5rem;line-height:1.2;">The Story Behind<br>Vamsi Tales</h1>
+    <div class="about-accent" style="background:var(--acc)"></div>
+    <p style="font-size:1rem;color:var(--t2);line-height:1.85;margin-bottom:1.5rem;font-family:'Lato',sans-serif;">Vamsi Tales was born from a simple belief: that India's culture, history, and traditions deserve to be told in full. Not just the famous stories everyone knows, but the hidden gems, the forgotten legends, and the everyday magic that makes India unlike anywhere else on Earth.</p>
+    <p style="font-size:1rem;color:var(--t2);line-height:1.85;margin-bottom:1.5rem;font-family:'Lato',sans-serif;">Every article follows a simple formula — a real story, an Indian connection, and a lesson that stays with you. Whether you are a student, a curious reader, a traveller, a foodie, or just someone who loves a good story — there is something here for you.</p>
+    <p style="font-size:1rem;color:var(--t2);line-height:1.85;margin-bottom:2rem;font-family:'Lato',sans-serif;">We are just getting started. New stories every week. From festivals to food, from ancient temples to tribal art — Vamsi Tales is your window into the soul of India. 🇮🇳</p>
+    <div class="about-grid">
+      <div class="about-card"><div class="about-card-emoji">🪷</div><div class="about-card-title">Our Mission</div><div class="about-card-desc">Tell India's stories with honesty, depth and love.</div></div>
+      <div class="about-card"><div class="about-card-emoji">📚</div><div class="about-card-title">Who It's For</div><div class="about-card-desc">Students, curious minds, and Indians everywhere.</div></div>
+      <div class="about-card"><div class="about-card-emoji">✍️</div><div class="about-card-title">New Stories</div><div class="about-card-desc">Fresh articles published every week.</div></div>
+    </div>
+    <div class="about-quote">
+      <p style="font-size:0.88rem;color:var(--t2);line-height:1.8;font-family:'Lato',sans-serif;">Have a story suggestion or want to collaborate? We would love to hear from you. Every great story starts with a conversation. 🙏</p>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+
+
+<!-- REVIEWS SECTION -->
+<div class="reviews-section" id="reviews-section">
+  <div class="reviews-inner">
+    <div class="reviews-header">
+      <div class="reviews-title">⭐ What Our Readers Say about Vamsi Tales</div>
+      <div class="reviews-summary">
+        <div class="reviews-avg">
+          <div class="reviews-avg-num" id="rev-avg">4.8</div>
+          <div class="reviews-avg-stars">⭐⭐⭐⭐⭐</div>
+          <div class="reviews-avg-count" id="rev-count">Loading...</div>
+        </div>
+        <div class="reviews-bars" id="rev-bars"></div>
+      </div>
+    </div>
+    <div class="reviews-list" id="reviews-list"></div>
+    <div class="review-form">
+      <div class="review-form-title">Write a Review</div>
+      <div class="star-picker" id="star-picker">
+        <span class="star-pick" onclick="setStar(1)">⭐</span>
+        <span class="star-pick" onclick="setStar(2)">⭐</span>
+        <span class="star-pick" onclick="setStar(3)">⭐</span>
+        <span class="star-pick" onclick="setStar(4)">⭐</span>
+        <span class="star-pick" onclick="setStar(5)">⭐</span>
+      </div>
+      <div class="comment-name-row" style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:8px">
+        <input class="comment-input" id="rev-name" placeholder="Your name"/>
+        <input class="comment-input" id="rev-location" placeholder="City, India"/>
+      </div>
+      <textarea class="comment-textarea" id="rev-text" placeholder="Tell us what you love about Vamsi Tales..." style="width:100%"></textarea>
+      <button class="review-submit" onclick="submitReview()">Submit Review ⭐</button>
+    </div>
+  </div>
+</div>
+
+<!-- NEWSLETTER -->
+<div class="newsletter-section" id="newsletter-wrap">
+  <div class="newsletter-inner">
+    <div class="newsletter-left">
+      <div class="nl-emoji">📬</div>
+      <div class="nl-title">Get Vamsi Tales in Your Inbox</div>
+      <div class="nl-sub">Every week, one new story — India, life, travel, mystery, food or whatever I feel like writing. No spam, ever.</div>
+    </div>
+    <div class="newsletter-right">
+      <div class="nl-input-row">
+        <input class="nl-input" id="nl-email" type="email" placeholder="your@email.com"/>
+        <button class="nl-btn" onclick="subscribeNewsletter()">SUBSCRIBE</button>
+      </div>
+      <div class="nl-note">🔒 No spam. Unsubscribe anytime.</div>
+    </div>
+  </div>
+</div>
+
+<footer style="padding-bottom:1rem;width:100%;box-sizing:border-box;">
+  <span style="color:var(--acc);margin-right:6px">🪷</span>
+
+  <!-- Social Media Links -->
+  <div class="footer-social">
+    <a class="social-btn ig" href="https://instagram.com/vamsitales" target="_blank" title="Instagram">📸</a>
+    <a class="social-btn yt" href="https://youtube.com/@vamsitales" target="_blank" title="YouTube">▶️</a>
+    <a class="social-btn tw" href="https://twitter.com/vamsitales" target="_blank" title="Twitter">🐦</a>
+    <a class="social-btn fb" href="https://facebook.com/vamsitales" target="_blank" title="Facebook">📘</a>
+    <a class="social-btn wa" href="https://wa.me/message/BHARATAKATHA" target="_blank" title="WhatsApp Community">💬</a>
+  </div>
+
+  VAMSI TALES — Stories Worth Telling · © <span id="footer-year"></span>
+
+  <div style="margin-top:10px;display:flex;justify-content:center;gap:16px;flex-wrap:wrap">
+    <span style="cursor:pointer;color:var(--t2);font-size:11px" onclick="showPage('privacy')">Privacy Policy</span>
+    <span style="color:var(--div)">·</span>
+    <span style="cursor:pointer;color:var(--t2);font-size:11px" onclick="showPage('contact')">Contact</span>
+    <span style="color:var(--div)">·</span>
+    <span style="cursor:pointer;color:var(--t2);font-size:11px" onclick="showPage('about')">About</span>
+    <span style="color:var(--div)">·</span>
+    <span style="cursor:pointer;color:var(--t2);font-size:11px" onclick="showPage('terms')">Terms</span>
+    <span style="color:var(--div)">·</span>
+    <span style="cursor:pointer;color:var(--t2);font-size:11px" onclick="showPage('analytics')">📊 Analytics Setup</span>
+  </div>
+
+  <div style="margin-top:10px;font-size:10px;color:var(--t3);font-family:'Lato',sans-serif">
+    © <span id="footer-year2"></span> Vamsi Tales. All content is original and protected under copyright.
+  </div>
+</footer>
+
+<!-- SHARE MODAL -->
+<div class="share-modal-bg" id="share-modal" onclick="if(event.target.id==='share-modal')closeShare()">
+  <div class="share-modal">
+    <div class="share-title">Share this Story</div>
+    <div class="share-subtitle" id="share-article-title"></div>
+    <div class="share-btns">
+      <button class="share-btn" onclick="shareTo('whatsapp')">💬 WhatsApp</button>
+      <button class="share-btn" onclick="shareTo('twitter')">🐦 Twitter</button>
+      <button class="share-btn" onclick="shareTo('facebook')">📘 Facebook</button>
+      <button class="share-btn" onclick="shareTo('copy')">🔗 Copy Link</button>
+    </div>
+    <div class="share-link-row">
+      <input class="share-link-input" id="share-link-input" readonly/>
+      <button class="copy-btn" onclick="copyLink()">Copy</button>
+    </div>
+    <button class="share-close" onclick="closeShare()">Close</button>
+  </div>
+</div>
+<!-- MODAL -->
+<div class="modal-bg" id="modal" onclick="closeModal(event)">
+  <div class="modal">
+    <button class="modal-close" onclick="document.getElementById('modal').classList.remove('open')">✕</button>
+    <div style="font-size:2.2rem" id="m-emoji"></div>
+    <div class="modal-cat" id="m-cat"></div>
+    <div class="modal-title" id="m-title"></div>
+    <div class="modal-excerpt" id="m-excerpt"></div>
+    <div class="modal-body">This is a preview of the full article. The complete story dives deep into history, lived experience, and cultural insight — exploring what makes this corner of Indian civilization so endlessly fascinating.</div>
+    <div class="modal-meta"><span id="m-date"></span><span>·</span><span id="m-read"></span></div>
+  </div>
+</div>
+
+<!-- CHATBOT -->
+<button class="chat-fab" id="chat-fab" onclick="toggleChat()">🪷</button>
+<div class="chat-win" id="chat-win" style="display:none">
+  <div class="chat-hdr" style="background:var(--acc)">
+    <div style="display:flex;align-items:center;gap:10px">
+      <div class="chat-avatar">🪷</div>
+      <div><div class="chat-name" style="color:var(--at)">Vamsi AI</div><div class="chat-status" style="color:var(--at)">● Ask me about India</div></div>
+    </div>
+    <button class="chat-close-btn" style="color:var(--at)" onclick="toggleChat()">✕</button>
+  </div>
+  <div class="chat-msgs" id="chat-msgs" style="background:var(--bg)"></div>
+  <div class="chat-sugs" id="chat-sugs" style="background:var(--bg)">
+    <button class="sug-btn" onclick="sendSug(this)">🪔 Diwali</button>
+    <button class="sug-btn" onclick="sendSug(this)">🏛️ Temples</button>
+    <button class="sug-btn" onclick="sendSug(this)">🌶️ Cuisine</button>
+    <button class="sug-btn" onclick="sendSug(this)">📚 History</button>
+  </div>
+  <div class="chat-input-row" style="background:var(--nav)">
+    <input class="chat-input" id="chat-input" placeholder="Ask anything about India..." style="background:var(--card);color:var(--text)" onkeydown="if(event.key==='Enter')sendChat()"/>
+    <button class="chat-send" onclick="sendChat()">➤</button>
+  </div>
+</div>
+
+<script>
+// DATA
+const posts=[
+  {id:1,category:"India",title:"The Village With No Locks — Mystery of Shani Shingnapur",excerpt:"4,000 people. No doors. No locks. For centuries. The story behind India's most trusting village.",date:"November 12, 2024",readTime:"5 min read",emoji:"🪔",color:"#C2621A"},
+  {id:2,category:"Life",title:"The One Decision That Changes Everything",excerpt:"There is always one moment — one choice — that splits your life into before and after.",date:"October 28, 2024",readTime:"4 min read",emoji:"✨",color:"#F59E0B"},
+  {id:3,category:"Mystery",title:"The Roopkund Skeleton Lake — 500 Skulls at 16,000 Feet",excerpt:"High in the Himalayas lies a frozen lake filled with hundreds of ancient human skeletons. Who were they?",date:"October 15, 2024",readTime:"6 min read",emoji:"💀",color:"#8B5CF6"},
+  {id:4,category:"Travel",title:"Hampi: The City That Time Forgot",excerpt:"Boulders the size of buildings. Temples carved from solid rock. Hampi was once the second largest city in the world.",date:"September 30, 2024",readTime:"7 min read",emoji:"🏔️",color:"#10B981"},
+  {id:5,category:"Tech",title:"How AI Is Quietly Changing the Way India Works",excerpt:"From farmers using AI to predict rainfall to students getting tutors at midnight — AI is spreading across India fast.",date:"September 10, 2024",readTime:"8 min read",emoji:"🤖",color:"#3B82F6"},
+  {id:6,category:"Food",title:"Why Andhra Food Is the Spiciest — And the Science Behind It",excerpt:"Andhra Pradesh holds the unofficial title of India's spiciest cuisine. The answer involves history, climate and one tiny red chilli.",date:"August 22, 2024",readTime:"5 min read",emoji:"🌶️",color:"#EF4444"},
+  {id:7,category:"Motivation",title:"Lessons From a Man Who Failed 10,000 Times",excerpt:"Thomas Edison did not see 10,000 failures. He saw 10,000 ways that did not work. The story of history's most productive mindset.",date:"August 10, 2024",readTime:"4 min read",emoji:"💡",color:"#F97316"},
+  {id:8,category:"India",title:"Nalanda: The University That Burned for 3 Months",excerpt:"Before Oxford, before Cambridge — India had Nalanda. The world's first great university burned for three months.",date:"July 28, 2024",readTime:"6 min read",emoji:"📚",color:"#EC4899"},
+];
+
+const categories=["All","India","Life","Travel","Food","Mystery","Tech","Motivation"];
+
+const FESTIVALS=[
+  {month:1,day:14,name:"Makar Sankranti",emoji:"🪁",type:"national",region:"PAN INDIA",desc:"Harvest festival marking the sun's entry into Capricorn."},
+  {month:1,day:14,name:"Pongal",emoji:"🍚",type:"south",region:"TAMIL NADU",desc:"Four-day Tamil harvest festival thanking the Sun God."},
+  {month:1,day:26,name:"Republic Day",emoji:"🇮🇳",type:"national",region:"PAN INDIA",desc:"India celebrates its Constitution coming into effect in 1950."},
+  {month:2,day:26,name:"Maha Shivaratri",emoji:"🔱",type:"national",region:"PAN INDIA",desc:"The great night of Lord Shiva. Devotees fast and keep night-long vigils."},
+  {month:3,day:14,name:"Holi",emoji:"🎨",type:"national",region:"PAN INDIA",desc:"The festival of colors! Celebrating the victory of good over evil."},
+  {month:3,day:30,name:"Ugadi",emoji:"🌿",type:"south",region:"ANDHRA / KARNATAKA",desc:"Telugu and Kannada New Year. Celebrated with Ugadi Pachadi."},
+  {month:4,day:13,name:"Baisakhi",emoji:"🌾",type:"north",region:"PUNJAB",desc:"Sikh harvest festival and New Year."},
+  {month:5,day:12,name:"Buddha Purnima",emoji:"☸️",type:"national",region:"PAN INDIA",desc:"Birthday of Gautama Buddha."},
+  {month:6,day:6,name:"Rath Yatra",emoji:"🛕",type:"east",region:"ODISHA",desc:"Chariot festival of Lord Jagannath in Puri."},
+  {month:8,day:15,name:"Independence Day",emoji:"🇮🇳",type:"national",region:"PAN INDIA",desc:"India's independence from British rule in 1947."},
+  {month:8,day:16,name:"Raksha Bandhan",emoji:"🪢",type:"national",region:"PAN INDIA",desc:"Festival of the bond between brothers and sisters."},
+  {month:8,day:27,name:"Janmashtami",emoji:"🦚",type:"national",region:"PAN INDIA",desc:"Birthday of Lord Krishna."},
+  {month:8,day:27,name:"Onam",emoji:"🌸",type:"south",region:"KERALA",desc:"Kerala's harvest festival."},
+  {month:9,day:2,name:"Ganesh Chaturthi",emoji:"🐘",type:"national",region:"PAN INDIA",desc:"10-day festival celebrating Lord Ganesha."},
+  {month:9,day:4,name:"Radha Ashtami",emoji:"🌺",type:"national",region:"PAN INDIA",desc:"Birthday of Goddess Radha, divine consort of Lord Krishna."},
+  {month:10,day:2,name:"Navratri Begins",emoji:"💃",type:"national",region:"PAN INDIA",desc:"Nine nights of worshipping Goddess Durga."},
+  {month:10,day:12,name:"Dussehra",emoji:"🏹",type:"national",region:"PAN INDIA",desc:"Victory of Lord Rama over Ravana."},
+  {month:11,day:1,name:"Diwali",emoji:"🪔",type:"national",region:"PAN INDIA",desc:"The festival of lights!"},
+  {month:11,day:5,name:"Chhath Puja",emoji:"☀️",type:"north",region:"BIHAR / UP",desc:"Four-day festival worshipping the Sun God."},
+  {month:11,day:15,name:"Guru Nanak Jayanti",emoji:"🙏",type:"national",region:"PAN INDIA",desc:"Birthday of Guru Nanak Dev Ji, founder of Sikhism."},
+  {month:12,day:25,name:"Christmas",emoji:"🎄",type:"national",region:"PAN INDIA",desc:"Birthday of Jesus Christ."},
+];
+
+const TC={national:"#F59E0B",south:"#10B981",north:"#3B82F6",west:"#F97316",east:"#EC4899"};
+const TL={national:"National",south:"South India",north:"North India",west:"West India",east:"East India"};
+const MONTHS=["January","February","March","April","May","June","July","August","September","October","November","December"];
+
+const articleBodies={
+  1:"<p>Every year, millions of visitors come to Shani Shingnapur in Maharashtra. This village has no doors, no locks, no bolts. 4,000 people living in complete trust for centuries.</p><h3>The Legend</h3><p>Hundreds of years ago, a massive black rock appeared in a river. A shepherd touched it and it bled. Lord Shani appeared in his dream and said: leave me in the open sky and I will protect this village forever.</p><div class='article-pullquote'><p>What if the real security was never the lock but the community?</p></div><h3>Does It Work?</h3><p>Police records show an extraordinarily low crime rate. Even the UCO Bank branch here had no doors or lockers. Whether it is faith or community values, something is working.</p>",
+  2:"<p>There is always one moment in a person's life, one quiet decision, that splits everything into before and after.</p><p>It is rarely dramatic. It often looks like nothing from the outside. But something inside you shifts permanently.</p><h3>How Do You Recognize It?</h3><p>The decisions that change everything rarely announce themselves. They arrive disguised as small choices.</p><div class='article-pullquote'><p>The biggest decisions of your life will often feel like the smallest ones in the moment.</p></div><h3>The Lesson</h3><p>Stop waiting for the right moment. The right moment is the one where you decide it is right.</p>",
+  3:"<p>At 16,000 feet above sea level in the Himalayas, there is a frozen lake filled with hundreds of human skeletons.</p><p>Roopkund Lake was discovered in 1942 by a British forest ranger. What he found shocked the world.</p><h3>Who Were They?</h3><p>DNA analysis revealed something strange: the skeletons came from two completely different groups separated by 1,000 years in time.</p><div class='article-pullquote'><p>Some mysteries are not meant to be solved. They remind us how little we know.</p></div><h3>The Answer</h3><p>Scientists believe both groups were killed by a sudden violent hailstorm. Hailstones the size of cricket balls. No shelter. No escape.</p>",
+  4:"<p>Boulders the size of buildings. Temples carved from solid rock. Rivers that turn silver at dawn. Hampi in Karnataka was once the second largest city in the entire world.</p><h3>What Was Hampi?</h3><p>At its peak in the 15th century, Hampi was the capital of the Vijayanagara Empire, one of the greatest kingdoms in Indian history.</p><div class='article-pullquote'><p>Some places do not need words. Hampi speaks through stone.</p></div><h3>Why You Should Go</h3><p>Today Hampi is a UNESCO World Heritage Site. Rent a bicycle, explore the ruins at sunrise, and let the stones tell you their stories.</p>",
+  5:"<p>Something extraordinary is happening across India and most people outside the country are not paying attention.</p><p>Farmers in Andhra Pradesh are using AI to predict which crops will survive the next monsoon. Students in rural Bihar are getting tutoring at midnight from AI systems.</p><h3>Why India?</h3><p>India has the perfect conditions: the world's largest young population, widespread smartphone usage, and a deep cultural hunger for education.</p><div class='article-pullquote'><p>India is not just adopting AI. India is quietly becoming the world's largest AI experiment.</p></div>",
+  6:"<p>If you have ever eaten authentic Andhra food and felt your eyes water and your heart sing simultaneously, you are not alone.</p><p>Andhra Pradesh is home to what many food experts consider the spiciest cuisine in all of India.</p><h3>The History</h3><p>The Guntur red chilli grown in Andhra soil is not just a spice. It is an economy, a culture and an identity. Andhra Pradesh produces over 50 percent of India's total chilli output.</p><div class='article-pullquote'><p>In Andhra, spice is not just a flavour. It is a philosophy.</p></div><h3>The Science</h3><p>Capsaicin triggers the same pain receptors as actual heat. Your brain releases endorphins in response. Andhra food is literally a natural high.</p>",
+  7:"<p>Thomas Edison tried over 10,000 different materials before finding the right filament for the light bulb. When asked how it felt to fail 10,000 times, Edison said: I did not fail. I found 10,000 ways that do not work.</p><h3>What Edison Understood</h3><p>Failure is data. Every failed attempt tells you something. Every dead end narrows the map.</p><div class='article-pullquote'><p>The only real failure is the one you stop learning from.</p></div><h3>Apply It Today</h3><p>Whatever you are working on right now, count your attempts not your failures. Each one is a step not a stumble.</p>",
+  8:"<p>In the 5th century AD, there existed a university so extraordinary that students traveled from China, Korea, Japan, Tibet, Mongolia, Turkey and Greece to study there.</p><p>Nalanda University in Bihar was the world's first residential university with over 10,000 students and 2,000 teachers.</p><h3>What Was Taught</h3><p>Every subject imaginable: mathematics, astronomy, medicine, philosophy, literature, logic.</p><div class='article-pullquote'><p>Nalanda did not just teach knowledge. It taught how to think.</p></div><h3>How It Ended</h3><p>In 1193, an invading army attacked Nalanda. The library burned for three months because there were so many books.</p>",
+};
+
+const articleTags={
+  1:["#India","#Mystery","#Culture","#Traditions"],
+  2:["#Life","#Motivation","#Decisions"],
+  3:["#Mystery","#History","#Science"],
+  4:["#Travel","#India","#Heritage"],
+  5:["#Tech","#AI","#India","#Future"],
+  6:["#Food","#Andhra","#India","#Culture"],
+  7:["#Motivation","#Mindset","#Success"],
+  8:["#India","#History","#Education"],
+};
+
+// STATE
+const TODAY=new Date();
+const YEAR=TODAY.getFullYear();
+let curTheme="light",curPage="home",curCat="All";
+let calMonth=TODAY.getMonth()+1,calYear=YEAR,selDay=null;
+let chatOpen=false,chatMsgs=[],isTyping=false;
+let menuOpen=false;
+let bookmarks=JSON.parse(localStorage.getItem("bk-bookmarks")||"[]");
+let recentViewed=JSON.parse(localStorage.getItem("bk-recent")||"[]");
+let articleComments=JSON.parse(localStorage.getItem("bk-comments")||"{}");
+let articleViews=JSON.parse(localStorage.getItem("bk-views")||"{}");
+let reviews=JSON.parse(localStorage.getItem("bk-reviews")||"[]");
+let selectedStar=0;
+let sharePostId=null;
+let currentArticleId=null;
+let searchOpen=false;
+
+var fyEl=document.getElementById("cal-year"); if(fyEl) fyEl.textContent=YEAR;
+var fyEl2=document.getElementById("footer-year"); if(fyEl2) fyEl2.textContent=YEAR;
+var fyEl3=document.getElementById("footer-year2"); if(fyEl3) fyEl3.textContent=YEAR;
+
+// THEME
+function setTheme(th){
+  document.body.className=th; curTheme=th;
+  ["light","dark","mud"].forEach(function(t){
+    var b=document.getElementById("tb-"+t); if(b) b.classList.toggle("active",t===th);
+    var m=document.getElementById("mtb-"+t); if(m) m.classList.toggle("active",t===th);
+  });
+}
+
+// PAGE NAV
+function showPage(p){
+  curPage=p;
+  document.querySelectorAll(".page").forEach(function(el){el.classList.remove("active");});
+  var pg=document.getElementById("page-"+p);
+  if(pg) pg.classList.add("active");
+  document.querySelectorAll(".nav-link").forEach(function(el){el.classList.remove("active");});
+  var nl=document.getElementById("nl-"+p); if(nl) nl.classList.add("active");
+  if(p==="calendar") renderCalendar();
+  if(p==="bookmarks") renderBookmarks();
+  if(p==="analytics") setTimeout(animateGAStats,300);
+  window.scrollTo(0,0);
+}
+
+// HAMBURGER
+function toggleMenu(){
+  menuOpen=!menuOpen;
+  var mm=document.getElementById("mobile-menu"); if(mm) mm.classList.toggle("open",menuOpen);
+  var h1=document.getElementById("h1"),h2=document.getElementById("h2"),h3=document.getElementById("h3");
+  if(h1) h1.style.transform=menuOpen?"rotate(45deg) translate(5px,5px)":"none";
+  if(h2) h2.style.opacity=menuOpen?"0":"1";
+  if(h3) h3.style.transform=menuOpen?"rotate(-45deg) translate(5px,-5px)":"none";
+}
+
+// MAKE CARD
+function makeCard(p,i){
+  var bmd=bookmarks.includes(p.id);
+  var bmClass=bmd?"card-action-btn bookmarked":"card-action-btn";
+  var bmText=bmd?"❤️ Saved":"🤍 Save";
+  var anim="fadeUp 0.4s ease "+(i*0.07)+"s both";
+  return '<div class="card" style="animation:'+anim+'" onmouseenter="this.style.borderColor=\''+p.color+'66\'" onmouseleave="this.style.borderColor=\'\'">'+
+    '<div class="card-accent" style="background:'+p.color+'"></div>'+
+    '<div class="card-body" onclick="openFullArticle('+p.id+')" style="cursor:pointer">'+
+    '<div class="card-top"><span class="card-emoji">'+p.emoji+'</span><span class="card-cat" style="color:'+p.color+'">'+p.category+'</span></div>'+
+    '<div class="card-title">'+p.title+'</div>'+
+    '<div class="card-excerpt">'+p.excerpt+'</div>'+
+    '<div class="card-meta"><span>'+p.date+'</span><span>'+p.readTime+'</span></div>'+
+    '</div>'+
+    '<div class="card-actions">'+
+    '<button class="'+bmClass+'" onclick="event.stopPropagation();toggleBookmark('+p.id+',this)">'+bmText+'</button>'+
+    '<button class="card-action-btn" onclick="event.stopPropagation();openShare('+p.id+')">📤 Share</button>'+
+    '</div></div>';
+}
+
+// CATEGORIES
+function renderCats(){
+  var el=document.getElementById("cat-bar"); if(!el) return;
+  el.innerHTML=categories.map(function(cat){
+    return '<button class="cbt '+(curCat===cat?"active":"")+'" onclick="filterCat(\''+cat+'\')">'+cat.toUpperCase()+'</button>';
+  }).join("");
+}
+function filterCat(cat){ curCat=cat; renderCats(); renderCards(); }
+
+// CARDS
+function renderCards(){
+  var filtered=curCat==="All"?posts:posts.filter(function(p){return p.category===curCat;});
+  var grid=document.getElementById("card-grid");
+  if(grid) grid.innerHTML=filtered.map(function(p,i){return makeCard(p,i);}).join("");
+}
+
+// FULL ARTICLE
+function openFullArticle(id){
+  currentArticleId=id;
+  var p=posts.find(function(x){return x.id===id;});
+  if(!p) return;
+  articleViews[id]=(articleViews[id]||0)+1;
+  localStorage.setItem("bk-views",JSON.stringify(articleViews));
+  addRecent(id);
+  var body=articleBodies[id]||("<p>"+p.excerpt+"</p><p>Full article coming soon. Stay tuned!</p>");
+  var tags=articleTags[id]||["#VamsiTales"];
+  var catEl=document.getElementById("art-category");
+  if(catEl) catEl.innerHTML='<span style="color:'+p.color+';font-size:10px;letter-spacing:0.2em;text-transform:uppercase;font-family:Lato,sans-serif">'+p.emoji+" "+p.category+'</span>';
+  var titleEl=document.getElementById("art-title"); if(titleEl) titleEl.textContent=p.title;
+  var dateEl=document.getElementById("art-date"); if(dateEl) dateEl.textContent=p.date;
+  var readEl=document.getElementById("art-read"); if(readEl) readEl.textContent=p.readTime;
+  var viewsEl=document.getElementById("art-views"); if(viewsEl) viewsEl.textContent=articleViews[id];
+  var bodyEl=document.getElementById("art-body"); if(bodyEl) bodyEl.innerHTML=body;
+  var tagsEl=document.getElementById("art-tags"); if(tagsEl) tagsEl.innerHTML=tags.map(function(t){return '<span class="article-tag">'+t+'</span>';}).join("");
+  var relEl=document.getElementById("related-grid");
+  if(relEl) relEl.innerHTML=posts.filter(function(x){return x.id!==id;}).slice(0,3).map(function(r){
+    return '<div class="related-card" onclick="openFullArticle('+r.id+')">'+
+      '<div class="related-accent" style="background:'+r.color+'"></div>'+
+      '<div class="related-body"><div class="related-cat" style="color:'+r.color+'">'+r.emoji+" "+r.category+'</div>'+
+      '<div class="related-title-text">'+r.title+'</div></div></div>';
+  }).join("");
+  document.querySelectorAll(".reaction-btn").forEach(function(b){b.classList.remove("reacted");});
+  renderComments(id);
+  showPage("article");
+}
+
+// REACTIONS
+function react(btn,emoji){
+  btn.classList.toggle("reacted");
+  var cnt=btn.querySelector(".reaction-count");
+  cnt.textContent=btn.classList.contains("reacted")?parseInt(cnt.textContent)+1:parseInt(cnt.textContent)-1;
+  if(btn.classList.contains("reacted")) showToast("Reacted with "+emoji);
+}
+
+// COMMENTS
+function renderComments(id){
+  var comments=articleComments[id]||[];
+  var countEl=document.getElementById("comment-count"); if(countEl) countEl.textContent="("+comments.length+")";
+  var colors=["#C2621A","#10B981","#8B5CF6","#3B82F6","#EC4899","#F59E0B"];
+  var listEl=document.getElementById("comments-list"); if(!listEl) return;
+  if(comments.length===0){
+    listEl.innerHTML='<div style="text-align:center;padding:1.5rem;color:var(--t3);font-family:Lato,sans-serif;font-size:13px">Be the first to comment! 💬</div>';
+    return;
+  }
+  listEl.innerHTML=comments.map(function(cm,i){
+    return '<div class="comment-item">'+
+      '<div class="comment-avatar" style="background:'+colors[i%colors.length]+'">'+cm.name.charAt(0).toUpperCase()+'</div>'+
+      '<div style="flex:1"><div><span class="comment-name">'+cm.name+'</span><span class="comment-date">'+cm.date+'</span></div>'+
+      '<div class="comment-text">'+cm.text+'</div>'+
+      '<button class="comment-like" onclick="this.querySelector(\'span\').textContent=parseInt(this.querySelector(\'span\').textContent)+1;this.style.color=\'var(--acc)\';this.disabled=true">'+
+      '👍 <span>'+(cm.likes||0)+'</span> Helpful</button></div></div>';
+  }).join("");
+}
+
+function submitComment(){
+  var name=document.getElementById("c-name").value.trim();
+  var text=document.getElementById("c-text").value.trim();
+  if(!name||!text){showToast("Please fill in your name and comment!");return;}
+  if(!articleComments[currentArticleId]) articleComments[currentArticleId]=[];
+  articleComments[currentArticleId].unshift({name:name,text:text,date:"Just now",likes:0});
+  localStorage.setItem("bk-comments",JSON.stringify(articleComments));
+  document.getElementById("c-name").value="";
+  document.getElementById("c-text").value="";
+  renderComments(currentArticleId);
+  showToast("Comment posted! 💬");
+}
+
+// MODAL fallback
+function openModal(id){ openFullArticle(id); }
+function closeModal(e){ if(e&&e.target&&e.target.id==="modal"){var m=document.getElementById("modal");if(m)m.classList.remove("open");} }
+
+// BOOKMARKS
+function toggleBookmark(id,btn){
+  if(bookmarks.includes(id)){
+    bookmarks=bookmarks.filter(function(b){return b!==id;});
+    btn.className="card-action-btn"; btn.textContent="🤍 Save";
+    showToast("Removed from bookmarks");
+  } else {
+    bookmarks.push(id);
+    btn.className="card-action-btn bookmarked"; btn.textContent="❤️ Saved";
+    showToast("Saved! ❤️");
+  }
+  localStorage.setItem("bk-bookmarks",JSON.stringify(bookmarks));
+  updateBmCount();
+}
+function updateBmCount(){
+  var cnt=document.getElementById("bm-count");
+  if(cnt){cnt.style.display=bookmarks.length>0?"inline":"none";cnt.textContent=bookmarks.length;}
+}
+function renderBookmarks(){
+  var bPosts=posts.filter(function(p){return bookmarks.includes(p.id);});
+  var wrap=document.getElementById("bookmarks-content"); if(!wrap) return;
+  if(bPosts.length===0){
+    wrap.innerHTML='<div class="bookmarks-empty"><div class="bookmarks-empty-icon">🤍</div><div class="bookmarks-empty-text">No saved stories yet</div><div class="bookmarks-empty-sub">Click Save on any story to bookmark it!</div></div>';
+  } else {
+    wrap.innerHTML='<div class="grid" style="padding:0">'+bPosts.map(function(p,i){return makeCard(p,i);}).join("")+'</div>';
+  }
+}
+
+// RECENTLY VIEWED
+function addRecent(id){
+  recentViewed=[id].concat(recentViewed.filter(function(r){return r!==id;})).slice(0,3);
+  localStorage.setItem("bk-recent",JSON.stringify(recentViewed));
+  renderRecent();
+}
+function renderRecent(){
+  var bar=document.getElementById("recent-bar");
+  var chips=document.getElementById("recent-chips");
+  if(!bar||!chips) return;
+  if(recentViewed.length===0){bar.style.display="none";return;}
+  bar.style.display="flex";
+  chips.innerHTML=recentViewed.map(function(id){
+    var p=posts.find(function(x){return x.id===id;}); if(!p) return "";
+    return '<div class="recent-chip" onclick="openFullArticle('+p.id+')"><span>'+p.emoji+'</span><span class="recent-chip-text">'+p.title.slice(0,35)+'...</span></div>';
+  }).join("");
+}
+
+// SEARCH
+function toggleSearch(){
+  searchOpen=!searchOpen;
+  var sw=document.getElementById("search-wrap");
+  if(sw) sw.style.display=searchOpen?"flex":"none";
+  if(searchOpen) setTimeout(function(){var inp=document.getElementById("search-input");if(inp)inp.focus();},100);
+  else clearSearch();
+}
+function doSearch(q){
+  var clear=document.getElementById("search-clear"); if(clear) clear.style.display=q?"block":"none";
+  var grid=document.getElementById("card-grid");
+  var rw=document.getElementById("search-results-wrap");
+  if(!q){if(grid)grid.style.display="grid";if(rw)rw.style.display="none";return;}
+  if(grid)grid.style.display="none";
+  if(rw)rw.style.display="block";
+  var ql=q.toLowerCase();
+  var results=posts.filter(function(p){return p.title.toLowerCase().indexOf(ql)>-1||p.excerpt.toLowerCase().indexOf(ql)>-1||p.category.toLowerCase().indexOf(ql)>-1;});
+  var tag=document.getElementById("search-tag"); if(tag) tag.textContent=results.length+" result"+(results.length!==1?"s":"")+" for \""+q+"\"";
+  var nr=document.getElementById("no-results"); if(nr) nr.style.display=results.length?"none":"block";
+  var sg=document.getElementById("search-grid"); if(sg) sg.innerHTML=results.map(function(p,i){return makeCard(p,i);}).join("");
+}
+function clearSearch(){
+  var inp=document.getElementById("search-input"); if(inp) inp.value="";
+  var clear=document.getElementById("search-clear"); if(clear) clear.style.display="none";
+  var grid=document.getElementById("card-grid"); if(grid) grid.style.display="grid";
+  var rw=document.getElementById("search-results-wrap"); if(rw) rw.style.display="none";
+}
+
+// SHARE
+function openShare(id){
+  sharePostId=id;
+  var p=posts.find(function(x){return x.id===id;});
+  var titleEl=document.getElementById("share-article-title"); if(titleEl) titleEl.textContent=p.title;
+  var linkEl=document.getElementById("share-link-input"); if(linkEl) linkEl.value=window.location.href+"#story-"+id;
+  var modal=document.getElementById("share-modal"); if(modal) modal.classList.add("open");
+}
+function closeShare(){ var m=document.getElementById("share-modal"); if(m) m.classList.remove("open"); }
+function shareTo(platform){
+  var p=posts.find(function(x){return x.id===sharePostId;}); if(!p) return;
+  var url=encodeURIComponent(window.location.href);
+  var text=encodeURIComponent("Read: "+p.title+" on Vamsi Tales");
+  if(platform==="copy"){copyLink();return;}
+  var links={whatsapp:"https://wa.me/?text="+text+"%20"+url,twitter:"https://twitter.com/intent/tweet?text="+text+"&url="+url,facebook:"https://www.facebook.com/sharer/sharer.php?u="+url};
+  if(links[platform]) window.open(links[platform],"_blank");
+}
+function copyLink(){
+  var inp=document.getElementById("share-link-input"); if(!inp) return;
+  inp.select(); document.execCommand("copy"); showToast("Link copied! 🔗");
+}
+
+// CONTACT
+function submitContact(){
+  var name=document.getElementById("ct-name").value.trim();
+  var email=document.getElementById("ct-email").value.trim();
+  var msg=document.getElementById("ct-msg").value.trim();
+  if(!name||!email||!msg){showToast("Please fill all fields!");return;}
+  ["ct-name","ct-email","ct-subject","ct-msg"].forEach(function(id){var el=document.getElementById(id);if(el)el.value="";});
+  showToast("Message sent! We will reply within 48 hours 🙏");
+}
+
+// CALENDAR
+function renderCalendar(){
+  var mf=FESTIVALS.filter(function(f){return f.month===calMonth;});
+  var mt=document.getElementById("month-title"); if(mt) mt.textContent=MONTHS[calMonth-1]+" "+calYear;
+  var ms2=document.getElementById("month-sub"); if(ms2) ms2.textContent=mf.length+" festival"+(mf.length!==1?"s":"")+" this month";
+  var first=new Date(calYear,calMonth-1,1).getDay();
+  var days=new Date(calYear,calMonth,0).getDate();
+  var isCur=TODAY.getMonth()+1===calMonth&&TODAY.getFullYear()===calYear;
+  var html="";
+  for(var i=0;i<first;i++) html+='<div class="cal-cell empty"></div>';
+  for(var d=1;d<=days;d++){
+    var df=FESTIVALS.filter(function(f){return f.month===calMonth&&f.day===d;});
+    var cls="cal-cell";
+    if(isCur&&d===TODAY.getDate()) cls+=" today";
+    if(selDay===d) cls+=" selected";
+    var dots=df.slice(0,2).map(function(f){return '<div class="fdot-row"><div class="fdot" style="background:'+TC[f.type]+'"></div><div class="fname">'+f.name+'</div></div>';}).join("");
+    if(df.length>2) dots+='<div style="font-size:7px;color:var(--t3);font-family:Lato,sans-serif">+'+(df.length-2)+' more</div>';
+    html+='<div class="'+cls+'" onclick="selectDay('+d+')"><div class="cal-date">'+d+'</div>'+dots+'</div>';
+  }
+  var cells=document.getElementById("cal-cells"); if(cells) cells.innerHTML=html;
+  renderUpcoming();
+  var leg=document.getElementById("legend");
+  if(leg) leg.innerHTML=Object.keys(TL).map(function(k){return '<div class="leg-item"><div class="leg-dot" style="background:'+TC[k]+'"></div>'+TL[k]+'</div>';}).join("");
+  if(selDay) renderSelDay();
+}
+function selectDay(d){ selDay=d; renderCalendar(); renderSelDay(); }
+function renderSelDay(){
+  var df=FESTIVALS.filter(function(f){return f.month===calMonth&&f.day===selDay;});
+  var st=document.getElementById("sel-date-title");
+  if(st) st.textContent=new Date(calYear,calMonth-1,selDay).toLocaleDateString("en-IN",{weekday:"long",day:"numeric",month:"long"});
+  var sf=document.getElementById("sel-festivals");
+  if(!sf) return;
+  if(df.length===0){sf.innerHTML='<div class="sidebar-empty">No festivals on this day 🌙</div>';return;}
+  sf.innerHTML=df.map(function(f){return '<div class="fest-item"><div class="fest-emoji">'+f.emoji+'</div><div><div class="fest-name">'+f.name+'</div><div class="fest-region" style="color:'+TC[f.type]+'">'+f.region+'</div><div class="fest-desc">'+f.desc+'</div></div></div>';}).join("");
+}
+function renderUpcoming(){
+  var up=FESTIVALS.map(function(f){var d=new Date(YEAR,f.month-1,f.day);return Object.assign({},f,{d:d,diff:Math.ceil((d-TODAY)/864e5)});}).filter(function(f){return f.diff>=0;}).sort(function(a,b){return a.diff-b.diff;}).slice(0,5);
+  var ul=document.getElementById("upcoming-list");
+  if(!ul) return;
+  ul.innerHTML=up.map(function(f){
+    var label=f.diff===0?"🎉 Today!":f.diff===1?"Tomorrow":"In "+f.diff+" days";
+    return '<div class="upcoming-item" onclick="goToFest('+f.month+','+f.day+')">'+
+      '<div class="udate" style="background:'+TC[f.type]+'22;border:1px solid '+TC[f.type]+'44">'+
+      '<div class="udate-num" style="color:'+TC[f.type]+'">'+f.day+'</div>'+
+      '<div class="udate-mon" style="color:'+TC[f.type]+'">'+MONTHS[f.month-1].slice(0,3).toUpperCase()+'</div></div>'+
+      '<div><div class="uname">'+f.emoji+" "+f.name+'</div><div class="udays">'+label+" · "+f.region+'</div></div></div>';
+  }).join("");
+}
+function goToFest(m,d){ calMonth=m; selDay=d; renderCalendar(); renderSelDay(); }
+function changeMonth(dir){
+  calMonth+=dir;
+  if(calMonth>12){calMonth=1;calYear++;}
+  if(calMonth<1){calMonth=12;calYear--;}
+  selDay=null;
+  var st=document.getElementById("sel-date-title"); if(st) st.textContent="Click any date";
+  var sf=document.getElementById("sel-festivals"); if(sf) sf.innerHTML='<div class="sidebar-empty">Click on any date to see festivals 🙏</div>';
+  renderCalendar();
+}
+
+// REVIEWS
+var defaultReviews=[
+  {name:"Priya S.",location:"Hyderabad",stars:5,text:"Vamsi Tales is my morning read. The stories are so beautifully written!",date:"2 days ago"},
+  {name:"Rahul M.",location:"Bangalore",stars:5,text:"I shared the Shani Shingnapur article with my entire family. This blog is a treasure!",date:"1 week ago"},
+  {name:"Ananya K.",location:"Chennai",stars:4,text:"Love the festival calendar feature. Finally a website that explains WHY we celebrate.",date:"2 weeks ago"},
+];
+function renderReviews(){
+  var allReviews=defaultReviews.concat(reviews);
+  var avg=(allReviews.reduce(function(s,r){return s+r.stars;},0)/allReviews.length).toFixed(1);
+  var avgEl=document.getElementById("rev-avg"); if(avgEl) avgEl.textContent=avg;
+  var cntEl=document.getElementById("rev-count"); if(cntEl) cntEl.textContent=allReviews.length+" reviews";
+  var counts=[5,4,3,2,1].map(function(s){return allReviews.filter(function(r){return r.stars===s;}).length;});
+  var max=Math.max.apply(null,counts.concat([1]));
+  var barsEl=document.getElementById("rev-bars");
+  if(barsEl) barsEl.innerHTML=counts.map(function(cnt,i){
+    return '<div class="review-bar-row"><span class="review-bar-label">'+(5-i)+'</span>'+
+      '<div class="review-bar-track"><div class="review-bar-fill" style="width:'+(cnt/max*100)+'%"></div></div>'+
+      '<span class="review-bar-count">'+cnt+'</span></div>';
+  }).join("");
+  var colors=["#C2621A","#10B981","#8B5CF6","#3B82F6","#EC4899","#F59E0B"];
+  var listEl=document.getElementById("reviews-list");
+  if(listEl) listEl.innerHTML=allReviews.slice(0,5).map(function(r,i){
+    return '<div class="review-item">'+
+      '<div class="review-avatar" style="background:'+colors[i%colors.length]+'">'+r.name.charAt(0)+'</div>'+
+      '<div style="flex:1"><div style="display:flex;justify-content:space-between;flex-wrap:wrap">'+
+      '<span class="review-name">'+r.name+' <span style="font-size:10px;color:var(--t3);font-weight:400">· '+r.location+'</span></span>'+
+      '<span class="review-date">'+r.date+'</span></div>'+
+      '<div class="review-stars">'+"⭐".repeat(r.stars)+"☆".repeat(5-r.stars)+'</div>'+
+      '<div class="review-text">'+r.text+'</div></div></div>';
+  }).join("");
+}
+function setStar(n){
+  selectedStar=n;
+  document.querySelectorAll(".star-pick").forEach(function(s,i){s.classList.toggle("active",i<n);});
+}
+function submitReview(){
+  var name=document.getElementById("rev-name").value.trim();
+  var loc=document.getElementById("rev-location").value.trim();
+  var text=document.getElementById("rev-text").value.trim();
+  if(!name||!text||!selectedStar){showToast("Please fill your name, review and select stars!");return;}
+  reviews.unshift({name:name,location:loc||"India",stars:selectedStar,text:text,date:"Just now"});
+  localStorage.setItem("bk-reviews",JSON.stringify(reviews));
+  document.getElementById("rev-name").value="";
+  document.getElementById("rev-location").value="";
+  document.getElementById("rev-text").value="";
+  selectedStar=0;
+  document.querySelectorAll(".star-pick").forEach(function(s){s.classList.remove("active");});
+  renderReviews();
+  showToast("Review posted! Thank you ⭐");
+}
+
+// NEWSLETTER
+function subscribeNewsletter(){
+  var email=document.getElementById("nl-email").value.trim();
+  if(!email||email.indexOf("@")<0){showToast("Please enter a valid email! 📧");return;}
+  document.getElementById("nl-email").value="";
+  showToast("Subscribed! 🎉 Welcome to Vamsi Tales!");
+}
+
+// FONT SIZE
+var fontSize=100;
+function changeFont(dir){
+  fontSize=Math.min(130,Math.max(80,fontSize+dir*10));
+  document.body.style.fontSize=fontSize+"%";
+  showToast(fontSize===100?"Font reset":"Font size: "+fontSize+"%");
+}
+
+// SCROLL
+window.addEventListener("scroll",function(){
+  var doc=document.documentElement;
+  var scrolled=doc.scrollTop||document.body.scrollTop;
+  var total=doc.scrollHeight-doc.clientHeight;
+  var pct=total>0?(scrolled/total)*100:0;
+  var pb=document.getElementById("progress-bar"); if(pb) pb.style.width=pct+"%";
+  var bt=document.getElementById("back-top"); if(bt) bt.classList.toggle("visible",scrolled>300);
+});
+
+// TOAST
+function showToast(msg){
+  var t=document.getElementById("toast"); if(!t) return;
+  t.textContent=msg; t.classList.add("show");
+  setTimeout(function(){t.classList.remove("show");},2200);
+}
+
+// COOKIE
+function initCookie(){
+  if(!localStorage.getItem("bk-cookie")){
+    setTimeout(function(){var b=document.getElementById("cookie-banner");if(b)b.style.display="flex";},1500);
+  }
+}
+function dismissCookie(accepted){
+  localStorage.setItem("bk-cookie",accepted?"accepted":"declined");
+  var b=document.getElementById("cookie-banner"); if(b) b.style.display="none";
+  if(accepted) showToast("Cookies accepted 🍪");
+}
+
+// TICKER
+var tickerFacts=["India has 22 officially recognised languages 🗣️","Honey never spoils — edible honey found in Egyptian tombs 🍯","The world's deepest lake is Lake Baikal in Russia 🌊","Chess was invented in India ♟️","Cleopatra lived closer in time to the Moon landing than to the pyramids 🚀","Andhra Pradesh has India's spiciest cuisine 🌶️","The word jungle comes from Sanskrit word jangala 🌿","Octopuses have three hearts and blue blood 🐙","Zero was invented by Indian mathematician Aryabhata 🔢","A group of flamingos is called a flamboyance 🦩","The Kumbh Mela is the largest human gathering on Earth 🙏","Bananas are technically berries but strawberries are not 🍌","Yoga originated in India over 5,000 years ago 🧘","The human brain uses 20% of the body's total energy ⚡","Nalanda University's library burned for 3 months 📚"];
+function renderTicker(){
+  var w=document.getElementById("ticker-wrap"); if(!w) return;
+  var doubled=tickerFacts.concat(tickerFacts);
+  w.innerHTML='<div class="ticker-inner">'+doubled.map(function(f){return '<div class="ticker-item"><span class="ticker-label">DID YOU KNOW</span>'+f+'<span class="ticker-dot"></span></div>';}).join("")+"</div>";
+}
+
+// FEATURED
+var featuredPost=posts[0];
+function renderFeatured(){
+  var ft=document.getElementById("feat-title"); if(ft) ft.textContent=posts[0].title;
+  var fe=document.getElementById("feat-excerpt"); if(fe) fe.textContent=posts[0].excerpt;
+  var ms=document.getElementById("mini-stories");
+  if(ms) ms.innerHTML=posts.slice(1,4).map(function(p,i){
+    return '<div class="mini-story" onclick="openFullArticle('+p.id+')">'+
+      '<div class="mini-num">0'+(i+1)+'</div>'+
+      '<div><div class="mini-title">'+p.title+'</div><div class="mini-cat">'+p.emoji+" "+p.category+'</div></div></div>';
+  }).join("");
+}
+function animateCount(id,target,suffix){
+  suffix=suffix||"";
+  var start=0; var step=Math.ceil(target/40);
+  var el=document.getElementById(id); if(!el) return;
+  var timer=setInterval(function(){
+    start=Math.min(start+step,target);
+    el.textContent=start.toLocaleString()+suffix;
+    if(start>=target) clearInterval(timer);
+  },40);
+}
+function renderStats(){
+  animateCount("stat-stories",posts.length);
+  animateCount("stat-festivals",8);
+  animateCount("stat-readers",12,"K+");
+  animateCount("stat-categories",8);
+}
+var quotes=[
+  {text:"The secret of health for both mind and body is not to mourn for the past, not to worry about the future, but to live in the present moment wisely.",author:"— Buddha"},
+  {text:"In a gentle way, you can shake the world.",author:"— Mahatma Gandhi"},
+  {text:"Arise, awake, and stop not until the goal is achieved.",author:"— Swami Vivekananda"},
+  {text:"You are what your deep, driving desire is. As your desire is, so is your will.",author:"— Brihadaranyaka Upanishad"},
+  {text:"The greatest religion is to be true to your own nature. Have faith in yourselves.",author:"— Swami Vivekananda"},
+  {text:"Live as if you were to die tomorrow. Learn as if you were to live forever.",author:"— Mahatma Gandhi"},
+];
+var curQuote=new Date().getDay()%quotes.length;
+function renderQuote(){
+  var qt=document.getElementById("quote-text"); if(qt) qt.textContent=quotes[curQuote].text;
+  var qa=document.getElementById("quote-author"); if(qa) qa.textContent=quotes[curQuote].author;
+  var qn=document.getElementById("quote-nav");
+  if(qn) qn.innerHTML=quotes.map(function(_,i){
+    return '<div class="quote-dot '+(i===curQuote?"active":"")+'" onclick="setQuote('+i+')"></div>';
+  }).join("");
+}
+function setQuote(i){ curQuote=i; renderQuote(); }
+function renderSOTW(){
+  var sotw=posts[new Date().getDay()%posts.length];
+  var st=document.getElementById("sotw-title"); if(st) st.textContent=sotw.title;
+  var sd=document.getElementById("sotw-desc"); if(sd) sd.textContent=sotw.excerpt;
+  var se=document.getElementById("sotw-emoji"); if(se) se.textContent=sotw.emoji;
+  var sb=document.getElementById("sotw-btn"); if(sb) sb.onclick=function(){openFullArticle(sotw.id);};
+}
+
+// ANALYTICS
+function trackEvent(cat,action,label){ if(typeof gtag!=="undefined") gtag("event",action,{event_category:cat,event_label:label}); }
+function trackPage(p){ if(typeof gtag!=="undefined") gtag("event","page_view",{page_title:p}); }
+function animateGAStats(){
+  var i=0;
+  var iv=setInterval(function(){
+    i++;
+    var v=document.getElementById("ga-v"); if(v) v.textContent=Math.min(i*4,142);
+    var pv=document.getElementById("ga-pv"); if(pv) pv.textContent=Math.min(i*12,486);
+    var gt=document.getElementById("ga-t"); if(gt) gt.textContent=Math.min(i*5,180)+"s";
+    var gb=document.getElementById("ga-b"); if(gb) gb.textContent=Math.min(i*2,38)+"%";
+    if(i>=50) clearInterval(iv);
+  },30);
+}
+
+// CHATBOT
+function toggleChat(){
+  chatOpen=!chatOpen;
+  var win=document.getElementById("chat-win");
+  if(win) win.style.display=chatOpen?"flex":"none";
+  var fab=document.getElementById("chat-fab");
+  if(fab) fab.textContent=chatOpen?"✕":"🪷";
+  if(chatOpen&&chatMsgs.length===0){
+    setTimeout(function(){addMsg("bot","Namaste! 🙏 I am Vamsi AI, your guide to India, life, travel, food, mystery and more. What would you like to explore today?");},400);
+  }
+}
+function addMsg(role,text){
+  chatMsgs.push({role:role,text:text});
+  var c=document.getElementById("chat-msgs"); if(!c) return;
+  var isDark=document.body.classList.contains("dark");
+  var isMud=document.body.classList.contains("mud");
+  var botBg=isDark?"#1a1a1a":isMud?"#3d1a0a":"#F0E6D6";
+  var botColor=isDark?"#F5F5F5":isMud?"#F5ECD7":"#2C1A0E";
+  var div=document.createElement("div");
+  div.className="msg "+role;
+  div.style.background=role==="bot"?botBg:"var(--acc)";
+  div.style.color=role==="bot"?botColor:"var(--at)";
+  if(role==="bot") div.style.border="1px solid var(--div)";
+  div.textContent=text;
+  c.appendChild(div);
+  c.scrollTop=c.scrollHeight;
+}
+function sendSug(btn){
+  var sugs=document.getElementById("chat-sugs"); if(sugs) sugs.style.display="none";
+  sendChatMsg(btn.textContent.trim());
+}
+function sendChat(){
+  var inp=document.getElementById("chat-input");
+  var text=inp?inp.value.trim():"";
+  if(!text||isTyping) return;
+  inp.value="";
+  var sugs=document.getElementById("chat-sugs"); if(sugs) sugs.style.display="none";
+  sendChatMsg(text);
+}
+async function sendChatMsg(text){
+  addMsg("user",text);
+  isTyping=true;
+  var c=document.getElementById("chat-msgs");
+  var typing=document.createElement("div");
+  typing.className="msg bot"; typing.id="typing-indicator";
+  typing.style.background=document.body.classList.contains("dark")?"#1a1a1a":document.body.classList.contains("mud")?"#3d1a0a":"#F0E6D6";
+  typing.style.border="1px solid var(--div)";
+  typing.textContent="...";
+  if(c) c.appendChild(typing);
+  try{
+    var res=await fetch("https://api.anthropic.com/v1/messages",{
+      method:"POST",headers:{"Content-Type":"application/json"},
+      body:JSON.stringify({model:"claude-sonnet-4-20250514",max_tokens:1000,
+        system:"You are Vamsi AI, a friendly assistant for Vamsi Tales — a personal blog covering India, life, travel, food, mystery, technology and motivation. Be warm and concise. Use emojis. End with a follow-up question.",
+        messages:[{role:"user",content:text}]})
+    });
+    var data=await res.json();
+    var tEl=document.getElementById("typing-indicator"); if(tEl) tEl.remove();
+    isTyping=false;
+    addMsg("bot",data.content&&data.content[0]?data.content[0].text:"Sorry, could not connect. Try again! 🙏");
+  }catch(err){
+    var tEl2=document.getElementById("typing-indicator"); if(tEl2) tEl2.remove();
+    isTyping=false;
+    addMsg("bot","Having trouble connecting right now. Please try again in a moment! 🙏");
+  }
+}
+
+// INIT
+renderCats();
+renderCards();
+renderTicker();
+renderFeatured();
+renderStats();
+renderQuote();
+renderSOTW();
+renderCalendar();
+renderReviews();
+updateBmCount();
+renderRecent();
+initCookie();
+</script>
+</body>
+</html>
