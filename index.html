@@ -14,6 +14,12 @@
         layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
         autoDisplay: false
       }, 'google_translate_element');
+      new google.translate.TranslateElement({
+        pageLanguage: 'en',
+        includedLanguages: 'hi,te,ta,kn,ml,mr,bn,gu,pa,ur,en',
+        layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+        autoDisplay: false
+      }, 'google_translate_element_mobile');
     }
   </script>
   <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
@@ -223,7 +229,34 @@ footer{border-top:1px solid var(--div);padding:2rem;text-align:center;color:var(
   .cal-layout{grid-template-columns:1fr!important;}
   .about-grid{grid-template-columns:1fr!important;}
   .grid{grid-template-columns:1fr!important;}
+  nav{padding:0 1rem;height:56px;}
+  #google_translate_element{display:none!important;}
+  .logo span{font-size:1.6rem!important;}
+  .logo div span:first-child{font-size:0.95rem!important;}
+  .logo div span:last-child{display:none!important;}
+  .nav-search-btn span{display:none!important;}
+  .nav-search-btn{padding:6px 8px!important;}
 }
+
+/* ── SEARCH MODAL ── */
+.search-modal-bg{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.7);backdrop-filter:blur(6px);z-index:300;align-items:flex-start;justify-content:center;padding-top:80px;}
+.search-modal-bg.open{display:flex;}
+.search-modal{background:var(--nav);border:1px solid var(--cb);border-radius:12px;width:100%;max-width:600px;padding:1.5rem;margin:0 1rem;box-shadow:0 20px 60px rgba(0,0,0,0.4);}
+.search-modal-top{display:flex;align-items:center;gap:12px;margin-bottom:1rem;}
+.search-modal-box{display:flex;align-items:center;gap:10px;background:var(--bg2);border:1.5px solid var(--cb);border-radius:30px;padding:10px 18px;flex:1;transition:border-color 0.2s;}
+.search-modal-box:focus-within{border-color:var(--acc);}
+.search-modal-input{flex:1;background:transparent;border:none;outline:none;font-size:1rem;color:var(--text);font-family:'Lato',sans-serif;}
+.search-modal-input::placeholder{color:var(--t3);}
+.search-modal-close{background:none;border:1px solid var(--div);border-radius:8px;padding:8px 12px;cursor:pointer;color:var(--t2);font-size:13px;font-family:'Lato',sans-serif;white-space:nowrap;}
+.search-modal-close:hover{border-color:var(--acc);color:var(--acc);}
+.search-modal-results{max-height:60vh;overflow-y:auto;}
+.search-modal-tag{font-size:11px;color:var(--t3);font-family:'Lato',sans-serif;letter-spacing:0.08em;margin-bottom:0.8rem;}
+.search-modal-card{display:flex;align-items:center;gap:12px;padding:12px;border-radius:8px;cursor:pointer;transition:background 0.15s;border:1px solid transparent;}
+.search-modal-card:hover{background:var(--bg2);border-color:var(--cb);}
+.search-modal-emoji{font-size:1.8rem;flex-shrink:0;}
+.search-modal-title{font-family:var(--font);font-size:0.95rem;color:var(--text);margin-bottom:3px;}
+.search-modal-cat{font-size:11px;letter-spacing:0.1em;text-transform:uppercase;font-family:'Lato',sans-serif;}
+.search-modal-empty{text-align:center;padding:2rem;color:var(--t3);font-family:'Lato',sans-serif;font-size:14px;}
 
 /* ── READING PROGRESS BAR ── */
 #progress-bar{position:fixed;top:0;left:0;height:3px;background:var(--acc);z-index:9999;width:0%;transition:width 0.1s linear;border-radius:0 2px 2px 0;}
@@ -334,6 +367,9 @@ footer{border-top:1px solid var(--div);padding:2rem;text-align:center;color:var(
 .quote-nav{display:flex;justify-content:center;gap:8px;margin-top:14px;}
 .quote-dot{width:6px;height:6px;border-radius:50%;background:var(--div);cursor:pointer;transition:background 0.2s;}
 .quote-dot.active{background:var(--acc);}
+.quote-controls{display:flex;align-items:center;justify-content:center;gap:12px;margin-top:14px;}
+.quote-arrow{background:none;border:1px solid var(--div);border-radius:50%;width:32px;height:32px;font-size:20px;cursor:pointer;color:var(--t2);display:flex;align-items:center;justify-content:center;transition:all 0.2s;line-height:1;padding:0;}
+.quote-arrow:hover{border-color:var(--acc);color:var(--acc);background:rgba(200,100,30,0.06);}
 
 /* ── VAMSI TALES — STORY OF THE WEEK ── */
 .sotw-section{max-width:1100px;margin:2rem auto 0;padding:0 2rem;width:100%;box-sizing:border-box;}
@@ -594,7 +630,7 @@ body{top:0!important;}
     </div>
     <!-- Google Translate -->
     <div id="google_translate_element" style="display:flex;align-items:center;"></div>
-    <button onclick="toggleSearch()" style="background:none;border:1px solid var(--div);border-radius:20px;padding:6px 12px;cursor:pointer;color:var(--t2);font-size:13px;display:flex;align-items:center;gap:5px;font-family:Lato,sans-serif;transition:all 0.2s" onmouseover="this.style.borderColor='var(--acc)';this.style.color='var(--acc)'" onmouseout="this.style.borderColor='var(--div)';this.style.color='var(--t2)'">🔍 <span style="font-size:11px;letter-spacing:0.08em">SEARCH</span></button>
+    <button class="nav-search-btn" onclick="toggleSearch()" style="background:none;border:1px solid var(--div);border-radius:20px;padding:6px 12px;cursor:pointer;color:var(--t2);font-size:13px;display:flex;align-items:center;gap:5px;font-family:Lato,sans-serif;transition:all 0.2s" onmouseover="this.style.borderColor='var(--acc)';this.style.color='var(--acc)'" onmouseout="this.style.borderColor='var(--div)';this.style.color='var(--t2)'">🔍 <span style="font-size:11px;letter-spacing:0.08em">SEARCH</span></button>
     <!-- Hamburger -->
     <button class="hamburger" id="hamburger" onclick="toggleMenu()" style="display:none">
       <span class="hline" id="h1"></span>
@@ -614,6 +650,11 @@ body{top:0!important;}
       <button class="tbtn" id="mtb-mud" onclick="setTheme('mud')">🪨 Mud</button>
     </div>
   </div>
+  <div class="mobile-theme-row" style="gap:8px;">
+    <span>TRANSLATE</span>
+    <div id="google_translate_element_mobile"></div>
+  </div>
+  <div class="mobile-link" onclick="toggleSearch();toggleMenu()">🔍 Search Stories</div>
   <div class="mobile-link" onclick="showPage('home');toggleMenu()">🏠 Home</div>
   <div class="mobile-link" onclick="showPage('stories');toggleMenu()">📖 Stories</div>
   <div class="mobile-link" onclick="showPage('calendar');toggleMenu()">🗓️ Festival Calendar</div>
@@ -666,12 +707,16 @@ body{top:0!important;}
 
   <!-- QUOTE OF THE DAY -->
   <div class="quote-section">
-    <div class="quote-inner">
+    <div class="quote-inner" id="quote-inner">
       <div class="quote-bg">"</div>
       <div class="quote-label">✨ Quote of the Day</div>
       <div class="quote-text" id="quote-text"></div>
       <div class="quote-author" id="quote-author"></div>
-      <div class="quote-nav" id="quote-nav"></div>
+      <div class="quote-controls">
+        <button class="quote-arrow" onclick="setQuote((curQuote-1+quotes.length)%quotes.length)">‹</button>
+        <div class="quote-nav" id="quote-nav"></div>
+        <button class="quote-arrow" onclick="setQuote((curQuote+1)%quotes.length)">›</button>
+      </div>
     </div>
   </div>
 
@@ -949,11 +994,11 @@ body{top:0!important;}
       </div>
       <div style="background:var(--card);border:1px solid var(--cb);border-radius:8px;padding:1.2rem;border-left:3px solid var(--acc)">
         <div style="font-size:13px;font-weight:600;color:var(--text);font-family:'Lato',sans-serif;margin-bottom:6px">Step 2 — Get your Measurement ID</div>
-        <div style="font-size:12px;color:var(--t2);font-family:'Lato',sans-serif;line-height:1.7">After setup, Google gives you a Measurement ID that looks like <span style="color:var(--acc);font-family:monospace">G-NT0CVTYKGH</span>. Copy it.</div>
+        <div style="font-size:12px;color:var(--t2);font-family:'Lato',sans-serif;line-height:1.7">After setup, Google gives you a Measurement ID that looks like <span style="color:var(--acc);font-family:monospace">G-XXXXXXXXXX</span>. Copy it.</div>
       </div>
       <div style="background:var(--card);border:1px solid var(--cb);border-radius:8px;padding:1.2rem;border-left:3px solid var(--acc)">
         <div style="font-size:13px;font-weight:600;color:var(--text);font-family:'Lato',sans-serif;margin-bottom:6px">Step 3 — Replace the placeholder in your website</div>
-        <div style="font-size:12px;color:var(--t2);font-family:'Lato',sans-serif;line-height:1.7">Open your <span style="color:var(--acc)">vamsi-tales.html</span> file → Find <span style="color:var(--acc);font-family:monospace">G-NT0CVTYKGH</span> (appears twice) → Replace both with your real ID → Save and re-upload to Vercel</div>
+        <div style="font-size:12px;color:var(--t2);font-family:'Lato',sans-serif;line-height:1.7">Open your <span style="color:var(--acc)">vamsi-tales.html</span> file → Find <span style="color:var(--acc);font-family:monospace">G-XXXXXXXXXX</span> (appears twice) → Replace both with your real ID → Save and re-upload to Vercel</div>
       </div>
       <div style="background:var(--card);border:1px solid var(--cb);border-radius:8px;padding:1.2rem;border-left:3px solid var(--acc)">
         <div style="font-size:13px;font-weight:600;color:var(--text);font-family:'Lato',sans-serif;margin-bottom:6px">Step 4 — What you can track</div>
@@ -1111,6 +1156,22 @@ body{top:0!important;}
     <div class="modal-excerpt" id="m-excerpt"></div>
     <div class="modal-body">This is a preview of the full article. The complete story dives deep into history, lived experience, and cultural insight — exploring what makes this corner of Indian civilization so endlessly fascinating.</div>
     <div class="modal-meta"><span id="m-date"></span><span>·</span><span id="m-read"></span></div>
+  </div>
+</div>
+
+<!-- SEARCH MODAL -->
+<div class="search-modal-bg" id="search-modal-bg" onclick="if(event.target.id==='search-modal-bg')closeSearchModal()">
+  <div class="search-modal">
+    <div class="search-modal-top">
+      <div class="search-modal-box">
+        <span style="font-size:16px;color:var(--t3)">🔍</span>
+        <input class="search-modal-input" id="search-modal-input" placeholder="Search stories, topics, categories..." oninput="doSearchModal(this.value)" onkeydown="if(event.key==='Escape')closeSearchModal()"/>
+      </div>
+      <button class="search-modal-close" onclick="closeSearchModal()">✕ Close</button>
+    </div>
+    <div class="search-modal-results" id="search-modal-results">
+      <div class="search-modal-empty">Start typing to search stories 🪷</div>
+    </div>
   </div>
 </div>
 
@@ -1472,11 +1533,36 @@ function renderRecent(){
 
 // SEARCH
 function toggleSearch(){
-  searchOpen=!searchOpen;
-  var sw=document.getElementById("search-wrap");
-  if(sw) sw.style.display=searchOpen?"flex":"none";
-  if(searchOpen) setTimeout(function(){var inp=document.getElementById("search-input");if(inp)inp.focus();},100);
-  else clearSearch();
+  openSearchModal();
+}
+function openSearchModal(){
+  var bg=document.getElementById("search-modal-bg"); if(bg) bg.classList.add("open");
+  setTimeout(function(){var inp=document.getElementById("search-modal-input");if(inp)inp.focus();},100);
+  doSearchModal("");
+}
+function closeSearchModal(){
+  var bg=document.getElementById("search-modal-bg"); if(bg) bg.classList.remove("open");
+  var inp=document.getElementById("search-modal-input"); if(inp) inp.value="";
+}
+function doSearchModal(q){
+  var res=document.getElementById("search-modal-results"); if(!res) return;
+  if(!q){
+    res.innerHTML='<div class="search-modal-empty">Start typing to search stories 🪷</div>';
+    return;
+  }
+  var ql=q.toLowerCase();
+  var results=posts.filter(function(p){return p.title.toLowerCase().indexOf(ql)>-1||p.excerpt.toLowerCase().indexOf(ql)>-1||p.category.toLowerCase().indexOf(ql)>-1;});
+  if(results.length===0){
+    res.innerHTML='<div class="search-modal-empty">😔 No stories found for "'+q+'"</div>';
+    return;
+  }
+  res.innerHTML='<div class="search-modal-tag">'+results.length+' result'+(results.length!==1?'s':'')+' for "'+q+'"</div>'+
+    results.map(function(p){
+      return '<div class="search-modal-card" onclick="closeSearchModal();openFullArticle('+p.id+')">'+
+        '<div class="search-modal-emoji">'+p.emoji+'</div>'+
+        '<div><div class="search-modal-title">'+p.title+'</div>'+
+        '<div class="search-modal-cat" style="color:'+p.color+'">'+p.category+' · '+p.date+'</div></div></div>';
+    }).join("");
 }
 function doSearch(q){
   var clear=document.getElementById("search-clear"); if(clear) clear.style.display=q?"block":"none";
@@ -1663,6 +1749,7 @@ function changeFont(dir){
 }
 
 // SCROLL
+document.addEventListener("keydown",function(e){if(e.key==="Escape")closeSearchModal();});
 window.addEventListener("scroll",function(){
   var doc=document.documentElement;
   var scrolled=doc.scrollTop||document.body.scrollTop;
@@ -1745,6 +1832,23 @@ function renderQuote(){
   }).join("");
 }
 function setQuote(i){ curQuote=i; renderQuote(); }
+
+// Touch swipe for quote
+(function(){
+  var startX=0;
+  document.addEventListener("DOMContentLoaded",function(){
+    var el=document.getElementById("quote-inner");
+    if(!el) return;
+    el.addEventListener("touchstart",function(e){startX=e.touches[0].clientX;},{passive:true});
+    el.addEventListener("touchend",function(e){
+      var diff=startX-e.changedTouches[0].clientX;
+      if(Math.abs(diff)>40){
+        if(diff>0) setQuote((curQuote+1)%quotes.length);
+        else setQuote((curQuote-1+quotes.length)%quotes.length);
+      }
+    },{passive:true});
+  });
+})();
 function renderSOTW(){
   var sotw=posts[new Date().getDay()%posts.length];
   var st=document.getElementById("sotw-title"); if(st) st.textContent=sotw.title;
