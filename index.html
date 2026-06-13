@@ -28,13 +28,14 @@
   <meta name="twitter:description" content="Unheard stories of India — culture, tradition, art, and everyday magic from the oldest civilization still breathing."/>
   <meta name="twitter:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Flag_of_India.svg/1200px-Flag_of_India.svg.png"/>
 
-  <!-- Google Analytics (replace G-XXXXXXXXXX with your real ID) -->
+  <!-- Google Analytics (replace G-NT0CVTYKGH with your real ID) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-NT0CVTYKGH"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
     gtag('config', 'G-NT0CVTYKGH');
+    // Track page views when user navigates between pages
     function trackPage(pageName){
       gtag('event', 'page_view', { page_title: pageName, page_location: window.location.href + '#' + pageName });
     }
@@ -96,16 +97,17 @@ nav{position:sticky;top:0;z-index:100;background:var(--nav);border-bottom:1px so
 
 /* GRID */
 .grid{max-width:1100px;margin:0 auto;padding:3rem 2rem 5rem;display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.8rem;width:100%;box-sizing:border-box;}
-.card{background:var(--card);border:1px solid var(--cb);border-radius:4px;overflow:hidden;cursor:pointer;transition:transform 0.25s,border-color 0.25s,box-shadow 0.25s;box-shadow:0 1px 4px rgba(0,0,0,0.05);}
+.card{background:var(--card);border:1px solid var(--cb);border-radius:4px;overflow:hidden;cursor:pointer;transition:transform 0.25s,border-color 0.25s,box-shadow 0.25s;box-shadow:0 1px 4px rgba(0,0,0,0.05);display:flex;flex-direction:column;}
 .card:hover{transform:translateY(-4px);box-shadow:0 8px 24px rgba(0,0,0,0.12);}
-.card-accent{height:3px;}
-.card-body{padding:1.5rem;}
+.card-accent{height:3px;flex-shrink:0;}
+.card-body{padding:1.5rem;flex:1;display:flex;flex-direction:column;}
 .card-top{display:flex;align-items:center;gap:10px;margin-bottom:12px;}
 .card-emoji{font-size:1.6rem;}
 .card-cat{font-size:0.68rem;letter-spacing:0.15em;text-transform:uppercase;font-family:'Lato',sans-serif;}
 .card-title{font-size:1.08rem;font-weight:400;line-height:1.4;margin-bottom:10px;color:var(--text);font-family:var(--font);}
-.card-excerpt{font-size:0.84rem;color:var(--t2);line-height:1.7;margin-bottom:1.2rem;font-family:'Lato',sans-serif;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;}
-.card-meta{display:flex;justify-content:space-between;font-size:0.72rem;color:var(--t3);border-top:1px solid var(--div);padding-top:0.85rem;font-family:'Lato',sans-serif;}
+.card-excerpt{font-size:0.84rem;color:var(--t2);line-height:1.7;margin-bottom:1.2rem;font-family:'Lato',sans-serif;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;flex:1;}
+.card-meta{display:flex;justify-content:space-between;font-size:0.72rem;color:var(--t3);border-top:1px solid var(--div);padding-top:0.85rem;font-family:'Lato',sans-serif;margin-top:auto;}
+.card-actions{display:flex;align-items:center;gap:8px;margin-top:10px;padding-top:10px;border-top:1px solid var(--div);flex-shrink:0;}
 
 /* CALENDAR */
 .cal-wrap{max-width:1100px;margin:0 auto;padding:1.5rem 2rem 3rem;width:100%;box-sizing:border-box;}
@@ -267,7 +269,6 @@ footer{border-top:1px solid var(--div);padding:2rem;text-align:center;color:var(
 .font-btn:hover{background:var(--acc);color:var(--at);}
 
 /* ── BOOKMARK & SHARE on cards ── */
-.card-actions{display:flex;align-items:center;gap:8px;margin-top:10px;padding-top:10px;border-top:1px solid var(--div);}
 .card-action-btn{background:none;border:1px solid var(--cb);border-radius:20px;padding:4px 10px;font-size:10px;cursor:pointer;color:var(--t2);font-family:'Lato',sans-serif;display:flex;align-items:center;gap:4px;transition:all 0.2s;}
 .card-action-btn:hover{border-color:var(--acc);color:var(--acc);}
 .card-action-btn.bookmarked{background:var(--acc);color:var(--at);border-color:var(--acc);}
@@ -293,9 +294,10 @@ footer{border-top:1px solid var(--div);padding:2rem;text-align:center;color:var(
 .bookmarks-empty-sub{font-size:0.85rem;}
 
 /* ── RECENTLY VIEWED ── */
-.recent-bar{background:var(--bg2);border-bottom:1px solid var(--div);padding:0.75rem 2rem;display:flex;align-items:center;gap:12px;overflow-x:auto;}
-.recent-label{font-size:10px;letter-spacing:0.1em;color:var(--t3);font-family:'Lato',sans-serif;white-space:nowrap;text-transform:uppercase;}
-.recent-chip{display:flex;align-items:center;gap:6px;background:var(--card);border:1px solid var(--cb);border-radius:20px;padding:5px 12px;cursor:pointer;white-space:nowrap;transition:all 0.2s;text-decoration:none;}
+.recent-bar{background:var(--bg2);border-bottom:1px solid var(--div);padding:0.75rem 2rem;display:flex;align-items:center;gap:12px;overflow-x:auto;white-space:nowrap;}
+.recent-label{font-size:10px;letter-spacing:0.1em;color:var(--t3);font-family:'Lato',sans-serif;white-space:nowrap;text-transform:uppercase;flex-shrink:0;}
+.recent-chips-wrap{display:flex;align-items:center;gap:8px;flex-wrap:nowrap;}
+.recent-chip{display:inline-flex;align-items:center;gap:6px;background:var(--card);border:1px solid var(--cb);border-radius:20px;padding:5px 12px;cursor:pointer;white-space:nowrap;transition:all 0.2s;text-decoration:none;flex-shrink:0;}
 .recent-chip:hover{border-color:var(--acc);}
 .recent-chip-text{font-size:11px;color:var(--text);font-family:'Lato',sans-serif;}
 
@@ -717,7 +719,7 @@ footer{border-top:1px solid var(--div);padding:2rem;text-align:center;color:var(
   <!-- RECENTLY VIEWED -->
   <div class="recent-bar" id="recent-bar" style="display:none">
     <span class="recent-label">Recently viewed</span>
-    <div id="recent-chips"></div>
+    <div id="recent-chips" class="recent-chips-wrap"></div>
   </div>
   <div class="grid" id="card-grid"></div>
   <!-- SEARCH RESULTS -->
@@ -962,11 +964,11 @@ footer{border-top:1px solid var(--div);padding:2rem;text-align:center;color:var(
       </div>
       <div style="background:var(--card);border:1px solid var(--cb);border-radius:8px;padding:1.2rem;border-left:3px solid var(--acc)">
         <div style="font-size:13px;font-weight:600;color:var(--text);font-family:'Lato',sans-serif;margin-bottom:6px">Step 2 — Get your Measurement ID</div>
-        <div style="font-size:12px;color:var(--t2);font-family:'Lato',sans-serif;line-height:1.7">After setup, Google gives you a Measurement ID that looks like <span style="color:var(--acc);font-family:monospace">G-XXXXXXXXXX</span>. Copy it.</div>
+        <div style="font-size:12px;color:var(--t2);font-family:'Lato',sans-serif;line-height:1.7">After setup, Google gives you a Measurement ID that looks like <span style="color:var(--acc);font-family:monospace">G-NT0CVTYKGH</span>. Copy it.</div>
       </div>
       <div style="background:var(--card);border:1px solid var(--cb);border-radius:8px;padding:1.2rem;border-left:3px solid var(--acc)">
         <div style="font-size:13px;font-weight:600;color:var(--text);font-family:'Lato',sans-serif;margin-bottom:6px">Step 3 — Replace the placeholder in your website</div>
-        <div style="font-size:12px;color:var(--t2);font-family:'Lato',sans-serif;line-height:1.7">Open your <span style="color:var(--acc)">vamsi-tales.html</span> file → Find <span style="color:var(--acc);font-family:monospace">G-XXXXXXXXXX</span> (appears twice) → Replace both with your real ID → Save and re-upload to Vercel</div>
+        <div style="font-size:12px;color:var(--t2);font-family:'Lato',sans-serif;line-height:1.7">Open your <span style="color:var(--acc)">vamsi-tales.html</span> file → Find <span style="color:var(--acc);font-family:monospace">G-NT0CVTYKGH</span> (appears twice) → Replace both with your real ID → Save and re-upload to Vercel</div>
       </div>
       <div style="background:var(--card);border:1px solid var(--cb);border-radius:8px;padding:1.2rem;border-left:3px solid var(--acc)">
         <div style="font-size:13px;font-weight:600;color:var(--text);font-family:'Lato',sans-serif;margin-bottom:6px">Step 4 — What you can track</div>
@@ -1307,7 +1309,7 @@ function makeCard(p,i){
     '<div class="card-excerpt">'+p.excerpt+'</div>'+
     '<div class="card-meta"><span>'+p.date+'</span><span>'+p.readTime+'</span></div>'+
     '</div>'+
-    '<div class="card-actions">'+
+    '<div class="card-actions" style="padding:0.75rem 1.5rem;border-top:1px solid var(--div);background:var(--card)">'+
     '<button class="'+bmClass+'" onclick="event.stopPropagation();toggleBookmark('+p.id+',this)">'+bmText+'</button>'+
     '<button class="card-action-btn" onclick="event.stopPropagation();openShare('+p.id+')">📤 Share</button>'+
     '</div></div>';
