@@ -5,6 +5,19 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Vamsi Tales — Stories Worth Telling</title>
 
+  <!-- Google Translate -->
+  <script type="text/javascript">
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({
+        pageLanguage: 'en',
+        includedLanguages: 'hi,te,ta,kn,ml,mr,bn,gu,pa,ur,en',
+        layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+        autoDisplay: false
+      }, 'google_translate_element');
+    }
+  </script>
+  <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
   <!-- SEO Meta Tags -->
   <meta name="description" content="Vamsi Tales — Unheard stories of India. Discover Indian culture, history, traditions, festivals, art, cuisine and everyday magic from the oldest civilization still breathing."/>
   <meta name="keywords" content="India, Indian culture, Indian history, Indian festivals, Indian traditions, Indian cuisine, Vamsi Tales, stories of India"/>
@@ -39,7 +52,7 @@
     }
   </script>
 
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='50' fill='%23000000'/%3E%3Cg transform='translate(50,42)' fill='none' stroke='white' stroke-linecap='round'%3E%3Cpath d='M0,18 C1,-5 1,-20 0,-32' stroke-width='1.2'/%3E%3Cpath d='M-1,12 C-6,8 -13,6 -16,7' stroke-width='0.8'/%3E%3Cpath d='M-1,6 C-7,2 -15,-1 -18,-1' stroke-width='0.8'/%3E%3Cpath d='M-1,0 C-7,-5 -14,-9 -16,-11' stroke-width='0.75'/%3E%3Cpath d='M1,12 C6,8 13,6 16,7' stroke-width='0.8'/%3E%3Cpath d='M1,6 C7,2 15,-1 18,-1' stroke-width='0.8'/%3E%3Cpath d='M1,0 C7,-5 14,-9 16,-11' stroke-width='0.75'/%3E%3Cellipse cx='0' cy='-32' rx='3.5' ry='5' stroke-width='0.9'/%3E%3Cellipse cx='0' cy='-32' rx='0.8' ry='1.2' fill='white'/%3E%3C/g%3E%3Ctext x='50' y='83' text-anchor='middle' fill='white' font-family='Georgia' font-size='9.5' letter-spacing='1.5' font-style='italic'%3Evamsitales%3C/text%3E%3C/svg%3E"/>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🪷</text></svg>"/>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Lato:wght@300;400;600&display=swap" rel="stylesheet"/>
 <style>
 *{box-sizing:border-box;margin:0;padding:0;}
@@ -103,7 +116,7 @@ nav{position:sticky;top:0;z-index:100;background:var(--nav);border-bottom:1px so
 .card-emoji{font-size:1.6rem;}
 .card-cat{font-size:0.68rem;letter-spacing:0.15em;text-transform:uppercase;font-family:'Lato',sans-serif;}
 .card-title{font-size:1.08rem;font-weight:400;line-height:1.4;margin-bottom:10px;color:var(--text);font-family:var(--font);}
-.card-excerpt{font-size:0.84rem;color:var(--t2);line-height:1.7;margin-bottom:1.2rem;font-family:'Lato',sans-serif;}
+.card-excerpt{font-size:0.84rem;color:var(--t2);line-height:1.7;margin-bottom:1.2rem;font-family:'Lato',sans-serif;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;}
 .card-meta{display:flex;justify-content:space-between;font-size:0.72rem;color:var(--t3);border-top:1px solid var(--div);padding-top:0.85rem;font-family:'Lato',sans-serif;}
 
 /* CALENDAR */
@@ -114,15 +127,15 @@ nav{position:sticky;top:0;z-index:100;background:var(--nav);border-bottom:1px so
 .month-title{font-family:var(--font);font-size:1.3rem;color:var(--text);min-width:220px;text-align:center;}
 .month-sub{font-size:11px;color:var(--t3);margin-top:2px;font-family:'Lato',sans-serif;}
 .cal-layout{display:grid;grid-template-columns:1fr 300px;gap:1.5rem;align-items:start;}
-.cal-grid-wrap{background:var(--card);border:1px solid var(--cb);border-radius:8px;overflow:hidden;align-self:start;}
+.cal-grid-wrap{background:var(--card);border:1px solid var(--cb);border-radius:8px;align-self:start;}
 .cal-hdr{display:grid;grid-template-columns:repeat(7,1fr);background:rgba(200,100,30,0.1);border-bottom:1px solid var(--div);}
 .cal-hdr-cell{text-align:center;padding:10px 4px;font-size:10px;letter-spacing:0.1em;color:var(--acc);font-weight:600;font-family:'Lato',sans-serif;}
 .cal-cells{display:grid;grid-template-columns:repeat(7,1fr);}
 .cal-cell{height:72px;padding:6px;border-right:1px solid var(--div);border-bottom:1px solid var(--div);cursor:pointer;transition:background 0.15s;overflow:hidden;}
 .cal-cell:hover{background:rgba(200,100,30,0.06);}
 .cal-cell.empty{height:72px;background:rgba(0,0,0,0.04);cursor:default;}
-.cal-cell.today{background:rgba(200,100,30,0.1);outline:1px solid rgba(200,100,30,0.4);}
-.cal-cell.selected{background:rgba(200,100,30,0.18);outline:2px solid var(--acc);}
+.cal-cell.today{background:rgba(200,100,30,0.1);box-shadow:inset 0 0 0 1px rgba(200,100,30,0.5);}
+.cal-cell.selected{background:rgba(200,100,30,0.18);box-shadow:inset 0 0 0 2px var(--acc);}
 .cal-date{font-size:11px;color:var(--t2);font-weight:600;margin-bottom:2px;font-family:'Lato',sans-serif;}
 .cal-cell.today .cal-date,.cal-cell.selected .cal-date{color:var(--acc);font-weight:800;}
 .fdot-row{display:flex;align-items:center;gap:3px;margin-top:2px;}
@@ -205,7 +218,7 @@ footer{border-top:1px solid var(--div);padding:2rem;text-align:center;color:var(
 
 @keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
 @media(max-width:768px){
-  .nav-links,.desktop-theme{display:none!important;}
+  .nav-links,.desktop-theme,.font-bar{display:none!important;}
   .hamburger{display:flex!important;}
   .cal-layout{grid-template-columns:1fr!important;}
   .about-grid{grid-template-columns:1fr!important;}
@@ -509,6 +522,15 @@ footer{border-top:1px solid var(--div);padding:2rem;text-align:center;color:var(
 .social-btn.fb:hover{background:#1877F2;color:#fff;border-color:transparent;}
 .social-btn.wa:hover{background:#25D366;color:#fff;border-color:transparent;}
 
+/* ── GOOGLE TRANSLATE ── */
+#google_translate_element .goog-te-gadget{font-size:0!important;}
+#google_translate_element .goog-te-gadget-simple{background:transparent!important;border:1px solid var(--div)!important;border-radius:20px!important;padding:4px 10px!important;font-family:'Lato',sans-serif!important;font-size:12px!important;color:var(--t2)!important;transition:border-color 0.2s;}
+#google_translate_element .goog-te-gadget-simple:hover{border-color:var(--acc)!important;}
+#google_translate_element .goog-te-menu-value span{color:var(--t2)!important;font-size:12px!important;}
+#google_translate_element .goog-te-gadget-simple img{display:none!important;}
+.goog-te-banner-frame{display:none!important;}
+body{top:0!important;}
+
 /* ── ANALYTICS BANNER ── */
 .analytics-toast{position:fixed;top:80px;right:20px;background:var(--nav);border:1px solid var(--acc);border-radius:8px;padding:12px 16px;z-index:500;max-width:260px;box-shadow:0 4px 20px rgba(0,0,0,0.15);animation:slideInRight 0.4s ease;}
 @keyframes slideInRight{from{opacity:0;transform:translateX(20px)}to{opacity:1;transform:translateX(0)}}
@@ -559,17 +581,19 @@ footer{border-top:1px solid var(--div);padding:2rem;text-align:center;color:var(
     </div>
     <div class="nav-links">
       <button class="nav-link active" id="nl-home" onclick="showPage('home')">HOME</button>
-      <button class="nav-link" id="nl-stories" onclick="showPage('home')">STORIES</button>
+      <button class="nav-link" id="nl-stories" onclick="showPage('stories')">STORIES</button>
       <button class="nav-link" id="nl-calendar" onclick="showPage('calendar')">CALENDAR</button>
       <button class="nav-link" id="nl-about" onclick="showPage('about')">ABOUT</button>
       <button class="nav-link" id="nl-contact" onclick="showPage('contact')">CONTACT</button>
       <button class="nav-link" id="nl-bookmarks" onclick="showPage('bookmarks')" style="display:flex;align-items:center;gap:4px">❤️ <span id="bm-count" style="display:none;background:var(--acc);color:var(--at);border-radius:10px;padding:1px 6px;font-size:9px"></span></button>
     </div>
-    <div class="font-bar desktop-theme">
+    <div class="font-bar">
       <span>Aa</span>
       <button class="font-btn" onclick="changeFont(-1)" title="Smaller">A-</button>
       <button class="font-btn" onclick="changeFont(1)" title="Larger">A+</button>
     </div>
+    <!-- Google Translate -->
+    <div id="google_translate_element" style="display:flex;align-items:center;"></div>
     <button onclick="toggleSearch()" style="background:none;border:1px solid var(--div);border-radius:20px;padding:6px 12px;cursor:pointer;color:var(--t2);font-size:13px;display:flex;align-items:center;gap:5px;font-family:Lato,sans-serif;transition:all 0.2s" onmouseover="this.style.borderColor='var(--acc)';this.style.color='var(--acc)'" onmouseout="this.style.borderColor='var(--div)';this.style.color='var(--t2)'">🔍 <span style="font-size:11px;letter-spacing:0.08em">SEARCH</span></button>
     <!-- Hamburger -->
     <button class="hamburger" id="hamburger" onclick="toggleMenu()" style="display:none">
@@ -591,7 +615,7 @@ footer{border-top:1px solid var(--div);padding:2rem;text-align:center;color:var(
     </div>
   </div>
   <div class="mobile-link" onclick="showPage('home');toggleMenu()">🏠 Home</div>
-  <div class="mobile-link" onclick="showPage('home');toggleMenu()">📖 Stories</div>
+  <div class="mobile-link" onclick="showPage('stories');toggleMenu()">📖 Stories</div>
   <div class="mobile-link" onclick="showPage('calendar');toggleMenu()">🗓️ Festival Calendar</div>
   <div class="mobile-link" onclick="showPage('about');toggleMenu()">ℹ️ About</div>
   <div class="mobile-link" onclick="showPage('contact');toggleMenu()">📧 Contact</div>
@@ -604,11 +628,11 @@ footer{border-top:1px solid var(--div);padding:2rem;text-align:center;color:var(
     <div class="hero-tag">Stories Worth Telling</div>
     <h1 class="hero-title">Vamsi <span>Tales</span></h1>
     <p class="hero-sub">India • Life • Travel • Food • Mystery • Tech • Motivation — One story at a time.</p>
-    <button class="hero-btn" onclick="document.getElementById('stories-section').scrollIntoView({behavior:'smooth'})">EXPLORE STORIES</button>
+    <button class="hero-btn" onclick="showPage('stories')">EXPLORE STORIES</button>
     <div class="hero-line" id="hero-line"></div>
   </div>
 
-  <div class="cat-bar" id="cat-bar"></div>
+  <div id="stories-anchor" class="cat-bar" id="cat-bar"></div>
 
 
   <!-- TICKER -->
@@ -634,9 +658,9 @@ footer{border-top:1px solid var(--div);padding:2rem;text-align:center;color:var(
   <div class="stats-section">
     <div class="stats-inner">
       <div class="stat-card"><div class="stat-emoji">📖</div><div class="stat-num" id="stat-stories">0</div><div class="stat-label">Stories Published</div></div>
-      <div class="stat-card"><div class="stat-emoji">📂</div><div class="stat-num" id="stat-festivals">0</div><div class="stat-label">Topics Covered</div></div>
-      <div class="stat-card"><div class="stat-emoji">🌍</div><div class="stat-num" id="stat-readers">0</div><div class="stat-label">Monthly Readers</div></div>
-      <div class="stat-card"><div class="stat-emoji">🏛️</div><div class="stat-num" id="stat-categories">0</div><div class="stat-label">Categories</div></div>
+      <div class="stat-card"><div class="stat-emoji">🎉</div><div class="stat-num" id="stat-festivals">0</div><div class="stat-label">Festivals Covered</div></div>
+      <div class="stat-card"><div class="stat-emoji">🏛️</div><div class="stat-num" id="stat-readers">0</div><div class="stat-label">Articles Written</div></div>
+      <div class="stat-card"><div class="stat-emoji">📂</div><div class="stat-num" id="stat-categories">0</div><div class="stat-label">Categories</div></div>
     </div>
   </div>
 
@@ -691,6 +715,77 @@ footer{border-top:1px solid var(--div);padding:2rem;text-align:center;color:var(
       <div class="no-results" id="no-results" style="display:none">😔 No stories found. Try a different keyword!</div>
     </div>
   </div>
+
+  <!-- REVIEWS SECTION (inside home page) -->
+  <div class="reviews-section" id="reviews-section">
+    <div class="reviews-inner">
+      <div class="reviews-header">
+        <div class="reviews-title">⭐ What Our Readers Say about Vamsi Tales</div>
+        <div class="reviews-summary">
+          <div class="reviews-avg">
+            <div class="reviews-avg-num" id="rev-avg"></div>
+            <div class="reviews-avg-stars">⭐⭐⭐⭐⭐</div>
+            <div class="reviews-avg-count" id="rev-count"></div>
+          </div>
+          <div class="reviews-bars" id="rev-bars"></div>
+        </div>
+      </div>
+      <div class="reviews-list" id="reviews-list"></div>
+      <div class="review-form">
+        <div class="review-form-title">Write a Review</div>
+        <div class="star-picker" id="star-picker">
+          <span class="star-pick" onclick="setStar(1)">⭐</span>
+          <span class="star-pick" onclick="setStar(2)">⭐</span>
+          <span class="star-pick" onclick="setStar(3)">⭐</span>
+          <span class="star-pick" onclick="setStar(4)">⭐</span>
+          <span class="star-pick" onclick="setStar(5)">⭐</span>
+        </div>
+        <div class="comment-name-row" style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:8px">
+          <input class="comment-input" id="rev-name" placeholder="Your name"/>
+          <input class="comment-input" id="rev-location" placeholder="City, India"/>
+        </div>
+        <textarea class="comment-textarea" id="rev-text" placeholder="Tell us what you love about Vamsi Tales..." style="width:100%"></textarea>
+        <button class="review-submit" onclick="submitReview()">Submit Review ⭐</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- NEWSLETTER (inside home page) -->
+  <div class="newsletter-section" id="newsletter-wrap">
+    <div class="newsletter-inner">
+      <div class="newsletter-left">
+        <div class="nl-emoji">📬</div>
+        <div class="nl-title">Get Vamsi Tales in Your Inbox</div>
+        <div class="nl-sub">Every week, one new story — India, life, travel, mystery, food or whatever I feel like writing. No spam, ever.</div>
+      </div>
+      <div class="newsletter-right">
+        <div class="nl-input-row">
+          <input class="nl-input" id="nl-email" type="email" placeholder="your@email.com"/>
+          <button class="nl-btn" onclick="subscribeNewsletter()">SUBSCRIBE</button>
+        </div>
+        <div class="nl-note">🔒 No spam. Unsubscribe anytime.</div>
+      </div>
+    </div>
+  </div>
+</div><!-- END HOME PAGE -->
+
+<!-- STORIES PAGE -->
+<div class="page" id="page-stories">
+  <div class="page-hdr">
+    <div class="page-tag">📖 All Stories</div>
+    <h1 class="page-h1">Stories Worth Telling</h1>
+    <p class="page-sub">India • Life • Travel • Food • Mystery • Tech • Motivation</p>
+  </div>
+  <div class="cat-bar" id="stories-cat-bar"></div>
+  <div class="search-wrap">
+    <div class="search-box">
+      <span class="search-icon">🔍</span>
+      <input class="search-input" id="stories-search-input" placeholder="Search stories..." oninput="filterStoriesPage(this.value)"/>
+      <button class="search-clear" id="stories-search-clear" onclick="clearStoriesSearch()" style="display:none">✕</button>
+    </div>
+  </div>
+  <div class="grid" id="stories-grid"></div>
+  <div id="stories-no-results" style="display:none;text-align:center;padding:3rem;color:var(--t3);font-family:Lato,sans-serif">😔 No stories found. Try a different keyword!</div>
 </div>
 
 <!-- BOOKMARKS PAGE -->
@@ -706,7 +801,7 @@ footer{border-top:1px solid var(--div);padding:2rem;text-align:center;color:var(
 <!-- FULL ARTICLE PAGE -->
 <div class="page" id="page-article">
   <div class="article-page">
-    <button class="article-back" onclick="showPage('home')">← Back to Stories</button>
+    <button class="article-back" onclick="showPage('stories')">← Back to Stories</button>
     <div class="article-category" id="art-category"></div>
     <h1 class="article-title" id="art-title"></h1>
     <div class="article-meta-row">
@@ -730,11 +825,11 @@ footer{border-top:1px solid var(--div);padding:2rem;text-align:center;color:var(
     <!-- REACTIONS -->
     <div class="reactions-bar">
       <span class="reactions-label">React:</span>
-      <button class="reaction-btn" onclick="react(this,'❤️')"><span>❤️</span><span class="reaction-count">24</span></button>
-      <button class="reaction-btn" onclick="react(this,'🔥')"><span>🔥</span><span class="reaction-count">18</span></button>
-      <button class="reaction-btn" onclick="react(this,'👏')"><span>👏</span><span class="reaction-count">31</span></button>
-      <button class="reaction-btn" onclick="react(this,'😮')"><span>😮</span><span class="reaction-count">9</span></button>
-      <button class="reaction-btn" onclick="react(this,'🙏')"><span>🙏</span><span class="reaction-count">42</span></button>
+      <button class="reaction-btn" onclick="react(this,'❤️')"><span>❤️</span><span class="reaction-count">0</span></button>
+      <button class="reaction-btn" onclick="react(this,'🔥')"><span>🔥</span><span class="reaction-count">0</span></button>
+      <button class="reaction-btn" onclick="react(this,'👏')"><span>👏</span><span class="reaction-count">0</span></button>
+      <button class="reaction-btn" onclick="react(this,'😮')"><span>😮</span><span class="reaction-count">0</span></button>
+      <button class="reaction-btn" onclick="react(this,'🙏')"><span>🙏</span><span class="reaction-count">0</span></button>
     </div>
 
     <!-- RELATED -->
@@ -947,69 +1042,26 @@ footer{border-top:1px solid var(--div);padding:2rem;text-align:center;color:var(
 
 <!-- FOOTER -->
 
-
-<!-- REVIEWS SECTION -->
-<div class="reviews-section" id="reviews-section">
-  <div class="reviews-inner">
-    <div class="reviews-header">
-      <div class="reviews-title">⭐ What Our Readers Say about Vamsi Tales</div>
-      <div class="reviews-summary">
-        <div class="reviews-avg">
-          <div class="reviews-avg-num" id="rev-avg">4.8</div>
-          <div class="reviews-avg-stars">⭐⭐⭐⭐⭐</div>
-          <div class="reviews-avg-count" id="rev-count">Loading...</div>
-        </div>
-        <div class="reviews-bars" id="rev-bars"></div>
-      </div>
-    </div>
-    <div class="reviews-list" id="reviews-list"></div>
-    <div class="review-form">
-      <div class="review-form-title">Write a Review</div>
-      <div class="star-picker" id="star-picker">
-        <span class="star-pick" onclick="setStar(1)">⭐</span>
-        <span class="star-pick" onclick="setStar(2)">⭐</span>
-        <span class="star-pick" onclick="setStar(3)">⭐</span>
-        <span class="star-pick" onclick="setStar(4)">⭐</span>
-        <span class="star-pick" onclick="setStar(5)">⭐</span>
-      </div>
-      <div class="comment-name-row" style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:8px">
-        <input class="comment-input" id="rev-name" placeholder="Your name"/>
-        <input class="comment-input" id="rev-location" placeholder="City, India"/>
-      </div>
-      <textarea class="comment-textarea" id="rev-text" placeholder="Tell us what you love about Vamsi Tales..." style="width:100%"></textarea>
-      <button class="review-submit" onclick="submitReview()">Submit Review ⭐</button>
-    </div>
-  </div>
-</div>
-
-<!-- NEWSLETTER -->
-<div class="newsletter-section" id="newsletter-wrap">
-  <div class="newsletter-inner">
-    <div class="newsletter-left">
-      <div class="nl-emoji">📬</div>
-      <div class="nl-title">Get Vamsi Tales in Your Inbox</div>
-      <div class="nl-sub">Every week, one new story — India, life, travel, mystery, food or whatever I feel like writing. No spam, ever.</div>
-    </div>
-    <div class="newsletter-right">
-      <div class="nl-input-row">
-        <input class="nl-input" id="nl-email" type="email" placeholder="your@email.com"/>
-        <button class="nl-btn" onclick="subscribeNewsletter()">SUBSCRIBE</button>
-      </div>
-      <div class="nl-note">🔒 No spam. Unsubscribe anytime.</div>
-    </div>
-  </div>
-</div>
-
 <footer style="padding-bottom:1rem;width:100%;box-sizing:border-box;">
   <span style="color:var(--acc);margin-right:6px">🪷</span>
 
   <!-- Social Media Links -->
   <div class="footer-social">
-    <a class="social-btn ig" href="https://www.instagram.com/vamsitales/" target="_blank" title="Instagram">📸</a>
-    <a class="social-btn yt" href="https://youtube.com/@vamsitales" target="_blank" title="YouTube">▶️</a>
-    <a class="social-btn tw" href="https://twitter.com/vamsitales" target="_blank" title="Twitter">🐦</a>
-    <a class="social-btn fb" href="https://facebook.com/vamsitales" target="_blank" title="Facebook">📘</a>
-    <a class="social-btn wa" href="https://wa.me/message/BHARATAKATHA" target="_blank" title="WhatsApp Community">💬</a>
+    <a class="social-btn ig" href="https://www.instagram.com/vamsitales/" target="_blank" title="Instagram">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+    </a>
+    <a class="social-btn yt" href="https://youtube.com/@vamsitales" target="_blank" title="YouTube">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M23.495 6.205a3.007 3.007 0 0 0-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 0 0 .527 6.205a31.247 31.247 0 0 0-.522 5.805 31.247 31.247 0 0 0 .522 5.783 3.007 3.007 0 0 0 2.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 0 0 2.088-2.088 31.247 31.247 0 0 0 .5-5.783 31.247 31.247 0 0 0-.5-5.805zM9.609 15.601V8.408l6.264 3.602z"/></svg>
+    </a>
+    <a class="social-btn tw" href="https://twitter.com/vamsitales" target="_blank" title="Twitter / X">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+    </a>
+    <a class="social-btn fb" href="https://facebook.com/vamsitales" target="_blank" title="Facebook">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+    </a>
+    <a class="social-btn wa" href="https://wa.me/message/BHARATAKATHA" target="_blank" title="WhatsApp Community">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+    </a>
   </div>
 
   VAMSI TALES — Stories Worth Telling · © <span id="footer-year"></span>
@@ -1088,14 +1140,14 @@ footer{border-top:1px solid var(--div);padding:2rem;text-align:center;color:var(
 <script>
 // DATA
 const posts=[
-  {id:1,category:"India",title:"The Village With No Locks — Mystery of Shani Shingnapur",excerpt:"4,000 people. No doors. No locks. For centuries. The story behind India's most trusting village.",date:"November 12, 2024",readTime:"5 min read",emoji:"🪔",color:"#C2621A"},
-  {id:2,category:"Life",title:"The Day I Started My Own Website By Vamsi Krishna",excerpt:"Today was a special day for me.A few days ago, I knew almost nothing about creating websites. Terms like GitHub, repositories, deployment, and Vercel sounded confusing and difficult.But instead of giving up, I decided to learn step by step.At first, I created a GitHub account and then made my first repository called Vamsi Tales. After that, I uploaded my website files and connected the project to Vercel.There were many moments when I wasn't sure what to do next. Sometimes I clicked the wrong button and sometimes I had to try again. But each small step brought me closer to my goal.Finally, after deploying the project, I saw my website live on the internet.It may look like a simple website today, but for me it represents something bigger. It represents learning, patience, and the courage to start something new.This is only the beginning of my journey. In the coming days, I plan to share stories, interesting facts, life experiences, and motivational articles on Vamsi Tales.Thank you for visiting and being part of this journey.— Vamsi Krishna",date:"October 28, 2024",readTime:"4 min read",emoji:"✨",color:"#F59E0B"},
-  {id:3,category:"Mystery",title:"The Roopkund Skeleton Lake — 500 Skulls at 16,000 Feet",excerpt:"High in the Himalayas lies a frozen lake filled with hundreds of ancient human skeletons. Who were they?",date:"October 15, 2024",readTime:"6 min read",emoji:"💀",color:"#8B5CF6"},
-  {id:4,category:"Travel",title:"Hampi: The City That Time Forgot",excerpt:"Boulders the size of buildings. Temples carved from solid rock. Hampi was once the second largest city in the world.",date:"September 30, 2024",readTime:"7 min read",emoji:"🏔️",color:"#10B981"},
-  {id:5,category:"Tech",title:"How AI Is Quietly Changing the Way India Works",excerpt:"From farmers using AI to predict rainfall to students getting tutors at midnight — AI is spreading across India fast.",date:"September 10, 2024",readTime:"8 min read",emoji:"🤖",color:"#3B82F6"},
-  {id:6,category:"Food",title:"Why Andhra Food Is the Spiciest — And the Science Behind It",excerpt:"Andhra Pradesh holds the unofficial title of India's spiciest cuisine. The answer involves history, climate and one tiny red chilli.",date:"August 22, 2024",readTime:"5 min read",emoji:"🌶️",color:"#EF4444"},
-  {id:7,category:"Motivation",title:"Lessons From a Man Who Failed 10,000 Times",excerpt:"Thomas Edison did not see 10,000 failures. He saw 10,000 ways that did not work. The story of history's most productive mindset.",date:"August 10, 2024",readTime:"4 min read",emoji:"💡",color:"#F97316"},
-  {id:8,category:"India",title:"Nalanda: The University That Burned for 3 Months",excerpt:"Before Oxford, before Cambridge — India had Nalanda. The world's first great university burned for three months.",date:"July 28, 2024",readTime:"6 min read",emoji:"📚",color:"#EC4899"},
+  {id:1,category:"India",title:"The Village With No Locks — Mystery of Shani Shingnapur",excerpt:"4,000 people. No doors. No locks. For centuries. The story behind India's most trusting village.",date:"June 12, 2026",readTime:"5 min read",emoji:"🪔",color:"#C2621A"},
+  {id:2,category:"Life",title:"The Day I Built My Own Website — From Zero to Live",excerpt:"A few weeks ago, I knew nothing about GitHub, Vercel, or deployment. Then one step at a time, I learned. This is the story of how Vamsi Tales came to life.",date:"June 12, 2026",readTime:"4 min read",emoji:"✨",color:"#F59E0B"},
+  {id:3,category:"Mystery",title:"The Roopkund Skeleton Lake — 500 Skulls at 16,000 Feet",excerpt:"High in the Himalayas lies a frozen lake filled with hundreds of ancient human skeletons. Who were they?",date:"June 12, 2026",readTime:"5 min read",emoji:"💀",color:"#8B5CF6"},
+  {id:4,category:"Travel",title:"Hampi: The City That Time Forgot",excerpt:"Boulders the size of buildings. Temples carved from solid rock. Hampi was once the second largest city in the world.",date:"June 12, 2026",readTime:"5 min read",emoji:"🏔️",color:"#10B981"},
+  {id:5,category:"Tech",title:"How AI Is Quietly Changing the Way India Works",excerpt:"From farmers using AI to predict rainfall to students getting tutors at midnight — AI is spreading across India fast.",date:"June 12, 2026",readTime:"5 min read",emoji:"🤖",color:"#3B82F6"},
+  {id:6,category:"Food",title:"Why Andhra Food Is the Spiciest — And the Science Behind It",excerpt:"Andhra Pradesh holds the unofficial title of India's spiciest cuisine. The answer involves history, climate and one tiny red chilli.",date:"June 12, 2026",readTime:"4 min read",emoji:"🌶️",color:"#EF4444"},
+  {id:7,category:"Motivation",title:"Lessons From a Man Who Failed 10,000 Times",excerpt:"Thomas Edison did not see 10,000 failures. He saw 10,000 ways that did not work. The story of history's most productive mindset.",date:"June 12, 2026",readTime:"4 min read",emoji:"💡",color:"#F97316"},
+  {id:8,category:"India",title:"Nalanda: The University That Burned for 3 Months",excerpt:"Before Oxford, before Cambridge — India had Nalanda. The world's first great university burned for three months.",date:"June 12, 2026",readTime:"5 min read",emoji:"📚",color:"#EC4899"},
 ];
 
 const categories=["All","India","Life","Travel","Food","Mystery","Tech","Motivation"];
@@ -1129,19 +1181,26 @@ const TL={national:"National",south:"South India",north:"North India",west:"West
 const MONTHS=["January","February","March","April","May","June","July","August","September","October","November","December"];
 
 const articleBodies={
-  1:"<p>Every year, millions of visitors come to Shani Shingnapur in Maharashtra. This village has no doors, no locks, no bolts. 4,000 people living in complete trust for centuries.</p><h3>The Legend</h3><p>Hundreds of years ago, a massive black rock appeared in a river. A shepherd touched it and it bled. Lord Shani appeared in his dream and said: leave me in the open sky and I will protect this village forever.</p><div class='article-pullquote'><p>What if the real security was never the lock but the community?</p></div><h3>Does It Work?</h3><p>Police records show an extraordinarily low crime rate. Even the UCO Bank branch here had no doors or lockers. Whether it is faith or community values, something is working.</p>",
-  2:"<p>There is always one moment in a person's life, one quiet decision, that splits everything into before and after.</p><p>It is rarely dramatic. It often looks like nothing from the outside. But something inside you shifts permanently.</p><h3>How Do You Recognize It?</h3><p>The decisions that change everything rarely announce themselves. They arrive disguised as small choices.</p><div class='article-pullquote'><p>The biggest decisions of your life will often feel like the smallest ones in the moment.</p></div><h3>The Lesson</h3><p>Stop waiting for the right moment. The right moment is the one where you decide it is right.</p>",
-  3:"<p>At 16,000 feet above sea level in the Himalayas, there is a frozen lake filled with hundreds of human skeletons.</p><p>Roopkund Lake was discovered in 1942 by a British forest ranger. What he found shocked the world.</p><h3>Who Were They?</h3><p>DNA analysis revealed something strange: the skeletons came from two completely different groups separated by 1,000 years in time.</p><div class='article-pullquote'><p>Some mysteries are not meant to be solved. They remind us how little we know.</p></div><h3>The Answer</h3><p>Scientists believe both groups were killed by a sudden violent hailstorm. Hailstones the size of cricket balls. No shelter. No escape.</p>",
-  4:"<p>Boulders the size of buildings. Temples carved from solid rock. Rivers that turn silver at dawn. Hampi in Karnataka was once the second largest city in the entire world.</p><h3>What Was Hampi?</h3><p>At its peak in the 15th century, Hampi was the capital of the Vijayanagara Empire, one of the greatest kingdoms in Indian history.</p><div class='article-pullquote'><p>Some places do not need words. Hampi speaks through stone.</p></div><h3>Why You Should Go</h3><p>Today Hampi is a UNESCO World Heritage Site. Rent a bicycle, explore the ruins at sunrise, and let the stones tell you their stories.</p>",
-  5:"<p>Something extraordinary is happening across India and most people outside the country are not paying attention.</p><p>Farmers in Andhra Pradesh are using AI to predict which crops will survive the next monsoon. Students in rural Bihar are getting tutoring at midnight from AI systems.</p><h3>Why India?</h3><p>India has the perfect conditions: the world's largest young population, widespread smartphone usage, and a deep cultural hunger for education.</p><div class='article-pullquote'><p>India is not just adopting AI. India is quietly becoming the world's largest AI experiment.</p></div>",
-  6:"<p>If you have ever eaten authentic Andhra food and felt your eyes water and your heart sing simultaneously, you are not alone.</p><p>Andhra Pradesh is home to what many food experts consider the spiciest cuisine in all of India.</p><h3>The History</h3><p>The Guntur red chilli grown in Andhra soil is not just a spice. It is an economy, a culture and an identity. Andhra Pradesh produces over 50 percent of India's total chilli output.</p><div class='article-pullquote'><p>In Andhra, spice is not just a flavour. It is a philosophy.</p></div><h3>The Science</h3><p>Capsaicin triggers the same pain receptors as actual heat. Your brain releases endorphins in response. Andhra food is literally a natural high.</p>",
-  7:"<p>Thomas Edison tried over 10,000 different materials before finding the right filament for the light bulb. When asked how it felt to fail 10,000 times, Edison said: I did not fail. I found 10,000 ways that do not work.</p><h3>What Edison Understood</h3><p>Failure is data. Every failed attempt tells you something. Every dead end narrows the map.</p><div class='article-pullquote'><p>The only real failure is the one you stop learning from.</p></div><h3>Apply It Today</h3><p>Whatever you are working on right now, count your attempts not your failures. Each one is a step not a stumble.</p>",
-  8:"<p>In the 5th century AD, there existed a university so extraordinary that students traveled from China, Korea, Japan, Tibet, Mongolia, Turkey and Greece to study there.</p><p>Nalanda University in Bihar was the world's first residential university with over 10,000 students and 2,000 teachers.</p><h3>What Was Taught</h3><p>Every subject imaginable: mathematics, astronomy, medicine, philosophy, literature, logic.</p><div class='article-pullquote'><p>Nalanda did not just teach knowledge. It taught how to think.</p></div><h3>How It Ended</h3><p>In 1193, an invading army attacked Nalanda. The library burned for three months because there were so many books.</p>",
+  1:"<p>Every year, millions of visitors travel to a small village in Maharashtra called Shani Shingnapur. They come for the temple. But they stay in disbelief at something else entirely.</p><p>This village has no doors. No locks. No bolts. No window shutters. 4,000 people live here in open houses — and have done so for centuries. The local UCO Bank branch famously operated for years without a vault door. Homes have no gates. Shops leave their goods unguarded at night.</p><h3>The Legend Behind the Village</h3><p>The story goes back hundreds of years. A massive black rock was found floating in the Panasnala river. When a shepherd struck it with a stick, it bled. That night, Lord Shani — the god associated with the planet Saturn and divine justice — appeared in the shepherd's dream.</p><p>Lord Shani made a promise: place me in the open sky, worship me, and I will protect this village forever. Anyone who steals here will face my wrath directly. No human lock is needed when a divine one exists.</p><p>The black rock was installed in the open air, where it stands to this day. Villagers took the promise seriously. Generations passed. The doors never came.</p><div class='article-pullquote'><p>What if the real security was never the lock — but the community that chose to live without one?</p></div><h3>What the Records Say</h3><p>This is not just legend. Police records from Shani Shingnapur show an extraordinarily low crime rate compared to surrounding areas. Officers stationed there often report having almost nothing to do. The few thefts that have occurred over the decades are spoken about like cautionary tales — people say those who stole later suffered severe misfortune.</p><p>Psychologists have a different explanation. When an entire community genuinely believes that theft will be punished by a higher power, social trust becomes self-enforcing. Everyone watches, everyone believes, and so no one dares.</p><h3>The Indian Connection</h3><p>Shani Shingnapur is not just a curiosity — it is a window into how deeply faith shapes everyday life in India. From the way rivers are treated as goddesses to the way certain trees are never cut down, India has always found ways to make the sacred do the work of the practical.</p><p>In a country where formal institutions are often slow or inaccessible, communities have built their own systems of trust for thousands of years. Shani Shingnapur is one of the most extraordinary examples.</p><h3>The Lesson</h3><p>Modern cities spend billions on locks, cameras, and security systems. Yet theft and crime continue. Shani Shingnapur asks a quiet but profound question: what if the most powerful security system is not a device — but a shared belief in consequence?</p><p>Whether you are religious or not, the village proves something universal. Trust, when it is built carefully and protected collectively, can hold a community together in ways that no door ever could.</p>",
+
+  2:"<p>There is a moment in every beginner's journey when the instructions stop making sense. When you have followed every step, clicked every button, and yet the screen stares back at you with an error you do not understand.</p><p>I had that moment many times while building Vamsi Tales. But I also had the moment when everything finally worked — and I want to tell you about both.</p><h3>Where It Started</h3><p>A few weeks ago, I knew nothing about websites. Not in the casual way people say that. I mean genuinely nothing. Words like repository, deployment, version control, and hosting were a foreign language to me. I had ideas — stories I wanted to share about India, about life, about the things I find fascinating — but no idea how to put them online.</p><p>I could have waited. Waited until I took a course, found a developer friend, saved money for someone to build it. But something in me said: just start. Figure it out as you go.</p><h3>The First Steps</h3><p>I created a GitHub account. That was step one. GitHub is a platform where you store and manage code — think of it as Google Drive but for websites. I created a repository called Vamsi Tales and started uploading files.</p><p>Then I connected the project to Vercel. Vercel takes your code from GitHub and puts it live on the internet automatically. Every time you update your code, Vercel updates your website. It sounds simple. It was not simple. There were at least a dozen moments where I clicked the wrong thing, deleted something I should not have, or got an error message I had never seen before.</p><div class='article-pullquote'><p>You do not need to know everything before you start. You just need to be willing to not know — and keep going anyway.</p></div><h3>The Moment It Went Live</h3><p>When I finally saw the website live at its own URL, something shifted inside me. It was not a big website. It was not perfect. There were things that did not work and things I wanted to change. But it existed. On the real internet. Anyone in the world could find it.</p><p>That feeling is hard to describe. It was not pride exactly. It was closer to proof — proof that the gap between knowing nothing and building something is crossable. That it does not require genius or years of study. It requires patience, a willingness to look stupid, and the stubbornness to try one more time.</p><h3>What I Learned</h3><p>The biggest lesson was not technical. It was this: the intimidating thing and the doable thing are often the same thing. GitHub looked terrifying until I used it for ten minutes. Vercel looked like something only engineers understood until I deployed my first file.</p><p>Every skill looks like a wall from the outside. Once you start climbing, you realize it is just a series of small steps that anyone can take.</p><h3>What Comes Next</h3><p>This is only the beginning of Vamsi Tales. New stories every week — India, culture, mystery, travel, food, motivation, and whatever else I find worth telling. Thank you for being here on day one. It means more than you know. 🙏</p>",
+
+  3:"<p>There is a lake in the Indian Himalayas that no one visits in winter. The snow is too deep, the altitude too high, the path too dangerous. But every summer, when the snow melts, the lake reveals its secret.</p><p>Hundreds of human skeletons. Bleached white by centuries of sun and ice. Scattered across the lakebed and its banks like they fell from the sky.</p><p>This is Roopkund — the Skeleton Lake — sitting at 16,470 feet above sea level in the Uttarakhand Himalayas. And its mystery has haunted scientists for over eighty years.</p><h3>The Discovery</h3><p>The lake was first reported to the outside world in 1942, when a British forest ranger named H K Madhwal stumbled upon it during a patrol. He found hundreds of skulls and bones lying in and around the lake, perfectly preserved by the freezing cold. The British authorities initially feared they were the remains of Japanese soldiers who had died crossing the mountains. Forensic teams were dispatched.</p><p>They were not Japanese soldiers. The bones were far older than World War Two. But figuring out exactly who they were — and how they all died in the same place — would take another sixty years.</p><h3>Who Were They?</h3><p>DNA analysis conducted in the 2000s revealed something that deepened the mystery rather than solving it. The skeletons came from at least two completely distinct genetic groups. One group appeared to be of South Asian origin — likely pilgrims or local people. The other group had genetics closer to people from the Eastern Mediterranean, possibly from the Greek island of Crete.</p><p>Even stranger: carbon dating showed the two groups did not die at the same time. They were separated by nearly 1,000 years. The South Asian group died around the 9th century AD. The Mediterranean group died sometime around the 17th or 18th century.</p><div class='article-pullquote'><p>Some mysteries do not get solved — they get deeper. Roopkund is a reminder of how little we know about the people who walked before us.</p></div><h3>How Did They Die?</h3><p>Despite the confusion over who they were, scientists found agreement on one thing: the manner of death. The skulls showed a consistent pattern of fractures — short, deep cracks on the top of the head, consistent with being struck by round objects falling from above.</p><p>The leading theory today is a catastrophic hailstorm. Hailstones the size of cricket balls, falling from directly overhead with no warning. At 16,000 feet, there is no shelter. No trees, no caves nearby. The travelers — whoever they were and from whatever century — had nowhere to go.</p><h3>The Indian Connection</h3><p>The route to Roopkund follows an ancient pilgrimage path called the Nanda Devi Raj Jat — a sacred journey taken every twelve years by devotees of the goddess Nanda Devi. Many historians believe the South Asian skeletons were pilgrims on this very route, caught by a sudden storm in one of India's most unforgiving terrains.</p><p>Pilgrimage in India has always come with risk. Thousands of years of devotion have sent millions of people into mountains, deserts, and forests in pursuit of the sacred. Some did not come back. Roopkund is where some of them stayed forever.</p><h3>The Lesson</h3><p>Roopkund teaches us two things. First, that the Himalayas are ancient highways — routes traveled by people from across the world for centuries, for reasons we are still piecing together. Second, that nature does not negotiate. Not with pilgrims, not with travelers, not with time. The mountains remember everyone who crosses them.</p>",
+
+  4:"<p>Imagine a city larger than London at a time when most of Europe's cities were small walled towns. A city of broad streets, thriving markets, ornate temples, and a royal court known across Asia for its wealth and learning. A city built around boulders the size of houses, in a landscape so strange it looks like another planet.</p><p>This was Hampi, Karnataka — capital of the Vijayanagara Empire, and once the second largest city in the entire world.</p><h3>The Empire Behind the City</h3><p>The Vijayanagara Empire was founded in 1336 by two brothers, Harihara and Bukka Raya, on the banks of the Tungabhadra river. According to legend, a sage named Vidyaranya appeared to them and told them to build a city where a hare chased a dog — a sign of a land so powerful that even the weakest creature had no fear. They found that place. They built their empire around it.</p><p>At its peak in the 15th and early 16th century, the Vijayanagara Empire controlled most of South India. Its capital, Hampi, was home to roughly 500,000 people — more than any European city of its time except Paris. Merchants from Persia, Portugal, Arabia, and China all wrote accounts of its magnificence. The Portuguese traveler Domingo Paes called it a city as large as Rome, and as beautiful.</p><h3>What You See Today</h3><p>What remains of Hampi today is a UNESCO World Heritage Site spread across 26 square kilometres. The landscape is surreal: massive granite boulders balanced on each other in formations that look engineered but are entirely natural, rising from a flat plain on the banks of the blue-green Tungabhadra.</p><p>Among the boulders sit the ruins of a civilization. The Virupaksha Temple — dedicated to Lord Shiva — has been in continuous worship for over a thousand years and still functions today. The Vittala Temple has a stone chariot so perfectly carved that its wheels once turned. The giant monolithic statue of Ugra Narasimha, carved from a single rock, sits in the open air with a serenity that survives centuries of rain and sun.</p><div class='article-pullquote'><p>Some places do not need words to speak. Hampi speaks through stone — and the stone has been speaking for six hundred years.</p></div><h3>How It Ended</h3><p>In 1565, the Vijayanagara Empire was defeated at the Battle of Talikota by a coalition of Deccan sultanates. The victorious armies marched into Hampi and spent months destroying it. They smashed temples, toppled statues, broke apart the stone chariot, and burned the markets. A city that had taken two centuries to build was reduced to rubble in six months.</p><p>The people fled. The streets emptied. The jungle crept in. For nearly three centuries, Hampi sat largely forgotten — its ruins slowly being consumed by banyan trees and monsoon grass.</p><h3>Why You Should Go</h3><p>Today Hampi is one of India's most extraordinary travel destinations — and one of its least crowded. Rent a bicycle and spend two or three days exploring the ruins at your own pace. Watch the sunrise from Matanga Hill, when the entire plain of boulders and temples turns gold. Eat at one of the small restaurants on the island across the river. Sit quietly inside the Vittala Temple in the late afternoon when the light is low and orange.</p><p>Hampi does not need explanations. You just need to be there.</p>",
+
+  5:"<p>India is in the middle of something enormous, and most of the world is not paying attention.</p><p>In a village in Andhra Pradesh, a farmer opens an app on his phone and gets a rainfall prediction accurate to his specific field. In Bihar, a seventeen-year-old girl with no school nearby talks to an AI tutor at eleven at night, preparing for her entrance exams. In Mumbai, a radiologist uses an AI model to catch early signs of tuberculosis in chest X-rays — a disease that still kills over 300 Indians every day.</p><p>This is not science fiction. This is 2026.</p><h3>Why India Is Different</h3><p>When people talk about the AI revolution, they usually mean Silicon Valley, or China's tech giants. They picture gleaming offices and billion-dollar valuations. But some of the most consequential AI applications in the world are happening in dusty government offices, rural health clinics, and on the cracked screens of second-hand Android phones across India.</p><p>The reason is simple: India has the perfect conditions for AI to matter. The world's largest young population. Smartphone penetration that has reached even the most remote corners of the country. A massive hunger for education, healthcare, and economic opportunity that existing infrastructure simply cannot meet. And a government that has, for once, moved fast — with initiatives like Digital India and the India AI Mission pushing billions into AI infrastructure.</p><h3>On the Farm</h3><p>Agriculture employs over 40 percent of India's workforce. It is also one of the most unpredictable professions on earth, dominated by monsoon uncertainty, pest outbreaks, and volatile market prices. AI is beginning to change this. Startups like Fasal and CropIn use satellite data, soil sensors, and machine learning to give individual farmers hyper-local predictions: when to irrigate, when to harvest, which crops will fetch the best price next month.</p><p>The results are real. Farmers using these platforms report 20 to 30 percent improvements in yield and significant reductions in water and pesticide use. In a country where one bad harvest can push a family into debt, that difference is life-changing.</p><div class='article-pullquote'><p>India is not just adopting AI. India is quietly becoming the world's largest AI experiment — and the results are already coming in.</p></div><h3>In the Classroom</h3><p>India has a teacher shortage that no government has managed to solve. There are not enough qualified teachers, they are not distributed evenly, and in many rural areas, schools function with a single teacher for five grades. AI-powered tutoring platforms like BYJU's, Vedantu, and newer players like Khanmigo in Hindi are beginning to fill this gap — available 24 hours a day, patient, and personalized to each student's pace.</p><p>Critics rightly point out the risks: not every family has reliable internet, not every child learns well alone, and platforms that optimize for engagement can also optimize for addiction. These are real problems. But for millions of students who currently have no alternative, an AI tutor at midnight is better than no tutor at all.</p><h3>The Lesson</h3><p>Technology does not fix inequality on its own. But in a country of 1.4 billion people with enormous unmet needs, AI is already doing something remarkable: it is delivering expertise — medical, agricultural, educational — to people who have never had access to it before. India's AI story is not about replacing humans. It is about reaching the ones that human systems never reached.</p>",
+
+  6:"<p>There is a moment, eating authentic Andhra food for the first time, when your body genuinely cannot decide whether it is experiencing pain or pleasure. Your eyes water. Your forehead sweats. Your tongue sends urgent messages to your brain that something is wrong. And yet you reach for another bite.</p><p>Welcome to Andhra Pradesh — home to what is widely considered the spiciest cuisine in all of India. And the story of how it got this way is about history, geography, economics, and one remarkable little chilli.</p><h3>The Guntur Connection</h3><p>The capital of Andhra spice is Guntur — a city of about a million people in the Krishna-Godavari delta, surrounded by some of the most fertile agricultural land in South India. The black cotton soil of the Guntur region produces a red chilli — the Guntur Sannam — that has become one of the most traded agricultural commodities in all of Asia.</p><p>Andhra Pradesh produces roughly 30 percent of India's total chilli output. Guntur alone has an entire economy built around the chilli: vast drying yards where fields of red chillies are spread out under the sun, warehouses that smell like capsaicin from a kilometre away, and a dedicated chilli market — the Guntur Mirchi Yard — that is one of the largest in the world, handling thousands of tonnes of chillies daily.</p><p>For many families in the region, chilli is not just a spice. It is a livelihood, a tradition, and an identity.</p><h3>Why So Spicy?</h3><p>The spiciness of Andhra food did not happen by accident. The climate of coastal Andhra — hot, humid, and prone to high temperatures — makes conditions ideal for growing high-capsaicin chillies. Over generations, local cooking adapted to use what was abundantly available and cheap.</p><p>But there is also a practical reason. Before refrigeration, spices acted as preservatives. Food cooked with heavy quantities of chilli and tamarind — both of which have antimicrobial properties — stayed safe to eat longer in the heat. The cuisine was, in part, a solution to the problem of food safety in a tropical climate.</p><div class='article-pullquote'><p>In Andhra, spice is not just a flavour. It is a philosophy — a daily practice of intensity, of being fully awake in your own mouth.</p></div><h3>The Science of the Burn</h3><p>Capsaicin — the compound that makes chillies hot — works by binding to pain receptors in your mouth, tongue, and throat. These receptors normally respond to physical heat above 43 degrees Celsius. Capsaicin tricks them into firing as if that heat is present, even when it is not. Your brain responds to what it perceives as a burn by releasing endorphins — natural painkillers that also produce a mild euphoria.</p><p>This is why Andhra food lovers describe the experience as addictive. It genuinely is, in a mild neurological sense. The endorphin release makes you feel good, and your brain associates that feeling with the food. You want more.</p><h3>What to Try</h3><p>If you want to experience Andhra cuisine properly, start with Pesarattu — crispy green moong dal crepes eaten with ginger chutney at breakfast. Move to Gongura Mutton for lunch — tender lamb cooked with sorrel leaves that add a sharp sourness to cut through the chilli heat. And finish with Pulihora, a tamarind rice that is tangy, nutty, and deeply satisfying. Have a glass of cold buttermilk nearby. You will need it.</p><h3>The Lesson</h3><p>Andhra's spice is not bravado. It is culture — centuries of agriculture, climate, trade, and taste built into every bite. Next time someone warns you that Andhra food is too spicy, treat it as a recommendation, not a caution.</p>",
+
+  7:"<p>In the winter of 1879, a thirty-two-year-old inventor in Menlo Park, New Jersey, made a discovery that changed the world. After more than a year of failed experiments — testing over a thousand different materials as filaments for his electric light bulb — Thomas Edison finally found one that worked: a carbonized thread of bamboo that burned steadily for over 1,200 hours.</p><p>The newspapers called it a triumph of genius. Edison had a different description. He said he had simply found 10,000 ways that did not work.</p><h3>The Reframe That Changes Everything</h3><p>Most of us have been taught to think of failure as the opposite of success. You try something. It does not work. You have failed. The implication is that you should feel bad, and that failure is something to be avoided, hidden, or escaped from as quickly as possible.</p><p>Edison understood something different. He understood that failure is not the opposite of success — it is the raw material of success. Every experiment that did not work gave him new information. Every dead end narrowed the map. Every wrong answer brought him one step closer to the right one.</p><p>This is not positive thinking. It is engineering logic applied to life.</p><h3>What Failure Actually Is</h3><p>Think about how a doctor diagnoses an illness. They do not start with the answer. They start by ruling things out. This test came back negative — that tells us something. This treatment did not work — that tells us something. Medicine is, at its core, a systematic process of intelligent failure leading toward truth.</p><p>Edison treated invention the same way. He kept meticulous records of every failed experiment, not because he enjoyed failure, but because each failure was data. And data is never wasted.</p><div class='article-pullquote'><p>The only real failure is the one you stop learning from. Everything else is just an experiment that gave you an answer you were not expecting.</p></div><h3>The Indian Parallel</h3><p>India has a word for this kind of persistent effort: Tapasya. It translates roughly as disciplined effort or austerity, but its deeper meaning is closer to the willingness to endure difficulty in pursuit of something greater. In Hindu philosophy, the greatest achievements — wisdom, liberation, mastery — are always preceded by long periods of struggle and apparent failure.</p><p>The Mahabharata is full of stories of heroes who failed repeatedly before achieving greatness. Arjuna practiced archery for years before becoming the finest archer in the world. Draupadi was humiliated before becoming the most respected woman in the epic. Failure, in the Indian philosophical tradition, is not a sign of inadequacy. It is a sign that you are attempting something worth doing.</p><h3>How to Apply It Today</h3><p>The practical lesson from Edison is simple but uncomfortable: you have to be willing to fail more. Not carelessly — Edison was meticulous and scientific in his failures. But boldly. You have to be willing to try the thing you are not sure will work, document what happens, and use that information to try again.</p><p>Whatever you are working on right now — a new skill, a creative project, a business idea, a relationship you want to improve — count your attempts, not your failures. Each attempt is an experiment. Each experiment gives you data. And data, accumulated patiently and used honestly, will eventually lead you to the light.</p>",
+
+  8:"<p>Before Oxford. Before Cambridge. Before Harvard or MIT or any university that exists today, there was Nalanda.</p><p>In the forests of what is now Bihar, India, in the 5th century AD, a residential university was established that would become the greatest center of learning the ancient world had ever seen. At its peak, Nalanda housed over 10,000 students and 2,000 teachers within its walls. It had nine floors, libraries that held hundreds of thousands of manuscripts, and lecture halls where debates lasted for days.</p><p>Students traveled from China, Korea, Japan, Tibet, Mongolia, Persia, Turkey, Greece, and Sri Lanka to study here. The waiting list to get in was long. The entrance examination was notoriously difficult. The best minds of the ancient world came to Nalanda because there was nowhere else like it.</p><h3>What Was Taught at Nalanda</h3><p>The curriculum at Nalanda was staggering in its breadth. Students studied Buddhist philosophy and Vedic texts, but also mathematics, astronomy, medicine, grammar, logic, and the fine arts. The university produced scholars whose work shaped intellectual traditions across Asia for centuries.</p><p>One of its most famous alumni was Xuanzang, a Chinese Buddhist monk who traveled to Nalanda in the 7th century and spent fifteen years there. When he returned to China, he brought back over 600 Sanskrit texts, many of which he spent the rest of his life translating. His travel account, Great Tang Records on the Western Regions, remains one of the most important historical documents about ancient India.</p><p>Another Nalanda scholar, Aryabhata, is believed to have been associated with the university. He was the mathematician who calculated the value of Pi to four decimal places and proposed — a thousand years before Copernicus — that the Earth rotates on its own axis.</p><div class='article-pullquote'><p>Nalanda did not just teach knowledge. It taught how to think — and that is a far rarer and more valuable gift.</p></div><h3>The Libraries</h3><p>The libraries of Nalanda were legendary even in their own time. There were three library buildings: Ratnasagara (Ocean of Jewels), Ratnodadhi (Sea of Jewels), and Ratnaranjaka (Jewel-adorned). Ratnodadhi alone was nine stories tall. The manuscripts stored within covered every subject of human inquiry — religion, science, literature, medicine, mathematics, philosophy, and more.</p><p>The sheer scale of the collection was so vast that when the libraries were destroyed, scholars across Asia felt the loss for generations. Texts that existed nowhere else were gone forever.</p><h3>How It Ended</h3><p>In 1193 AD, a Turkish military commander named Bakhtiyar Khilji led an army into Bihar. His forces attacked and sacked Nalanda. The monks who lived there were massacred. The buildings were demolished. And the libraries — those irreplaceable repositories of 700 years of human knowledge — were set on fire.</p><p>The fire burned for three months. Contemporary accounts describe scholars fleeing with whatever manuscripts they could carry, weeping as they watched centuries of learning turn to ash. When the smoke finally cleared, Nalanda was rubble. Its students scattered. Its teachers were dead or gone. The greatest university the ancient world had built was finished.</p><h3>The Lesson</h3><p>Nalanda was destroyed in a matter of weeks. But what it represents cannot be destroyed. The idea that knowledge is the highest pursuit, that learners deserve to be free from want and distraction, that the exchange of ideas across cultures and borders makes everyone richer — these ideas did not die with the library.</p><p>Today, a modern Nalanda University has been established near the original site in Bihar. It is a small beginning. But beginnings are what Nalanda was always about.</p>"
 };
 
 const articleTags={
   1:["#India","#Mystery","#Culture","#Traditions"],
-  2:["#Life","#Motivation","#Decisions"],
+  2:["#Life","#Learning","#VamsiTales","#Building"],
   3:["#Mystery","#History","#Science"],
   4:["#Travel","#India","#Heritage"],
   5:["#Tech","#AI","#India","#Future"],
@@ -1190,6 +1249,7 @@ function showPage(p){
   var nl=document.getElementById("nl-"+p); if(nl) nl.classList.add("active");
   if(p==="calendar") renderCalendar();
   if(p==="bookmarks") renderBookmarks();
+  if(p==="stories") renderStoriesPage();
   if(p==="analytics") setTimeout(animateGAStats,300);
   window.scrollTo(0,0);
 }
@@ -1222,6 +1282,55 @@ function makeCard(p,i){
     '<button class="'+bmClass+'" onclick="event.stopPropagation();toggleBookmark('+p.id+',this)">'+bmText+'</button>'+
     '<button class="card-action-btn" onclick="event.stopPropagation();openShare('+p.id+')">📤 Share</button>'+
     '</div></div>';
+}
+
+// STORIES PAGE
+var storiesCurCat="All";
+function renderStoriesPage(){
+  // render category bar
+  var bar=document.getElementById("stories-cat-bar"); if(!bar) return;
+  bar.innerHTML=categories.map(function(cat){
+    return '<button class="cbt '+(storiesCurCat===cat?"active":"")+'" onclick="filterStoriesCat(\''+cat+'\')">'+cat.toUpperCase()+'</button>';
+  }).join("");
+  renderStoriesGrid(storiesCurCat);
+}
+function filterStoriesCat(cat){
+  storiesCurCat=cat;
+  renderStoriesPage();
+  document.getElementById("stories-search-input").value="";
+}
+function renderStoriesGrid(cat){
+  var filtered=cat==="All"?posts:posts.filter(function(p){return p.category===cat;});
+  var grid=document.getElementById("stories-grid");
+  var none=document.getElementById("stories-no-results");
+  if(filtered.length===0){
+    if(grid) grid.innerHTML="";
+    if(none) none.style.display="block";
+  } else {
+    if(none) none.style.display="none";
+    if(grid) grid.innerHTML=filtered.map(function(p,i){return makeCard(p,i);}).join("");
+  }
+}
+function filterStoriesPage(val){
+  var clear=document.getElementById("stories-search-clear");
+  if(clear) clear.style.display=val?"block":"none";
+  var filtered=posts.filter(function(p){
+    return !val||p.title.toLowerCase().includes(val.toLowerCase())||p.excerpt.toLowerCase().includes(val.toLowerCase())||p.category.toLowerCase().includes(val.toLowerCase());
+  });
+  var grid=document.getElementById("stories-grid");
+  var none=document.getElementById("stories-no-results");
+  if(filtered.length===0){
+    if(grid) grid.innerHTML="";
+    if(none) none.style.display="block";
+  } else {
+    if(none) none.style.display="none";
+    if(grid) grid.innerHTML=filtered.map(function(p,i){return makeCard(p,i);}).join("");
+  }
+}
+function clearStoriesSearch(){
+  var inp=document.getElementById("stories-search-input"); if(inp) inp.value="";
+  var clear=document.getElementById("stories-search-clear"); if(clear) clear.style.display="none";
+  renderStoriesGrid(storiesCurCat);
 }
 
 // CATEGORIES
@@ -1481,16 +1590,22 @@ function changeMonth(dir){
 }
 
 // REVIEWS
-var defaultReviews=[
-  {name:"Priya S.",location:"Hyderabad",stars:5,text:"Vamsi Tales is my morning read. The stories are so beautifully written!",date:"2 days ago"},
-  {name:"Rahul M.",location:"Bangalore",stars:5,text:"I shared the Shani Shingnapur article with my entire family. This blog is a treasure!",date:"1 week ago"},
-  {name:"Ananya K.",location:"Chennai",stars:4,text:"Love the festival calendar feature. Finally a website that explains WHY we celebrate.",date:"2 weeks ago"},
-];
+var defaultReviews=[];
 function renderReviews(){
   var allReviews=defaultReviews.concat(reviews);
+  var avgEl=document.getElementById("rev-avg");
+  var cntEl=document.getElementById("rev-count");
+  if(allReviews.length===0){
+    if(avgEl) avgEl.textContent="—";
+    if(cntEl) cntEl.textContent="No reviews yet";
+    var listEl=document.getElementById("reviews-list");
+    if(listEl) listEl.innerHTML='<div style="text-align:center;padding:2rem;color:var(--t3);font-family:Lato,sans-serif;font-size:14px">Be the first to leave a review! ⭐</div>';
+    var barsEl=document.getElementById("rev-bars"); if(barsEl) barsEl.innerHTML="";
+    return;
+  }
   var avg=(allReviews.reduce(function(s,r){return s+r.stars;},0)/allReviews.length).toFixed(1);
-  var avgEl=document.getElementById("rev-avg"); if(avgEl) avgEl.textContent=avg;
-  var cntEl=document.getElementById("rev-count"); if(cntEl) cntEl.textContent=allReviews.length+" reviews";
+  if(avgEl) avgEl.textContent=avg;
+  if(cntEl) cntEl.textContent=allReviews.length+" review"+(allReviews.length!==1?"s":"");
   var counts=[5,4,3,2,1].map(function(s){return allReviews.filter(function(r){return r.stars===s;}).length;});
   var max=Math.max.apply(null,counts.concat([1]));
   var barsEl=document.getElementById("rev-bars");
@@ -1543,8 +1658,8 @@ function subscribeNewsletter(){
 var fontSize=100;
 function changeFont(dir){
   fontSize=Math.min(130,Math.max(80,fontSize+dir*10));
-  document.body.style.fontSize=fontSize+"%";
-  showToast(fontSize===100?"Font reset":"Font size: "+fontSize+"%");
+  document.documentElement.style.fontSize=fontSize+"%";
+  showToast(fontSize===100?"Font reset to default":"Font size: "+fontSize+"%");
 }
 
 // SCROLL
@@ -1608,9 +1723,9 @@ function animateCount(id,target,suffix){
 }
 function renderStats(){
   animateCount("stat-stories",posts.length);
-  animateCount("stat-festivals",8);
-  animateCount("stat-readers",12,"K+");
-  animateCount("stat-categories",8);
+  animateCount("stat-festivals",21);
+  animateCount("stat-readers",posts.length);
+  animateCount("stat-categories",categories.length-1);
 }
 var quotes=[
   {text:"The secret of health for both mind and body is not to mourn for the past, not to worry about the future, but to live in the present moment wisely.",author:"— Buddha"},
@@ -1704,15 +1819,19 @@ async function sendChatMsg(text){
   if(c) c.appendChild(typing);
   try{
     var res=await fetch("https://api.anthropic.com/v1/messages",{
-      method:"POST",headers:{"Content-Type":"application/json"},
-      body:JSON.stringify({model:"claude-sonnet-4-20250514",max_tokens:1000,
-        system:"You are Vamsi AI, a friendly assistant for Vamsi Tales — a personal blog covering India, life, travel, food, mystery, technology and motivation. Be warm and concise. Use emojis. End with a follow-up question.",
+      method:"POST",headers:{"Content-Type":"application/json","anthropic-version":"2023-06-01","anthropic-dangerous-direct-browser-access":"true"},
+      body:JSON.stringify({model:"claude-sonnet-4-6",max_tokens:1000,
+        system:"You are Vamsi AI, a friendly and knowledgeable assistant for Vamsi Tales — a personal blog about India, culture, history, travel, food, mystery, technology and motivation. Answer warmly, concisely and with enthusiasm about India. Use relevant emojis. Keep answers under 100 words. End with a short follow-up question to keep the conversation going.",
         messages:[{role:"user",content:text}]})
     });
     var data=await res.json();
     var tEl=document.getElementById("typing-indicator"); if(tEl) tEl.remove();
     isTyping=false;
-    addMsg("bot",data.content&&data.content[0]?data.content[0].text:"Sorry, could not connect. Try again! 🙏");
+    if(data.error){
+      addMsg("bot","I am having trouble connecting right now. Please try again later! 🙏");
+    } else {
+      addMsg("bot",data.content&&data.content[0]?data.content[0].text:"Sorry, could not connect. Try again! 🙏");
+    }
   }catch(err){
     var tEl2=document.getElementById("typing-indicator"); if(tEl2) tEl2.remove();
     isTyping=false;
