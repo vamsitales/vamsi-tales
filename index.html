@@ -12,21 +12,23 @@
   <meta name="keywords" content="India, Indian culture, Indian history, Indian festivals, Indian traditions, Indian cuisine, Vamsi Tales, stories of India"/>
   <meta name="author" content="Vamsi Tales"/>
   <meta name="robots" content="index, follow"/>
-  <link rel="canonical" href="https://vamsitales.vercel.app/"/>
+  <link rel="canonical" href="https://vamsi-tales.vercel.app/"/>
 
   <!-- Open Graph (Facebook, WhatsApp preview) -->
   <meta property="og:type" content="website"/>
   <meta property="og:title" content="Vamsi Tales — Stories Worth Telling"/>
   <meta property="og:description" content="Unheard stories of India — culture, tradition, art, and everyday magic from the oldest civilization still breathing."/>
-  <meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Flag_of_India.svg/1200px-Flag_of_India.svg.png"/>
-  <meta property="og:url" content="https://vamsitales.vercel.app/"/>
+  <meta property="og:image" content="https://vamsi-tales.vercel.app/og-image.png"/>
+  <meta property="og:image:width" content="1200"/>
+  <meta property="og:image:height" content="630"/>
+  <meta property="og:url" content="https://vamsi-tales.vercel.app/"/>
   <meta property="og:site_name" content="Vamsi Tales"/>
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image"/>
   <meta name="twitter:title" content="Vamsi Tales — Stories Worth Telling"/>
   <meta name="twitter:description" content="Unheard stories of India — culture, tradition, art, and everyday magic from the oldest civilization still breathing."/>
-  <meta name="twitter:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Flag_of_India.svg/1200px-Flag_of_India.svg.png"/>
+  <meta name="twitter:image" content="https://vamsi-tales.vercel.app/og-image.png"/>
 
   <!-- Google Analytics (replace G-NT0CVTYKGH with your real ID) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-NT0CVTYKGH"></script>
@@ -834,6 +836,12 @@ footer{border-top:1px solid var(--div);padding:2rem;text-align:center;color:var(
       <div class="article-meta-dot"></div>
       <div class="views-badge">👁️ <span id="art-views"></span> views</div>
     </div>
+    <img id="art-cover" class="article-cover" src="" alt="Article cover" style="display:none;width:100%;max-height:380px;object-fit:cover;border-radius:8px;margin-bottom:2rem;"/>
+    <div id="art-img-link" style="display:none;margin-bottom:1.5rem;">
+      <a id="art-img-anchor" href="#" target="_blank" style="display:inline-flex;align-items:center;gap:8px;background:var(--bg2);border:1px solid var(--cb);border-radius:6px;padding:10px 18px;font-size:13px;font-family:'Lato',sans-serif;color:var(--acc);text-decoration:none;transition:all 0.2s;" onmouseover="this.style.background='var(--acc)';this.style.color='var(--at)'" onmouseout="this.style.background='var(--bg2)';this.style.color='var(--acc)'">
+        🔍 <span>See images of this story on Google</span>
+      </a>
+    </div>
     <div class="article-body" id="art-body"></div>
     <div class="article-tags" id="art-tags"></div>
 
@@ -845,6 +853,26 @@ footer{border-top:1px solid var(--div);padding:2rem;text-align:center;color:var(
       <button class="reaction-btn" onclick="react(this,'👏')"><span>👏</span><span class="reaction-count">0</span></button>
       <button class="reaction-btn" onclick="react(this,'😮')"><span>😮</span><span class="reaction-count">0</span></button>
       <button class="reaction-btn" onclick="react(this,'🙏')"><span>🙏</span><span class="reaction-count">0</span></button>
+    </div>
+
+    <!-- AUTHOR BIO -->
+    <div style="background:var(--bg2);border:1px solid var(--cb);border-radius:10px;padding:1.5rem;margin:1.5rem 0;display:flex;gap:1.2rem;align-items:flex-start;">
+      <div style="width:60px;height:60px;border-radius:50%;background:var(--acc);display:flex;align-items:center;justify-content:center;font-size:26px;flex-shrink:0;">🪷</div>
+      <div>
+        <div style="font-family:var(--font);font-size:1rem;color:var(--text);font-weight:600;margin-bottom:4px;">Vamsi Krishna</div>
+        <div style="font-size:11px;letter-spacing:0.1em;color:var(--acc);font-family:'Lato',sans-serif;text-transform:uppercase;margin-bottom:8px;">Founder, Vamsi Tales</div>
+        <div style="font-size:0.85rem;color:var(--t2);font-family:'Lato',sans-serif;line-height:1.75;">Hi, I am Vamsi Krishna. I started Vamsi Tales to share fascinating stories about India — its culture, history, mystery, travel, food, technology and everyday life. India has so many unheard stories that deserve to be told. This is my small effort to tell them. 🙏</div>
+        <div style="margin-top:10px;display:flex;gap:10px;">
+          <a href="https://www.instagram.com/vamsitales/" target="_blank" style="display:inline-flex;align-items:center;gap:6px;font-size:12px;color:var(--acc);font-family:'Lato',sans-serif;text-decoration:none;border:1px solid var(--cb);border-radius:20px;padding:5px 12px;transition:all 0.2s;" onmouseover="this.style.borderColor='var(--acc)'" onmouseout="this.style.borderColor='var(--cb)'">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+            Instagram
+          </a>
+          <a href="https://wa.me/message/BHARATAKATHA" target="_blank" style="display:inline-flex;align-items:center;gap:6px;font-size:12px;color:var(--acc);font-family:'Lato',sans-serif;text-decoration:none;border:1px solid var(--cb);border-radius:20px;padding:5px 12px;transition:all 0.2s;" onmouseover="this.style.borderColor='var(--acc)'" onmouseout="this.style.borderColor='var(--cb)'">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+            WhatsApp Channel
+          </a>
+        </div>
+      </div>
     </div>
 
     <!-- RELATED -->
@@ -1041,13 +1069,13 @@ footer{border-top:1px solid var(--div);padding:2rem;text-align:center;color:var(
     <p class="page-tag">About Us</p>
     <h1 style="font-size:clamp(1.8rem,4vw,2.8rem);font-weight:400;color:var(--text);font-family:var(--font);margin-bottom:1.5rem;line-height:1.2;">The Story Behind<br>Vamsi Tales</h1>
     <div class="about-accent" style="background:var(--acc)"></div>
-    <p style="font-size:1rem;color:var(--t2);line-height:1.85;margin-bottom:1.5rem;font-family:'Lato',sans-serif;">Vamsi Tales was born from a simple belief: that India's culture, history, and traditions deserve to be told in full. Not just the famous stories everyone knows, but the hidden gems, the forgotten legends, and the everyday magic that makes India unlike anywhere else on Earth.</p>
-    <p style="font-size:1rem;color:var(--t2);line-height:1.85;margin-bottom:1.5rem;font-family:'Lato',sans-serif;">Every article follows a simple formula — a real story, an Indian connection, and a lesson that stays with you. Whether you are a student, a curious reader, a traveller, a foodie, or just someone who loves a good story — there is something here for you.</p>
-    <p style="font-size:1rem;color:var(--t2);line-height:1.85;margin-bottom:2rem;font-family:'Lato',sans-serif;">We are just getting started. New stories every week. From festivals to food, from ancient temples to tribal art — Vamsi Tales is your window into the soul of India. 🇮🇳</p>
+    <p style="font-size:1rem;color:var(--t2);line-height:1.85;margin-bottom:1.5rem;font-family:'Lato',sans-serif;">Vamsi Tales was born from a simple belief: that the world is full of stories worth telling. India's culture, history and traditions. Life lessons that stay with you. Travel destinations that take your breath away. Food that tells a story. Mysteries that keep you up at night. Technology changing the world around us. And motivation that pushes you to be better.</p>
+    <p style="font-size:1rem;color:var(--t2);line-height:1.85;margin-bottom:1.5rem;font-family:'Lato',sans-serif;">Every article follows a simple formula — a real story, a human connection, and a lesson that stays with you long after you finish reading. Whether you are a student, a curious reader, a traveller, a foodie, or just someone who loves a good story — there is something here for you.</p>
+    <p style="font-size:1rem;color:var(--t2);line-height:1.85;margin-bottom:2rem;font-family:'Lato',sans-serif;">We are just getting started. New stories every week. From ancient mysteries to modern technology, from Himalayan lakes to Andhra kitchens — Vamsi Tales is your window into stories worth telling. 🪷</p>
     <div class="about-grid">
-      <div class="about-card"><div class="about-card-emoji">🪷</div><div class="about-card-title">Our Mission</div><div class="about-card-desc">Tell India's stories with honesty, depth and love.</div></div>
-      <div class="about-card"><div class="about-card-emoji">📚</div><div class="about-card-title">Who It's For</div><div class="about-card-desc">Students, curious minds, and Indians everywhere.</div></div>
-      <div class="about-card"><div class="about-card-emoji">✍️</div><div class="about-card-title">New Stories</div><div class="about-card-desc">Fresh articles published every week.</div></div>
+      <div class="about-card"><div class="about-card-emoji">🪷</div><div class="about-card-title">Our Mission</div><div class="about-card-desc">Tell stories that inform, inspire and stay with you.</div></div>
+      <div class="about-card"><div class="about-card-emoji">📚</div><div class="about-card-title">Who It's For</div><div class="about-card-desc">Curious minds, students, travellers and everyone in between.</div></div>
+      <div class="about-card"><div class="about-card-emoji">✍️</div><div class="about-card-title">New Stories</div><div class="about-card-desc">Fresh articles every week across 7 topics.</div></div>
     </div>
     <div class="about-quote">
       <p style="font-size:0.88rem;color:var(--t2);line-height:1.8;font-family:'Lato',sans-serif;">Have a story suggestion or want to collaborate? We would love to hear from you. Every great story starts with a conversation. 🙏</p>
@@ -1218,6 +1246,16 @@ const articleBodies={
   8:"<p>Before Oxford. Before Cambridge. Before Harvard or MIT or any university that exists today, there was Nalanda.</p><p>In the forests of what is now Bihar, India, in the 5th century AD, a residential university was established that would become the greatest center of learning the ancient world had ever seen. At its peak, Nalanda housed over 10,000 students and 2,000 teachers within its walls. It had nine floors, libraries that held hundreds of thousands of manuscripts, and lecture halls where debates lasted for days.</p><p>Students traveled from China, Korea, Japan, Tibet, Mongolia, Persia, Turkey, Greece, and Sri Lanka to study here. The waiting list to get in was long. The entrance examination was notoriously difficult. The best minds of the ancient world came to Nalanda because there was nowhere else like it.</p><h3>What Was Taught at Nalanda</h3><p>The curriculum at Nalanda was staggering in its breadth. Students studied Buddhist philosophy and Vedic texts, but also mathematics, astronomy, medicine, grammar, logic, and the fine arts. The university produced scholars whose work shaped intellectual traditions across Asia for centuries.</p><p>One of its most famous alumni was Xuanzang, a Chinese Buddhist monk who traveled to Nalanda in the 7th century and spent fifteen years there. When he returned to China, he brought back over 600 Sanskrit texts, many of which he spent the rest of his life translating. His travel account, Great Tang Records on the Western Regions, remains one of the most important historical documents about ancient India.</p><p>Another Nalanda scholar, Aryabhata, is believed to have been associated with the university. He was the mathematician who calculated the value of Pi to four decimal places and proposed — a thousand years before Copernicus — that the Earth rotates on its own axis.</p><div class='article-pullquote'><p>Nalanda did not just teach knowledge. It taught how to think — and that is a far rarer and more valuable gift.</p></div><h3>The Libraries</h3><p>The libraries of Nalanda were legendary even in their own time. There were three library buildings: Ratnasagara (Ocean of Jewels), Ratnodadhi (Sea of Jewels), and Ratnaranjaka (Jewel-adorned). Ratnodadhi alone was nine stories tall. The manuscripts stored within covered every subject of human inquiry — religion, science, literature, medicine, mathematics, philosophy, and more.</p><p>The sheer scale of the collection was so vast that when the libraries were destroyed, scholars across Asia felt the loss for generations. Texts that existed nowhere else were gone forever.</p><h3>How It Ended</h3><p>In 1193 AD, a Turkish military commander named Bakhtiyar Khilji led an army into Bihar. His forces attacked and sacked Nalanda. The monks who lived there were massacred. The buildings were demolished. And the libraries — those irreplaceable repositories of 700 years of human knowledge — were set on fire.</p><p>The fire burned for three months. Contemporary accounts describe scholars fleeing with whatever manuscripts they could carry, weeping as they watched centuries of learning turn to ash. When the smoke finally cleared, Nalanda was rubble. Its students scattered. Its teachers were dead or gone. The greatest university the ancient world had built was finished.</p><h3>The Lesson</h3><p>Nalanda was destroyed in a matter of weeks. But what it represents cannot be destroyed. The idea that knowledge is the highest pursuit, that learners deserve to be free from want and distraction, that the exchange of ideas across cultures and borders makes everyone richer — these ideas did not die with the library.</p><p>Today, a modern Nalanda University has been established near the original site in Bihar. It is a small beginning. But beginnings are what Nalanda was always about.</p>"
 };
 
+const articleImages={
+  1:"https://www.google.com/search?q=Shani+Shingnapur+temple+Maharashtra&tbm=isch",
+  2:"https://www.google.com/search?q=website+building+coding+laptop&tbm=isch",
+  3:"https://www.google.com/search?q=Roopkund+skeleton+lake+Himalayas&tbm=isch",
+  4:"https://www.google.com/search?q=Hampi+ruins+Karnataka+India&tbm=isch",
+  5:"https://www.google.com/search?q=AI+artificial+intelligence+India+technology&tbm=isch",
+  6:"https://www.google.com/search?q=Andhra+Pradesh+food+spicy+cuisine&tbm=isch",
+  7:"https://www.google.com/search?q=Thomas+Edison+light+bulb+invention&tbm=isch",
+  8:"https://www.google.com/search?q=Nalanda+university+ruins+Bihar+India&tbm=isch",
+};
 const articleTags={
   1:["#India","#Mystery","#Culture","#Traditions"],
   2:["#Life","#Learning","#VamsiTales","#Building"],
@@ -1377,7 +1415,18 @@ function openFullArticle(id){
   articleViews[id]=(articleViews[id]||0)+1;
   localStorage.setItem("bk-views",JSON.stringify(articleViews));
   addRecent(id);
+  var imgUrl=articleImages[id];
   var body=articleBodies[id]||("<p>"+p.excerpt+"</p><p>Full article coming soon. Stay tuned!</p>");
+  var coverEl=document.getElementById("art-cover");
+  if(coverEl) coverEl.style.display="none";
+  var linkDiv=document.getElementById("art-img-link");
+  var linkAnchor=document.getElementById("art-img-anchor");
+  if(linkDiv&&linkAnchor&&imgUrl){
+    linkAnchor.href=imgUrl;
+    linkDiv.style.display="block";
+  } else if(linkDiv){
+    linkDiv.style.display="none";
+  }
   var tags=articleTags[id]||["#VamsiTales"];
   var catEl=document.getElementById("art-category");
   if(catEl) catEl.innerHTML='<span style="color:'+p.color+';font-size:10px;letter-spacing:0.2em;text-transform:uppercase;font-family:Lato,sans-serif">'+p.emoji+" "+p.category+'</span>';
