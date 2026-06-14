@@ -3,48 +3,78 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Vamsi Tales — Stories Worth Telling</title>
 
+<!-- 1. Better Page Title -->
+<title>Vamsi Tales | Storytelling Blog, Short Stories & Life Lessons</title>
 
+<!-- 2. SEO Meta Tags with improved keywords -->
+<meta name="description" content="Vamsi Tales — Discover inspiring stories, life lessons, Indian culture, history, travel, food, mystery and motivation. Stories worth telling, one at a time."/>
+<meta name="keywords" content="storytelling blog, short stories, inspirational stories, life lessons, Vamsi Tales, personal stories, India stories, Indian culture, Indian history, travel stories, food stories, mystery stories, motivation"/>
+<meta name="author" content="Vamsi Krishna"/>
+<meta name="robots" content="index, follow"/>
 
-  <!-- SEO Meta Tags -->
-  <meta name="description" content="Vamsi Tales — Unheard stories of India. Discover Indian culture, history, traditions, festivals, art, cuisine and everyday magic from the oldest civilization still breathing."/>
-  <meta name="keywords" content="India, Indian culture, Indian history, Indian festivals, Indian traditions, Indian cuisine, Vamsi Tales, stories of India"/>
-  <meta name="author" content="Vamsi Tales"/>
-  <meta name="robots" content="index, follow"/>
-  <link rel="canonical" href="https://vamsi-tales.vercel.app/"/>
+<!-- 4. Canonical URL -->
+<link rel="canonical" href="https://vamsi-tales.vercel.app/"/>
 
-  <!-- Open Graph (Facebook, WhatsApp preview) -->
-  <meta property="og:type" content="website"/>
-  <meta property="og:title" content="Vamsi Tales — Stories Worth Telling"/>
-  <meta property="og:description" content="Unheard stories of India — culture, tradition, art, and everyday magic from the oldest civilization still breathing."/>
-  <meta property="og:image" content="https://vamsi-tales.vercel.app/og-image.png"/>
-  <meta property="og:image:width" content="1200"/>
-  <meta property="og:image:height" content="630"/>
-  <meta property="og:url" content="https://vamsi-tales.vercel.app/"/>
-  <meta property="og:site_name" content="Vamsi Tales"/>
+<!-- 3. Open Graph Tags (improved) -->
+<meta property="og:type" content="website"/>
+<meta property="og:title" content="Vamsi Tales — Stories Worth Telling"/>
+<meta property="og:description" content="Discover inspiring stories, life lessons, Indian culture, history, travel, food, mystery and motivation. One story at a time."/>
+<meta property="og:image" content="https://vamsi-tales.vercel.app/og-image.png"/>
+<meta property="og:image:width" content="1200"/>
+<meta property="og:image:height" content="630"/>
+<meta property="og:url" content="https://vamsi-tales.vercel.app/"/>
+<meta property="og:site_name" content="Vamsi Tales"/>
 
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image"/>
-  <meta name="twitter:title" content="Vamsi Tales — Stories Worth Telling"/>
-  <meta name="twitter:description" content="Unheard stories of India — culture, tradition, art, and everyday magic from the oldest civilization still breathing."/>
-  <meta name="twitter:image" content="https://vamsi-tales.vercel.app/og-image.png"/>
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="Vamsi Tales — Stories Worth Telling"/>
+<meta name="twitter:description" content="Discover inspiring stories, life lessons, Indian culture, history, travel, food, mystery and motivation."/>
+<meta name="twitter:image" content="https://vamsi-tales.vercel.app/og-image.png"/>
 
-  <!-- Google Analytics (replace G-NT0CVTYKGH with your real ID) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NT0CVTYKGH"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-NT0CVTYKGH');
-    // Track page views when user navigates between pages
-    function trackPage(pageName){
-      gtag('event', 'page_view', { page_title: pageName, page_location: window.location.href + '#' + pageName });
+<!-- 7. Structured Data / Schema.org -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Blog",
+  "name": "Vamsi Tales",
+  "url": "https://vamsi-tales.vercel.app/",
+  "description": "Inspiring stories about India, life, travel, food, mystery, tech and motivation. Stories worth telling, one at a time.",
+  "author": {
+    "@type": "Person",
+    "name": "Vamsi Krishna"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Vamsi Tales",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://vamsi-tales.vercel.app/og-image.png"
     }
-  </script>
+  },
+  "inLanguage": "en",
+  "sameAs": [
+    "https://www.instagram.com/vamsitales/"
+  ]
+}
+</script>
 
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🪷</text></svg>"/>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Lato:wght@300;400;600&display=swap" rel="stylesheet"/>
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NT0CVTYKGH"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-NT0CVTYKGH');
+  function trackPage(pageName){
+    gtag('event', 'page_view', { page_title: pageName, page_location: window.location.href + '#' + pageName });
+  }
+</script>
+
+<!-- 5. Favicon -->
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🪷</text></svg>"/>
+<link rel="apple-touch-icon" href="https://vamsi-tales.vercel.app/og-image.png"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Lato:wght@300;400;600&display=swap" rel="stylesheet"/>
 <style>
 *{box-sizing:border-box;margin:0;padding:0;}
 
