@@ -1859,8 +1859,23 @@ var quotes=[
   {text:"You are what your deep, driving desire is. As your desire is, so is your will.",author:"— Brihadaranyaka Upanishad"},
   {text:"The greatest religion is to be true to your own nature. Have faith in yourselves.",author:"— Swami Vivekananda"},
   {text:"Live as if you were to die tomorrow. Learn as if you were to live forever.",author:"— Mahatma Gandhi"},
+  {text:"The one who does not know how to live cannot know how to die.",author:"— Leo Tolstoy"},
+  {text:"A person who never made a mistake never tried anything new.",author:"— Albert Einstein"},
+  {text:"The only way to do great work is to love what you do.",author:"— Steve Jobs"},
+  {text:"It does not matter how slowly you go as long as you do not stop.",author:"— Confucius"},
+  {text:"Strength does not come from physical capacity. It comes from an indomitable will.",author:"— Mahatma Gandhi"},
+  {text:"You don't have to be great to start, but you have to start to be great.",author:"— Zig Ziglar"},
+  {text:"The future belongs to those who believe in the beauty of their dreams.",author:"— Eleanor Roosevelt"},
+  {text:"Service to others is the rent you pay for your room here on earth.",author:"— Muhammad Ali"},
+  {text:"Education is the most powerful weapon which you can use to change the world.",author:"— Nelson Mandela"},
+  {text:"The mind is everything. What you think you become.",author:"— Buddha"},
+  {text:"An investment in knowledge pays the best interest.",author:"— Benjamin Franklin"},
+  {text:"First they ignore you, then they laugh at you, then they fight you, then you win.",author:"— Mahatma Gandhi"},
+  {text:"The best time to plant a tree was 20 years ago. The second best time is now.",author:"— Chinese Proverb"},
+  {text:"Happiness is not something ready made. It comes from your own actions.",author:"— Dalai Lama"},
+  {text:"The journey of a thousand miles begins with one step.",author:"— Lao Tzu"},
 ];
-var curQuote=new Date().getDay()%quotes.length;
+var curQuote=Math.floor((new Date()-new Date(new Date().getFullYear(),0,0))/(1000*60*60*24))%quotes.length;
 function renderQuote(){
   var qt=document.getElementById("quote-text"); if(qt) qt.textContent=quotes[curQuote].text;
   var qa=document.getElementById("quote-author"); if(qa) qa.textContent=quotes[curQuote].author;
