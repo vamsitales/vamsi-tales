@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://vamsi-tales.vercel.app/sitemap.xml
+Sitemap: https://vamsitales.in/sitemap.xml
