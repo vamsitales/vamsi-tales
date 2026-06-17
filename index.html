@@ -355,14 +355,16 @@ footer{border-top:1px solid var(--div);padding:2rem;text-align:center;color:var(
 .featured-title{font-family:var(--font);font-size:1.4rem;font-weight:400;color:var(--text);line-height:1.35;margin-bottom:10px;}
 .featured-excerpt{font-size:0.82rem;color:var(--t2);line-height:1.7;margin-bottom:1.2rem;font-family:'Lato',sans-serif;}
 .featured-btn{background:var(--acc);color:var(--at);border:none;padding:8px 20px;font-size:11px;letter-spacing:0.1em;font-weight:700;cursor:pointer;border-radius:2px;font-family:'Lato',sans-serif;align-self:flex-start;}
-.featured-right{padding:2rem;display:flex;flex-direction:column;gap:12px;justify-content:center;}
+.featured-right{padding:2rem;display:flex;flex-direction:column;gap:12px;justify-content:center;background:#FDF6EE;}
+body.dark .featured-right{background:#1a1008;}
+body.mud .featured-right{background:rgba(255,255,255,0.04);}
 .featured-right-label{font-size:9px;letter-spacing:0.2em;color:var(--t3);text-transform:uppercase;font-family:'Lato',sans-serif;margin-bottom:4px;}
 .mini-story{display:flex;gap:12px;align-items:flex-start;padding:10px 0;border-bottom:1px solid var(--div);cursor:pointer;transition:opacity 0.2s;}
 .mini-story:last-child{border-bottom:none;}
 .mini-story:hover{opacity:0.75;}
-.mini-num{font-size:1.4rem;font-weight:700;color:var(--div);font-family:'Lato',sans-serif;line-height:1;flex-shrink:0;min-width:28px;}
+.mini-num{font-size:1.4rem;font-weight:700;color:#E8D5C0;font-family:'Lato',sans-serif;line-height:1;flex-shrink:0;min-width:28px;}
 .mini-title{font-size:12px;color:var(--text);line-height:1.4;font-family:var(--font);}
-.mini-cat{font-size:9px;color:var(--t3);font-family:'Lato',sans-serif;margin-top:2px;}
+.mini-cat{font-size:9px;color:var(--t2);font-family:'Lato',sans-serif;margin-top:2px;}
 
 /* ── STATS SECTION ── */
 .stats-section{max-width:1100px;margin:2rem auto 0;padding:0 2rem;width:100%;box-sizing:border-box;}
@@ -688,7 +690,7 @@ footer{border-top:1px solid var(--div);padding:2rem;text-align:center;color:var(
         <div class="featured-tag"><span class="featured-star">⭐ FEATURED</span> This Week's Top Story</div>
         <div class="featured-title" id="feat-title"></div>
         <div class="featured-excerpt" id="feat-excerpt"></div>
-        <button class="featured-btn" onclick="openModal(featuredPost.id)">READ STORY →</button>
+        <button class="featured-btn" onclick="openFullArticle(featuredPost.id)">READ STORY →</button>
       </div>
       <div class="featured-right">
         <div class="featured-right-label">More Stories</div>
@@ -1368,6 +1370,7 @@ function showPage(p){
   if(p==="bookmarks") renderBookmarks();
   if(p==="stories") renderStoriesPage();
   if(p==="analytics") setTimeout(animateGAStats,300);
+  var pb=document.getElementById("progress-bar"); if(pb) pb.style.width="0%";
   window.scrollTo(0,0);
 }
 
@@ -2135,7 +2138,7 @@ renderCats();
 renderCards();
 renderTicker();
 renderFeatured();
-renderStats();
+setTimeout(renderStats, 200);
 renderQuote();
 renderSOTW();
 renderCalendar();
