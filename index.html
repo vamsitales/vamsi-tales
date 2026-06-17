@@ -450,7 +450,7 @@ body.mud .featured-right{background:rgba(245,240,232,0.06) !important;}
 .article-page{max-width:720px;margin:0 auto;padding:3rem 2rem 5rem;}
 .article-back{display:inline-flex;align-items:center;gap:6px;font-size:12px;color:var(--t2);font-family:'Lato',sans-serif;cursor:pointer;margin-bottom:2rem;border:none;background:none;transition:color 0.2s;letter-spacing:0.05em;}
 .article-back:hover{color:var(--acc);}
-.article-cover{width:100%;height:320px;object-fit:cover;border-radius:8px;margin-bottom:2rem;display:block;}
+.article-cover{width:100%;height:auto;display:block;border-radius:8px;margin-bottom:2rem;}
 .article-category{font-size:10px;letter-spacing:0.2em;text-transform:uppercase;font-family:'Lato',sans-serif;margin-bottom:10px;}
 .article-title{font-family:var(--font);font-size:clamp(1.8rem,4vw,2.4rem);font-weight:400;color:var(--text);line-height:1.25;margin-bottom:1rem;}
 .article-meta-row{display:flex;align-items:center;gap:12px;padding:1rem 0;border-top:1px solid var(--div);border-bottom:1px solid var(--div);margin-bottom:2rem;flex-wrap:wrap;}
@@ -876,7 +876,7 @@ body.mud .featured-right{background:rgba(245,240,232,0.06) !important;}
       <div class="article-meta-dot"></div>
       <div class="views-badge">👁️ <span id="art-views"></span> views</div>
     </div>
-    <img id="art-cover" class="article-cover" src="" alt="Article cover" style="display:none;width:100%;max-height:380px;object-fit:cover;border-radius:8px;margin-bottom:2rem;"/>
+    <img id="art-cover" class="article-cover" src="" alt="Article cover" style="display:none;"/>
     <div id="art-img-link" style="display:none;margin-bottom:1.5rem;">
       <a id="art-img-anchor" href="#" target="_blank" style="display:inline-flex;align-items:center;gap:8px;background:var(--bg2);border:1px solid var(--cb);border-radius:6px;padding:10px 18px;font-size:13px;font-family:'Lato',sans-serif;color:var(--acc);text-decoration:none;transition:all 0.2s;" onmouseover="this.style.background='var(--acc)';this.style.color='var(--at)'" onmouseout="this.style.background='var(--bg2)';this.style.color='var(--acc)'">
         🔍 <span>See images of this story on Google</span>
@@ -1296,17 +1296,17 @@ const articleBodies={
 };
 
 const articleImages={
-  1:"https://www.google.com/search?q=Shani+Shingnapur+temple+Maharashtra&tbm=isch",
-  2:"https://www.google.com/search?q=website+building+coding+laptop&tbm=isch",
-  3:"https://www.google.com/search?q=Roopkund+skeleton+lake+Himalayas&tbm=isch",
-  4:"https://www.google.com/search?q=Hampi+ruins+Karnataka+India&tbm=isch",
-  5:"https://www.google.com/search?q=AI+artificial+intelligence+India+technology&tbm=isch",
-  6:"https://www.google.com/search?q=Andhra+Pradesh+food+spicy+cuisine&tbm=isch",
-  7:"https://www.google.com/search?q=Thomas+Edison+light+bulb+invention&tbm=isch",
-  8:"https://www.google.com/search?q=Nalanda+university+ruins+Bihar+India&tbm=isch",
-  9:"https://www.google.com/search?q=elephant+memory+wildlife+India&tbm=isch",
-  10:"https://www.google.com/search?q=neem+tree+India+leaves+benefits&tbm=isch",
-  11:"https://www.google.com/search?q=Bhagavad+Gita+Krishna+Arjuna+Kurukshetra&tbm=isch",
+  1:"https://raw.githubusercontent.com/vamsitales/vamsi-tales/main/images/shani.png",
+  2:"https://raw.githubusercontent.com/vamsitales/vamsi-tales/main/images/website.png",
+  3:"https://raw.githubusercontent.com/vamsitales/vamsi-tales/main/images/roopkund.png",
+  4:"https://raw.githubusercontent.com/vamsitales/vamsi-tales/main/images/hampi.png",
+  5:"https://raw.githubusercontent.com/vamsitales/vamsi-tales/main/images/ai-india.png",
+  6:"https://raw.githubusercontent.com/vamsitales/vamsi-tales/main/images/andhra.png",
+  7:"https://raw.githubusercontent.com/vamsitales/vamsi-tales/main/images/edison.png",
+  8:"https://raw.githubusercontent.com/vamsitales/vamsi-tales/main/images/nalanda.png",
+  9:"https://raw.githubusercontent.com/vamsitales/vamsi-tales/main/images/elephants.png",
+  10:"https://raw.githubusercontent.com/vamsitales/vamsi-tales/main/images/neem.png",
+  11:"https://raw.githubusercontent.com/vamsitales/vamsi-tales/main/images/gita.png",
 };
 const articleTags={
   1:["#Mystery","#India","#Culture","#Traditions"],
@@ -1474,11 +1474,14 @@ function renderCats(){
 }
 function filterCat(cat){ curCat=cat; renderCats(); renderCards(); }
 
-// CARDS
+// CARDS - show only latest 6 on home
 function renderCards(){
-  var filtered=curCat==="All"?posts:posts.filter(function(p){return p.category===curCat;});
+  var filtered=curCat==="All"?posts.slice(-6).reverse():posts.filter(function(p){return p.category===curCat;}).slice(-6).reverse();
   var grid=document.getElementById("card-grid");
-  if(grid) grid.innerHTML=filtered.map(function(p,i){return makeCard(p,i);}).join("");
+  if(grid) grid.innerHTML=filtered.map(function(p,i){return makeCard(p,i);}).join("")+
+    '<div style="grid-column:1/-1;text-align:center;padding:1rem 0 2rem;">'+
+    '<button onclick="showPage(\'stories\')" style="background:var(--acc);color:var(--at);border:none;padding:0.75rem 2.5rem;font-size:0.78rem;letter-spacing:0.12em;font-weight:700;cursor:pointer;border-radius:2px;font-family:Lato,sans-serif;">SEE ALL STORIES →</button>'+
+    '</div>';
 }
 
 // FULL ARTICLE
@@ -1492,15 +1495,14 @@ function openFullArticle(id){
   var imgUrl=articleImages[id];
   var body=articleBodies[id]||("<p>"+p.excerpt+"</p><p>Full article coming soon. Stay tuned!</p>");
   var coverEl=document.getElementById("art-cover");
-  if(coverEl) coverEl.style.display="none";
-  var linkDiv=document.getElementById("art-img-link");
-  var linkAnchor=document.getElementById("art-img-anchor");
-  if(linkDiv&&linkAnchor&&imgUrl){
-    linkAnchor.href=imgUrl;
-    linkDiv.style.display="block";
-  } else if(linkDiv){
-    linkDiv.style.display="none";
+  if(imgUrl){
+    coverEl.src=imgUrl;
+    coverEl.style.display="block";
+  } else {
+    coverEl.style.display="none";
   }
+  var linkDiv=document.getElementById("art-img-link");
+  if(linkDiv) linkDiv.style.display="none";
   var tags=articleTags[id]||["#VamsiTales"];
   var catEl=document.getElementById("art-category");
   if(catEl) catEl.innerHTML='<span style="color:'+p.color+';font-size:10px;letter-spacing:0.2em;text-transform:uppercase;font-family:Lato,sans-serif">'+p.emoji+" "+p.category+'</span>';
