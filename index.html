@@ -348,21 +348,21 @@ footer{border-top:1px solid var(--div);padding:2rem;text-align:center;color:var(
 
 /* ── FEATURED STORY BANNER ── */
 .featured-banner{max-width:1100px;margin:2rem auto 0;padding:0 2rem;width:100%;box-sizing:border-box;}
-.featured-inner{background:var(--card);border:1px solid var(--cb);border-radius:10px;overflow:hidden;display:grid;grid-template-columns:1fr 1.2fr;min-height:240px;}
+.featured-inner{background:var(--card);border:1px solid var(--cb);border-radius:10px;overflow:hidden;display:grid;grid-template-columns:1fr 1.2fr;min-height:240px;width:100%;}
 .featured-left{padding:2rem;display:flex;flex-direction:column;justify-content:center;border-right:1px solid var(--div);}
 .featured-tag{font-size:9px;letter-spacing:0.2em;color:var(--acc);text-transform:uppercase;font-family:'Lato',sans-serif;margin-bottom:10px;display:flex;align-items:center;gap:6px;}
 .featured-star{background:var(--acc);color:var(--at);border-radius:4px;padding:2px 8px;font-size:9px;letter-spacing:0.1em;}
 .featured-title{font-family:var(--font);font-size:1.4rem;font-weight:400;color:var(--text);line-height:1.35;margin-bottom:10px;}
 .featured-excerpt{font-size:0.82rem;color:var(--t2);line-height:1.7;margin-bottom:1.2rem;font-family:'Lato',sans-serif;}
 .featured-btn{background:var(--acc);color:var(--at);border:none;padding:8px 20px;font-size:11px;letter-spacing:0.1em;font-weight:700;cursor:pointer;border-radius:2px;font-family:'Lato',sans-serif;align-self:flex-start;}
-.featured-right{padding:2rem;display:flex;flex-direction:column;gap:12px;justify-content:center;background:#FDF6EE;}
-body.dark .featured-right{background:#1a1008;}
-body.mud .featured-right{background:rgba(255,255,255,0.04);}
+.featured-right{padding:2rem;display:flex;flex-direction:column;gap:12px;justify-content:center;background:#FDF6EE !important;}
+body.dark .featured-right{background:#1a1008 !important;}
+body.mud .featured-right{background:rgba(245,240,232,0.06) !important;}
 .featured-right-label{font-size:9px;letter-spacing:0.2em;color:var(--t3);text-transform:uppercase;font-family:'Lato',sans-serif;margin-bottom:4px;}
 .mini-story{display:flex;gap:12px;align-items:flex-start;padding:10px 0;border-bottom:1px solid var(--div);cursor:pointer;transition:opacity 0.2s;}
 .mini-story:last-child{border-bottom:none;}
 .mini-story:hover{opacity:0.75;}
-.mini-num{font-size:1.4rem;font-weight:700;color:#E8D5C0;font-family:'Lato',sans-serif;line-height:1;flex-shrink:0;min-width:28px;}
+.mini-num{font-size:1.4rem;font-weight:700;color:#D4A574;font-family:'Lato',sans-serif;line-height:1;flex-shrink:0;min-width:28px;}
 .mini-title{font-size:12px;color:var(--text);line-height:1.4;font-family:var(--font);}
 .mini-cat{font-size:9px;color:var(--t2);font-family:'Lato',sans-serif;margin-top:2px;}
 
@@ -422,7 +422,7 @@ body.mud .featured-right{background:rgba(255,255,255,0.04);}
 
 @media(max-width:768px){
   .featured-inner{grid-template-columns:1fr!important;}
-  .featured-right{display:none!important;}
+  .featured-right{display:none!important;background:none!important;}
   .stats-inner{grid-template-columns:repeat(2,1fr)!important;}
   .sotw-inner{grid-template-columns:1fr!important;}
   .sotw-emoji{display:none!important;}
@@ -1228,7 +1228,7 @@ body.mud .featured-right{background:rgba(255,255,255,0.04);}
 <script>
 // DATA
 const posts=[
-  {id:1,category:"India",title:"The Village With No Locks — Mystery of Shani Shingnapur",excerpt:"4,000 people. No doors. No locks. For centuries. The story behind India's most trusting village.",date:"June 12, 2026",readTime:"5 min read",emoji:"🪔",color:"#C2621A"},
+  {id:1,category:"Mystery",title:"The Village With No Locks — Mystery of Shani Shingnapur",excerpt:"4,000 people. No doors. No locks. For centuries. The story behind India's most trusting village.",date:"June 12, 2026",readTime:"5 min read",emoji:"🗝️",color:"#8B5CF6"},
   {id:2,category:"Life",title:"The Day I Built My Own Website — From Zero to Live",excerpt:"A few weeks ago, I knew nothing about GitHub, Vercel, or deployment. Then one step at a time, I learned. This is the story of how Vamsi Tales came to life.",date:"June 12, 2026",readTime:"4 min read",emoji:"✨",color:"#F59E0B"},
   {id:3,category:"Mystery",title:"The Roopkund Skeleton Lake — 500 Skulls at 16,000 Feet",excerpt:"High in the Himalayas lies a frozen lake filled with hundreds of ancient human skeletons. Who were they?",date:"June 12, 2026",readTime:"5 min read",emoji:"💀",color:"#8B5CF6"},
   {id:4,category:"Travel",title:"Hampi: The City That Time Forgot",excerpt:"Boulders the size of buildings. Temples carved from solid rock. Hampi was once the second largest city in the world.",date:"June 12, 2026",readTime:"5 min read",emoji:"🏔️",color:"#10B981"},
@@ -1237,6 +1237,7 @@ const posts=[
   {id:7,category:"Motivation",title:"Lessons From a Man Who Failed 10,000 Times",excerpt:"Thomas Edison did not see 10,000 failures. He saw 10,000 ways that did not work. The story of history's most productive mindset.",date:"June 12, 2026",readTime:"4 min read",emoji:"💡",color:"#F97316"},
   {id:8,category:"India",title:"Nalanda: The University That Burned for 3 Months",excerpt:"Before Oxford, before Cambridge — India had Nalanda. The world's first great university burned for three months.",date:"June 12, 2026",readTime:"5 min read",emoji:"📚",color:"#EC4899"},
   {id:9,category:"Animals",title:"Why Elephants Never Forget — The Science Behind the Legend",excerpt:"An elephant never forgets. We have all heard this. But is it true? And if so, why? The answer is one of nature's most extraordinary stories.",date:"June 17, 2026",readTime:"5 min read",emoji:"🐘",color:"#6B7280"},
+  {id:10,category:"Nature",title:"The Neem Tree — India's Village Pharmacy",excerpt:"For thousands of years, before hospitals existed, most of India survived on one tree. The neem tree has over 130 medicinal compounds and has been used for everything from toothbrushes to pesticides.",date:"June 17, 2026",readTime:"5 min read",emoji:"🌿",color:"#16A34A"},
   {id:11,category:"Spiritual",title:"The Bhagavad Gita's Most Powerful Lesson — Do Your Duty Without Expecting Results",excerpt:"2,500 years ago, on a battlefield, a prince refused to fight. What Lord Krishna told him next became one of the most profound teachings in all of human history.",date:"June 17, 2026",readTime:"5 min read",emoji:"🙏",color:"#7C3AED"},
 ];
 
@@ -1308,7 +1309,7 @@ const articleImages={
   11:"https://www.google.com/search?q=Bhagavad+Gita+Krishna+Arjuna+Kurukshetra&tbm=isch",
 };
 const articleTags={
-  1:["#India","#Mystery","#Culture","#Traditions"],
+  1:["#Mystery","#India","#Culture","#Traditions"],
   2:["#Life","#Learning","#VamsiTales","#Building"],
   3:["#Mystery","#History","#Science"],
   4:["#Travel","#India","#Heritage"],
@@ -1370,7 +1371,18 @@ function showPage(p){
   if(p==="bookmarks") renderBookmarks();
   if(p==="stories") renderStoriesPage();
   if(p==="analytics") setTimeout(animateGAStats,300);
-  var pb=document.getElementById("progress-bar"); if(pb) pb.style.width="0%";
+
+var pb=document.getElementById("progress-bar"); if(pb) pb.style.width="0%";
+
+var pb=document.getElementById("progress-bar"); if(pb) pb.style.width="0%";
+
+var pb=document.getElementById("progress-bar"); if(pb) pb.style.width="0%";
+
+var pb=document.getElementById("progress-bar"); if(pb) pb.style.width="0%";
+
+var pb=document.getElementById("progress-bar"); if(pb) pb.style.width="0%";
+
+var pb=document.getElementById("progress-bar"); if(pb) pb.style.width="0%";
   window.scrollTo(0,0);
 }
 
@@ -2016,119 +2028,132 @@ async function sendChatMsg(text){
 function getSmartReply(text){
   var q=text.toLowerCase().trim();
 
-  // Greetings
+  // Festival date lookup — handles "what festival on Aug 23", "festival on 15 august" etc.
+  var monthNames=["jan","feb","mar","apr","may","jun","jul","aug","sep","oct","nov","dec"];
+  var monthNums={jan:1,feb:2,mar:3,apr:4,may:5,jun:6,jul:7,aug:8,sep:9,oct:10,nov:11,dec:12,
+    january:1,february:2,march:3,april:4,june:6,july:7,august:8,september:9,october:10,november:11,december:12};
+  if(/festival|holiday|celebration/.test(q) || /what.*on.*\d|any.*\d|festival.*\d|\d.*festival/.test(q)){
+    var foundMonth=null,foundDay=null;
+    Object.keys(monthNums).forEach(function(mn){if(q.indexOf(mn)>-1) foundMonth=monthNums[mn];});
+    var dm=q.match(/\b(\d{1,2})\b/g);
+    if(dm) dm.forEach(function(d){var n=parseInt(d);if(n>=1&&n<=31) foundDay=n;});
+    if(foundMonth&&foundDay){
+      var matches=FESTIVALS.filter(function(f){return f.month===foundMonth&&f.day===foundDay;});
+      if(matches.length>0){
+        var names=matches.map(function(f){return f.emoji+" "+f.name+" ("+f.region+")";}).join(", ");
+        return "On "+foundDay+" "+MONTHS[foundMonth-1]+": "+names+". Check our Festival Calendar for full details — click CALENDAR in the menu!";
+      } else {
+        return "No major Indian festivals on "+foundDay+" "+MONTHS[foundMonth-1]+" in our calendar. But check the Festival Calendar in the menu — it has all festivals with exact dates!";
+      }
+    }
+    if(foundMonth&&!foundDay){
+      var mf=FESTIVALS.filter(function(f){return f.month===foundMonth;});
+      if(mf.length>0){
+        var names=mf.map(function(f){return f.emoji+" "+f.name+" ("+f.day+"th)";}).join(", ");
+        return "Festivals in "+MONTHS[foundMonth-1]+": "+names+". Open our Festival Calendar for full details!";
+      }
+    }
+    return "Check our Festival Calendar for all Indian festivals with exact dates! Click CALENDAR in the navigation menu.";
+  }
+
   if(/^(hi|hello|hey|namaste|hii|helo|hai)/.test(q))
-    return "Namaste! 🙏 Welcome to Vamsi Tales! I can help you find stories, learn about India, or explore our festival calendar. What are you curious about today?";
+    return "Namaste! Welcome to Vamsi Tales! I can help you find stories, learn about India, or check festival dates. What are you curious about today?";
 
-  // How are you
   if(/how are you|how r you|wassup|what's up/.test(q))
-    return "I am doing great, thank you for asking! 😊 Ready to explore India's amazing stories with you. What would you like to know?";
+    return "I am doing great, thank you for asking! Ready to explore India's amazing stories with you. What would you like to know?";
 
-  // About Vamsi Tales
   if(/what is vamsi tales|about vamsi tales|what.*this.*website|who made|who created|about this/.test(q))
-    return "Vamsi Tales 🪷 is a blog about stories worth telling — India, life, mystery, travel, food, tech, motivation, nature, animals and spiritual wisdom! Every story follows a simple formula: real story + connection + lesson at the end. New stories every week!";
+    return "Vamsi Tales is a blog about stories worth telling — India, life, mystery, travel, food, tech, motivation, nature, animals and spiritual wisdom! Every story follows a real story + connection + lesson formula. New stories every week!";
 
-  // Stories
   if(/shani|shingnapur|village.*lock|lock.*village|no.*door/.test(q))
-    return "🪔 Shani Shingnapur is a village in Maharashtra where 4,000 people live without any doors or locks — for centuries! Lord Shani is believed to protect it. Police records show an extraordinarily low crime rate. <a href='#' onclick='openFullArticle(1);closeChatbot();return false;' style='color:var(--acc);text-decoration:underline;'>Read the full story →</a>";
+    return "🪔 Shani Shingnapur is a village in Maharashtra where 4,000 people live without any doors or locks — for centuries! Lord Shani is believed to protect it. Search 'Shani Shingnapur' in the search bar to read the full story!";
 
   if(/roopkund|skeleton.*lake|lake.*skull|skull.*lake|16000/.test(q))
-    return "💀 Roopkund is a frozen Himalayan lake at 16,470 feet filled with hundreds of ancient skeletons! DNA studies found two groups from different centuries. They likely died in a massive hailstorm. <a href='#' onclick='openFullArticle(3);closeChatbot();return false;' style='color:var(--acc);text-decoration:underline;'>Read the full mystery →</a>";
+    return "💀 Roopkund is a frozen Himalayan lake at 16,470 feet filled with hundreds of ancient skeletons! DNA studies found two groups from different centuries. Search 'Roopkund' to read the full mystery!";
 
   if(/hampi|vijayanagara|karnataka.*city|second.*largest.*city/.test(q))
-    return "🏔️ Hampi in Karnataka was once the second largest city in the world with 500,000 people! Today it is a stunning UNESCO World Heritage Site. <a href='#' onclick='openFullArticle(4);closeChatbot();return false;' style='color:var(--acc);text-decoration:underline;'>Read the full story →</a>";
+    return "🏔️ Hampi in Karnataka was once the second largest city in the world with 500,000 people! Today it is a stunning UNESCO World Heritage Site. Search 'Hampi' to read the full story!";
 
   if(/nalanda|university.*burn|ancient.*university|oldest.*university/.test(q))
-    return "📚 Nalanda University in Bihar was the world's greatest university — 10,000 students, 2,000 teachers! Its library burned for 3 months when destroyed in 1193. <a href='#' onclick='openFullArticle(8);closeChatbot();return false;' style='color:var(--acc);text-decoration:underline;'>Read the full story →</a>";
+    return "📚 Nalanda University in Bihar was the world's greatest university — 10,000 students, 2,000 teachers! Its library burned for 3 months when destroyed in 1193. Search 'Nalanda' to read the full story!";
 
   if(/andhra|spicy|spiciest|guntur|chilli|capsaicin/.test(q))
-    return "🌶️ Andhra Pradesh is home to India's spiciest cuisine! Guntur district produces 30% of India's total chilli output. Capsaicin triggers endorphins — making spicy food mildly addictive! <a href='#' onclick='openFullArticle(6);closeChatbot();return false;' style='color:var(--acc);text-decoration:underline;'>Read the full story →</a>";
+    return "🌶️ Andhra Pradesh is home to India's spiciest cuisine! Guntur district produces 30% of India's total chilli output. Search 'Andhra' to read the full story!";
 
   if(/edison|10000|fail|failure|motivation/.test(q))
-    return "💡 Thomas Edison tested over 10,000 materials before finding the right light bulb filament. He found 10,000 ways that didn't work — not failures! <a href='#' onclick='openFullArticle(7);closeChatbot();return false;' style='color:var(--acc);text-decoration:underline;'>Read the full story →</a>";
+    return "💡 Thomas Edison tested over 10,000 materials before finding the right light bulb filament. He saw 10,000 ways that didn't work — not failures! Search 'Edison' to read the full story!";
 
   if(/ai|artificial intelligence|technology|tech.*india/.test(q))
-    return "🤖 India is quietly becoming the world's largest AI experiment! Farmers use AI to predict rainfall. Students get AI tutoring at midnight. <a href='#' onclick='openFullArticle(5);closeChatbot();return false;' style='color:var(--acc);text-decoration:underline;'>Read the full Tech story →</a>";
+    return "🤖 India is quietly becoming the world's largest AI experiment! Farmers use AI to predict rainfall. Students get AI tutoring at midnight. Search 'AI India' to read the full Tech story!";
 
   if(/website|built.*website|github|vercel|how.*made/.test(q))
-    return "✨ The Vamsi Tales story is on the website too! A few weeks ago I knew nothing about GitHub or Vercel — then step by step, I learned and built this from scratch. It proves that anyone can build something from zero with patience. Read the full story in our Life section!";
+    return "✨ Vamsi Krishna built this entire website from scratch with zero coding experience! Search 'website' to read that inspiring Life story!";
 
-  // India topics
   if(/diwali|deepavali|festival.*light/.test(q))
-    return "🪔 Diwali is the Festival of Lights — one of India's most celebrated festivals! It marks the victory of light over darkness. Celebrated in November, families light diyas, burst crackers, and share sweets. Check our Festival Calendar for the exact date this year!";
+    return "🪔 Diwali is the Festival of Lights — celebrated on 1st November this year! Families light diyas, burst crackers, and share sweets. Check our Festival Calendar for more details!";
 
   if(/holi|colour.*festival|festival.*colour/.test(q))
-    return "🎨 Holi is India's Festival of Colors — celebrated in March! People throw coloured powder, dance, and celebrate the victory of good over evil. It's also a celebration of spring. Check our Festival Calendar for more Indian festivals!";
+    return "🎨 Holi is India's Festival of Colors — celebrated on 14th March! People throw coloured powder and celebrate the victory of good over evil. Check our Festival Calendar for more festivals!";
+
+  if(/ugadi|telugu.*new year|kannada.*new year/.test(q))
+    return "🌿 Ugadi is the Telugu and Kannada New Year, celebrated on 30th March! It is celebrated with Ugadi Pachadi — a dish with six different tastes symbolising life. Check our Festival Calendar for details!";
 
   if(/yoga|meditation|mindfulness/.test(q))
-    return "🧘 Yoga originated in India over 5,000 years ago! The word 'yoga' comes from Sanskrit meaning 'union'. Today over 300 million people practice yoga worldwide. India gave the world one of its greatest gifts. Want to explore more Indian cultural stories?";
+    return "🧘 Yoga originated in India over 5,000 years ago! Today over 300 million people practice yoga worldwide. India gave the world one of its greatest gifts!";
 
-  // Temple queries
   if(/temple|mandir|shrine|worship|deity/.test(q))
-    return "🛕 India has some of the world's most incredible temples! From the Virupaksha Temple at Hampi (1,000 years of continuous worship) to the mysterious Shani Shingnapur (a temple village with no locks or doors). We have stories about both! <a href='#' onclick='openFullArticle(4);closeChatbot();return false;' style='color:var(--acc);text-decoration:underline;'>Read the Hampi story</a> or <a href='#' onclick='openFullArticle(1);closeChatbot();return false;' style='color:var(--acc);text-decoration:underline;'>Read the Shani Shingnapur story</a>.";
-    return "🌿 The neem tree is India's village pharmacy — over 130 medicinal compounds, used for thousands of years! <a href='#' onclick='openFullArticle(10);closeChatbot();return false;' style='color:var(--acc);text-decoration:underline;'>Read the full Neem story →</a>";
+    return "🛕 India has some of the world's most incredible temples! The Virupaksha Temple at Hampi has 1,000 years of continuous worship. Shani Shingnapur is a temple village with no locks. Search either name to read the stories!";
 
-  if(/nature|tree|plant|forest|banyan/.test(q))
-    return "🌿 India has some of the world's most extraordinary plants and trees! The neem tree alone has over 130 medicinal compounds. We cover nature stories on Vamsi Tales — check them out at vamsitales.in!";
+  if(/neem|ayurveda|herbal|medicine/.test(q))
+    return "🌿 The neem tree is India's village pharmacy — over 130 medicinal compounds, used for thousands of years! Search 'Neem' to read the full story!";
 
-  // Animals
   if(/elephant|never forget|elephant memory/.test(q))
-    return "🐘 Yes — elephants really do never forget! They can remember individual humans after 12 years, mourn their dead, and older female elephants lead their herds to water sources they remember from decades ago. We have the full story on Vamsi Tales at vamsitales.in!";
+    return "🐘 Elephants really do never forget! They remember individual humans after 12 years and mourn their dead. Search 'Elephant' to read the full story!";
 
-  if(/animal|tiger|peacock|wildlife|bird/.test(q))
-    return "🐘 India has incredible wildlife! Elephants remember humans after 12 years. India has 70% of the world's wild tigers. <a href='#' onclick='openFullArticle(9);closeChatbot();return false;' style='color:var(--acc);text-decoration:underline;'>Read our Elephant memory story →</a>";
+  if(/read.*full|full.*story|want.*read|open.*story|how.*read|where.*read|reed.*full|full.*article/.test(q))
+    return "To read any full story — click STORIES in the top menu, then click on any story card to open it! Or use the SEARCH button to find a specific story by name. Which story do you want to read?";
 
-  // Spiritual
-  if(/spiritual|bhagavad|gita|krishna|saint|sacred|divine|soul|moksha/.test(q))
-    return "🙏 India is the birthplace of profound spiritual traditions. We have a story on the Bhagavad Gita's most powerful lesson! <a href='#' onclick='openFullArticle(11);closeChatbot();return false;' style='color:var(--acc);text-decoration:underline;'>Read the Bhagavad Gita story →</a>";
+  if(/mystery|roopkund|skeleton|unsolved|ghost|haunted|strange|weird/.test(q))
+    return "💀 Our best mystery story is Roopkund — the Skeleton Lake! 500 human skeletons found at 16,000 feet in the Himalayas. Scientists still don't fully know why they all died the same way. Search 'Roopkund' to read it — it will give you chills!";
+
+  if(/spiritual|bhagavad|gita|krishna|sacred|soul|moksha/.test(q))
+    return "India is the birthplace of profound spiritual traditions. We have a story on the Bhagavad Gita's most powerful lesson — do your duty without expecting results. Search 'Bhagavad Gita' to read it!";
 
   if(/chess|invented|origin/.test(q))
-    return "♟️ Chess was invented in India! It was called 'Chaturanga' in ancient India around the 6th century AD. The game then spread to Persia, then to Europe. India has given the world so many things we take for granted! Want to know more fascinating India facts?";
+    return "♟️ Chess was invented in India! It was called Chaturanga around the 6th century AD, then spread to Persia and Europe. India has given the world so many things!";
 
-  if(/zero|mathematics|aryabhata|math.*india/.test(q))
-    return "🔢 Zero was invented by Indian mathematician Aryabhata! He also calculated Pi to 4 decimal places and proposed that the Earth rotates on its own axis — 1,000 years before Copernicus. Nalanda University, where he studied, burned for 3 months. Read that story on Vamsi Tales!";
+  if(/zero|mathematics|aryabhata/.test(q))
+    return "🔢 Zero was invented by Indian mathematician Aryabhata! He also calculated Pi to 4 decimal places. Incredible India!";
 
   if(/kumbh mela|largest.*gathering|pilgrimage/.test(q))
-    return "🙏 The Kumbh Mela is the largest human gathering on Earth — over 400 million people attend over 45 days! It rotates between four cities: Prayagraj, Haridwar, Nashik, and Ujjain. It's a UNESCO-recognised cultural heritage. Incredible India!";
+    return "The Kumbh Mela is the largest human gathering on Earth — over 400 million people over 45 days! It rotates between Prayagraj, Haridwar, Nashik, and Ujjain.";
 
-  // Food
   if(/food|cuisine|eat|dish|recipe/.test(q))
-    return "🍛 India has some of the world's most diverse cuisines! Each region is completely different — Andhra is the spiciest, Kerala has coconut-based dishes, Punjab has rich curries, and Tamil Nadu has incredible rice dishes. We have a story about Andhra's spiciest cuisine on Vamsi Tales — check it out!";
+    return "🍛 India has the world's most diverse cuisine! Andhra is the spiciest, Kerala has coconut dishes, Punjab has rich curries. Search 'Andhra' to read our food story!";
 
-  // Travel
-  if(/travel|visit|tourist|place.*india|india.*place/.test(q))
-    return "✈️ India has incredible travel destinations! Hampi in Karnataka, the Himalayas in the north, backwaters of Kerala, temples of Tamil Nadu, Rajasthan's palaces, and so much more. We have a full story on Hampi — the city that time forgot — on our Travel section!";
+  if(/travel|visit|tourist|place.*india/.test(q))
+    return "✈️ India has incredible destinations! Hampi, the Himalayas, Kerala backwaters, Rajasthan's palaces. Search 'Hampi' to read our Travel story!";
 
-  // History
-  if(/history|ancient|empire|dynasty|mughal|british/.test(q))
-    return "🏛️ India has one of the world's oldest and richest histories — from the Indus Valley Civilization to the Mughal Empire to Independence in 1947. We cover fascinating historical stories on Vamsi Tales, including Nalanda University and Hampi's Vijayanagara Empire. Explore our India and History stories!";
+  if(/history|ancient|empire|dynasty|mughal/.test(q))
+    return "🏛️ India has one of the world's oldest histories — from the Indus Valley to the Mughal Empire to Independence in 1947. Search 'Nalanda' or 'Hampi' to explore our history stories!";
 
-  // Festival calendar
-  if(/calendar|festival.*date|when.*festival|upcoming.*festival/.test(q))
-    return "🗓️ Our Festival Calendar covers all major Indian festivals with exact dates, descriptions and regional info! From Diwali to Pongal to Eid to Christmas — all Indian festivals in one place. Click CALENDAR in the navigation menu to explore!";
+  if(/how many stories|number.*stories/.test(q))
+    return "📖 We currently have 11 stories across 11 categories — India, Life, Travel, Food, Mystery, Tech, Motivation, Nature, Animals and Spiritual! New stories every week. Click STORIES in the menu!";
 
-  // How many stories
-  if(/how many stories|number.*stories|stories.*have/.test(q))
-    return "📖 We currently have 11 stories published across 11 categories — India, Life, Travel, Food, Mystery, Tech, Motivation, Nature, Animals and Spiritual! New stories every week. Click STORIES in the menu to read all of them. Which topic interests you most?";
-
-  // Contact
   if(/contact|email|reach|feedback|suggest/.test(q))
-    return "📧 You can reach Vamsi Tales at vamsikrishnameesala205@gmail.com! We love hearing story suggestions, feedback, and collaboration ideas. You can also use the Contact page in our menu. What story would you like to suggest?";
+    return "📧 You can reach Vamsi Tales at vamsikrishnameesala205@gmail.com! We love story suggestions and collaboration ideas. Use the Contact page in our menu!";
 
-  // Newsletter
-  if(/newsletter|subscribe|email.*update/.test(q))
-    return "📬 You can subscribe to the Vamsi Tales newsletter at the bottom of the home page! Get one new story every week directly in your inbox. No spam, ever. Just good stories about India. 🪷";
+  if(/newsletter|subscribe/.test(q))
+    return "📬 Subscribe at the bottom of the home page! Get one new story every week in your inbox. No spam, ever!";
 
-  // Goodbye
-  if(/bye|goodbye|see you|ok thanks|thank you|thanks/.test(q))
-    return "Thank you for visiting Vamsi Tales! 🪷 Come back every week for new stories about India. Share the website with friends and family who love India. Jai Hind! 🇮🇳";
+  if(/bye|goodbye|thank you|thanks/.test(q))
+    return "Thank you for visiting Vamsi Tales! Come back every week for new stories about India. Jai Hind! 🇮🇳";
 
-  // Default - unknown question
   var defaults=[
-    "That's an interesting question! 🤔 I can help you with stories on Vamsi Tales, Indian culture, history, festivals, travel, food, and motivation. Try asking about a specific story or topic!",
-    "Great question! 🪷 I know a lot about India — culture, history, mystery, travel, food and more. Ask me about any of our stories or any India topic you're curious about!",
-    "I am not sure about that one, but I know a lot about India! 🇮🇳 Try asking me about Indian festivals, our stories, famous places, food, or history. What interests you?",
-    "Hmm, let me think... 🤔 I am best at answering questions about India, our stories, festivals and culture. Try asking 'What is the Roopkund mystery?' or 'Tell me about Diwali'!",
+    "Try asking me about a specific category! We have Mystery, India, Travel, Food, Tech, Motivation, Animals and Spiritual stories. Which interests you?",
+    "I know a lot about India — culture, history, mystery, travel, food and more. Try asking 'Tell me about Hampi' or 'Give me a mystery story'!",
+    "Ask me about any story category! For mystery try 'Roopkund', for history try 'Nalanda', for travel try 'Hampi', for food try 'Andhra cuisine'!",
+    "I am best at answering questions about India and our stories. Try 'Tell me about Roopkund' or 'What is Nalanda?' or 'What festival is on Oct 2?'!",
   ];
   return defaults[Math.floor(Math.random()*defaults.length)];
 }
