@@ -143,13 +143,13 @@ nav{position:sticky;top:0;z-index:100;background:var(--nav);border-bottom:1px so
 
 /* CALENDAR */
 .cal-wrap{max-width:1100px;margin:0 auto;padding:1.5rem 2rem 3rem;width:100%;box-sizing:border-box;}
-.month-nav{display:flex;align-items:center;justify-content:center;gap:16px;margin-bottom:0;background:var(--card);border:1px solid var(--cb);border-radius:10px 10px 0 0;padding:1rem;border-bottom:none;}
-.mnav-btn{width:36px;height:36px;border-radius:50%;background:var(--acc);border:none;color:var(--at);font-size:20px;font-weight:900;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:opacity 0.2s;flex-shrink:0;}
+.month-nav{display:flex;align-items:center;justify-content:center;gap:16px;margin-bottom:0;padding:1rem 1.5rem;border-bottom:1px solid var(--div);}
+.mnav-btn{width:36px;height:36px;border-radius:50%;background:var(--acc);border:none;color:var(--at);font-size:22px;font-weight:900;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:opacity 0.2s;flex-shrink:0;line-height:1;padding:0;text-align:center;}
 .mnav-btn:hover{opacity:0.85;}
 .month-title{font-family:var(--font);font-size:1.3rem;color:var(--text);min-width:220px;text-align:center;}
 .month-sub{font-size:11px;color:var(--t3);margin-top:2px;font-family:'Lato',sans-serif;}
 .cal-layout{display:grid;grid-template-columns:1fr 300px;gap:1.5rem;align-items:start;}
-.cal-grid-wrap{background:var(--card);border:1px solid var(--cb);border-radius:0 0 8px 8px;align-self:start;border-top:none;}
+.cal-grid-wrap{background:var(--card);border:1px solid var(--cb);border-radius:8px;align-self:start;}
 .cal-hdr{display:grid;grid-template-columns:repeat(7,1fr);background:rgba(200,100,30,0.1);border-bottom:1px solid var(--div);}
 .cal-hdr-cell{text-align:center;padding:10px 4px;font-size:10px;letter-spacing:0.1em;color:var(--acc);font-weight:600;font-family:'Lato',sans-serif;}
 .cal-cells{display:grid;grid-template-columns:repeat(7,1fr);}
@@ -699,14 +699,33 @@ body.mud .featured-right{background:rgba(245,240,232,0.06) !important;}
     </div>
   </div>
 
+  <!-- TODAY'S SIGNIFICANCE -->
+  <div id="today-significance" style="max-width:1100px;margin:2rem auto 0;padding:0 2rem;width:100%;box-sizing:border-box;display:none;">
+    <div id="today-sig-inner" style="background:var(--card);border:1px solid var(--cb);border-radius:10px;overflow:hidden;">
+      <div style="background:rgba(194,98,26,0.08);padding:1rem 1.5rem;border-bottom:1px solid var(--div);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;">
+        <div style="display:flex;align-items:center;gap:10px;">
+          <span id="today-sig-emoji" style="font-size:1.6rem;"></span>
+          <div>
+            <div style="font-size:9px;letter-spacing:0.2em;color:var(--acc);text-transform:uppercase;font-family:'Lato',sans-serif;">Today — <span id="today-sig-date"></span></div>
+            <div id="today-sig-title" style="font-family:var(--font);font-size:1.1rem;color:var(--text);"></div>
+          </div>
+        </div>
+        <span id="today-sig-region" style="font-size:10px;letter-spacing:0.1em;font-family:'Lato',sans-serif;padding:3px 10px;border-radius:20px;border:1px solid var(--cb);color:var(--t2);"></span>
+      </div>
+      <div id="today-sig-desc" style="padding:1rem 1.5rem;font-size:0.88rem;color:var(--t2);font-family:'Lato',sans-serif;line-height:1.7;"></div>
+      <div id="today-sig-more" style="padding:0 1.5rem 1rem;display:flex;flex-wrap:wrap;gap:8px;"></div>
+    </div>
+  </div>
+
   <!-- STATS -->
+
   <div class="stats-section">
     <div class="stats-inner">
       <div class="stat-card" onclick="showPage('stories')" style="cursor:pointer;" title="View all stories">
         <div class="stat-emoji">📖</div><div class="stat-num" id="stat-stories">0</div><div class="stat-label">Stories Published</div>
       </div>
       <div class="stat-card" onclick="showPage('calendar')" style="cursor:pointer;" title="View festival calendar">
-        <div class="stat-emoji">🎉</div><div class="stat-num" id="stat-festivals">0</div><div class="stat-label">Festivals Covered</div>
+        <div class="stat-emoji">🎉</div><div class="stat-num" id="stat-festivals">0</div><div class="stat-label">Days & Festivals</div>
       </div>
       <div class="stat-card" onclick="showPage('stories')" style="cursor:pointer;" title="View all articles">
         <div class="stat-emoji">🏛️</div><div class="stat-num" id="stat-readers">0</div><div class="stat-label">Articles Written</div>
@@ -1065,16 +1084,16 @@ body.mud .featured-right{background:rgba(245,240,232,0.06) !important;}
     <p class="page-sub">Auto-updated every year — discover every festival across India.</p>
   </div>
   <div class="cal-wrap">
-    <div class="month-nav">
-      <button class="mnav-btn" onclick="changeMonth(-1)">&#8249;</button>
-      <div style="text-align:center;min-width:220px;">
-        <div class="month-title" id="month-title"></div>
-        <div class="month-sub" id="month-sub"></div>
-      </div>
-      <button class="mnav-btn" onclick="changeMonth(1)">&#8250;</button>
-    </div>
     <div class="cal-layout">
       <div class="cal-grid-wrap">
+        <div class="month-nav">
+          <button class="mnav-btn" onclick="changeMonth(-1)" style="padding-right:2px;">&#8249;</button>
+          <div style="text-align:center;min-width:220px;">
+            <div class="month-title" id="month-title"></div>
+            <div class="month-sub" id="month-sub"></div>
+          </div>
+          <button class="mnav-btn" onclick="changeMonth(1)" style="padding-left:2px;">&#8250;</button>
+        </div>
         <div class="cal-hdr">
           <div class="cal-hdr-cell">SUN</div><div class="cal-hdr-cell">MON</div>
           <div class="cal-hdr-cell">TUE</div><div class="cal-hdr-cell">WED</div>
@@ -1244,31 +1263,113 @@ const posts=[
 const categories=["All","India","Life","Travel","Food","Mystery","Tech","Motivation","Nature","Animals","Spiritual"];
 
 const FESTIVALS=[
+  {month:1,day:1,name:"New Year's Day",emoji:"🎊",type:"world",region:"WORLDWIDE",desc:"The first day of the Gregorian calendar year. Celebrated globally with fireworks, resolutions and new beginnings."},
+  {month:1,day:12,name:"National Youth Day",emoji:"👨‍🎓",type:"national",region:"PAN INDIA",desc:"Birthday of Swami Vivekananda. Celebrated to inspire Indian youth with his teachings of self-belief and service."},
+  {month:1,day:15,name:"Indian Army Day",emoji:"🪖",type:"national",region:"PAN INDIA",desc:"Celebrated to honour the Indian Army and its soldiers who protect the nation's borders."},
+  {month:1,day:24,name:"National Girl Child Day",emoji:"👧",type:"national",region:"PAN INDIA",desc:"Observed to raise awareness about the inequalities faced by girl children and promote their education and rights."},
+  {month:1,day:30,name:"Martyrs Day",emoji:"🕊️",type:"national",region:"PAN INDIA",desc:"Anniversary of Mahatma Gandhi's assassination in 1948. Observed as a day of national mourning and tribute."},
+  {month:2,day:4,name:"World Cancer Day",emoji:"🎗️",type:"world",region:"WORLDWIDE",desc:"Observed to raise awareness about cancer prevention, detection and treatment globally."},
+  {month:2,day:13,name:"World Radio Day",emoji:"📻",type:"world",region:"WORLDWIDE",desc:"UN day to celebrate radio as a medium of information, education and entertainment across the world."},
+  {month:2,day:20,name:"World Social Justice Day",emoji:"⚖️",type:"world",region:"WORLDWIDE",desc:"UN observance promoting equal opportunities and social justice for all people regardless of background."},
+  {month:2,day:21,name:"International Mother Language Day",emoji:"🗣️",type:"world",region:"WORLDWIDE",desc:"UNESCO day to promote linguistic diversity. Telugu is one of India's classical languages!"},
+  {month:2,day:28,name:"National Science Day",emoji:"🔬",type:"national",region:"PAN INDIA",desc:"Celebrates the discovery of the Raman Effect by C.V. Raman in 1928. Promotes science awareness in India."},
+  {month:3,day:8,name:"International Women's Day",emoji:"👩",type:"world",region:"WORLDWIDE",desc:"Global day celebrating women's achievements and promoting gender equality and women's rights."},
+  {month:3,day:20,name:"World Sparrow Day",emoji:"🐦",type:"world",region:"WORLDWIDE",desc:"Raises awareness about the declining house sparrow population and urban biodiversity."},
+  {month:3,day:21,name:"World Forest Day",emoji:"🌲",type:"world",region:"WORLDWIDE",desc:"UN day celebrating forests and raising awareness about their importance for our planet."},
+  {month:3,day:22,name:"World Water Day",emoji:"💧",type:"world",region:"WORLDWIDE",desc:"UN day highlighting the importance of freshwater and sustainable water management."},
+  {month:3,day:27,name:"World Theatre Day",emoji:"🎭",type:"world",region:"WORLDWIDE",desc:"Celebrates the art of theatre and its importance in culture and society worldwide."},
+  {month:4,day:2,name:"World Autism Awareness Day",emoji:"🧩",type:"world",region:"WORLDWIDE",desc:"UN day to spread awareness and acceptance of people with autism spectrum disorder."},
+  {month:4,day:7,name:"World Health Day",emoji:"🏥",type:"world",region:"WORLDWIDE",desc:"WHO's flagship day to draw attention to important health issues affecting people around the world."},
+  {month:4,day:18,name:"World Heritage Day",emoji:"🏛️",type:"world",region:"WORLDWIDE",desc:"Promotes awareness of cultural heritage. India has 42 UNESCO World Heritage Sites!"},
+  {month:4,day:22,name:"Earth Day",emoji:"🌍",type:"world",region:"WORLDWIDE",desc:"Annual event demonstrating support for environmental protection. Over 1 billion people participate globally."},
+  {month:4,day:23,name:"World Book Day",emoji:"📚",type:"world",region:"WORLDWIDE",desc:"UNESCO day to promote reading, publishing and the protection of intellectual property."},
+  {month:5,day:1,name:"International Labour Day",emoji:"👷",type:"world",region:"WORLDWIDE",desc:"Also called May Day. Celebrates workers and the labour movement worldwide. Public holiday in India."},
+  {month:5,day:3,name:"World Press Freedom Day",emoji:"📰",type:"world",region:"WORLDWIDE",desc:"UN day to evaluate press freedom and defend media from attacks on their independence."},
+  {month:5,day:8,name:"World Red Cross Day",emoji:"🔴",type:"world",region:"WORLDWIDE",desc:"Birthday of Henry Dunant, founder of the Red Cross. Celebrates global humanitarian work."},
+  {month:5,day:11,name:"National Technology Day",emoji:"💻",type:"national",region:"PAN INDIA",desc:"Commemorates India's nuclear tests at Pokhran in 1998. Celebrates India's technological achievements."},
+  {month:5,day:12,name:"International Nurses Day",emoji:"👩‍⚕️",type:"world",region:"WORLDWIDE",desc:"Birthday of Florence Nightingale. Celebrates the vital role nurses play in healthcare worldwide."},
+  {month:5,day:22,name:"International Day for Biodiversity",emoji:"🦋",type:"world",region:"WORLDWIDE",desc:"UN day promoting biodiversity awareness. India is one of the world's 17 megadiverse countries!"},
+  {month:5,day:31,name:"World No Tobacco Day",emoji:"🚭",type:"world",region:"WORLDWIDE",desc:"WHO day to raise awareness about the health risks of tobacco use worldwide."},
+  {month:6,day:1,name:"World Milk Day",emoji:"🥛",type:"world",region:"WORLDWIDE",desc:"FAO day recognising the importance of milk. India is the world's largest milk producer!"},
+  {month:6,day:5,name:"World Environment Day",emoji:"🌿",type:"world",region:"WORLDWIDE",desc:"UN's principal day for encouraging awareness and action for the protection of our environment."},
+  {month:6,day:8,name:"World Oceans Day",emoji:"🌊",type:"world",region:"WORLDWIDE",desc:"UN day celebrating oceans and their crucial role in sustaining life on Earth."},
+  {month:6,day:12,name:"World Day Against Child Labour",emoji:"🧒",type:"world",region:"WORLDWIDE",desc:"ILO day to focus attention on child labour and the need to eliminate it globally."},
+  {month:6,day:14,name:"World Blood Donor Day",emoji:"🩸",type:"world",region:"WORLDWIDE",desc:"WHO day thanking voluntary blood donors and raising awareness about safe blood donations."},
+  {month:6,day:20,name:"World Refugee Day",emoji:"🤝",type:"world",region:"WORLDWIDE",desc:"UN day honouring the strength and courage of people forced to flee their home countries."},
+  {month:6,day:21,name:"International Yoga Day",emoji:"🧘",type:"world",region:"WORLDWIDE",desc:"UN day celebrating yoga — India's ancient gift to the world! Over 300 million people practice yoga globally."},
+  {month:6,day:23,name:"International Olympic Day",emoji:"🏅",type:"world",region:"WORLDWIDE",desc:"Celebrates the founding of the International Olympic Committee in 1894 and promotes sport for everyone."},
+  {month:7,day:1,name:"National Doctors Day",emoji:"👨‍⚕️",type:"national",region:"PAN INDIA",desc:"Birthday of Dr Bidhan Chandra Roy. Celebrates the contribution of doctors to society across India."},
+  {month:7,day:11,name:"World Population Day",emoji:"👥",type:"world",region:"WORLDWIDE",desc:"UN day raising awareness about global population issues. India is now the world's most populous country!"},
+  {month:7,day:18,name:"Nelson Mandela International Day",emoji:"✊",type:"world",region:"WORLDWIDE",desc:"Celebrates Nelson Mandela's birthday and his contribution to peace and social justice worldwide."},
+  {month:7,day:28,name:"World Hepatitis Day",emoji:"🏥",type:"world",region:"WORLDWIDE",desc:"WHO day raising awareness about viral hepatitis affecting millions of people globally."},
+  {month:8,day:6,name:"Hiroshima Day",emoji:"☮️",type:"world",region:"WORLDWIDE",desc:"Commemorates the atomic bombing of Hiroshima in 1945. Observed globally to promote peace."},
+  {month:8,day:12,name:"World Elephant Day",emoji:"🐘",type:"world",region:"WORLDWIDE",desc:"Dedicated to preserving elephants worldwide. India has the largest Asian elephant population!"},
+  {month:8,day:19,name:"World Humanitarian Day",emoji:"🤝",type:"world",region:"WORLDWIDE",desc:"UN day honouring humanitarian workers who risk their lives to help others in crises."},
+  {month:8,day:29,name:"National Sports Day",emoji:"🏅",type:"national",region:"PAN INDIA",desc:"Birthday of hockey legend Major Dhyan Chand. Celebrates India's sporting achievements."},
+  {month:9,day:5,name:"Teachers Day",emoji:"👨‍🏫",type:"national",region:"PAN INDIA",desc:"Birthday of Dr Sarvepalli Radhakrishnan. Celebrates teachers and their invaluable contribution to society."},
+  {month:9,day:8,name:"International Literacy Day",emoji:"📖",type:"world",region:"WORLDWIDE",desc:"UNESCO day highlighting the importance of literacy as a matter of dignity and human rights."},
+  {month:9,day:14,name:"Hindi Diwas",emoji:"🇮🇳",type:"national",region:"PAN INDIA",desc:"Celebrates Hindi as India's official language. Promotes the use and development of Hindi."},
+  {month:9,day:16,name:"World Ozone Day",emoji:"🌐",type:"world",region:"WORLDWIDE",desc:"Marks the signing of the Montreal Protocol in 1987. Celebrates global efforts to protect the ozone layer."},
+  {month:9,day:21,name:"International Day of Peace",emoji:"🕊️",type:"world",region:"WORLDWIDE",desc:"UN day dedicated to world peace. A day of non-violence and ceasefire observed globally."},
+  {month:9,day:27,name:"World Tourism Day",emoji:"✈️",type:"world",region:"WORLDWIDE",desc:"UNWTO day promoting tourism. India has incredible destinations from Hampi to the Himalayas!"},
+  {month:10,day:2,name:"Gandhi Jayanti",emoji:"🕊️",type:"national",region:"PAN INDIA",desc:"Birthday of Mahatma Gandhi — Father of the Nation. Also observed as International Day of Non-Violence."},
+  {month:10,day:4,name:"World Animal Day",emoji:"🐾",type:"world",region:"WORLDWIDE",desc:"Raises awareness about animal welfare and the protection of animals worldwide."},
+  {month:10,day:8,name:"Indian Air Force Day",emoji:"✈️",type:"national",region:"PAN INDIA",desc:"Celebrates the founding of the Indian Air Force in 1932. Honours its officers and their service."},
+  {month:10,day:10,name:"World Mental Health Day",emoji:"🧠",type:"world",region:"WORLDWIDE",desc:"WHO day raising awareness about mental health and mobilising support for mental health worldwide."},
+  {month:10,day:16,name:"World Food Day",emoji:"🍽️",type:"world",region:"WORLDWIDE",desc:"FAO day to promote worldwide awareness about hunger. Zero Hunger is the global goal."},
+  {month:10,day:24,name:"United Nations Day",emoji:"🌐",type:"world",region:"WORLDWIDE",desc:"Marks the founding of the United Nations in 1945. India is a founding member of the UN."},
+  {month:10,day:31,name:"National Unity Day",emoji:"🇮🇳",type:"national",region:"PAN INDIA",desc:"Birthday of Sardar Vallabhbhai Patel who unified 562 princely states into one nation."},
+  {month:11,day:14,name:"Children's Day",emoji:"👶",type:"national",region:"PAN INDIA",desc:"Birthday of Jawaharlal Nehru — India's first PM who loved children. Celebrated with fun events for kids."},
+  {month:11,day:17,name:"World Students Day",emoji:"🎓",type:"world",region:"WORLDWIDE",desc:"Birthday of Dr APJ Abdul Kalam. Celebrates students and the importance of education."},
+  {month:11,day:20,name:"Universal Children's Day",emoji:"🧒",type:"world",region:"WORLDWIDE",desc:"UNICEF day promoting international togetherness and awareness among children worldwide."},
+  {month:12,day:1,name:"World AIDS Day",emoji:"🎗️",type:"world",region:"WORLDWIDE",desc:"WHO day dedicated to raising awareness about HIV/AIDS and mourning those who have died."},
+  {month:12,day:4,name:"Indian Navy Day",emoji:"⚓",type:"national",region:"PAN INDIA",desc:"Celebrates the Indian Navy's role in the 1971 war. Honours naval officers and their service."},
+  {month:12,day:10,name:"Human Rights Day",emoji:"✊",type:"world",region:"WORLDWIDE",desc:"Marks the UN's adoption of the Universal Declaration of Human Rights in 1948."},
+  {month:12,day:11,name:"International Mountain Day",emoji:"🏔️",type:"world",region:"WORLDWIDE",desc:"UN day for mountains. India has the world's greatest mountain ranges including the mighty Himalayas!"},
+  {month:12,day:16,name:"Vijay Diwas",emoji:"🇮🇳",type:"national",region:"PAN INDIA",desc:"Victory Day — celebrates India's victory over Pakistan in the 1971 war leading to the creation of Bangladesh."},
   {month:1,day:14,name:"Makar Sankranti",emoji:"🪁",type:"national",region:"PAN INDIA",desc:"Harvest festival marking the sun's entry into Capricorn."},
   {month:1,day:14,name:"Pongal",emoji:"🍚",type:"south",region:"TAMIL NADU",desc:"Four-day Tamil harvest festival thanking the Sun God."},
+  {month:1,day:15,name:"Bhogi Panduga",emoji:"🔥",type:"telugu",region:"ANDHRA / TELANGANA",desc:"Telugu festival celebrated the day before Sankranti. Old items are burned in a bonfire to welcome new beginnings."},
+  {month:1,day:16,name:"Kanuma",emoji:"🐄",type:"telugu",region:"ANDHRA / TELANGANA",desc:"Third day of Sankranti celebrations. Cattle are worshipped and decorated with gratitude for their service."},
+  {month:1,day:17,name:"Mukkanuma",emoji:"🌾",type:"telugu",region:"ANDHRA / TELANGANA",desc:"Fourth and final day of Sankranti. Non-vegetarian feast day celebrated with family gatherings."},
   {month:1,day:26,name:"Republic Day",emoji:"🇮🇳",type:"national",region:"PAN INDIA",desc:"India celebrates its Constitution coming into effect in 1950."},
   {month:2,day:26,name:"Maha Shivaratri",emoji:"🔱",type:"national",region:"PAN INDIA",desc:"The great night of Lord Shiva. Devotees fast and keep night-long vigils."},
+  {month:3,day:19,name:"Kamaraja Jayanti",emoji:"🌸",type:"telugu",region:"ANDHRA / TELANGANA",desc:"Celebrated in honour of the god of love, Manmatha, on the day before Ugadi."},
   {month:3,day:14,name:"Holi",emoji:"🎨",type:"national",region:"PAN INDIA",desc:"The festival of colors! Celebrating the victory of good over evil."},
-  {month:3,day:30,name:"Ugadi",emoji:"🌿",type:"south",region:"ANDHRA / KARNATAKA",desc:"Telugu and Kannada New Year. Celebrated with Ugadi Pachadi."},
+  {month:3,day:20,name:"Ugadi",emoji:"🌿",type:"telugu",region:"ANDHRA / TELANGANA",desc:"Telugu New Year! Celebrated with Ugadi Pachadi — a dish with six tastes representing all emotions of life."},
   {month:4,day:13,name:"Baisakhi",emoji:"🌾",type:"north",region:"PUNJAB",desc:"Sikh harvest festival and New Year."},
+  {month:4,day:14,name:"Sri Rama Navami",emoji:"🏹",type:"telugu",region:"ANDHRA / TELANGANA",desc:"Birthday of Lord Rama. Celebrated with devotional songs, readings of Ramayana and temple processions."},
+  {month:4,day:21,name:"Hanuman Jayanti",emoji:"🐒",type:"telugu",region:"ANDHRA / TELANGANA",desc:"Birthday of Lord Hanuman. Celebrated with Hanuman Chalisa recitations and temple visits across Andhra and Telangana."},
   {month:5,day:12,name:"Buddha Purnima",emoji:"☸️",type:"national",region:"PAN INDIA",desc:"Birthday of Gautama Buddha."},
+  {month:11,day:3,name:"Keradeshwara Vratam",emoji:"🔱",type:"telugu",region:"ANDHRA / TELANGANA",desc:"Monday fasting ritual dedicated to Lord Shiva (Keradeshwara) observed during Karthika Masam. Women fast every Monday of this sacred Telugu month for the longevity and prosperity of their family."},
   {month:6,day:6,name:"Rath Yatra",emoji:"🛕",type:"east",region:"ODISHA",desc:"Chariot festival of Lord Jagannath in Puri."},
+  {month:6,day:15,name:"Vat Savitri Vrat",emoji:"🌳",type:"telugu",region:"ANDHRA / TELANGANA",desc:"Married women tie threads around a banyan tree and pray for the long life of their husbands, following the legend of Savitri and Satyavan."},
+  {month:7,day:10,name:"Bonalu",emoji:"🪔",type:"telugu",region:"TELANGANA",desc:"Telangana's most important folk festival. Goddess Mahakali is worshipped with offerings of cooked rice in clay pots."},
+  {month:7,day:17,name:"Vaikunta Ekadashi",emoji:"🙏",type:"telugu",region:"ANDHRA / TELANGANA",desc:"Most sacred Ekadashi for Vaishnavas. Devotees fast and visit Vishnu temples. The gates of Vaikunta open on this day."},
+  {month:7,day:24,name:"Karkidaka Vavu",emoji:"🌊",type:"telugu",region:"ANDHRA / TELANGANA",desc:"Amavasya in the Telugu month of Karkidakam. Offerings are made to ancestors at rivers and sacred water bodies."},
   {month:8,day:15,name:"Independence Day",emoji:"🇮🇳",type:"national",region:"PAN INDIA",desc:"India's independence from British rule in 1947."},
   {month:8,day:16,name:"Raksha Bandhan",emoji:"🪢",type:"national",region:"PAN INDIA",desc:"Festival of the bond between brothers and sisters."},
+  {month:8,day:25,name:"Varalakshmi Vratam",emoji:"🌺",type:"telugu",region:"ANDHRA / TELANGANA",desc:"Married women worship Goddess Lakshmi for the wellbeing of their family. One of the most important Telugu women's festivals."},
   {month:8,day:27,name:"Janmashtami",emoji:"🦚",type:"national",region:"PAN INDIA",desc:"Birthday of Lord Krishna."},
   {month:8,day:27,name:"Onam",emoji:"🌸",type:"south",region:"KERALA",desc:"Kerala's harvest festival."},
-  {month:9,day:2,name:"Ganesh Chaturthi",emoji:"🐘",type:"national",region:"PAN INDIA",desc:"10-day festival celebrating Lord Ganesha."},
+  {month:9,day:2,name:"Ganesh Chaturthi",emoji:"🐘",type:"national",region:"PAN INDIA",desc:"10-day festival celebrating Lord Ganesha. Huge in Andhra and Telangana!"},
   {month:9,day:4,name:"Radha Ashtami",emoji:"🌺",type:"national",region:"PAN INDIA",desc:"Birthday of Goddess Radha, divine consort of Lord Krishna."},
+  {month:9,day:22,name:"Bathukamma",emoji:"🌸",type:"telugu",region:"TELANGANA",desc:"Telangana's floral festival! Women create flower stacks and celebrate the Goddess of Life. A UNESCO-recognised cultural heritage."},
   {month:10,day:2,name:"Navratri Begins",emoji:"💃",type:"national",region:"PAN INDIA",desc:"Nine nights of worshipping Goddess Durga."},
+  {month:10,day:2,name:"Dasara Navaratri",emoji:"💃",type:"telugu",region:"ANDHRA / TELANGANA",desc:"Nine nights of Golu display — dolls and figurines arranged on steps to celebrate Goddess Durga."},
   {month:10,day:12,name:"Dussehra",emoji:"🏹",type:"national",region:"PAN INDIA",desc:"Victory of Lord Rama over Ravana."},
+  {month:10,day:20,name:"Kojagiri Purnima",emoji:"🌕",type:"telugu",region:"ANDHRA / TELANGANA",desc:"Full moon night dedicated to Goddess Lakshmi. Devotees stay awake all night, offer milk to the moon and pray for prosperity."},
   {month:11,day:1,name:"Diwali",emoji:"🪔",type:"national",region:"PAN INDIA",desc:"The festival of lights!"},
+  {month:11,day:1,name:"Naraka Chaturdashi",emoji:"🪔",type:"telugu",region:"ANDHRA / TELANGANA",desc:"Telugu Diwali! Celebrated on the day Lord Krishna defeated the demon Narakasura. Oil baths at dawn and fireworks."},
+  {month:11,day:5,name:"Nagula Chavithi",emoji:"🐍",type:"telugu",region:"ANDHRA / TELANGANA",desc:"Telugu festival where women worship Naga (snake) idols for the protection and wellbeing of their children and family. Milk is offered to snake anthills."},
   {month:11,day:5,name:"Chhath Puja",emoji:"☀️",type:"north",region:"BIHAR / UP",desc:"Four-day festival worshipping the Sun God."},
   {month:11,day:15,name:"Guru Nanak Jayanti",emoji:"🙏",type:"national",region:"PAN INDIA",desc:"Birthday of Guru Nanak Dev Ji, founder of Sikhism."},
   {month:12,day:25,name:"Christmas",emoji:"🎄",type:"national",region:"PAN INDIA",desc:"Birthday of Jesus Christ."},
+  {month:12,day:26,name:"Mukkoti Ekadashi",emoji:"🙏",type:"telugu",region:"ANDHRA / TELANGANA",desc:"Sacred Ekadashi in December. Visiting a temple on this day is said to be equivalent to visiting all sacred sites."},
 ];
 
-const TC={national:"#F59E0B",south:"#10B981",north:"#3B82F6",west:"#F97316",east:"#EC4899"};
-const TL={national:"National",south:"South India",north:"North India",west:"West India",east:"East India"};
+const TC={national:"#F59E0B",south:"#10B981",north:"#3B82F6",west:"#F97316",east:"#EC4899",telugu:"#DC2626",world:"#6366F1"};
+const TL={national:"National",south:"South India",north:"North India",west:"West India",east:"East India",telugu:"Telugu / Andhra / Telangana",world:"World / International Day"};
 const MONTHS=["January","February","March","April","May","June","July","August","September","October","November","December"];
 
 const articleBodies={
@@ -1862,6 +1963,35 @@ function dismissCookie(accepted){
   if(accepted) showToast("Cookies accepted 🍪");
 }
 
+// TODAY'S SIGNIFICANCE
+function renderTodaySignificance(){
+  var today=new Date();
+  var m=today.getMonth()+1;
+  var d=today.getDate();
+  var todayFests=FESTIVALS.filter(function(f){return f.month===m&&f.day===d;});
+  var wrap=document.getElementById("today-significance");
+  if(!wrap) return;
+  if(todayFests.length===0){wrap.style.display="none";return;}
+  wrap.style.display="block";
+  var dateStr=today.toLocaleDateString("en-IN",{weekday:"long",day:"numeric",month:"long"});
+  var dateEl=document.getElementById("today-sig-date"); if(dateEl) dateEl.textContent=dateStr;
+  // Show first festival prominently
+  var first=todayFests[0];
+  var emojiEl=document.getElementById("today-sig-emoji"); if(emojiEl) emojiEl.textContent=first.emoji;
+  var titleEl=document.getElementById("today-sig-title"); if(titleEl) titleEl.textContent=first.name;
+  var regionEl=document.getElementById("today-sig-region"); if(regionEl) regionEl.textContent=first.region;
+  var descEl=document.getElementById("today-sig-desc"); if(descEl) descEl.textContent=first.desc;
+  // Show remaining as chips
+  var moreEl=document.getElementById("today-sig-more");
+  if(moreEl&&todayFests.length>1){
+    moreEl.innerHTML=todayFests.slice(1).map(function(f){
+      return '<span style="display:inline-flex;align-items:center;gap:6px;background:var(--bg2);border:1px solid var(--cb);border-radius:20px;padding:4px 12px;font-size:12px;font-family:Lato,sans-serif;color:var(--t2);">'+f.emoji+' '+f.name+'</span>';
+    }).join("");
+  } else if(moreEl){
+    moreEl.innerHTML="";
+  }
+}
+
 // TICKER
 var tickerFacts=["India has 22 officially recognised languages 🗣️","Honey never spoils — edible honey found in Egyptian tombs 🍯","The world's deepest lake is Lake Baikal in Russia 🌊","Chess was invented in India ♟️","Cleopatra lived closer in time to the Moon landing than to the pyramids 🚀","Andhra Pradesh has India's spiciest cuisine 🌶️","The word jungle comes from Sanskrit word jangala 🌿","Octopuses have three hearts and blue blood 🐙","Zero was invented by Indian mathematician Aryabhata 🔢","A group of flamingos is called a flamboyance 🦩","The Kumbh Mela is the largest human gathering on Earth 🙏","Bananas are technically berries but strawberries are not 🍌","Yoga originated in India over 5,000 years ago 🧘","The human brain uses 20% of the body's total energy ⚡","Nalanda University's library burned for 3 months 📚"];
 function renderTicker(){
@@ -1894,7 +2024,7 @@ function animateCount(id,target,suffix){
 }
 function renderStats(){
   animateCount("stat-stories",posts.length);
-  animateCount("stat-festivals",21);
+  animateCount("stat-festivals",FESTIVALS.length);
   animateCount("stat-readers",posts.length);
   animateCount("stat-categories",categories.length-1); // subtract "All"
 }
@@ -2165,6 +2295,7 @@ renderCats();
 renderCards();
 renderTicker();
 renderFeatured();
+renderTodaySignificance();
 setTimeout(renderStats, 200);
 renderQuote();
 renderSOTW();
