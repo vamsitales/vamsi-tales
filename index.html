@@ -132,6 +132,10 @@ nav{position:sticky;top:0;z-index:100;background:var(--nav);border-bottom:1px so
 .card{background:var(--card);border:1px solid var(--cb);border-radius:4px;overflow:hidden;cursor:pointer;transition:transform 0.25s,border-color 0.25s,box-shadow 0.25s;box-shadow:0 1px 4px rgba(0,0,0,0.05);display:flex;flex-direction:column;}
 .card:hover{transform:translateY(-4px);box-shadow:0 8px 24px rgba(0,0,0,0.12);}
 .card-accent{height:3px;flex-shrink:0;}
+.card-thumb{width:100%;height:auto;display:block;background:var(--bg2);}
+.card-thumb-wrap{position:relative;overflow:hidden;cursor:pointer;}
+.card-thumb-wrap:hover .card-thumb{transform:scale(1.04);transition:transform 0.3s ease;}
+.card-thumb{transition:transform 0.3s ease;}
 .card-body{padding:1.5rem;flex:1;display:flex;flex-direction:column;}
 .card-top{display:flex;align-items:center;gap:10px;margin-bottom:12px;}
 .card-emoji{font-size:1.6rem;}
@@ -301,7 +305,7 @@ footer{border-top:1px solid var(--div);padding:2rem;text-align:center;color:var(
 .font-btn:hover{background:var(--acc);color:var(--at);}
 
 /* ── BOOKMARK & SHARE on cards ── */
-.card-action-btn{background:none;border:1px solid var(--cb);border-radius:20px;padding:4px 10px;font-size:10px;cursor:pointer;color:var(--t2);font-family:'Lato',sans-serif;display:flex;align-items:center;gap:4px;transition:all 0.2s;}
+.card-action-btn{background:none;border:1px solid var(--cb);border-radius:20px;padding:6px 14px;font-size:11px;font-weight:600;cursor:pointer;color:var(--t2);font-family:'Lato',sans-serif;display:flex;align-items:center;gap:5px;transition:all 0.2s;}
 .card-action-btn:hover{border-color:var(--acc);color:var(--acc);}
 .card-action-btn.bookmarked{background:var(--acc);color:var(--at);border-color:var(--acc);}
 
@@ -339,7 +343,7 @@ footer{border-top:1px solid var(--div);padding:2rem;text-align:center;color:var(
 
 /* ── DID YOU KNOW TICKER ── */
 .ticker-wrap{background:var(--acc);padding:8px 0;overflow:hidden;position:relative;width:100%;box-sizing:border-box;}
-.ticker-inner{display:flex;align-items:center;gap:0;animation:tickerScroll 30s linear infinite;white-space:nowrap;width:max-content;}
+.ticker-inner{display:flex;align-items:center;gap:0;animation:tickerScroll 60s linear infinite;white-space:nowrap;width:max-content;}
 .ticker-wrap:hover .ticker-inner{animation-play-state:paused;}
 .ticker-item{font-size:12px;color:var(--at);font-family:'Lato',sans-serif;padding:0 2rem;display:flex;align-items:center;gap:8px;}
 .ticker-dot{width:4px;height:4px;border-radius:50%;background:var(--at);opacity:0.5;flex-shrink:0;}
@@ -348,7 +352,7 @@ footer{border-top:1px solid var(--div);padding:2rem;text-align:center;color:var(
 
 /* ── FEATURED STORY BANNER ── */
 .featured-banner{max-width:1100px;margin:2rem auto 0;padding:0 2rem;width:100%;box-sizing:border-box;}
-.featured-inner{background:var(--card);border:1px solid var(--cb);border-radius:10px;overflow:hidden;display:grid;grid-template-columns:1fr 1.2fr;min-height:240px;width:100%;}
+.featured-inner{background:var(--card);border:1px solid var(--cb);border-radius:10px;overflow:hidden;display:grid;grid-template-columns:1fr 1.2fr;min-height:280px;width:100%;box-shadow:0 4px 24px rgba(0,0,0,0.10);}
 .featured-left{padding:2rem;display:flex;flex-direction:column;justify-content:center;border-right:1px solid var(--div);}
 .featured-tag{font-size:9px;letter-spacing:0.2em;color:var(--acc);text-transform:uppercase;font-family:'Lato',sans-serif;margin-bottom:10px;display:flex;align-items:center;gap:6px;}
 .featured-star{background:var(--acc);color:var(--at);border-radius:4px;padding:2px 8px;font-size:9px;letter-spacing:0.1em;}
@@ -423,6 +427,8 @@ body.mud .featured-right{background:rgba(245,240,232,0.06) !important;}
 @media(max-width:768px){
   .featured-inner{grid-template-columns:1fr!important;}
   .featured-right{display:none!important;background:none!important;}
+  .featured-left{padding:1.5rem!important;}
+  #feat-img-wrap{margin:-1.5rem -1.5rem 1.2rem -1.5rem!important;border-radius:0!important;}
   .stats-inner{grid-template-columns:repeat(2,1fr)!important;}
   .sotw-inner{grid-template-columns:1fr!important;}
   .sotw-emoji{display:none!important;}
@@ -687,14 +693,35 @@ body.mud .featured-right{background:rgba(245,240,232,0.06) !important;}
   <div class="featured-banner">
     <div class="featured-inner">
       <div class="featured-left">
+        <div id="feat-img-wrap" style="display:none;margin:-2rem -2rem 1.5rem -2rem;overflow:hidden;border-radius:8px 8px 0 0;"></div>
         <div class="featured-tag"><span class="featured-star">⭐ FEATURED</span> This Week's Top Story</div>
         <div class="featured-title" id="feat-title"></div>
         <div class="featured-excerpt" id="feat-excerpt"></div>
         <button class="featured-btn" onclick="openFullArticle(featuredPost.id)">READ STORY →</button>
       </div>
       <div class="featured-right">
+        <!-- TOP GAP — Today's highlight -->
+        <div id="feat-today-box" style="background:rgba(194,98,26,0.08);border-radius:8px;padding:1rem;margin-bottom:12px;border:1px solid var(--div);">
+          <div style="font-size:9px;letter-spacing:0.2em;color:var(--acc);text-transform:uppercase;font-family:'Lato',sans-serif;margin-bottom:6px;">📅 Today</div>
+          <div id="feat-today-content" style="font-size:12px;color:var(--text);font-family:'Lato',sans-serif;line-height:1.6;"></div>
+        </div>
         <div class="featured-right-label">More Stories</div>
         <div id="mini-stories"></div>
+        <div style="margin-top:12px;display:flex;gap:8px;">
+          <a href="https://www.instagram.com/vamsitales/" target="_blank" style="flex:1;display:flex;align-items:center;justify-content:center;gap:6px;background:var(--bg2);border:1px solid var(--cb);border-radius:6px;padding:8px;font-size:11px;font-family:'Lato',sans-serif;color:var(--t2);text-decoration:none;transition:all 0.2s;" onmouseover="this.style.borderColor='var(--acc)';this.style.color='var(--acc)'" onmouseout="this.style.borderColor='var(--cb)';this.style.color='var(--t2)'">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+            Instagram
+          </a>
+          <a href="https://whatsapp.com/channel/0029Vb7iGh7K0IBgY85W3Q0u" target="_blank" style="flex:1;display:flex;align-items:center;justify-content:center;gap:6px;background:var(--bg2);border:1px solid var(--cb);border-radius:6px;padding:8px;font-size:11px;font-family:'Lato',sans-serif;color:var(--t2);text-decoration:none;transition:all 0.2s;" onmouseover="this.style.borderColor='var(--acc)';this.style.color='var(--acc)'" onmouseout="this.style.borderColor='var(--cb)';this.style.color='var(--t2)'">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+            WhatsApp
+          </a>
+        </div>
+        <!-- BOTTOM GAP — Did You Know fact -->
+        <div style="background:var(--bg2);border-radius:8px;padding:1rem;margin-top:12px;border:1px solid var(--div);">
+          <div style="font-size:9px;letter-spacing:0.2em;color:var(--acc);text-transform:uppercase;font-family:'Lato',sans-serif;margin-bottom:6px;">💡 Did You Know?</div>
+          <div id="feat-didyouknow" style="font-size:12px;color:var(--text);font-family:'Lato',sans-serif;line-height:1.6;"></div>
+        </div>
       </div>
     </div>
   </div>
@@ -1503,17 +1530,23 @@ function makeCard(p,i){
   var bmClass=bmd?"card-action-btn bookmarked":"card-action-btn";
   var bmText=bmd?"❤️ Saved":"🤍 Save";
   var anim="fadeUp 0.4s ease "+(i*0.07)+"s both";
+  var imgUrl=articleImages[p.id]||"";
+  var thumbHtml=imgUrl?
+    '<div class="card-thumb-wrap" onclick="openFullArticle('+p.id+')">'+
+    '<img class="card-thumb" src="'+imgUrl+'" alt="'+p.title+'" loading="lazy" onerror="this.parentElement.style.display=\'none\'"/>'+
+    '</div>':'';
   return '<div class="card" style="animation:'+anim+'" onmouseenter="this.style.borderColor=\''+p.color+'66\'" onmouseleave="this.style.borderColor=\'\'">'+
     '<div class="card-accent" style="background:'+p.color+'"></div>'+
+    thumbHtml+
     '<div class="card-body" onclick="openFullArticle('+p.id+')" style="cursor:pointer">'+
     '<div class="card-top"><span class="card-emoji">'+p.emoji+'</span><span class="card-cat" style="color:'+p.color+'">'+p.category+'</span></div>'+
     '<div class="card-title">'+p.title+'</div>'+
     '<div class="card-excerpt">'+p.excerpt+'</div>'+
     '<div class="card-meta"><span>'+p.date+'</span><span>'+p.readTime+'</span></div>'+
     '</div>'+
-    '<div class="card-actions" style="padding:0.75rem 1.5rem;border-top:1px solid var(--div);background:var(--card)">'+
-    '<button class="'+bmClass+'" onclick="event.stopPropagation();toggleBookmark('+p.id+',this)">'+bmText+'</button>'+
-    '<button class="card-action-btn" onclick="event.stopPropagation();openShare('+p.id+')">📤 Share</button>'+
+    '<div class="card-actions" style="padding:0.85rem 1.5rem;border-top:1px solid var(--div);background:var(--card);display:flex;gap:8px;">'+
+    '<button class="'+bmClass+'" style="flex:1;justify-content:center;" onclick="event.stopPropagation();toggleBookmark('+p.id+',this)">'+bmText+'</button>'+
+    '<button class="card-action-btn" style="flex:1;justify-content:center;" onclick="event.stopPropagation();openShare('+p.id+')">📤 Share</button>'+
     '</div></div>';
 }
 
@@ -1917,6 +1950,13 @@ function submitReview(){
   showToast("Review posted! Thank you ⭐");
 }
 
+function subscribeFeatNL(){
+  var email=document.getElementById("feat-nl-email");
+  if(!email||!email.value||email.value.indexOf("@")<0){showToast("Please enter a valid email!");return;}
+  email.value="";
+  showToast("Subscribed! Welcome to Vamsi Tales!");
+}
+
 // NEWSLETTER
 function subscribeNewsletter(){
   var email=document.getElementById("nl-email").value.trim();
@@ -1992,6 +2032,50 @@ function renderTodaySignificance(){
   }
 }
 
+// FEATURED RIGHT PANEL — Today box and Did You Know
+function renderFeaturedRight(){
+  // Today box
+  var m=TODAY.getMonth()+1, d=TODAY.getDate();
+  var todayFests=FESTIVALS.filter(function(f){return f.month===m&&f.day===d;});
+  var todayBox=document.getElementById("feat-today-content");
+  if(todayBox){
+    if(todayFests.length>0){
+      todayBox.innerHTML=todayFests.map(function(f){
+        return '<div style="display:flex;align-items:center;gap:8px;margin-bottom:4px;">'+
+          '<span style="font-size:1.2rem;">'+f.emoji+'</span>'+
+          '<span style="font-weight:600;color:var(--text);">'+f.name+'</span>'+
+          '</div>'+
+          '<div style="font-size:11px;color:var(--t2);line-height:1.5;">'+f.desc+'</div>';
+      }).join('<div style="height:6px;"></div>');
+    } else {
+      var dateStr=TODAY.toLocaleDateString("en-IN",{weekday:"long",day:"numeric",month:"long"});
+      todayBox.innerHTML='<span style="color:var(--t3);">'+dateStr+'</span><br><span style="font-size:11px;color:var(--t3);">No special day today — just a great day to read a story!</span>';
+    }
+  }
+  // Did You Know — rotating 4-5 facts
+  var dyk=document.getElementById("feat-didyouknow");
+  if(dyk){
+    var facts=["Chess was invented in India ♟️","Zero was invented by Indian mathematician Aryabhata 🔢","Yoga originated in India over 5,000 years ago 🧘","The word jungle comes from Sanskrit word jangala 🌿","India has 22 officially recognised languages 🗣️","The Kumbh Mela is the largest human gathering on Earth 🙏","Nalanda University library burned for 3 months 📚","Andhra Pradesh has India's spiciest cuisine 🌶️","India is the world's largest milk producer 🥛","Elephants can remember humans after 12 years 🐘","Bananas are technically berries but strawberries are not 🍌","Cleopatra lived closer in time to the Moon landing than to the pyramids 🚀","Octopuses have three hearts and blue blood 🐙","A group of flamingos is called a flamboyance 🦩","The human brain uses 20% of the body's total energy ⚡"];
+    var startIdx=TODAY.getDate()%facts.length;
+    // Show 4-5 facts rotating
+    var selected=[];
+    for(var k=0;k<5;k++) selected.push(facts[(startIdx+k)%facts.length]);
+    var curFact=0;
+    function showFact(){
+      dyk.style.opacity="0";
+      setTimeout(function(){
+        dyk.textContent=selected[curFact];
+        dyk.style.opacity="1";
+        curFact=(curFact+1)%selected.length;
+      },300);
+    }
+    dyk.style.transition="opacity 0.3s";
+    dyk.textContent=selected[0];
+    curFact=1;
+    setInterval(showFact,3500);
+  }
+}
+
 // TICKER
 var tickerFacts=["India has 22 officially recognised languages 🗣️","Honey never spoils — edible honey found in Egyptian tombs 🍯","The world's deepest lake is Lake Baikal in Russia 🌊","Chess was invented in India ♟️","Cleopatra lived closer in time to the Moon landing than to the pyramids 🚀","Andhra Pradesh has India's spiciest cuisine 🌶️","The word jungle comes from Sanskrit word jangala 🌿","Octopuses have three hearts and blue blood 🐙","Zero was invented by Indian mathematician Aryabhata 🔢","A group of flamingos is called a flamboyance 🦩","The Kumbh Mela is the largest human gathering on Earth 🙏","Bananas are technically berries but strawberries are not 🍌","Yoga originated in India over 5,000 years ago 🧘","The human brain uses 20% of the body's total energy ⚡","Nalanda University's library burned for 3 months 📚"];
 function renderTicker(){
@@ -2005,6 +2089,34 @@ var featuredPost=posts[0];
 function renderFeatured(){
   var ft=document.getElementById("feat-title"); if(ft) ft.textContent=posts[0].title;
   var fe=document.getElementById("feat-excerpt"); if(fe) fe.textContent=posts[0].excerpt;
+  // Featured image
+  var imgUrl=articleImages[posts[0].id]||"";
+  var featImgWrap=document.getElementById("feat-img-wrap");
+  if(featImgWrap){
+    if(imgUrl){
+      featImgWrap.innerHTML='<img src="'+imgUrl+'" alt="'+posts[0].title+'" style="width:100%;height:auto;max-height:280px;object-fit:cover;display:block;border-radius:8px 8px 0 0;" onerror="this.parentElement.style.display=\'none\'"/>';
+      featImgWrap.style.display="block";
+    } else {
+      featImgWrap.style.display="none";
+    }
+  }
+  // Today box
+  var m=TODAY.getMonth()+1, d=TODAY.getDate();
+  var todayF=FESTIVALS.filter(function(f){return f.month===m&&f.day===d;});
+  var todayBox=document.getElementById("feat-today-content");
+  if(todayBox){
+    if(todayF.length>0){
+      todayBox.innerHTML=todayF.map(function(f){return '<span style="font-size:14px">'+f.emoji+'</span> <strong>'+f.name+'</strong> — '+f.desc.slice(0,80)+'...';}).join('<br/>');
+    } else {
+      var upcoming=FESTIVALS.map(function(f){var dd=new Date(YEAR,f.month-1,f.day);return Object.assign({},f,{diff:Math.ceil((dd-TODAY)/864e5)});}).filter(function(f){return f.diff>0;}).sort(function(a,b){return a.diff-b.diff;})[0];
+      if(upcoming) todayBox.innerHTML='Next: <strong>'+upcoming.emoji+' '+upcoming.name+'</strong> in '+upcoming.diff+' days';
+      else todayBox.textContent='No special observance today.';
+    }
+  }
+  // Did You Know box
+  var dyk=document.getElementById("feat-didyouknow");
+  if(dyk) dyk.textContent=tickerFacts[Math.floor(Math.random()*tickerFacts.length)];
+  // Mini stories
   var ms=document.getElementById("mini-stories");
   if(ms) ms.innerHTML=posts.slice(1,4).map(function(p,i){
     return '<div class="mini-story" onclick="openFullArticle('+p.id+')">'+
@@ -2295,7 +2407,8 @@ renderCats();
 renderCards();
 renderTicker();
 renderFeatured();
-renderTodaySignificance();
+renderFeaturedRight();
+// renderTodaySignificance(); // now shown in featured right panel
 setTimeout(renderStats, 200);
 renderQuote();
 renderSOTW();
