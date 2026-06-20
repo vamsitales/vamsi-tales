@@ -278,6 +278,15 @@ footer{border-top:1px solid var(--div);padding:2rem;text-align:center;color:var(
 .search-modal-cat{font-size:11px;letter-spacing:0.1em;text-transform:uppercase;font-family:'Lato',sans-serif;}
 .search-modal-empty{text-align:center;padding:2rem;color:var(--t3);font-family:'Lato',sans-serif;font-size:14px;}
 
+/* ── TODAY SIGNIFICANCE MOBILE ONLY ── */
+#today-significance{display:none;}
+@media(max-width:768px){
+  #today-significance.has-content{display:block!important;}
+}
+@media(min-width:769px){
+  #today-significance{display:none!important;}
+}
+
 /* ── READING PROGRESS BAR ── */
 #progress-bar{position:fixed;top:0;left:0;height:3px;background:var(--acc);z-index:9999;width:0%;transition:width 0.1s linear;border-radius:0 2px 2px 0;}
 
@@ -1499,6 +1508,7 @@ function showPage(p){
   if(p==="bookmarks") renderBookmarks();
   if(p==="stories") renderStoriesPage();
   if(p==="analytics") setTimeout(animateGAStats,300);
+  if(p==="home") setTimeout(renderStats,200);
 
 var pb=document.getElementById("progress-bar"); if(pb) pb.style.width="0%";
 
@@ -2011,25 +2021,21 @@ function renderTodaySignificance(){
   var todayFests=FESTIVALS.filter(function(f){return f.month===m&&f.day===d;});
   var wrap=document.getElementById("today-significance");
   if(!wrap) return;
-  if(todayFests.length===0){wrap.style.display="none";return;}
-  wrap.style.display="block";
+  if(todayFests.length===0){wrap.classList.remove("has-content");return;}
+  wrap.classList.add("has-content");
   var dateStr=today.toLocaleDateString("en-IN",{weekday:"long",day:"numeric",month:"long"});
   var dateEl=document.getElementById("today-sig-date"); if(dateEl) dateEl.textContent=dateStr;
-  // Show first festival prominently
   var first=todayFests[0];
   var emojiEl=document.getElementById("today-sig-emoji"); if(emojiEl) emojiEl.textContent=first.emoji;
   var titleEl=document.getElementById("today-sig-title"); if(titleEl) titleEl.textContent=first.name;
   var regionEl=document.getElementById("today-sig-region"); if(regionEl) regionEl.textContent=first.region;
   var descEl=document.getElementById("today-sig-desc"); if(descEl) descEl.textContent=first.desc;
-  // Show remaining as chips
   var moreEl=document.getElementById("today-sig-more");
   if(moreEl&&todayFests.length>1){
     moreEl.innerHTML=todayFests.slice(1).map(function(f){
       return '<span style="display:inline-flex;align-items:center;gap:6px;background:var(--bg2);border:1px solid var(--cb);border-radius:20px;padding:4px 12px;font-size:12px;font-family:Lato,sans-serif;color:var(--t2);">'+f.emoji+' '+f.name+'</span>';
     }).join("");
-  } else if(moreEl){
-    moreEl.innerHTML="";
-  }
+  } else if(moreEl){ moreEl.innerHTML=""; }
 }
 
 // FEATURED RIGHT PANEL — Today box and Did You Know
@@ -2126,19 +2132,28 @@ function renderFeatured(){
 }
 function animateCount(id,target,suffix){
   suffix=suffix||"";
-  var start=0; var step=Math.ceil(target/40);
   var el=document.getElementById(id); if(!el) return;
+  el.textContent="0"+suffix;
+  if(target===0) return;
+  var duration=1200;
+  var steps=60;
+  var interval=duration/steps;
+  var start=0;
   var timer=setInterval(function(){
-    start=Math.min(start+step,target);
-    el.textContent=start.toLocaleString()+suffix;
-    if(start>=target) clearInterval(timer);
-  },40);
+    start++;
+    var val=Math.round(target*(start/steps));
+    el.textContent=val.toLocaleString()+suffix;
+    if(start>=steps){el.textContent=target.toLocaleString()+suffix;clearInterval(timer);}
+  },interval);
 }
 function renderStats(){
+  var el=document.getElementById("stat-stories");
+  if(!el) return;
+  // Only animate if showing 0 or not yet set
   animateCount("stat-stories",posts.length);
   animateCount("stat-festivals",FESTIVALS.length);
   animateCount("stat-readers",posts.length);
-  animateCount("stat-categories",categories.length-1); // subtract "All"
+  animateCount("stat-categories",categories.length-1);
 }
 var quotes=[
   {text:"The secret of health for both mind and body is not to mourn for the past, not to worry about the future, but to live in the present moment wisely.",author:"— Buddha"},
@@ -2408,8 +2423,8 @@ renderCards();
 renderTicker();
 renderFeatured();
 renderFeaturedRight();
-// renderTodaySignificance(); // now shown in featured right panel
-setTimeout(renderStats, 200);
+  renderTodaySignificance();
+setTimeout(renderStats, 600);
 renderQuote();
 renderSOTW();
 renderCalendar();
