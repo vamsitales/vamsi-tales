@@ -709,25 +709,22 @@ body.mud .featured-right{background:rgba(245,240,232,0.06) !important;}
         <button class="featured-btn" onclick="openFullArticle(featuredPost.id)">READ STORY →</button>
       </div>
       <div class="featured-right">
-        <!-- TOP GAP — Today's highlight -->
-        <div id="feat-today-box" style="background:rgba(194,98,26,0.08);border-radius:8px;padding:1rem;margin-bottom:12px;border:1px solid var(--div);">
+        <div class="featured-right-label" style="margin-bottom:8px;">More Stories</div>
+        <div id="mini-stories"></div>
+        <!-- TODAY -->
+        <div id="feat-today-box" style="background:rgba(194,98,26,0.08);border-radius:8px;padding:0.85rem;margin-top:12px;border:1px solid var(--div);">
           <div style="font-size:9px;letter-spacing:0.2em;color:var(--acc);text-transform:uppercase;font-family:'Lato',sans-serif;margin-bottom:6px;">📅 Today</div>
           <div id="feat-today-content" style="font-size:12px;color:var(--text);font-family:'Lato',sans-serif;line-height:1.6;"></div>
         </div>
-        <div class="featured-right-label">More Stories</div>
-        <div id="mini-stories"></div>
-        <div style="margin-top:12px;display:flex;gap:8px;">
-          <a href="https://www.instagram.com/vamsitales/" target="_blank" style="flex:1;display:flex;align-items:center;justify-content:center;gap:6px;background:var(--bg2);border:1px solid var(--cb);border-radius:6px;padding:8px;font-size:11px;font-family:'Lato',sans-serif;color:var(--t2);text-decoration:none;transition:all 0.2s;" onmouseover="this.style.borderColor='var(--acc)';this.style.color='var(--acc)'" onmouseout="this.style.borderColor='var(--cb)';this.style.color='var(--t2)'">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-            Instagram
-          </a>
-          <a href="https://whatsapp.com/channel/0029Vb7iGh7K0IBgY85W3Q0u" target="_blank" style="flex:1;display:flex;align-items:center;justify-content:center;gap:6px;background:var(--bg2);border:1px solid var(--cb);border-radius:6px;padding:8px;font-size:11px;font-family:'Lato',sans-serif;color:var(--t2);text-decoration:none;transition:all 0.2s;" onmouseover="this.style.borderColor='var(--acc)';this.style.color='var(--acc)'" onmouseout="this.style.borderColor='var(--cb)';this.style.color='var(--t2)'">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
-            WhatsApp
-          </a>
+        <!-- QUIZ -->
+        <div id="feat-quiz-box" style="background:var(--bg2);border-radius:8px;padding:0.85rem;margin-top:12px;border:1px solid var(--div);">
+          <div style="font-size:9px;letter-spacing:0.2em;color:var(--acc);text-transform:uppercase;font-family:'Lato',sans-serif;margin-bottom:8px;">🧠 Quick Quiz</div>
+          <div id="feat-quiz-q" style="font-size:12px;color:var(--text);font-family:'Lato',sans-serif;font-weight:600;line-height:1.5;margin-bottom:8px;"></div>
+          <div id="feat-quiz-opts" style="display:flex;flex-direction:column;gap:6px;"></div>
+          <div id="feat-quiz-result" style="display:none;font-size:11px;margin-top:8px;padding:6px 10px;border-radius:6px;font-family:'Lato',sans-serif;"></div>
         </div>
-        <!-- BOTTOM GAP — Did You Know fact -->
-        <div style="background:var(--bg2);border-radius:8px;padding:1rem;margin-top:12px;border:1px solid var(--div);">
+        <!-- DID YOU KNOW -->
+        <div style="background:var(--bg2);border-radius:8px;padding:0.85rem;margin-top:12px;border:1px solid var(--div);">
           <div style="font-size:9px;letter-spacing:0.2em;color:var(--acc);text-transform:uppercase;font-family:'Lato',sans-serif;margin-bottom:6px;">💡 Did You Know?</div>
           <div id="feat-didyouknow" style="font-size:12px;color:var(--text);font-family:'Lato',sans-serif;line-height:1.6;"></div>
         </div>
@@ -1294,6 +1291,7 @@ const posts=[
   {id:9,category:"Animals",title:"Why Elephants Never Forget — The Science Behind the Legend",excerpt:"An elephant never forgets. We have all heard this. But is it true? And if so, why? The answer is one of nature's most extraordinary stories.",date:"June 17, 2026",readTime:"5 min read",emoji:"🐘",color:"#6B7280"},
   {id:10,category:"Nature",title:"The Neem Tree — India's Village Pharmacy",excerpt:"For thousands of years, before hospitals existed, most of India survived on one tree. The neem tree has over 130 medicinal compounds and has been used for everything from toothbrushes to pesticides.",date:"June 17, 2026",readTime:"5 min read",emoji:"🌿",color:"#16A34A"},
   {id:11,category:"Spiritual",title:"The Bhagavad Gita's Most Powerful Lesson — Do Your Duty Without Expecting Results",excerpt:"2,500 years ago, on a battlefield, a prince refused to fight. What Lord Krishna told him next became one of the most profound teachings in all of human history.",date:"June 17, 2026",readTime:"5 min read",emoji:"🙏",color:"#7C3AED"},
+  {id:12,category:"India",title:"Vithabai Bhau Mang Narayangaonkar — The Empress of Tamasha",excerpt:"She was 9 months pregnant. The stage was set. The crowd was waiting. And Vithabai danced. The story of India's most extraordinary folk artist.",date:"June 21, 2026",readTime:"6 min read",emoji:"🎭",color:"#C2621A"},
 ];
 
 const categories=["All","India","Life","Travel","Food","Mystery","Tech","Motivation","Nature","Animals","Spiritual"];
@@ -1427,6 +1425,7 @@ const articleBodies={
 
   10:"<p>For thousands of years, long before hospitals existed, before medicine shops lined every street, before antibiotics were discovered — most of India survived on one tree.</p><p>The neem tree. Azadirachta indica. Growing quietly in almost every village, every street corner, every backyard across the subcontinent. Ancient, ordinary looking, and yet one of the most medically powerful plants on Earth.</p><h3>What the Neem Tree Can Do</h3><p>The list of what neem has been used for across Indian history is almost unbelievable. Neem leaves were used to treat fever, skin diseases, infections, wounds, ulcers, and inflammation. Neem bark was used for dental hygiene — the original toothbrush. Neem oil was used as an insect repellent, a fungicide, a treatment for lice, and a contraceptive. Neem flowers were eaten in Ugadi chutney at the Telugu New Year as a symbol of accepting both the bitter and the sweet in life.</p><p>In villages across India, neem branches were — and still are — hung at doorways to ward off infections, especially during periods of illness. Mothers bathed sick children in water boiled with neem leaves. Farmers used neem-based preparations to protect their crops from pests for centuries before the word pesticide was invented.</p><div class='article-pullquote'><p>In a country of a billion people spread across a vast and varied land, one tree served as doctor, dentist, farmer and guardian all at once.</p></div><h3>What Modern Science Says</h3><p>For most of history, the neem tree's power was accepted on faith and tradition. Then modern science arrived and started testing. What researchers found was remarkable.</p><p>Neem contains over 130 biologically active compounds. Among the most important is azadirachtin — a natural insecticide so effective that it is now used in certified organic farming across the world. Nimbin and nimbidin, two other compounds found in neem, have demonstrated significant antibacterial, antifungal and anti-inflammatory properties in laboratory studies.</p><p>Neem's antibacterial properties have been shown effective against the bacteria responsible for tuberculosis. Its antifungal properties work against Candida. Its anti-inflammatory effects have been studied as potential treatments for arthritis. Research on neem as an HIV inhibitor is ongoing.</p><h3>The Dental Connection</h3><p>Perhaps the most widely validated traditional use of neem is dental hygiene. The neem twig — used as a toothbrush across India for millennia — has been studied extensively. Research confirms it contains antiseptic compounds that reduce bacteria in the mouth, prevent plaque, reduce gum inflammation, and strengthen tooth enamel.</p><p>Many modern toothpaste brands — including several major Indian ones — now actively advertise neem as a key ingredient. The village grandfather who chewed a neem twig every morning was ahead of his time by about 3,000 years.</p><h3>The Indian Connection</h3><p>Neem is so deeply woven into Indian life that Sanskrit literature refers to it as Sarva Roga Nivarini — the curer of all ailments. In Ayurveda, one of the world's oldest medical systems, neem appears in hundreds of preparations. Every part of the tree — leaves, bark, seeds, flowers, roots — has documented medicinal use.</p><p>In South India, neem is considered sacred. In many traditions, the goddess Mariamman — associated with disease and healing — is represented with neem leaves. The tree that cures disease is also the tree that represents the deity who controls it.</p><h3>The Lesson</h3><p>The neem tree teaches us something important about knowledge. For thousands of years, Indian villages knew something that modern science is only now confirming with lab equipment and peer-reviewed papers. Traditional knowledge, accumulated over generations of observation and experience, deserves respect — not dismissal.</p><p>The next time you pass a neem tree on the street — ordinary, dusty, unremarkable — remember that you are looking at one of the most generous and capable living things on this planet. It asks for nothing. It gives everything. And it has been doing so, quietly, for longer than any of us can imagine.</p>",
 
+  12:"<p>She was 9 months pregnant.</p><p>The stage was set. The crowd had gathered. Hundreds of people were waiting.</p><p>And Vithabai danced.</p><p>Not because she had to. Not because there was no choice. But because the stage was her world — and she refused to let anything, even the birth of her own child, take her away from it.</p><p>When the audience later found out what had happened that night — that she had gone into labour mid-performance — they were not just stunned. They were in tears. And from that night onwards, Vithabai Bhau Mang Narayangaonkar was no longer just a performer. She was a legend.</p><h3>A Child Born Into Art</h3><p>Vithabai was born in July 1935 in Pandharpur, Solapur district, Maharashtra, into a family deeply rooted in folk performance. Her grandfather Narayan Khude had founded the family Tamasha troupe, and her father and uncle carried it forward as the Bhau-Bapu Mang Narayangaonkar troupe.</p><p>She never needed a classroom to learn. Growing up in a family filled with artists, she learned Lavani, Gavlan, Bhedik and Tamasha — and gradually became one of Maharashtra's most celebrated performers.</p><p>Her passion for the art was so strong that she left school when she was only four or five years old. She was not a dropout. She was someone who had already found her university — and it was the open stage under the night sky.</p><h3>At 13, She Started Her Own Troupe</h3><p>Most 13-year-olds are figuring out school. Vithabai was building an empire.</p><p>At the age of just 13, she launched her own Tamasha troupe in 1948. This was not a hobby. This was a business, a responsibility, a stage — all carried on the shoulders of a teenage girl from a small town in Maharashtra.</p><p>And she did not just survive. She thrived.</p><h3>The Night That Made Her a Legend</h3><p>The story of the pregnant performance has been told and retold across Maharashtra for decades. No one who hears it forgets it.</p><p>Vithabai was nine months pregnant. Any other woman would have rested. But the show was scheduled, the crowd had come, and Vithabai believed that her duty to her art was sacred.</p><p>She performed the entire show. And that same night, she gave birth.</p><p>When the audience found out what had been going on behind the scenes, they were left stunned. The incident has since become a symbol of her unwavering devotion to her work, transforming her into a legend far beyond Maharashtra's folk theatrical circles.</p><img src='https://raw.githubusercontent.com/vamsitales/vamsi-tales/main/images/vithabai2.png' alt='Vithabai performing Tamasha' style='width:100%;height:auto;border-radius:8px;margin:1.5rem 0;'/><div class='article-pullquote'><p>If I die after falling again and again, I will be remembered as a helpless woman. But if I die dancing, I will become a legend.</p></div><h3>Honoured by the President. Twice.</h3><p>Vithabai received two President's Medals from the Government of India for her contributions to Tamasha and folk arts. The first in 1957, and the second in 1990 — a rare repeat accolade that underscored her enduring impact across five decades of performance.</p><p>Due to the recommendation of the Sangeet Natak Academy, she got the opportunity to perform in Delhi before the then President of India, Dr. Rajendra Prasad — and achieved high appreciation. Her troupe was honoured with the most prestigious President's award in the Tamasha genre of art.</p><p>A woman from a travelling folk troupe in rural Maharashtra, performing before the President of India. That is not a small thing. That is a life's journey compressed into one moment.</p><h3>The Empress</h3><p>Over the years, she gained popularity across Maharashtra and was given the title Tamasha Samradni — Empress of Tamasha — for her talent. The Maharashtra government also officially conferred this title on her.</p><p>The title was not given by royalty. It was given by the people. And that is always the more meaningful crown.</p><h3>A Painful End</h3><p>Fame, it turns out, does not always protect you.</p><p>Her later years were filled with financial difficulties, health issues and challenges within her personal life. When she passed away in January 2002, her family reportedly struggled to meet medical expenses, and assistance from social workers became necessary.</p><p>The Empress of Tamasha — honoured twice by the President, celebrated across Maharashtra, loved by hundreds of thousands — died in financial hardship.</p><p>It is one of India's most uncomfortable truths: we celebrate our folk artists on stage and forget them at home.</p><h3>Her Legacy Lives On</h3><p>In 2006, the Maharashtra government instituted the Vithabai Narayangaonkar Lifetime Achievement Award to honour individuals who have made significant contributions to the Tamasha tradition.</p><p>And now, more than two decades after her death, Bollywood is telling her story. Shraddha Kapoor plays Vithabai in the upcoming film Eetha, which revolves around her journey from the 1940s through the 1990s. A new generation will discover her. And perhaps this time, India will remember not just to celebrate — but also to care.</p><h3>The Lesson</h3><p>Vithabai never had formal training. She never finished school. She came from a community that society looked down upon. She was a woman in a world that rarely gave women credit.</p><p>And yet she became an Empress.</p><p>Not because life was easy. But because she kept dancing — through pregnancy, through poverty, through decades of a country that watched but did not always support.</p><p>The stage does not care about your caste, your degree, or your background. It only asks one question: Are you willing to show up?</p><p>Vithabai always was. 🎭</p>",
   11:"<p>It is the morning of the greatest war in Indian history. Two armies face each other on the battlefield of Kurukshetra. On one side — the Pandavas. On the other — the Kauravas. And in the middle, in a chariot between the two armies, sits Arjuna — the greatest archer in the world — and he cannot move.</p><p>He looks across the battlefield and sees his teachers, his cousins, his uncles, his friends — all standing there, ready to fight and die. And something breaks inside him. He drops his bow. His hands tremble. He tells Lord Krishna, his charioteer: I cannot do this. I will not fight.</p><p>What Lord Krishna says to Arjuna in response became the Bhagavad Gita — 700 verses that have guided, comforted, and transformed millions of lives across 2,500 years. And at the heart of all those verses is one idea so simple and so radical that it changes everything.</p><h3>The Teaching</h3><p>Karmanye vadhikaraste ma phaleshu kadachana.</p><p>You have the right to perform your actions. You do not have the right to the fruits of those actions.</p><p>This is Chapter 2, Verse 47 of the Bhagavad Gita. It is perhaps the most quoted line in all of Indian philosophy. And on first reading, it can seem almost cruel. Do your work but do not expect results? What is the point then?</p><p>But Krishna is not saying that results do not matter. He is saying something far more subtle — and far more liberating.</p><div class='article-pullquote'><p>You control your effort. You do not control the outcome. Pour everything into the effort. Release the outcome.</p></div><h3>Why This Changes Everything</h3><p>Think about what happens when you tie your happiness entirely to results. You study hard for an exam — and if you pass, you are happy. If you fail, you are devastated. You work hard on a project — and if it succeeds, you feel worthwhile. If it fails, you feel worthless. Your entire inner life becomes hostage to outcomes you cannot fully control.</p><p>Krishna is pointing at this trap. He is saying: the anxiety, the paralysis, the suffering — all of it comes from this attachment to results. You cannot control whether you win the war. You cannot control whether the exam is fair, whether the market responds to your product, whether the person you love returns your love. You can only control one thing: the quality of your effort right now.</p><p>This is not passivity. This is not resignation. Krishna is asking Arjuna to fight harder, not to stop fighting. He is asking him to fight with full commitment — and without the weight of fear about the outcome dragging him down.</p><h3>The Deepest Meaning</h3><p>There is an even deeper layer to this teaching. When you do your work without attachment to results, something interesting happens: you do better work. The student who studies to genuinely understand, not just to pass, learns more. The artist who creates for the love of creating, not for applause, makes better art. The person who does good without waiting to be thanked does more good.</p><p>Attachment to results actually degrades performance. It introduces fear, which tightens the mind. It introduces calculation, which reduces flow. It introduces ego, which narrows focus. When you release the outcome — truly release it — the mind becomes clear, the effort becomes pure, and paradoxically, the results often improve.</p><h3>The Indian Connection</h3><p>The Bhagavad Gita has been a living text in India for centuries — not just a religious scripture but a practical guide to life. Mahatma Gandhi called it his eternal mother and read it every day. B.R. Ambedkar studied it deeply, as did Bal Gangadhar Tilak, who wrote a famous commentary on it during his imprisonment.</p><p>During India's independence movement, the Gita was the text that soldiers, freedom fighters, and ordinary people turned to when faced with fear, doubt, and the possibility of loss. Its message was always the same: do what is right. Do it fully. Do not let the fear of results stop you from acting.</p><h3>A Lesson for Today</h3><p>We live in a world obsessed with outcomes. Likes, views, grades, salaries, rankings — everywhere we look, results are being measured and compared. The Bhagavad Gita does not say these things do not matter. It says they should not be your master.</p><p>Do your work. Do it with everything you have. Do it because it is the right thing to do, because it is your dharma, your duty in this moment. And then — let go. The results belong to something larger than you.</p><p>Arjuna picked up his bow. He fought. And the rest is the Mahabharata. 🙏</p>",
 
   8:"<p>Before Harvard or MIT or any university that exists today, there was Nalanda.</p><p>In the forests of what is now Bihar, India, in the 5th century AD, a residential university was established that would become the greatest center of learning the ancient world had ever seen. At its peak, Nalanda housed over 10,000 students and 2,000 teachers within its walls. It had nine floors, libraries that held hundreds of thousands of manuscripts, and lecture halls where debates lasted for days.</p><p>Students traveled from China, Korea, Japan, Tibet, Mongolia, Persia, Turkey, Greece, and Sri Lanka to study here. The waiting list to get in was long. The entrance examination was notoriously difficult. The best minds of the ancient world came to Nalanda because there was nowhere else like it.</p><h3>What Was Taught at Nalanda</h3><p>The curriculum at Nalanda was staggering in its breadth. Students studied Buddhist philosophy and Vedic texts, but also mathematics, astronomy, medicine, grammar, logic, and the fine arts. The university produced scholars whose work shaped intellectual traditions across Asia for centuries.</p><p>One of its most famous alumni was Xuanzang, a Chinese Buddhist monk who traveled to Nalanda in the 7th century and spent fifteen years there. When he returned to China, he brought back over 600 Sanskrit texts, many of which he spent the rest of his life translating. His travel account, Great Tang Records on the Western Regions, remains one of the most important historical documents about ancient India.</p><p>Another Nalanda scholar, Aryabhata, is believed to have been associated with the university. He was the mathematician who calculated the value of Pi to four decimal places and proposed — a thousand years before Copernicus — that the Earth rotates on its own axis.</p><div class='article-pullquote'><p>Nalanda did not just teach knowledge. It taught how to think — and that is a far rarer and more valuable gift.</p></div><h3>The Libraries</h3><p>The libraries of Nalanda were legendary even in their own time. There were three library buildings: Ratnasagara (Ocean of Jewels), Ratnodadhi (Sea of Jewels), and Ratnaranjaka (Jewel-adorned). Ratnodadhi alone was nine stories tall. The manuscripts stored within covered every subject of human inquiry — religion, science, literature, medicine, mathematics, philosophy, and more.</p><p>The sheer scale of the collection was so vast that when the libraries were destroyed, scholars across Asia felt the loss for generations. Texts that existed nowhere else were gone forever.</p><h3>How It Ended</h3><p>In 1193 AD, a Turkish military commander named Bakhtiyar Khilji led an army into Bihar. His forces attacked and sacked Nalanda. The monks who lived there were massacred. The buildings were demolished. And the libraries — those irreplaceable repositories of 700 years of human knowledge — were set on fire.</p><p>The fire burned for three months. Contemporary accounts describe scholars fleeing with whatever manuscripts they could carry, weeping as they watched centuries of learning turn to ash. When the smoke finally cleared, Nalanda was rubble. Its students scattered. Its teachers were dead or gone. The greatest university the ancient world had built was finished.</p><h3>The Lesson</h3><p>Nalanda was destroyed in a matter of weeks. But what it represents cannot be destroyed. The idea that knowledge is the highest pursuit, that learners deserve to be free from want and distraction, that the exchange of ideas across cultures and borders makes everyone richer — these ideas did not die with the library.</p><p>Today, a modern Nalanda University has been established near the original site in Bihar. It is a small beginning. But beginnings are what Nalanda was always about.</p>",
@@ -1443,6 +1442,7 @@ const articleImages={
   8:"https://raw.githubusercontent.com/vamsitales/vamsi-tales/main/images/nalanda.png",
   9:"https://raw.githubusercontent.com/vamsitales/vamsi-tales/main/images/elephants.png",
   10:"https://raw.githubusercontent.com/vamsitales/vamsi-tales/main/images/neem.png",
+  12:"https://raw.githubusercontent.com/vamsitales/vamsi-tales/main/images/vithabai.png",
   11:"https://raw.githubusercontent.com/vamsitales/vamsi-tales/main/images/gita.png",
 };
 const articleTags={
@@ -1456,6 +1456,7 @@ const articleTags={
   8:["#India","#History","#Education"],
   9:["#Animals","#Elephants","#Nature","#Science"],
   10:["#Nature","#Neem","#India","#Health","#Ayurveda"],
+  12:["#India","#Tamasha","#Vithabai","#Maharashtra","#FolkArt","#WomenOfIndia","#VamsiTales"],
   11:["#Spiritual","#BhagavadGita","#India","#Philosophy","#Krishna","#VamsiTales"],
 };
 
@@ -1508,7 +1509,7 @@ function showPage(p){
   if(p==="bookmarks") renderBookmarks();
   if(p==="stories") renderStoriesPage();
   if(p==="analytics") setTimeout(animateGAStats,300);
-  if(p==="home") setTimeout(renderStats,200);
+  if(p==="home") setTimeout(renderStats,800);
 
 var pb=document.getElementById("progress-bar"); if(pb) pb.style.width="0%";
 
@@ -2039,106 +2040,44 @@ function renderTodaySignificance(){
 }
 
 // FEATURED RIGHT PANEL — Today box and Did You Know
-function renderFeaturedRight(){
-  // Today box
-  var m=TODAY.getMonth()+1, d=TODAY.getDate();
-  var todayFests=FESTIVALS.filter(function(f){return f.month===m&&f.day===d;});
-  var todayBox=document.getElementById("feat-today-content");
-  if(todayBox){
-    if(todayFests.length>0){
-      todayBox.innerHTML=todayFests.map(function(f){
-        return '<div style="display:flex;align-items:center;gap:8px;margin-bottom:4px;">'+
-          '<span style="font-size:1.2rem;">'+f.emoji+'</span>'+
-          '<span style="font-weight:600;color:var(--text);">'+f.name+'</span>'+
-          '</div>'+
-          '<div style="font-size:11px;color:var(--t2);line-height:1.5;">'+f.desc+'</div>';
-      }).join('<div style="height:6px;"></div>');
-    } else {
-      var dateStr=TODAY.toLocaleDateString("en-IN",{weekday:"long",day:"numeric",month:"long"});
-      todayBox.innerHTML='<span style="color:var(--t3);">'+dateStr+'</span><br><span style="font-size:11px;color:var(--t3);">No special day today — just a great day to read a story!</span>';
-    }
-  }
-  // Did You Know — rotating 4-5 facts
-  var dyk=document.getElementById("feat-didyouknow");
-  if(dyk){
-    var facts=["Chess was invented in India ♟️","Zero was invented by Indian mathematician Aryabhata 🔢","Yoga originated in India over 5,000 years ago 🧘","The word jungle comes from Sanskrit word jangala 🌿","India has 22 officially recognised languages 🗣️","The Kumbh Mela is the largest human gathering on Earth 🙏","Nalanda University library burned for 3 months 📚","Andhra Pradesh has India's spiciest cuisine 🌶️","India is the world's largest milk producer 🥛","Elephants can remember humans after 12 years 🐘","Bananas are technically berries but strawberries are not 🍌","Cleopatra lived closer in time to the Moon landing than to the pyramids 🚀","Octopuses have three hearts and blue blood 🐙","A group of flamingos is called a flamboyance 🦩","The human brain uses 20% of the body's total energy ⚡"];
-    var startIdx=TODAY.getDate()%facts.length;
-    // Show 4-5 facts rotating
-    var selected=[];
-    for(var k=0;k<5;k++) selected.push(facts[(startIdx+k)%facts.length]);
-    var curFact=0;
-    function showFact(){
-      dyk.style.opacity="0";
-      setTimeout(function(){
-        dyk.textContent=selected[curFact];
-        dyk.style.opacity="1";
-        curFact=(curFact+1)%selected.length;
-      },300);
-    }
-    dyk.style.transition="opacity 0.3s";
-    dyk.textContent=selected[0];
-    curFact=1;
-    setInterval(showFact,3500);
-  }
-}
-
-// TICKER
-var tickerFacts=["India has 22 officially recognised languages 🗣️","Honey never spoils — edible honey found in Egyptian tombs 🍯","The world's deepest lake is Lake Baikal in Russia 🌊","Chess was invented in India ♟️","Cleopatra lived closer in time to the Moon landing than to the pyramids 🚀","Andhra Pradesh has India's spiciest cuisine 🌶️","The word jungle comes from Sanskrit word jangala 🌿","Octopuses have three hearts and blue blood 🐙","Zero was invented by Indian mathematician Aryabhata 🔢","A group of flamingos is called a flamboyance 🦩","The Kumbh Mela is the largest human gathering on Earth 🙏","Bananas are technically berries but strawberries are not 🍌","Yoga originated in India over 5,000 years ago 🧘","The human brain uses 20% of the body's total energy ⚡","Nalanda University's library burned for 3 months 📚"];
 function renderTicker(){
-  var w=document.getElementById("ticker-wrap"); if(!w) return;
-  var doubled=tickerFacts.concat(tickerFacts);
-  w.innerHTML='<div class="ticker-inner">'+doubled.map(function(f){return '<div class="ticker-item"><span class="ticker-label">DID YOU KNOW</span>'+f+'<span class="ticker-dot"></span></div>';}).join("")+"</div>";
+  var wrap=document.getElementById("ticker-wrap");
+  if(!wrap) return;
+  var facts=[
+    {text:"Chess was invented in India",emoji:"♟️"},
+    {text:"Zero was invented by Indian mathematician Aryabhata",emoji:"🔢"},
+    {text:"The word jungle comes from Sanskrit word jangala",emoji:"🌿"},
+    {text:"Yoga originated in India over 5,000 years ago",emoji:"🧘"},
+    {text:"The Kumbh Mela is the largest human gathering on Earth",emoji:"🙏"},
+    {text:"Nalanda University library burned for 3 months",emoji:"📚"},
+    {text:"Andhra Pradesh has India's spiciest cuisine",emoji:"🌶️"},
+    {text:"Cleopatra lived closer in time to the Moon landing than to the pyramids",emoji:"🚀"},
+    {text:"Octopuses have three hearts and blue blood",emoji:"🐙"},
+    {text:"The word jungle comes from Sanskrit",emoji:"🌿"},
+    {text:"Bananas are technically berries but strawberries are not",emoji:"🍌"},
+    {text:"India is the world's largest milk producer",emoji:"🥛"}
+  ];
+  var items=facts.map(function(f){
+    return '<span class="ticker-item"><span class="ticker-label">DID YOU KNOW</span> '+f.text+' '+f.emoji+' <span class="ticker-dot">•</span></span>';
+  }).join("");
+  wrap.innerHTML='<div class="ticker-inner">'+items+items+'</div>';
 }
 
-// FEATURED
-var featuredPost=posts[0];
-function renderFeatured(){
-  var ft=document.getElementById("feat-title"); if(ft) ft.textContent=posts[0].title;
-  var fe=document.getElementById("feat-excerpt"); if(fe) fe.textContent=posts[0].excerpt;
-  // Featured image
-  var imgUrl=articleImages[posts[0].id]||"";
-  var featImgWrap=document.getElementById("feat-img-wrap");
-  if(featImgWrap){
-    if(imgUrl){
-      featImgWrap.innerHTML='<img src="'+imgUrl+'" alt="'+posts[0].title+'" style="width:100%;height:auto;max-height:280px;object-fit:cover;display:block;border-radius:8px 8px 0 0;" onerror="this.parentElement.style.display=\'none\'"/>';
-      featImgWrap.style.display="block";
-    } else {
-      featImgWrap.style.display="none";
-    }
-  }
-  // Today box
-  var m=TODAY.getMonth()+1, d=TODAY.getDate();
-  var todayF=FESTIVALS.filter(function(f){return f.month===m&&f.day===d;});
-  var todayBox=document.getElementById("feat-today-content");
-  if(todayBox){
-    if(todayF.length>0){
-      todayBox.innerHTML=todayF.map(function(f){return '<span style="font-size:14px">'+f.emoji+'</span> <strong>'+f.name+'</strong> — '+f.desc.slice(0,80)+'...';}).join('<br/>');
-    } else {
-      var upcoming=FESTIVALS.map(function(f){var dd=new Date(YEAR,f.month-1,f.day);return Object.assign({},f,{diff:Math.ceil((dd-TODAY)/864e5)});}).filter(function(f){return f.diff>0;}).sort(function(a,b){return a.diff-b.diff;})[0];
-      if(upcoming) todayBox.innerHTML='Next: <strong>'+upcoming.emoji+' '+upcoming.name+'</strong> in '+upcoming.diff+' days';
-      else todayBox.textContent='No special observance today.';
-    }
-  }
-  // Did You Know box
-  var dyk=document.getElementById("feat-didyouknow");
-  if(dyk) dyk.textContent=tickerFacts[Math.floor(Math.random()*tickerFacts.length)];
-  // Mini stories
-  var ms=document.getElementById("mini-stories");
-  if(ms) ms.innerHTML=posts.slice(1,4).map(function(p,i){
-    return '<div class="mini-story" onclick="openFullArticle('+p.id+')">'+
-      '<div class="mini-num">0'+(i+1)+'</div>'+
-      '<div><div class="mini-title">'+p.title+'</div><div class="mini-cat">'+p.emoji+" "+p.category+'</div></div></div>';
-  }).join("");
+function renderStats(){
+  var el=document.getElementById("stat-stories");
+  if(!el) return;
+  animateCount("stat-stories",posts.length);
+  animateCount("stat-festivals",FESTIVALS.length);
+  animateCount("stat-readers",posts.length);
+  animateCount("stat-categories",categories.length-1);
 }
+
 function animateCount(id,target,suffix){
   suffix=suffix||"";
   var el=document.getElementById(id); if(!el) return;
   el.textContent="0"+suffix;
   if(target===0) return;
-  var duration=1200;
-  var steps=60;
-  var interval=duration/steps;
-  var start=0;
+  var duration=1200; var steps=60; var interval=duration/steps; var start=0;
   var timer=setInterval(function(){
     start++;
     var val=Math.round(target*(start/steps));
@@ -2146,65 +2085,7 @@ function animateCount(id,target,suffix){
     if(start>=steps){el.textContent=target.toLocaleString()+suffix;clearInterval(timer);}
   },interval);
 }
-function renderStats(){
-  var el=document.getElementById("stat-stories");
-  if(!el) return;
-  // Only animate if showing 0 or not yet set
-  animateCount("stat-stories",posts.length);
-  animateCount("stat-festivals",FESTIVALS.length);
-  animateCount("stat-readers",posts.length);
-  animateCount("stat-categories",categories.length-1);
-}
-var quotes=[
-  {text:"The secret of health for both mind and body is not to mourn for the past, not to worry about the future, but to live in the present moment wisely.",author:"— Buddha"},
-  {text:"In a gentle way, you can shake the world.",author:"— Mahatma Gandhi"},
-  {text:"Arise, awake, and stop not until the goal is achieved.",author:"— Swami Vivekananda"},
-  {text:"You are what your deep, driving desire is. As your desire is, so is your will.",author:"— Brihadaranyaka Upanishad"},
-  {text:"The greatest religion is to be true to your own nature. Have faith in yourselves.",author:"— Swami Vivekananda"},
-  {text:"Live as if you were to die tomorrow. Learn as if you were to live forever.",author:"— Mahatma Gandhi"},
-  {text:"The one who does not know how to live cannot know how to die.",author:"— Leo Tolstoy"},
-  {text:"A person who never made a mistake never tried anything new.",author:"— Albert Einstein"},
-  {text:"The only way to do great work is to love what you do.",author:"— Steve Jobs"},
-  {text:"It does not matter how slowly you go as long as you do not stop.",author:"— Confucius"},
-  {text:"Strength does not come from physical capacity. It comes from an indomitable will.",author:"— Mahatma Gandhi"},
-  {text:"You don't have to be great to start, but you have to start to be great.",author:"— Zig Ziglar"},
-  {text:"The future belongs to those who believe in the beauty of their dreams.",author:"— Eleanor Roosevelt"},
-  {text:"Service to others is the rent you pay for your room here on earth.",author:"— Muhammad Ali"},
-  {text:"Education is the most powerful weapon which you can use to change the world.",author:"— Nelson Mandela"},
-  {text:"The mind is everything. What you think you become.",author:"— Buddha"},
-  {text:"An investment in knowledge pays the best interest.",author:"— Benjamin Franklin"},
-  {text:"First they ignore you, then they laugh at you, then they fight you, then you win.",author:"— Mahatma Gandhi"},
-  {text:"The best time to plant a tree was 20 years ago. The second best time is now.",author:"— Chinese Proverb"},
-  {text:"Happiness is not something ready made. It comes from your own actions.",author:"— Dalai Lama"},
-  {text:"The journey of a thousand miles begins with one step.",author:"— Lao Tzu"},
-];
-var curQuote=Math.floor((new Date()-new Date(new Date().getFullYear(),0,0))/(1000*60*60*24))%quotes.length;
-function renderQuote(){
-  var qt=document.getElementById("quote-text"); if(qt) qt.textContent=quotes[curQuote].text;
-  var qa=document.getElementById("quote-author"); if(qa) qa.textContent=quotes[curQuote].author;
-  var qn=document.getElementById("quote-nav");
-  if(qn) qn.innerHTML=quotes.map(function(_,i){
-    return '<div class="quote-dot '+(i===curQuote?"active":"")+'" onclick="setQuote('+i+')"></div>';
-  }).join("");
-}
-function setQuote(i){ curQuote=i; renderQuote(); }
 
-// Touch swipe for quote
-(function(){
-  var startX=0;
-  document.addEventListener("DOMContentLoaded",function(){
-    var el=document.getElementById("quote-inner");
-    if(!el) return;
-    el.addEventListener("touchstart",function(e){startX=e.touches[0].clientX;},{passive:true});
-    el.addEventListener("touchend",function(e){
-      var diff=startX-e.changedTouches[0].clientX;
-      if(Math.abs(diff)>40){
-        if(diff>0) setQuote((curQuote+1)%quotes.length);
-        else setQuote((curQuote-1+quotes.length)%quotes.length);
-      }
-    },{passive:true});
-  });
-})();
 function renderSOTW(){
   var sotw=posts[new Date().getDay()%posts.length];
   var st=document.getElementById("sotw-title"); if(st) st.textContent=sotw.title;
@@ -2213,218 +2094,154 @@ function renderSOTW(){
   var sb=document.getElementById("sotw-btn"); if(sb) sb.onclick=function(){openFullArticle(sotw.id);};
 }
 
-// ANALYTICS
-function trackEvent(cat,action,label){ if(typeof gtag!=="undefined") gtag("event",action,{event_category:cat,event_label:label}); }
-function trackPage(p){ if(typeof gtag!=="undefined") gtag("event","page_view",{page_title:p}); }
-function animateGAStats(){
-  var i=0;
-  var iv=setInterval(function(){
-    i++;
-    var v=document.getElementById("ga-v"); if(v) v.textContent=Math.min(i*4,142);
-    var pv=document.getElementById("ga-pv"); if(pv) pv.textContent=Math.min(i*12,486);
-    var gt=document.getElementById("ga-t"); if(gt) gt.textContent=Math.min(i*5,180)+"s";
-    var gb=document.getElementById("ga-b"); if(gb) gb.textContent=Math.min(i*2,38)+"%";
-    if(i>=50) clearInterval(iv);
-  },30);
-}
-
-// CHATBOT
-function toggleChat(){
-  chatOpen=!chatOpen;
-  var win=document.getElementById("chat-win");
-  if(win) win.style.display=chatOpen?"flex":"none";
-  var fab=document.getElementById("chat-fab");
-  if(fab) fab.textContent=chatOpen?"✕":"🪷";
-  if(chatOpen&&chatMsgs.length===0){
-    setTimeout(function(){addMsg("bot","Namaste! 🙏 I am Vamsi AI, your guide to India, life, travel, food, mystery and more. What would you like to explore today?");},400);
-  }
-}
-function addMsg(role,text){
-  chatMsgs.push({role:role,text:text});
-  var c=document.getElementById("chat-msgs"); if(!c) return;
-  var isDark=document.body.classList.contains("dark");
-  var isMud=document.body.classList.contains("mud");
-  var botBg=isDark?"#1a1a1a":isMud?"#3d1a0a":"#F0E6D6";
-  var botColor=isDark?"#F5F5F5":isMud?"#F5ECD7":"#2C1A0E";
-  var div=document.createElement("div");
-  div.className="msg "+role;
-  div.style.background=role==="bot"?botBg:"var(--acc)";
-  div.style.color=role==="bot"?botColor:"var(--at)";
-  if(role==="bot") div.style.border="1px solid var(--div)";
-  div.textContent=text;
-  c.appendChild(div);
-  c.scrollTop=c.scrollHeight;
-}
-function sendSug(btn){
-  var sugs=document.getElementById("chat-sugs"); if(sugs) sugs.style.display="none";
-  sendChatMsg(btn.textContent.trim());
-}
-function sendChat(){
-  var inp=document.getElementById("chat-input");
-  var text=inp?inp.value.trim():"";
-  if(!text||isTyping) return;
-  inp.value="";
-  var sugs=document.getElementById("chat-sugs"); if(sugs) sugs.style.display="none";
-  sendChatMsg(text);
-}
-async function sendChatMsg(text){
-  addMsg("user",text);
-  isTyping=true;
-  var c=document.getElementById("chat-msgs");
-  var typing=document.createElement("div");
-  typing.className="msg bot"; typing.id="typing-indicator";
-  typing.style.background=document.body.classList.contains("dark")?"#1a1a1a":document.body.classList.contains("mud")?"#3d1a0a":"#F0E6D6";
-  typing.style.border="1px solid var(--div)";
-  typing.textContent="...";
-  if(c) c.appendChild(typing);
-  setTimeout(function(){
-    var tEl=document.getElementById("typing-indicator"); if(tEl) tEl.remove();
-    isTyping=false;
-    addMsg("bot", getSmartReply(text));
-  }, 700);
-}
-
-function getSmartReply(text){
-  var q=text.toLowerCase().trim();
-
-  // Festival date lookup — handles "what festival on Aug 23", "festival on 15 august" etc.
-  var monthNames=["jan","feb","mar","apr","may","jun","jul","aug","sep","oct","nov","dec"];
-  var monthNums={jan:1,feb:2,mar:3,apr:4,may:5,jun:6,jul:7,aug:8,sep:9,oct:10,nov:11,dec:12,
-    january:1,february:2,march:3,april:4,june:6,july:7,august:8,september:9,october:10,november:11,december:12};
-  if(/festival|holiday|celebration/.test(q) || /what.*on.*\d|any.*\d|festival.*\d|\d.*festival/.test(q)){
-    var foundMonth=null,foundDay=null;
-    Object.keys(monthNums).forEach(function(mn){if(q.indexOf(mn)>-1) foundMonth=monthNums[mn];});
-    var dm=q.match(/\b(\d{1,2})\b/g);
-    if(dm) dm.forEach(function(d){var n=parseInt(d);if(n>=1&&n<=31) foundDay=n;});
-    if(foundMonth&&foundDay){
-      var matches=FESTIVALS.filter(function(f){return f.month===foundMonth&&f.day===foundDay;});
-      if(matches.length>0){
-        var names=matches.map(function(f){return f.emoji+" "+f.name+" ("+f.region+")";}).join(", ");
-        return "On "+foundDay+" "+MONTHS[foundMonth-1]+": "+names+". Check our Festival Calendar for full details — click CALENDAR in the menu!";
-      } else {
-        return "No major Indian festivals on "+foundDay+" "+MONTHS[foundMonth-1]+" in our calendar. But check the Festival Calendar in the menu — it has all festivals with exact dates!";
-      }
-    }
-    if(foundMonth&&!foundDay){
-      var mf=FESTIVALS.filter(function(f){return f.month===foundMonth;});
-      if(mf.length>0){
-        var names=mf.map(function(f){return f.emoji+" "+f.name+" ("+f.day+"th)";}).join(", ");
-        return "Festivals in "+MONTHS[foundMonth-1]+": "+names+". Open our Festival Calendar for full details!";
-      }
-    }
-    return "Check our Festival Calendar for all Indian festivals with exact dates! Click CALENDAR in the navigation menu.";
-  }
-
-  if(/^(hi|hello|hey|namaste|hii|helo|hai)/.test(q))
-    return "Namaste! Welcome to Vamsi Tales! I can help you find stories, learn about India, or check festival dates. What are you curious about today?";
-
-  if(/how are you|how r you|wassup|what's up/.test(q))
-    return "I am doing great, thank you for asking! Ready to explore India's amazing stories with you. What would you like to know?";
-
-  if(/what is vamsi tales|about vamsi tales|what.*this.*website|who made|who created|about this/.test(q))
-    return "Vamsi Tales is a blog about stories worth telling — India, life, mystery, travel, food, tech, motivation, nature, animals and spiritual wisdom! Every story follows a real story + connection + lesson formula. New stories every week!";
-
-  if(/shani|shingnapur|village.*lock|lock.*village|no.*door/.test(q))
-    return "🪔 Shani Shingnapur is a village in Maharashtra where 4,000 people live without any doors or locks — for centuries! Lord Shani is believed to protect it. Search 'Shani Shingnapur' in the search bar to read the full story!";
-
-  if(/roopkund|skeleton.*lake|lake.*skull|skull.*lake|16000/.test(q))
-    return "💀 Roopkund is a frozen Himalayan lake at 16,470 feet filled with hundreds of ancient skeletons! DNA studies found two groups from different centuries. Search 'Roopkund' to read the full mystery!";
-
-  if(/hampi|vijayanagara|karnataka.*city|second.*largest.*city/.test(q))
-    return "🏔️ Hampi in Karnataka was once the second largest city in the world with 500,000 people! Today it is a stunning UNESCO World Heritage Site. Search 'Hampi' to read the full story!";
-
-  if(/nalanda|university.*burn|ancient.*university|oldest.*university/.test(q))
-    return "📚 Nalanda University in Bihar was the world's greatest university — 10,000 students, 2,000 teachers! Its library burned for 3 months when destroyed in 1193. Search 'Nalanda' to read the full story!";
-
-  if(/andhra|spicy|spiciest|guntur|chilli|capsaicin/.test(q))
-    return "🌶️ Andhra Pradesh is home to India's spiciest cuisine! Guntur district produces 30% of India's total chilli output. Search 'Andhra' to read the full story!";
-
-  if(/edison|10000|fail|failure|motivation/.test(q))
-    return "💡 Thomas Edison tested over 10,000 materials before finding the right light bulb filament. He saw 10,000 ways that didn't work — not failures! Search 'Edison' to read the full story!";
-
-  if(/ai|artificial intelligence|technology|tech.*india/.test(q))
-    return "🤖 India is quietly becoming the world's largest AI experiment! Farmers use AI to predict rainfall. Students get AI tutoring at midnight. Search 'AI India' to read the full Tech story!";
-
-  if(/website|built.*website|github|vercel|how.*made/.test(q))
-    return "✨ Vamsi Krishna built this entire website from scratch with zero coding experience! Search 'website' to read that inspiring Life story!";
-
-  if(/diwali|deepavali|festival.*light/.test(q))
-    return "🪔 Diwali is the Festival of Lights — celebrated on 1st November this year! Families light diyas, burst crackers, and share sweets. Check our Festival Calendar for more details!";
-
-  if(/holi|colour.*festival|festival.*colour/.test(q))
-    return "🎨 Holi is India's Festival of Colors — celebrated on 14th March! People throw coloured powder and celebrate the victory of good over evil. Check our Festival Calendar for more festivals!";
-
-  if(/ugadi|telugu.*new year|kannada.*new year/.test(q))
-    return "🌿 Ugadi is the Telugu and Kannada New Year, celebrated on 30th March! It is celebrated with Ugadi Pachadi — a dish with six different tastes symbolising life. Check our Festival Calendar for details!";
-
-  if(/yoga|meditation|mindfulness/.test(q))
-    return "🧘 Yoga originated in India over 5,000 years ago! Today over 300 million people practice yoga worldwide. India gave the world one of its greatest gifts!";
-
-  if(/temple|mandir|shrine|worship|deity/.test(q))
-    return "🛕 India has some of the world's most incredible temples! The Virupaksha Temple at Hampi has 1,000 years of continuous worship. Shani Shingnapur is a temple village with no locks. Search either name to read the stories!";
-
-  if(/neem|ayurveda|herbal|medicine/.test(q))
-    return "🌿 The neem tree is India's village pharmacy — over 130 medicinal compounds, used for thousands of years! Search 'Neem' to read the full story!";
-
-  if(/elephant|never forget|elephant memory/.test(q))
-    return "🐘 Elephants really do never forget! They remember individual humans after 12 years and mourn their dead. Search 'Elephant' to read the full story!";
-
-  if(/read.*full|full.*story|want.*read|open.*story|how.*read|where.*read|reed.*full|full.*article/.test(q))
-    return "To read any full story — click STORIES in the top menu, then click on any story card to open it! Or use the SEARCH button to find a specific story by name. Which story do you want to read?";
-
-  if(/mystery|roopkund|skeleton|unsolved|ghost|haunted|strange|weird/.test(q))
-    return "💀 Our best mystery story is Roopkund — the Skeleton Lake! 500 human skeletons found at 16,000 feet in the Himalayas. Scientists still don't fully know why they all died the same way. Search 'Roopkund' to read it — it will give you chills!";
-
-  if(/spiritual|bhagavad|gita|krishna|sacred|soul|moksha/.test(q))
-    return "India is the birthplace of profound spiritual traditions. We have a story on the Bhagavad Gita's most powerful lesson — do your duty without expecting results. Search 'Bhagavad Gita' to read it!";
-
-  if(/chess|invented|origin/.test(q))
-    return "♟️ Chess was invented in India! It was called Chaturanga around the 6th century AD, then spread to Persia and Europe. India has given the world so many things!";
-
-  if(/zero|mathematics|aryabhata/.test(q))
-    return "🔢 Zero was invented by Indian mathematician Aryabhata! He also calculated Pi to 4 decimal places. Incredible India!";
-
-  if(/kumbh mela|largest.*gathering|pilgrimage/.test(q))
-    return "The Kumbh Mela is the largest human gathering on Earth — over 400 million people over 45 days! It rotates between Prayagraj, Haridwar, Nashik, and Ujjain.";
-
-  if(/food|cuisine|eat|dish|recipe/.test(q))
-    return "🍛 India has the world's most diverse cuisine! Andhra is the spiciest, Kerala has coconut dishes, Punjab has rich curries. Search 'Andhra' to read our food story!";
-
-  if(/travel|visit|tourist|place.*india/.test(q))
-    return "✈️ India has incredible destinations! Hampi, the Himalayas, Kerala backwaters, Rajasthan's palaces. Search 'Hampi' to read our Travel story!";
-
-  if(/history|ancient|empire|dynasty|mughal/.test(q))
-    return "🏛️ India has one of the world's oldest histories — from the Indus Valley to the Mughal Empire to Independence in 1947. Search 'Nalanda' or 'Hampi' to explore our history stories!";
-
-  if(/how many stories|number.*stories/.test(q))
-    return "📖 We currently have 11 stories across 11 categories — India, Life, Travel, Food, Mystery, Tech, Motivation, Nature, Animals and Spiritual! New stories every week. Click STORIES in the menu!";
-
-  if(/contact|email|reach|feedback|suggest/.test(q))
-    return "📧 You can reach Vamsi Tales at vamsikrishnameesala205@gmail.com! We love story suggestions and collaboration ideas. Use the Contact page in our menu!";
-
-  if(/newsletter|subscribe/.test(q))
-    return "📬 Subscribe at the bottom of the home page! Get one new story every week in your inbox. No spam, ever!";
-
-  if(/bye|goodbye|thank you|thanks/.test(q))
-    return "Thank you for visiting Vamsi Tales! Come back every week for new stories about India. Jai Hind! 🇮🇳";
-
-  var defaults=[
-    "Try asking me about a specific category! We have Mystery, India, Travel, Food, Tech, Motivation, Animals and Spiritual stories. Which interests you?",
-    "I know a lot about India — culture, history, mystery, travel, food and more. Try asking 'Tell me about Hampi' or 'Give me a mystery story'!",
-    "Ask me about any story category! For mystery try 'Roopkund', for history try 'Nalanda', for travel try 'Hampi', for food try 'Andhra cuisine'!",
-    "I am best at answering questions about India and our stories. Try 'Tell me about Roopkund' or 'What is Nalanda?' or 'What festival is on Oct 2?'!",
+function renderQuiz(){
+  var quizzes=[
+    {q:"Which Indian city was once the second largest city in the world?",opts:["Hampi","Pataliputra","Vijayanagara","Nalanda"],ans:2,exp:"Hampi (Vijayanagara) was once the second largest city in the world with 500,000 people!"},
+    {q:"How many human skeletons were found at Roopkund Lake?",opts:["100","500","1000","2000"],ans:1,exp:"500 ancient human skeletons were found at Roopkund Lake at 16,000 feet in the Himalayas!"},
+    {q:"Who invented the number zero?",opts:["Newton","Galileo","Aryabhata","Euclid"],ans:2,exp:"Aryabhata, the Indian mathematician, is credited with inventing zero!"},
+    {q:"What is the title given to Vithabai Narayangaonkar?",opts:["Lavani Queen","Tamasha Samradni","Dance Empress","Folk Legend"],ans:1,exp:"Vithabai was given the title Tamasha Samradni meaning Empress of Tamasha!"},
+    {q:"How long did the Nalanda University library burn?",opts:["3 days","3 weeks","3 months","3 years"],ans:2,exp:"Nalanda University's library was so vast it burned for 3 months after being set on fire!"},
+    {q:"Which village in India has no locks or doors?",opts:["Shani Shingnapur","Kodinhi","Kuldhara","Dwaraka"],ans:0,exp:"Shani Shingnapur in Maharashtra — 4,000 people live here with no doors or locks for centuries!"},
+    {q:"What ancient sport was invented in India?",opts:["Football","Chess","Tennis","Polo"],ans:1,exp:"Chess was invented in India! It was originally called Chaturanga."},
+    {q:"Which Indian tree has over 130 medicinal compounds?",opts:["Banyan","Peepal","Neem","Tulsi"],ans:2,exp:"The Neem tree has over 130 medicinal compounds and has been called India's village pharmacy!"},
   ];
-  return defaults[Math.floor(Math.random()*defaults.length)];
+  var idx=new Date().getDate()%quizzes.length;
+  var quiz=quizzes[idx];
+  var qEl=document.getElementById("feat-quiz-q");
+  var optsEl=document.getElementById("feat-quiz-opts");
+  var resEl=document.getElementById("feat-quiz-result");
+  if(!qEl||!optsEl) return;
+  qEl.textContent=quiz.q;
+  optsEl.innerHTML=quiz.opts.map(function(opt,i){
+    return '<button onclick="checkQuiz('+i+','+quiz.ans+',\''+quiz.exp.replace(/'/g,"\\'")+'\')" style="background:var(--card);border:1px solid var(--cb);border-radius:6px;padding:6px 10px;font-size:11px;font-family:\'Lato\',sans-serif;color:var(--text);cursor:pointer;text-align:left;transition:all 0.2s;" onmouseover="this.style.borderColor=\'var(--acc)\'" onmouseout="this.style.borderColor=\'var(--cb)\'">'+opt+'</button>';
+  }).join("");
 }
+
+function checkQuiz(selected,correct,explanation){
+  var resEl=document.getElementById("feat-quiz-result");
+  var optsEl=document.getElementById("feat-quiz-opts");
+  if(!resEl) return;
+  // Disable all buttons
+  var btns=optsEl.querySelectorAll("button");
+  btns.forEach(function(b,i){
+    b.disabled=true;
+    if(i===correct) b.style.background="rgba(16,185,129,0.15)";
+    else if(i===selected) b.style.background="rgba(239,68,68,0.15)";
+  });
+  resEl.style.display="block";
+  if(selected===correct){
+    resEl.style.background="rgba(16,185,129,0.1)";
+    resEl.style.color="#10B981";
+    resEl.innerHTML="✅ Correct! "+explanation;
+  } else {
+    resEl.style.background="rgba(239,68,68,0.1)";
+    resEl.style.color="#EF4444";
+    resEl.innerHTML="❌ Not quite! "+explanation;
+  }
+}
+
+function renderQuote(){
+  var qt=document.getElementById("quote-text"); if(qt) qt.textContent=quotes[curQuote].text;
+  var qa=document.getElementById("quote-author"); if(qa) qa.textContent=quotes[curQuote].author;
+  var qn=document.getElementById("quote-nav");
+  if(qn) qn.innerHTML=quotes.map(function(_,i){
+    return '<button class="qnav-dot'+(i===curQuote?" active":"")+'" onclick="goQuote('+i+')"></button>';
+  }).join("");
+}
+function goQuote(i){ curQuote=i; renderQuote(); }
+
+
+function renderFeatured(){
+  var latest=posts[posts.length-1];
+  featuredPost=latest;
+  var ft=document.getElementById("feat-title"); if(ft) ft.textContent=latest.title;
+  var fe=document.getElementById("feat-excerpt"); if(fe) fe.textContent=latest.excerpt;
+  var imgUrl=articleImages[latest.id]||"";
+  var featImgWrap=document.getElementById("feat-img-wrap");
+  if(featImgWrap){
+    if(imgUrl){
+      featImgWrap.innerHTML='<img src="'+imgUrl+'" alt="'+latest.title+'" style="width:100%;height:auto;display:block;border-radius:8px 8px 0 0;" onerror="this.parentElement.style.display=\'none\'"/>';
+      featImgWrap.style.display="block";
+    } else {
+      featImgWrap.style.display="none";
+    }
+  }
+  var ms=document.getElementById("mini-stories");
+  var otherPosts=posts.slice(0,-1).reverse().slice(0,3);
+  if(ms) ms.innerHTML=otherPosts.map(function(p,i){
+    return '<div class="mini-story" onclick="openFullArticle('+p.id+')">'+
+      '<div class="mini-num">0'+(i+1)+'</div>'+
+      '<div><div class="mini-title">'+p.title+'</div><div class="mini-cat">'+p.emoji+' '+p.category+'</div></div></div>';
+  }).join("");
+}
+
+function renderFeaturedRight(){
+  var m=TODAY.getMonth()+1, d=TODAY.getDate();
+  var todayFests=FESTIVALS.filter(function(f){return f.month===m&&f.day===d;});
+  var todayBox=document.getElementById("feat-today-content");
+  if(todayBox){
+    if(todayFests.length>0){
+      todayBox.innerHTML=todayFests.map(function(f){
+        return '<div style="display:flex;align-items:center;gap:8px;margin-bottom:4px;"><span style="font-size:1.2rem;">'+f.emoji+'</span><span style="font-weight:600;color:var(--text);">'+f.name+'</span></div><div style="font-size:11px;color:var(--t2);line-height:1.5;">'+f.desc+'</div>';
+      }).join('<div style="height:6px;"></div>');
+    } else {
+      var upcoming=FESTIVALS.filter(function(f){var fd=new Date(2026,f.month-1,f.day);return fd>=TODAY;}).sort(function(a,b){return new Date(2026,a.month-1,a.day)-new Date(2026,b.month-1,b.day);})[0];
+      if(upcoming){
+        var daysLeft=Math.ceil((new Date(2026,upcoming.month-1,upcoming.day)-TODAY)/(1000*60*60*24));
+        todayBox.innerHTML='<div style="font-size:11px;color:var(--t2);">Next: '+upcoming.emoji+' <strong>'+upcoming.name+'</strong> in '+daysLeft+' days</div>';
+      }
+    }
+  }
+  var dyk=document.getElementById("feat-didyouknow");
+  if(dyk){
+    var facts=["Chess was invented in India ♟️","Zero was invented by Indian mathematician Aryabhata 🔢","Yoga originated in India over 5,000 years ago 🧘","The word jungle comes from Sanskrit word jangala 🌿","India has 22 officially recognised languages 🗣️","The Kumbh Mela is the largest human gathering on Earth 🙏","Nalanda University library burned for 3 months 📚","Andhra Pradesh has India spiciest cuisine 🌶️","India is the world largest milk producer 🥛","Elephants can remember humans after 12 years 🐘","Bananas are technically berries but strawberries are not 🍌","Cleopatra lived closer in time to the Moon landing than to the pyramids 🚀","Octopuses have three hearts and blue blood 🐙","A group of flamingos is called a flamboyance 🦩","The human brain uses 20% of the body total energy ⚡"];
+    var startIdx=TODAY.getDate()%facts.length;
+    var selected=[];
+    for(var k=0;k<5;k++) selected.push(facts[(startIdx+k)%facts.length]);
+    var curFact=0;
+    dyk.style.transition="opacity 0.3s";
+    dyk.textContent=selected[0];
+    curFact=1;
+    setInterval(function(){
+      dyk.style.opacity="0";
+      setTimeout(function(){dyk.textContent=selected[curFact];dyk.style.opacity="1";curFact=(curFact+1)%selected.length;},300);
+    },3500);
+  }
+}
+
+
+
+var curQuote=0;
+var quotes=[
+  {text:"The secret of health for both mind and body is not to mourn for the past, not to worry about the future, but to live in the present moment wisely.",author:"— Buddha"},
+  {text:"In a gentle way, you can shake the world.",author:"— Mahatma Gandhi"},
+  {text:"You must be the change you wish to see in the world.",author:"— Mahatma Gandhi"},
+  {text:"Live as if you were to die tomorrow. Learn as if you were to live forever.",author:"— Mahatma Gandhi"},
+  {text:"The best way to find yourself is to lose yourself in the service of others.",author:"— Mahatma Gandhi"},
+  {text:"Strength does not come from physical capacity. It comes from an indomitable will.",author:"— Mahatma Gandhi"},
+  {text:"An eye for an eye only ends up making the whole world blind.",author:"— Mahatma Gandhi"},
+  {text:"Where there is love there is life.",author:"— Mahatma Gandhi"},
+  {text:"First they ignore you, then they laugh at you, then they fight you, then you win.",author:"— Mahatma Gandhi"},
+  {text:"The future depends on what you do today.",author:"— Mahatma Gandhi"},
+  {text:"You have power over your mind — not outside events. Realize this, and you will find strength.",author:"— Marcus Aurelius"},
+  {text:"It does not matter how slowly you go as long as you do not stop.",author:"— Confucius"},
+  {text:"Our greatest glory is not in never falling, but in rising every time we fall.",author:"— Confucius"},
+  {text:"When you arise in the morning, think of what a precious privilege it is to be alive.",author:"— Marcus Aurelius"},
+  {text:"The only way to do great work is to love what you do.",author:"— Steve Jobs"}
+];
+
 
 // INIT
+var featuredPost=posts[posts.length-1];
 renderCats();
 renderCards();
 renderTicker();
 renderFeatured();
 renderFeaturedRight();
-  renderTodaySignificance();
-setTimeout(renderStats, 600);
+renderTodaySignificance();
+renderQuiz();
+setTimeout(renderStats,800);
+curQuote=Math.floor((new Date()-new Date(new Date().getFullYear(),0,0))/(1000*60*60*24))%(quotes.length||1);
 renderQuote();
 renderSOTW();
 renderCalendar();
