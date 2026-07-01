@@ -228,6 +228,9 @@ nav{position:sticky;top:0;z-index:100;background:var(--nav);border-bottom:1px so
 .chat-status{font-size:10px;opacity:0.6;}
 .chat-close-btn{background:rgba(0,0,0,0.15);border:none;cursor:pointer;font-size:14px;width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;}
 .chat-msgs{flex:1;overflow-y:auto;padding:14px;display:flex;flex-direction:column;gap:10px;}
+.chat-msg{max-width:80%;padding:10px 14px;border-radius:18px;font-size:13px;font-family:'Lato',sans-serif;line-height:1.5;}
+.chat-user{background:var(--acc);color:var(--at);align-self:flex-end;border-bottom-right-radius:4px;}
+.chat-bot{background:var(--bg2);color:var(--text);align-self:flex-start;border-bottom-left-radius:4px;border:1px solid var(--cb);}
 .msg{max-width:84%;padding:10px 13px;font-size:12px;line-height:1.6;font-family:'Lato',sans-serif;word-break:break-word;}
 .msg.bot{border-radius:12px 12px 12px 4px;align-self:flex-start;}
 .msg.user{border-radius:12px 12px 4px 12px;align-self:flex-end;background:var(--acc);color:var(--at);}
@@ -1284,8 +1287,8 @@ body.mud .featured-right{background:linear-gradient(160deg,rgba(245,240,232,0.06
     <button class="sug-btn" onclick="sendSug(this)">📚 History</button>
   </div>
   <div class="chat-input-row" style="background:var(--nav)">
-    <input class="chat-input" id="chat-input" placeholder="Ask anything about India..." style="background:var(--card);color:var(--text)" onkeydown="if(event.key==='Enter')sendChat()"/>
-    <button class="chat-send" onclick="sendChat()">➤</button>
+    <input class="chat-input" id="chat-input" placeholder="Ask anything about India..." style="background:var(--card);color:var(--text)" onkeydown="if(event.key==='Enter')sendChatMsg()"/>
+    <button class="chat-send" onclick="sendChatMsg()">➤</button>
   </div>
 </div>
 
@@ -1304,6 +1307,7 @@ const posts=[
   {id:10,category:"Nature",title:"The Neem Tree — India's Village Pharmacy",excerpt:"For thousands of years, before hospitals existed, most of India survived on one tree. The neem tree has over 130 medicinal compounds and has been used for everything from toothbrushes to pesticides.",date:"June 17, 2026",readTime:"5 min read",emoji:"🌿",color:"#16A34A"},
   {id:11,category:"Spiritual",title:"The Bhagavad Gita's Most Powerful Lesson — Do Your Duty Without Expecting Results",excerpt:"2,500 years ago, on a battlefield, a prince refused to fight. What Lord Krishna told him next became one of the most profound teachings in all of human history.",date:"June 17, 2026",readTime:"5 min read",emoji:"🙏",color:"#7C3AED"},
   {id:12,category:"India",title:"Vithabai Bhau Mang Narayangaonkar — The Empress of Tamasha",excerpt:"She was 9 months pregnant. The stage was set. The crowd was waiting. And Vithabai danced. The story of India's most extraordinary folk artist.",date:"June 21, 2026",readTime:"6 min read",emoji:"🎭",color:"#C2621A"},
+  {id:13,category:"Life",title:"Why Indians Eat With Their Hands — The Science Behind an Ancient Habit",excerpt:"A foreign tourist watches you eat your rice with your hands and raises an eyebrow. But what he does not know is that eating with your hands is one of the most scientifically intelligent things you can do.",date:"June 23, 2026",readTime:"5 min read",emoji:"🤲",color:"#F59E0B"},
 ];
 
 const categories=["All","India","Life","Travel","Food","Mystery","Tech","Motivation","Nature","Animals","Spiritual"];
@@ -1437,6 +1441,7 @@ const articleBodies={
 
   10:"<p>For thousands of years, long before hospitals existed, before medicine shops lined every street, before antibiotics were discovered — most of India survived on one tree.</p><p>The neem tree. Azadirachta indica. Growing quietly in almost every village, every street corner, every backyard across the subcontinent. Ancient, ordinary looking, and yet one of the most medically powerful plants on Earth.</p><h3>What the Neem Tree Can Do</h3><p>The list of what neem has been used for across Indian history is almost unbelievable. Neem leaves were used to treat fever, skin diseases, infections, wounds, ulcers, and inflammation. Neem bark was used for dental hygiene — the original toothbrush. Neem oil was used as an insect repellent, a fungicide, a treatment for lice, and a contraceptive. Neem flowers were eaten in Ugadi chutney at the Telugu New Year as a symbol of accepting both the bitter and the sweet in life.</p><p>In villages across India, neem branches were — and still are — hung at doorways to ward off infections, especially during periods of illness. Mothers bathed sick children in water boiled with neem leaves. Farmers used neem-based preparations to protect their crops from pests for centuries before the word pesticide was invented.</p><div class='article-pullquote'><p>In a country of a billion people spread across a vast and varied land, one tree served as doctor, dentist, farmer and guardian all at once.</p></div><h3>What Modern Science Says</h3><p>For most of history, the neem tree's power was accepted on faith and tradition. Then modern science arrived and started testing. What researchers found was remarkable.</p><p>Neem contains over 130 biologically active compounds. Among the most important is azadirachtin — a natural insecticide so effective that it is now used in certified organic farming across the world. Nimbin and nimbidin, two other compounds found in neem, have demonstrated significant antibacterial, antifungal and anti-inflammatory properties in laboratory studies.</p><p>Neem's antibacterial properties have been shown effective against the bacteria responsible for tuberculosis. Its antifungal properties work against Candida. Its anti-inflammatory effects have been studied as potential treatments for arthritis. Research on neem as an HIV inhibitor is ongoing.</p><h3>The Dental Connection</h3><p>Perhaps the most widely validated traditional use of neem is dental hygiene. The neem twig — used as a toothbrush across India for millennia — has been studied extensively. Research confirms it contains antiseptic compounds that reduce bacteria in the mouth, prevent plaque, reduce gum inflammation, and strengthen tooth enamel.</p><p>Many modern toothpaste brands — including several major Indian ones — now actively advertise neem as a key ingredient. The village grandfather who chewed a neem twig every morning was ahead of his time by about 3,000 years.</p><h3>The Indian Connection</h3><p>Neem is so deeply woven into Indian life that Sanskrit literature refers to it as Sarva Roga Nivarini — the curer of all ailments. In Ayurveda, one of the world's oldest medical systems, neem appears in hundreds of preparations. Every part of the tree — leaves, bark, seeds, flowers, roots — has documented medicinal use.</p><p>In South India, neem is considered sacred. In many traditions, the goddess Mariamman — associated with disease and healing — is represented with neem leaves. The tree that cures disease is also the tree that represents the deity who controls it.</p><h3>The Lesson</h3><p>The neem tree teaches us something important about knowledge. For thousands of years, Indian villages knew something that modern science is only now confirming with lab equipment and peer-reviewed papers. Traditional knowledge, accumulated over generations of observation and experience, deserves respect — not dismissal.</p><p>The next time you pass a neem tree on the street — ordinary, dusty, unremarkable — remember that you are looking at one of the most generous and capable living things on this planet. It asks for nothing. It gives everything. And it has been doing so, quietly, for longer than any of us can imagine.</p>",
 
+  13:"<p>You are at a restaurant.</p><p>A foreign tourist watches you eat your rice with your hands. He raises an eyebrow. Maybe smiles politely. Maybe doesn't.</p><p>You have seen that look before.</p><p>But here is what that tourist does not know — and what most Indians themselves have forgotten — eating with your hands is not a primitive habit. It is one of the most scientifically intelligent ways to eat food ever developed by human civilisation.</p><p>Let me tell you why.</p><h3>The Moment Your Fingers Touch Food, Your Body Wakes Up</h3><p>The moment your fingers touch food, your brain gets the message to prepare for digestion. It stimulates the gut-brain axis, enhancing saliva production, digestive enzyme release, and gut motility — the movement of food through the digestive tract.</p><p>Think about what this means. Before the food even reaches your mouth, your body has already begun digesting it. Your stomach is ready. Your enzymes are active. Your system is prepared.</p><p>A fork cannot do this. A spoon cannot do this. Only touch can.</p><p>Ayurveda studies have shown that the body can react to the touch of food by releasing the required chemicals and initiating digestion-related movements in the stomach before the sustenance even meets the lips.</p><h3>What Ayurveda Knew 5,000 Years Ago</h3><p>Ancient India did not just say eat with your hands because that is how we do it. It explained exactly why.</p><p>Each finger is associated with one of the five elements — earth, water, fire, air, and space. Their union during eating is thought to harmonize these elements within the body, aiding in optimal digestion and balance.</p><p>In Ayurveda, this is called eating as a mudra — a sacred gesture. When we use our hands to eat, all these elements come together to create balance and prepare the body for digestion. It is a sensory mudra in action, not just a habit.</p><p>The five fingers. The five elements. The five senses. All activated. All working together. Just by picking up your food with your hands.</p><h3>The British Said It Was Uncivilised. Science Says Otherwise.</h3><p>This practice, once ridiculed during colonial times when British influence imposed the fork-and-knife model as civilised, is still often misunderstood today.</p><p>This is one of the most important things to understand about Indian food culture. The shame around eating with hands was not natural. It was imported. It was colonial. It was a deliberate attempt to make Indians feel inferior about a practice that was actually superior.</p><p>And now, decades later, science is proving what Ayurveda always knew.</p><h3>It Slows You Down — And That Is Good</h3><p>Forks rush. Fingers pause. Eating with hands naturally slows you down, encouraging mindfulness and proper chewing, which studies link to weight control and improved satiety.</p><p>When you eat with a fork, you can load it, lift it, and swallow in seconds. When you eat with your hands, you naturally take smaller portions. You feel the texture. You sense the temperature. You are present.</p><p>Experts suggest that when eating with hands, one eats in controlled proportions and hence overeating can be avoided. Some even believe that with the tactile sense being put into use, the food's taste is enhanced.</p><h3>Your Hands Know the Temperature. Your Mouth Doesn't.</h3><p>Here is something most people never think about.</p><p>Feeling food first with the fingers helps us ascertain the temperature of food. Too much hot or cold food on the tongue is not good for the taste buds.</p><p>When you eat with a spoon, scalding hot food goes directly onto your tongue. You burn yourself. You drink water. You continue.</p><p>When you eat with your hands, your fingers detect the heat first. You naturally wait. You naturally cool the food. Your tongue — one of your most sensitive organs — is protected.</p><p>Your grandmother was not being old-fashioned when she mixed your rice with her hands before feeding you. She was protecting your tongue, checking the temperature, and activating your digestion. All at once.</p><h3>Good Bacteria — The Unexpected Benefit</h3><p>Some scientists believe that eating with hands introduces healthy bacteria that bolster immunity and gut flora — no probiotics required.</p><p>Your hands carry a natural microbiome — a community of bacteria that lives on your skin. When your clean, washed hands touch your food, some of these beneficial bacteria transfer. And they help your gut.</p><p>This is not dirty. This is biology. The obsession with sterile cutlery actually removes this benefit entirely. The fork has no microbiome. The fork gives you nothing.</p><h3>How It Connects You to Your Food</h3><p>Eating with hands promotes a deeper bond with food, transforming meals into an intentional and fulfilling experience rather than just another task. In Indian culture, it is considered a sacred practice — one that nurtures gratitude for the nourishment we receive.</p><p>Think about the last time you sat on the floor, mixed your rice and sambar with your hands, and ate slowly.</p><p>Was it just food? Or was it an experience?</p><p>There is a reason food tastes different at home, eaten with your hands, on the floor, with family around you. It is not nostalgia. It is neuroscience. Every sense is engaged. Every part of your brain is receiving signals. The meal is complete.</p><h3>The Lesson</h3><p>India did not eat with its hands because it had no forks.</p><p>India ate with its hands because it understood something that took the rest of the world thousands of years to catch up on — that eating is not just a mechanical process of putting food into a body. It is a sensory, spiritual, and physiological experience that works best when you are fully present.</p><p>Your five fingers. Five elements. Five senses. All working together. Every single meal.</p><p>Next time someone raises an eyebrow at you for eating with your hands — smile. You know something they don't. 🤲</p>",
   12:"<p>She was 9 months pregnant.</p><p>The stage was set. The crowd had gathered. Hundreds of people were waiting.</p><p>And Vithabai danced.</p><p>Not because she had to. Not because there was no choice. But because the stage was her world — and she refused to let anything, even the birth of her own child, take her away from it.</p><p>When the audience later found out what had happened that night — that she had gone into labour mid-performance — they were not just stunned. They were in tears. And from that night onwards, Vithabai Bhau Mang Narayangaonkar was no longer just a performer. She was a legend.</p><h3>A Child Born Into Art</h3><p>Vithabai was born in July 1935 in Pandharpur, Solapur district, Maharashtra, into a family deeply rooted in folk performance. Her grandfather Narayan Khude had founded the family Tamasha troupe, and her father and uncle carried it forward as the Bhau-Bapu Mang Narayangaonkar troupe.</p><p>She never needed a classroom to learn. Growing up in a family filled with artists, she learned Lavani, Gavlan, Bhedik and Tamasha — and gradually became one of Maharashtra's most celebrated performers.</p><p>Her passion for the art was so strong that she left school when she was only four or five years old. She was not a dropout. She was someone who had already found her university — and it was the open stage under the night sky.</p><h3>At 13, She Started Her Own Troupe</h3><p>Most 13-year-olds are figuring out school. Vithabai was building an empire.</p><p>At the age of just 13, she launched her own Tamasha troupe in 1948. This was not a hobby. This was a business, a responsibility, a stage — all carried on the shoulders of a teenage girl from a small town in Maharashtra.</p><p>And she did not just survive. She thrived.</p><h3>The Night That Made Her a Legend</h3><p>The story of the pregnant performance has been told and retold across Maharashtra for decades. No one who hears it forgets it.</p><p>Vithabai was nine months pregnant. Any other woman would have rested. But the show was scheduled, the crowd had come, and Vithabai believed that her duty to her art was sacred.</p><p>She performed the entire show. And that same night, she gave birth.</p><p>When the audience found out what had been going on behind the scenes, they were left stunned. The incident has since become a symbol of her unwavering devotion to her work, transforming her into a legend far beyond Maharashtra's folk theatrical circles.</p><img src='https://raw.githubusercontent.com/vamsitales/vamsi-tales/main/images/vithabai2.png' alt='Vithabai performing Tamasha' style='width:100%;height:auto;border-radius:8px;margin:1.5rem 0;'/><div class='article-pullquote'><p>If I die after falling again and again, I will be remembered as a helpless woman. But if I die dancing, I will become a legend.</p></div><h3>Honoured by the President. Twice.</h3><p>Vithabai received two President's Medals from the Government of India for her contributions to Tamasha and folk arts. The first in 1957, and the second in 1990 — a rare repeat accolade that underscored her enduring impact across five decades of performance.</p><p>Due to the recommendation of the Sangeet Natak Academy, she got the opportunity to perform in Delhi before the then President of India, Dr. Rajendra Prasad — and achieved high appreciation. Her troupe was honoured with the most prestigious President's award in the Tamasha genre of art.</p><p>A woman from a travelling folk troupe in rural Maharashtra, performing before the President of India. That is not a small thing. That is a life's journey compressed into one moment.</p><h3>The Empress</h3><p>Over the years, she gained popularity across Maharashtra and was given the title Tamasha Samradni — Empress of Tamasha — for her talent. The Maharashtra government also officially conferred this title on her.</p><p>The title was not given by royalty. It was given by the people. And that is always the more meaningful crown.</p><h3>A Painful End</h3><p>Fame, it turns out, does not always protect you.</p><p>Her later years were filled with financial difficulties, health issues and challenges within her personal life. When she passed away in January 2002, her family reportedly struggled to meet medical expenses, and assistance from social workers became necessary.</p><p>The Empress of Tamasha — honoured twice by the President, celebrated across Maharashtra, loved by hundreds of thousands — died in financial hardship.</p><p>It is one of India's most uncomfortable truths: we celebrate our folk artists on stage and forget them at home.</p><h3>Her Legacy Lives On</h3><p>In 2006, the Maharashtra government instituted the Vithabai Narayangaonkar Lifetime Achievement Award to honour individuals who have made significant contributions to the Tamasha tradition.</p><p>And now, more than two decades after her death, Bollywood is telling her story. Shraddha Kapoor plays Vithabai in the upcoming film Eetha, which revolves around her journey from the 1940s through the 1990s. A new generation will discover her. And perhaps this time, India will remember not just to celebrate — but also to care.</p><h3>The Lesson</h3><p>Vithabai never had formal training. She never finished school. She came from a community that society looked down upon. She was a woman in a world that rarely gave women credit.</p><p>And yet she became an Empress.</p><p>Not because life was easy. But because she kept dancing — through pregnancy, through poverty, through decades of a country that watched but did not always support.</p><p>The stage does not care about your caste, your degree, or your background. It only asks one question: Are you willing to show up?</p><p>Vithabai always was. 🎭</p>",
   11:"<p>It is the morning of the greatest war in Indian history. Two armies face each other on the battlefield of Kurukshetra. On one side — the Pandavas. On the other — the Kauravas. And in the middle, in a chariot between the two armies, sits Arjuna — the greatest archer in the world — and he cannot move.</p><p>He looks across the battlefield and sees his teachers, his cousins, his uncles, his friends — all standing there, ready to fight and die. And something breaks inside him. He drops his bow. His hands tremble. He tells Lord Krishna, his charioteer: I cannot do this. I will not fight.</p><p>What Lord Krishna says to Arjuna in response became the Bhagavad Gita — 700 verses that have guided, comforted, and transformed millions of lives across 2,500 years. And at the heart of all those verses is one idea so simple and so radical that it changes everything.</p><h3>The Teaching</h3><p>Karmanye vadhikaraste ma phaleshu kadachana.</p><p>You have the right to perform your actions. You do not have the right to the fruits of those actions.</p><p>This is Chapter 2, Verse 47 of the Bhagavad Gita. It is perhaps the most quoted line in all of Indian philosophy. And on first reading, it can seem almost cruel. Do your work but do not expect results? What is the point then?</p><p>But Krishna is not saying that results do not matter. He is saying something far more subtle — and far more liberating.</p><div class='article-pullquote'><p>You control your effort. You do not control the outcome. Pour everything into the effort. Release the outcome.</p></div><h3>Why This Changes Everything</h3><p>Think about what happens when you tie your happiness entirely to results. You study hard for an exam — and if you pass, you are happy. If you fail, you are devastated. You work hard on a project — and if it succeeds, you feel worthwhile. If it fails, you feel worthless. Your entire inner life becomes hostage to outcomes you cannot fully control.</p><p>Krishna is pointing at this trap. He is saying: the anxiety, the paralysis, the suffering — all of it comes from this attachment to results. You cannot control whether you win the war. You cannot control whether the exam is fair, whether the market responds to your product, whether the person you love returns your love. You can only control one thing: the quality of your effort right now.</p><p>This is not passivity. This is not resignation. Krishna is asking Arjuna to fight harder, not to stop fighting. He is asking him to fight with full commitment — and without the weight of fear about the outcome dragging him down.</p><h3>The Deepest Meaning</h3><p>There is an even deeper layer to this teaching. When you do your work without attachment to results, something interesting happens: you do better work. The student who studies to genuinely understand, not just to pass, learns more. The artist who creates for the love of creating, not for applause, makes better art. The person who does good without waiting to be thanked does more good.</p><p>Attachment to results actually degrades performance. It introduces fear, which tightens the mind. It introduces calculation, which reduces flow. It introduces ego, which narrows focus. When you release the outcome — truly release it — the mind becomes clear, the effort becomes pure, and paradoxically, the results often improve.</p><h3>The Indian Connection</h3><p>The Bhagavad Gita has been a living text in India for centuries — not just a religious scripture but a practical guide to life. Mahatma Gandhi called it his eternal mother and read it every day. B.R. Ambedkar studied it deeply, as did Bal Gangadhar Tilak, who wrote a famous commentary on it during his imprisonment.</p><p>During India's independence movement, the Gita was the text that soldiers, freedom fighters, and ordinary people turned to when faced with fear, doubt, and the possibility of loss. Its message was always the same: do what is right. Do it fully. Do not let the fear of results stop you from acting.</p><h3>A Lesson for Today</h3><p>We live in a world obsessed with outcomes. Likes, views, grades, salaries, rankings — everywhere we look, results are being measured and compared. The Bhagavad Gita does not say these things do not matter. It says they should not be your master.</p><p>Do your work. Do it with everything you have. Do it because it is the right thing to do, because it is your dharma, your duty in this moment. And then — let go. The results belong to something larger than you.</p><p>Arjuna picked up his bow. He fought. And the rest is the Mahabharata. 🙏</p>",
 
@@ -1454,6 +1459,7 @@ const articleImages={
   8:"https://raw.githubusercontent.com/vamsitales/vamsi-tales/main/images/nalanda.png",
   9:"https://raw.githubusercontent.com/vamsitales/vamsi-tales/main/images/elephants.png",
   10:"https://raw.githubusercontent.com/vamsitales/vamsi-tales/main/images/neem.png",
+  13:"https://raw.githubusercontent.com/vamsitales/vamsi-tales/main/images/eating-hands.png",
   12:"https://raw.githubusercontent.com/vamsitales/vamsi-tales/main/images/vithabai.png",
   11:"https://raw.githubusercontent.com/vamsitales/vamsi-tales/main/images/gita.png",
 };
@@ -1468,6 +1474,7 @@ const articleTags={
   8:["#India","#History","#Education"],
   9:["#Animals","#Elephants","#Nature","#Science"],
   10:["#Nature","#Neem","#India","#Health","#Ayurveda"],
+  13:["#India","#Life","#Ayurveda","#IndianCulture","#Science","#Food","#VamsiTales"],
   12:["#India","#Tamasha","#Vithabai","#Maharashtra","#FolkArt","#WomenOfIndia","#VamsiTales"],
   11:["#Spiritual","#BhagavadGita","#India","#Philosophy","#Krishna","#VamsiTales"],
 };
@@ -1478,12 +1485,106 @@ const YEAR=TODAY.getFullYear();
 let curTheme="light",curPage="home",curCat="All";
 let calMonth=TODAY.getMonth()+1,calYear=YEAR,selDay=null;
 let chatOpen=false,chatMsgs=[],isTyping=false;
+function toggleChat(){
+  var win=document.getElementById("chat-win");
+  var fab=document.getElementById("chat-fab");
+  chatOpen=!chatOpen;
+  if(win) win.style.display=chatOpen?"flex":"none";
+  if(fab) fab.textContent=chatOpen?"✕":"🪷";
+  if(chatOpen&&chatMsgs.length===0){
+    chatMsgs.push({role:"bot",text:"Namaste! 🙏 I am Vamsi AI. Ask me anything about India, our stories or festivals!"});
+    renderChat();
+  }
+}
 function closeChatbot(){
   chatOpen=false;
-  var win=document.getElementById("chat-window");
+  var win=document.getElementById("chat-win");
   var fab=document.getElementById("chat-fab");
   if(win) win.style.display="none";
   if(fab) fab.textContent="🪷";
+}
+function sendBotMsg(msg){
+  chatMsgs.push({role:"bot",text:msg});
+  renderChat();
+}
+function renderChat(){
+  var box=document.getElementById("chat-msgs");
+  if(!box) return;
+  box.innerHTML=chatMsgs.map(function(m){
+    return '<div class="chat-msg '+(m.role==="user"?"chat-user":"chat-bot")+'">'+m.text+'</div>';
+  }).join("");
+  box.scrollTop=box.scrollHeight;
+}
+function sendChatMsg(){
+  var inp=document.getElementById("chat-input");
+  if(!inp||!inp.value.trim()) return;
+  var q=inp.value.trim();
+  inp.value="";
+  chatMsgs.push({role:"user",text:q});
+  renderChat();
+  setTimeout(function(){
+    var reply=getSmartReply(q);
+    sendBotMsg(reply);
+  },600);
+}
+function getSmartReply(q){
+  q=q.toLowerCase();
+  if(/how many stories|number.*stories/.test(q))
+    return "📖 We currently have 13 stories across 11 categories! New stories every week. Click STORIES in the menu!";
+  if(/read.*full|full.*story|want.*read|open.*story|how.*read|where.*read|reed.*full|full.*article/.test(q))
+    return "To read any full story — click STORIES in the top menu, then click on any story card to open it! Or use the SEARCH button to find a specific story by name.";
+  if(/mystery|roopkund|skeleton|unsolved|ghost|haunted|strange|weird/.test(q))
+    return "💀 Our best mystery story is Roopkund — the Skeleton Lake! 500 human skeletons found at 16,000 feet in the Himalayas. Search Roopkund to read it!";
+  if(/vithabai|tamasha|empress|folk|dance/.test(q))
+    return "🎭 Vithabai Bhau Mang Narayangaonkar — The Empress of Tamasha! She performed while 9 months pregnant. An incredible story of devotion to art. Read it on our site!";
+  if(/eat.*hand|hand.*eat|why.*hand/.test(q))
+    return "🤲 Did you know eating with hands activates your gut-brain axis before food even reaches your mouth? Ayurveda knew this 5,000 years ago! Read our latest story on it!";
+  if(/hampi|temple|ruins|karnataka/.test(q))
+    return "🏔️ Hampi was once the second largest city in the world with 500,000 people! Read the full story on our Travel section!";
+  if(/nalanda|university|burn|fire/.test(q))
+    return "📚 Nalanda University library burned for 3 months! It had 9 million manuscripts. Read the full story in our India section!";
+  if(/shani|shingnapur|no lock|no door/.test(q))
+    return "🗝️ Shani Shingnapur — 4,000 people live here with no doors or locks for centuries! Divine protection, they believe. Read the full story!";
+  if(/elephant|memory|never forget/.test(q))
+    return "🐘 Elephants can remember humans, places and events for decades! Their hippocampus is remarkably similar to humans. Read the Animals story!";
+  if(/neem|tree|medicine|ayurveda/.test(q))
+    return "🌿 The Neem tree has over 130 medicinal compounds and has been called India's village pharmacy for thousands of years! Read the Nature story!";
+  if(/gita|bhagavad|krishna|arjuna|duty/.test(q))
+    return "🙏 The Bhagavad Gita's most powerful lesson — Do your duty without expecting results. Lord Krishna's words to Arjuna on the battlefield. Read our Spiritual story!";
+  if(/edison|fail|10000|bulb|invention/.test(q))
+    return "💡 Edison failed 10,000 times before inventing the lightbulb. He said — I found 10,000 ways that don't work! Read the Motivation story!";
+  if(/andhra|spicy|food|chilli/.test(q))
+    return "🌶️ Andhra Pradesh has India's spiciest cuisine! The secret is the Guntur chilli. Read the Food story to find out why!";
+  if(/ai|artificial intelligence|technology|india/.test(q))
+    return "🤖 AI is quietly changing how India works — from farmers using AI to predict rainfall to students getting tutors at midnight! Read the Tech story!";
+  if(/festival|celebration|holiday/.test(q)){
+    var m=new Date().getMonth()+1;
+    var d=new Date().getDate();
+    var todayFests=FESTIVALS.filter(function(f){return f.month===m&&f.day===d;});
+    if(todayFests.length>0)
+      return "🎉 Today's festivals: "+todayFests.map(function(f){return f.emoji+" "+f.name;}).join(", ")+"! Check our Calendar for details!";
+    return "🗓️ Check our Festival Calendar for all Indian festivals and important days! Click CALENDAR in the menu.";
+  }
+  if(/what.*festival|festival.*august|festival.*july|festival.*september|festival.*october|festival.*november|festival.*december|festival.*january|festival.*february|festival.*march|festival.*april|festival.*may|festival.*june/.test(q)){
+    var months=["january","february","march","april","may","june","july","august","september","october","november","december"];
+    var monthIdx=-1;
+    for(var mi=0;mi<months.length;mi++){if(q.indexOf(months[mi])>-1){monthIdx=mi+1;break;}}
+    if(monthIdx>0){
+      var mFests=FESTIVALS.filter(function(f){return f.month===monthIdx;});
+      if(mFests.length>0) return "Festivals in "+months[monthIdx-1].charAt(0).toUpperCase()+months[monthIdx-1].slice(1)+": "+mFests.slice(0,5).map(function(f){return f.emoji+" "+f.name+" ("+f.day+"th)"}).join(", ")+". Open our Festival Calendar for full details!";
+    }
+  }
+  if(/hello|hi|namaste|hey/.test(q))
+    return "Namaste! 🙏 I am Vamsi AI. Ask me about any of our 13 stories, Indian festivals, or anything about India!";
+  if(/who.*vamsi|about.*site|what.*site|what.*vamsitales/.test(q))
+    return "🪷 Vamsi Tales is a storytelling blog about India — its mysteries, history, culture, food and life. Written by Vamsi Krishna from Andhra Pradesh. New stories every week!";
+  var defaults=[
+    "Try asking me about a specific category! We have Mystery, India, Travel, Food, Tech, Motivation, Animals and Spiritual stories. Which interests you?",
+    "Ask me about any story! Try Roopkund, Hampi, Nalanda, Vithabai, Neem Tree or Bhagavad Gita!",
+    "I am best at answering questions about India and our stories. Try asking about a specific topic!",
+    "Check our STORIES page for all 13 stories, or ask me about a specific one!",
+  ];
+  return defaults[Math.floor(Math.random()*defaults.length)];
 }
 let menuOpen=false;
 let bookmarks=JSON.parse(localStorage.getItem("bk-bookmarks")||"[]");
@@ -2008,6 +2109,19 @@ window.addEventListener("scroll",function(){
 });
 
 // TOAST
+function sendSug(btn){
+  var text=btn.textContent.trim();
+  chatMsgs.push({role:"user",text:text});
+  renderChat();
+  var q=text.toLowerCase();
+  var reply;
+  if(q.includes("diwali")) reply="🪔 Diwali is the festival of lights celebrated across India! It marks the return of Lord Rama to Ayodhya. Check our Festival Calendar for exact dates — click CALENDAR in the menu!";
+  else if(q.includes("temple")) reply="🏛️ India has some of the world's most magnificent temples! Our stories cover Hampi's ancient temples and Nalanda's monastic university. Check STORIES for more!";
+  else if(q.includes("cuisine")) reply="🌶️ Indian cuisine is incredibly diverse! Andhra Pradesh has India's spiciest food. Read our Food story about Why Andhra Food Is the Spiciest — find it in STORIES!";
+  else if(q.includes("history")) reply="📚 India has one of the world's richest histories! We have stories about Nalanda University, Hampi Empire, Shani Shingnapur and more. Click STORIES to explore!";
+  else reply=getSmartReply(q);
+  setTimeout(function(){ sendBotMsg(reply); },600);
+}
 function showToast(msg){
   var t=document.getElementById("toast"); if(!t) return;
   t.textContent=msg; t.classList.add("show");
@@ -2163,6 +2277,7 @@ function renderQuote(){
   }).join("");
 }
 function goQuote(i){ curQuote=i; renderQuote(); }
+function setQuote(i){ curQuote=i; renderQuote(); }
 
 
 function renderFeatured(){
