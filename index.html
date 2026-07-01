@@ -471,7 +471,10 @@ body.mud .featured-right{background:linear-gradient(160deg,rgba(245,240,232,0.06
 .cookie-decline{background:transparent;color:var(--t2);border:1px solid var(--cb);padding:8px 16px;border-radius:4px;font-size:12px;cursor:pointer;font-family:'Lato',sans-serif;}
 
 /* ── FULL ARTICLE PAGE ── */
-.article-page{max-width:720px;margin:0 auto;padding:3rem 2rem 5rem;}
+.article-page{max-width:1100px;margin:0 auto;padding:3rem 2rem 5rem;display:grid;grid-template-columns:1fr 280px;gap:3rem;align-items:start;}
+.article-main{min-width:0;}
+.article-sidebar{position:sticky;top:80px;}
+@media(max-width:768px){.article-page{grid-template-columns:1fr!important;}.article-sidebar{display:none!important;}}
 .article-back{display:inline-flex;align-items:center;gap:6px;font-size:12px;color:var(--t2);font-family:'Lato',sans-serif;cursor:pointer;margin-bottom:2rem;border:none;background:none;transition:color 0.2s;letter-spacing:0.05em;}
 .article-back:hover{color:var(--acc);}
 .article-cover{width:100%;height:auto;display:block;border-radius:8px;margin-bottom:2rem;}
@@ -925,6 +928,7 @@ body.mud .featured-right{background:linear-gradient(160deg,rgba(245,240,232,0.06
 <!-- FULL ARTICLE PAGE -->
 <div class="page" id="page-article">
   <div class="article-page">
+    <div class="article-main">
     <button class="article-back" onclick="showPage('stories')">← Back to Stories</button>
     <div class="article-category" id="art-category"></div>
     <h1 class="article-title" id="art-title"></h1>
@@ -1002,6 +1006,17 @@ body.mud .featured-right{background:linear-gradient(160deg,rgba(245,240,232,0.06
       </div>
       <div id="comments-list"></div>
     </div>
+    </div><!-- end article-main -->
+    <div class="article-sidebar">
+      <div style="background:var(--bg2);border:1px solid var(--cb);border-radius:10px;padding:1.2rem;margin-bottom:1rem;">
+        <div style="font-size:9px;letter-spacing:0.2em;color:var(--acc);text-transform:uppercase;font-family:'Lato',sans-serif;margin-bottom:10px;">📖 More Stories</div>
+        <div id="art-sidebar-stories"></div>
+      </div>
+      <div style="background:var(--bg2);border:1px solid var(--cb);border-radius:10px;padding:1.2rem;">
+        <div style="font-size:9px;letter-spacing:0.2em;color:var(--acc);text-transform:uppercase;font-family:'Lato',sans-serif;margin-bottom:8px;">🏷️ Categories</div>
+        <div style="display:flex;flex-wrap:wrap;gap:6px;" id="art-sidebar-cats"></div>
+      </div>
+    </div><!-- end article-sidebar -->
   </div>
 </div>
 
@@ -1770,6 +1785,22 @@ function openFullArticle(id){
   var viewsEl=document.getElementById("art-views"); if(viewsEl) viewsEl.textContent=articleViews[id];
   var bodyEl=document.getElementById("art-body"); if(bodyEl) bodyEl.innerHTML=body;
   var tagsEl=document.getElementById("art-tags"); if(tagsEl) tagsEl.innerHTML=tags.map(function(t){return '<span class="article-tag">'+t+'</span>';}).join("");
+  // Populate sidebar
+  var sideStories=document.getElementById("art-sidebar-stories");
+  if(sideStories){
+    var related=posts.filter(function(x){return x.id!==id;}).slice(-4).reverse();
+    sideStories.innerHTML=related.map(function(x){
+      return '<div onclick="openFullArticle('+x.id+')" style="cursor:pointer;padding:8px 0;border-bottom:1px solid var(--div);display:flex;gap:8px;align-items:flex-start;" onmouseover="this.style.color=\'var(--acc)\'" onmouseout="this.style.color=\'\'">'+
+        '<span style="font-size:1rem;">'+x.emoji+'</span>'+
+        '<div style="font-size:12px;font-family:\'Lato\',sans-serif;color:var(--text);line-height:1.4;">'+x.title+'</div></div>';
+    }).join("");
+  }
+  var sideCats=document.getElementById("art-sidebar-cats");
+  if(sideCats){
+    sideCats.innerHTML=categories.filter(function(c){return c!=="All";}).map(function(c){
+      return '<span onclick="showPage(\'stories\');filterCat(\''+c+'\')" style="cursor:pointer;background:var(--card);border:1px solid var(--cb);border-radius:20px;padding:4px 10px;font-size:11px;font-family:\'Lato\',sans-serif;color:var(--t2);">'+c+'</span>';
+    }).join("");
+  }
   var relEl=document.getElementById("related-grid");
   if(relEl) relEl.innerHTML=posts.filter(function(x){return x.id!==id;}).slice(0,3).map(function(r){
     return '<div class="related-card" onclick="openFullArticle('+r.id+')">'+
