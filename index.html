@@ -666,13 +666,15 @@ body.mud .featured-right{background:linear-gradient(160deg,rgba(245,240,232,0.06
     </div>
 
     <div id="nav-search-wrap" style="position:relative;display:flex;align-items:center;">
-      <div id="nav-search-bar" style="display:none;position:absolute;right:0;top:50%;transform:translateY(-50%);background:var(--nav);border:1.5px solid var(--acc);border-radius:24px;padding:6px 14px;display:none;align-items:center;gap:8px;width:260px;box-shadow:0 4px 20px rgba(0,0,0,0.15);z-index:200;">
-        <span style="font-size:14px;">🔍</span>
-        <input id="nav-search-input" type="text" placeholder="Search stories..." style="border:none;outline:none;background:transparent;font-size:13px;color:var(--text);font-family:'Lato',sans-serif;width:100%;" oninput="doNavSearch(this.value)" onkeydown="if(event.key==='Escape')closeNavSearch()"/>
-        <button onclick="closeNavSearch()" style="background:none;border:none;cursor:pointer;color:var(--t3);font-size:16px;padding:0;line-height:1;">✕</button>
-      </div>
-      <div id="nav-search-results" style="display:none;position:absolute;right:0;top:calc(100% + 8px);background:var(--nav);border:1px solid var(--cb);border-radius:12px;width:320px;max-height:400px;overflow-y:auto;box-shadow:0 8px 32px rgba(0,0,0,0.15);z-index:200;"></div>
       <button class="nav-search-btn" id="nav-search-btn" onclick="toggleNavSearch()" style="background:none;border:1px solid var(--div);border-radius:20px;padding:6px 12px;cursor:pointer;color:var(--t2);font-size:13px;display:flex;align-items:center;gap:5px;font-family:Lato,sans-serif;transition:all 0.2s" onmouseover="this.style.borderColor='var(--acc)';this.style.color='var(--acc)'" onmouseout="this.style.borderColor='var(--div)';this.style.color='var(--t2)'">🔍 <span style="font-size:11px;letter-spacing:0.08em">SEARCH</span></button>
+      <div id="nav-search-dropdown" style="display:none;position:absolute;right:0;top:calc(100% + 8px);background:var(--nav);border:1.5px solid var(--acc);border-radius:12px;width:300px;box-shadow:0 8px 32px rgba(0,0,0,0.15);z-index:500;overflow:hidden;">
+        <div style="display:flex;align-items:center;gap:8px;padding:10px 14px;border-bottom:1px solid var(--div);">
+          <span>🔍</span>
+          <input id="nav-search-input" type="text" placeholder="Search stories..." style="border:none;outline:none;background:transparent;font-size:13px;color:var(--text);font-family:'Lato',sans-serif;width:100%;" oninput="doNavSearch(this.value)" onkeydown="if(event.key==='Escape')closeNavSearch()"/>
+          <button onclick="closeNavSearch()" style="background:none;border:none;cursor:pointer;color:var(--t3);font-size:18px;padding:0;line-height:1;">✕</button>
+        </div>
+        <div id="nav-search-results" style="max-height:360px;overflow-y:auto;"></div>
+      </div>
     </div>
     <!-- Hamburger -->
     <button class="hamburger" id="hamburger" onclick="toggleMenu()" style="display:none">
@@ -1277,7 +1279,7 @@ body.mud .featured-right{background:linear-gradient(160deg,rgba(245,240,232,0.06
 </div>
 
 <!-- SEARCH MODAL -->
-<div class="search-modal-bg" id="search-modal-bg" onclick="if(event.target.id==='search-modal-bg')closeSearchModal()">
+<div class="search-modal-bg" id="search-modal-bg" style="display:none!important" onclick="if(event.target.id==='search-modal-bg')closeSearchModal()">
   <div class="search-modal">
     <div class="search-modal-top">
       <div class="search-modal-box">
@@ -1949,24 +1951,23 @@ function toggleSearch(){
   openSearchModal();
 }
 function toggleNavSearch(){
-  var bar=document.getElementById("nav-search-bar");
-  var btn=document.getElementById("nav-search-btn");
-  var res=document.getElementById("nav-search-results");
-  if(bar.style.display==="flex"){
+  var dd=document.getElementById("nav-search-dropdown");
+  if(!dd) return;
+  if(dd.style.display==="block"){
     closeNavSearch();
   } else {
-    bar.style.display="flex";
-    btn.style.display="none";
-    setTimeout(function(){document.getElementById("nav-search-input").focus();},100);
+    dd.style.display="block";
+    setTimeout(function(){
+      var inp=document.getElementById("nav-search-input");
+      if(inp) inp.focus();
+    },100);
   }
 }
 function closeNavSearch(){
-  var bar=document.getElementById("nav-search-bar");
-  var btn=document.getElementById("nav-search-btn");
+  var dd=document.getElementById("nav-search-dropdown");
   var res=document.getElementById("nav-search-results");
-  bar.style.display="none";
-  btn.style.display="flex";
-  res.style.display="none";
+  if(dd) dd.style.display="none";
+  if(res) res.innerHTML="";
   var inp=document.getElementById("nav-search-input");
   if(inp) inp.value="";
 }
