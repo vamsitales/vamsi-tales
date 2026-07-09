@@ -1587,7 +1587,7 @@ function sendChatMsg(){
 function getSmartReply(q){
   q=q.toLowerCase();
   if(/how many stories|number.*stories/.test(q))
-    return "📖 We currently have 13 stories across 11 categories! New stories every week. Click STORIES in the menu!";
+    return "📖 We currently have "+posts.length+" stories across 11 categories! New stories every week. Click STORIES in the menu!";
   if(/read.*full|full.*story|want.*read|open.*story|how.*read|where.*read|reed.*full|full.*article/.test(q))
     return "To read any full story — click STORIES in the top menu, then click on any story card to open it! Or use the SEARCH button to find a specific story by name.";
   if(/mystery|roopkund|skeleton|unsolved|ghost|haunted|strange|weird/.test(q))
@@ -1612,7 +1612,9 @@ function getSmartReply(q){
     return "💡 Edison failed 10,000 times before inventing the lightbulb. He said — I found 10,000 ways that don't work! Read the Motivation story!";
   if(/andhra|spicy|food|chilli/.test(q))
     return "🌶️ Andhra Pradesh has India's spiciest cuisine! The secret is the Guntur chilli. Read the Food story to find out why!";
-  if(/ai|artificial intelligence|technology|india/.test(q))
+  if(/chai|\btea\b|britain.*stole/.test(q))
+    return "☕ Chai — Britain stole tea from China, grew it in India to break the monopoly... and India turned it into something entirely its own! Read the full story in our India section!";
+  if(/\bai\b|artificial intelligence|\btech\b|technology/.test(q))
     return "🤖 AI is quietly changing how India works — from farmers using AI to predict rainfall to students getting tutors at midnight! Read the Tech story!";
   if(/festival|celebration|holiday/.test(q)){
     var m=new Date().getMonth()+1;
@@ -1631,15 +1633,15 @@ function getSmartReply(q){
       if(mFests.length>0) return "Festivals in "+months[monthIdx-1].charAt(0).toUpperCase()+months[monthIdx-1].slice(1)+": "+mFests.slice(0,5).map(function(f){return f.emoji+" "+f.name+" ("+f.day+"th)"}).join(", ")+". Open our Festival Calendar for full details!";
     }
   }
-  if(/hello|hi|namaste|hey/.test(q))
-    return "Namaste! 🙏 I am Vamsi AI. Ask me about any of our 13 stories, Indian festivals, or anything about India!";
+  if(/hello|\bhi\b|namaste|\bhey\b/.test(q))
+    return "Namaste! 🙏 I am Vamsi AI. Ask me about any of our "+posts.length+" stories, Indian festivals, or anything about India!";
   if(/who.*vamsi|about.*site|what.*site|what.*vamsitales/.test(q))
     return "🪷 Vamsi Tales is a storytelling blog about India — its mysteries, history, culture, food and life. Written by Vamsi Krishna from Andhra Pradesh. New stories every week!";
   var defaults=[
     "Try asking me about a specific category! We have Mystery, India, Travel, Food, Tech, Motivation, Animals and Spiritual stories. Which interests you?",
     "Ask me about any story! Try Roopkund, Hampi, Nalanda, Vithabai, Neem Tree or Bhagavad Gita!",
     "I am best at answering questions about India and our stories. Try asking about a specific topic!",
-    "Check our STORIES page for all 13 stories, or ask me about a specific one!",
+    "Check our STORIES page for all "+posts.length+" stories, or ask me about a specific one!",
   ];
   return defaults[Math.floor(Math.random()*defaults.length)];
 }
@@ -1758,12 +1760,20 @@ function renderStoriesGrid(cat){
     if(grid) grid.innerHTML=filtered.map(function(p,i){return makeCard(p,i);}).join("");
   }
 }
+function searchRank(p,ql){
+  var t=p.title.toLowerCase(),c=p.category.toLowerCase();
+  if(c===ql) return 0;
+  if(t.indexOf(ql)>-1) return 1;
+  if(c.indexOf(ql)>-1) return 2;
+  return 3;
+}
 function filterStoriesPage(val){
   var clear=document.getElementById("stories-search-clear");
   if(clear) clear.style.display=val?"block":"none";
   var filtered=posts.filter(function(p){
     return !val||p.title.toLowerCase().includes(val.toLowerCase())||p.excerpt.toLowerCase().includes(val.toLowerCase())||p.category.toLowerCase().includes(val.toLowerCase());
   });
+  if(val) filtered.sort(function(a,b){return searchRank(a,val.toLowerCase())-searchRank(b,val.toLowerCase());});
   var grid=document.getElementById("stories-grid");
   var none=document.getElementById("stories-no-results");
   if(filtered.length===0){
@@ -1981,6 +1991,7 @@ function doNavSearch(q){
       p.category.toLowerCase().indexOf(ql)>-1||
       p.excerpt.toLowerCase().indexOf(ql)>-1;
   });
+  matches.sort(function(a,b){return searchRank(a,ql)-searchRank(b,ql);});
   res.style.display="block";
   if(matches.length===0){
     res.innerHTML="<div style='padding:1.5rem;text-align:center;color:var(--t3);font-family:Lato,sans-serif;font-size:13px;'>No stories found for "+q+"</div>";
@@ -2017,6 +2028,7 @@ function doSearchModal(q){
   }
   var ql=q.toLowerCase();
   var results=posts.filter(function(p){return p.title.toLowerCase().indexOf(ql)>-1||p.excerpt.toLowerCase().indexOf(ql)>-1||p.category.toLowerCase().indexOf(ql)>-1;});
+  results.sort(function(a,b){return searchRank(a,ql)-searchRank(b,ql);});
   if(results.length===0){
     res.innerHTML='<div class="search-modal-empty">😔 No stories found for "'+q+'"</div>';
     return;
@@ -2038,6 +2050,7 @@ function doSearch(q){
   if(rw)rw.style.display="block";
   var ql=q.toLowerCase();
   var results=posts.filter(function(p){return p.title.toLowerCase().indexOf(ql)>-1||p.excerpt.toLowerCase().indexOf(ql)>-1||p.category.toLowerCase().indexOf(ql)>-1;});
+  results.sort(function(a,b){return searchRank(a,ql)-searchRank(b,ql);});
   var tag=document.getElementById("search-tag"); if(tag) tag.textContent=results.length+" result"+(results.length!==1?"s":"")+" for \""+q+"\"";
   var nr=document.getElementById("no-results"); if(nr) nr.style.display=results.length?"none":"block";
   var sg=document.getElementById("search-grid"); if(sg) sg.innerHTML=results.map(function(p,i){return makeCard(p,i);}).join("");
